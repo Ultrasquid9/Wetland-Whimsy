@@ -7,6 +7,8 @@ import com.mojang.logging.LogUtils;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlocks;
 import corundum.wetland_whimsy.content.WetlandWhimsyItems;
 import corundum.wetland_whimsy.data.WetlandWhimsyBlockModelDatagen;
+import corundum.wetland_whimsy.data.WetlandWhimsyItemModelDatagen;
+import corundum.wetland_whimsy.data.WetlandWhimsyLanguageDatagen;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -43,5 +45,7 @@ public class WetlandWhimsy {
 		PackOutput output = datagen.getPackOutput();
 
 		datagen.addProvider(event.includeClient(), new WetlandWhimsyBlockModelDatagen(output, fileHelper));
+		datagen.addProvider(event.includeClient(), new WetlandWhimsyItemModelDatagen(output, fileHelper));
+		datagen.addProvider(event.includeClient(), new WetlandWhimsyLanguageDatagen(output));
 	}
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "wetland_whimsy:block/bald_cypress_log",
+    "end": "wetland_whimsy:block/bald_cypress_log_top",
     "side": "wetland_whimsy:block/bald_cypress_log"
   }
 }

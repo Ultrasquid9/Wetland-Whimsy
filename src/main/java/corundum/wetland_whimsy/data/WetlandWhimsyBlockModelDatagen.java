@@ -16,7 +16,15 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 		this.axisBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(), 
 			modLoc("block/bald_cypress_log"), 
-			modLoc("block/bald_cypress_log")
+			modLoc("block/bald_cypress_log_top")
 		);
+
+		this.axisBlock(
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(), 
+			modLoc("block/stripped_bald_cypress_log"), 
+			modLoc("block/stripped_bald_cypress_log_top")
+		);
+
+		this.simpleBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
 	}
 }
