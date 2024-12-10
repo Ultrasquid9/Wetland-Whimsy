@@ -23,4 +23,7 @@ run
 runs
 run-data
 
+# cache files that make PRs super annoying
+.cache
+
 repo
