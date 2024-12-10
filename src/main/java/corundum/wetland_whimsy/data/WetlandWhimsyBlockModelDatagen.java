@@ -25,6 +25,13 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			modLoc("block/stripped_bald_cypress_log_top")
 		);
 
+		this.simpleBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get(),
+			this.models()
+				.leaves("bald_cypress_leaves", modLoc("block/bald_cypress_leaves"))
+				.renderType("minecraft:cutout")
+		);
+
 		this.simpleBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
 	}
 }

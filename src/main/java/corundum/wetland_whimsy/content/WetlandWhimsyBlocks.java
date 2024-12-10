@@ -29,6 +29,11 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
+	public static final DeferredBlock<Block> BALD_CYPRESS_LEAVES = BLOCKS.registerSimpleBlock(
+		"bald_cypress_leaves", 
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
+	);
+
 	public static final DeferredBlock<Block> BALD_CYPRESS_PLANKS = BLOCKS.registerSimpleBlock(
 		"bald_cypress_planks", 
 		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
@@ -44,6 +49,10 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredItem<BlockItem> STRIPPED_BALD_CYPRESS_LOG_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"stripped_bald_cypress_log", 
 		STRIPPED_BALD_CYPRESS_LOG
+	);
+	public static final DeferredItem<BlockItem> BALD_CYPRESS_LEAVES_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
+		"bald_cypress_leaves", 
+		BALD_CYPRESS_LEAVES
 	);
 	public static final DeferredItem<BlockItem> BALD_CYPRESS_PLANKS_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"bald_cypress_planks", 
