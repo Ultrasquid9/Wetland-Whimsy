@@ -2,11 +2,11 @@ package corundum.wetland_whimsy.content;
 
 import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.content.blocks.CordgrassBlock;
+import corundum.wetland_whimsy.content.blocks.StrippableLogBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -17,16 +17,16 @@ public class WetlandWhimsyBlocks {
 
 	// Blocks 
 
-	public static final DeferredBlock<RotatedPillarBlock> BALD_CYPRESS_LOG = BLOCKS.register(
+	public static final DeferredBlock<StrippableLogBlock> BALD_CYPRESS_LOG = BLOCKS.register(
 		"bald_cypress_log", 
-		() -> new RotatedPillarBlock(
+		() -> new StrippableLogBlock(
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
 		)
 	);
 
-	public static final DeferredBlock<RotatedPillarBlock> STRIPPED_BALD_CYPRESS_LOG = BLOCKS.register(
+	public static final DeferredBlock<StrippableLogBlock> STRIPPED_BALD_CYPRESS_LOG = BLOCKS.register(
 		"stripped_bald_cypress_log", 
-		() -> new RotatedPillarBlock(
+		() -> new StrippableLogBlock(
 			BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)
 		)
 	);
