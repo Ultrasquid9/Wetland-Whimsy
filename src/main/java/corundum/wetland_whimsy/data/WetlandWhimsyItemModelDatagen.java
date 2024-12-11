@@ -18,20 +18,18 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG_ITEM.get().toString(), 
 			modLoc("block/bald_cypress_log")
 		);
-
 		this.withExistingParent(
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG_ITEM.get().toString(), 
 			modLoc("block/stripped_bald_cypress_log")
 		);
-
 		this.withExistingParent(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES_ITEM.get().toString(), 
 			modLoc("block/bald_cypress_leaves")
 		);
-
 		this.withExistingParent(
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS_ITEM.get().toString(), 
 			modLoc("block/bald_cypress_planks")
 		);
+		this.basicItem(WetlandWhimsyBlocks.CORDGRASS_ITEM.get());
 	}
 }

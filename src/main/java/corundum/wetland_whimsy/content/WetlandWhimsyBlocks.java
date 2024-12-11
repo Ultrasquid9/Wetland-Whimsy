@@ -1,9 +1,11 @@
 package corundum.wetland_whimsy.content;
 
 import corundum.wetland_whimsy.WetlandWhimsy;
+import corundum.wetland_whimsy.content.blocks.CordgrassBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -34,9 +36,20 @@ public class WetlandWhimsyBlocks {
 		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
 	);
 
-	public static final DeferredBlock<Block> BALD_CYPRESS_PLANKS = BLOCKS.registerSimpleBlock(
+	public static final DeferredBlock<LeavesBlock> BALD_CYPRESS_PLANKS = BLOCKS.register(
 		"bald_cypress_planks", 
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+		() -> new LeavesBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+		)
+	);
+
+	public static final DeferredBlock<CordgrassBlock> CORDGRASS = BLOCKS.register(
+		"cordgrass",
+		() -> new CordgrassBlock (
+			BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)
+				.noOcclusion()
+				.offsetType(BlockBehaviour.OffsetType.XZ)
+		)
 	);
 
 	// Block items
@@ -57,5 +70,9 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredItem<BlockItem> BALD_CYPRESS_PLANKS_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"bald_cypress_planks", 
 		BALD_CYPRESS_PLANKS
+	);
+	public static final DeferredItem<BlockItem> CORDGRASS_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
+		"cordgrass", 
+		CORDGRASS
 	);
 }

@@ -16,5 +16,6 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG, "Stripped Bald Cypress Log");
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES, "Bald Cypress Leaves");
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, "Bald Cypress Planks");
+		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 	}
 }
