@@ -33,6 +33,14 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 		);
 
 		this.simpleBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get(),
+			this.models()
+				.withExistingParent("bald_cypress_sapling", this.mcLoc("block/cross"))
+				.texture("cross", modLoc("block/bald_cypress_sapling"))
+				.renderType("minecraft:cutout")
+		);
+
+		this.simpleBlock(
 			WetlandWhimsyBlocks.CORDGRASS.get(),
 			this.models()
 				.withExistingParent("cordgrass", this.modLoc("block/cordgrass_base"))

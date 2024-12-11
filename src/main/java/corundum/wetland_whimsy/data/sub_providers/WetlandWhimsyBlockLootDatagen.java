@@ -24,13 +24,14 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 	protected void generate() {
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get());
 		this.dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get());
+		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
 
 		this.add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get(),
 			this.createLeavesDrops(
 				WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get(),
-				WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(), // TODO: Add Sapling 
+				WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get(),
 				NORMAL_LEAVES_SAPLING_CHANCES
 			)
 		);

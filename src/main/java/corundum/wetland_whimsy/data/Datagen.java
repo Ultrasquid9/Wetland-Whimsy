@@ -1,17 +1,23 @@
 package corundum.wetland_whimsy.data;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
+import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
 import corundum.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
+import corundum.wetland_whimsy.data.worldgen.WetlandWhimsyConfiguredFeaturesDatagen;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableProvider.SubProviderEntry;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -27,6 +33,17 @@ public class Datagen {
 		datagen.addProvider(event.includeClient(), new WetlandWhimsyLanguageDatagen(output));
 
 		datagen.addProvider(event.includeClient(), new WetlandWhimsyBlockTagsDatagen(output, lookupProvider, fileHelper));
+
+		datagen.addProvider(
+			event.includeClient(), 
+			new DatapackBuiltinEntriesProvider(
+				output, 
+				lookupProvider, 
+				new RegistrySetBuilder()
+					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeaturesDatagen::bootstap),
+				Collections.singleton(WetlandWhimsy.MODID)
+			)
+		);
 
 		datagen.addProvider(
 			event.includeServer(),

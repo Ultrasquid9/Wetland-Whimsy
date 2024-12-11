@@ -30,6 +30,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS_ITEM.get().toString(), 
 			modLoc("block/bald_cypress_planks")
 		);
+		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING_ITEM.get());
 		this.basicItem(WetlandWhimsyBlocks.CORDGRASS_ITEM.get());
 	}
 }

@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlocks;
+import corundum.wetland_whimsy.content.WetlandWhimsyTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -32,6 +33,7 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
 
+		// Wood and leaves and stuff
 		this.tag(BlockTags.LEAVES).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
@@ -39,6 +41,13 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
 		this.tag(BlockTags.LOGS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
+		);
+		this.tag(BlockTags.PLANKS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()
+		);
+
+		this.tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
 		);
 	}

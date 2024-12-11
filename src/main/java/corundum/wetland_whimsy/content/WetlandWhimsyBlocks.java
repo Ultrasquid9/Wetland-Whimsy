@@ -3,10 +3,12 @@ package corundum.wetland_whimsy.content;
 import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.content.blocks.CordgrassBlock;
 import corundum.wetland_whimsy.content.blocks.StrippableLogBlock;
+import corundum.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -34,6 +36,14 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredBlock<Block> BALD_CYPRESS_LEAVES = BLOCKS.registerSimpleBlock(
 		"bald_cypress_leaves", 
 		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
+	);
+
+	public static final DeferredBlock<SaplingBlock> BALD_CYPRESS_SAPLING = BLOCKS.register(
+		"bald_cypress_sapling",
+		() -> new SaplingBlock(
+			WetlandWhimsyTreeGrowers.BALD_CYPRESS,
+			Block.Properties.ofFullCopy(Blocks.OAK_SAPLING)
+		)
 	);
 
 	public static final DeferredBlock<LeavesBlock> BALD_CYPRESS_PLANKS = BLOCKS.register(
@@ -66,6 +76,10 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredItem<BlockItem> BALD_CYPRESS_LEAVES_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"bald_cypress_leaves", 
 		BALD_CYPRESS_LEAVES
+	);
+	public static final DeferredItem<BlockItem> BALD_CYPRESS_SAPLING_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
+		"bald_cypress_sapling", 
+		BALD_CYPRESS_SAPLING
 	);
 	public static final DeferredItem<BlockItem> BALD_CYPRESS_PLANKS_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"bald_cypress_planks", 
