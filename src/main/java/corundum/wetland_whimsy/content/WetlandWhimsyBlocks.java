@@ -7,8 +7,10 @@ import corundum.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -53,6 +55,22 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
+	public static final DeferredBlock<DoorBlock> BALD_CYPRESS_DOOR = BLOCKS.register(
+		"bald_cypress_door",
+		() -> new DoorBlock(
+			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)
+		)
+	);
+
+	public static final DeferredBlock<TrapDoorBlock> BALD_CYPRESS_TRAPDOOR = BLOCKS.register(
+		"bald_cypress_trapdoor",
+		() -> new TrapDoorBlock(
+			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)
+		)
+	);
+
 	public static final DeferredBlock<CordgrassBlock> CORDGRASS = BLOCKS.register(
 		"cordgrass",
 		() -> new CordgrassBlock (
@@ -84,6 +102,14 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredItem<BlockItem> BALD_CYPRESS_PLANKS_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"bald_cypress_planks", 
 		BALD_CYPRESS_PLANKS
+	);
+	public static final DeferredItem<BlockItem> BALD_CYPRESS_DOOR_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
+		"bald_cypress_door", 
+		BALD_CYPRESS_DOOR
+	);
+	public static final DeferredItem<BlockItem> BALD_CYPRESS_TRAPDOOR_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
+		"bald_cypress_trapdoor", 
+		BALD_CYPRESS_TRAPDOOR
 	);
 	public static final DeferredItem<BlockItem> CORDGRASS_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"cordgrass", 

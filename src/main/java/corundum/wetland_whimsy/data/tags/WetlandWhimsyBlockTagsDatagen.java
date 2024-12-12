@@ -27,7 +27,9 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 		this.tag(BlockTags.MINEABLE_WITH_AXE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(),
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(),
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()
 		);
 		this.tag(BlockTags.MINEABLE_WITH_HOE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()

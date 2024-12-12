@@ -40,6 +40,18 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				.renderType("minecraft:cutout")
 		);
 
+		this.doorBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(), 
+			modLoc("block/bald_cypress_door_bottom"), 
+			modLoc("block/bald_cypress_door_top")
+		);
+
+		this.trapdoorBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get(), 
+			modLoc("block/bald_cypress_trapdoor"), 
+			true
+		);
+
 		this.simpleBlock(
 			WetlandWhimsyBlocks.CORDGRASS.get(),
 			this.models()

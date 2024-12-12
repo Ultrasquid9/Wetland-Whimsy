@@ -26,6 +26,12 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		this.dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
+		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get());
+
+		this.add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(), 
+			createDoorTable(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get())
+		);
 
 		this.add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get(),
