@@ -29,10 +29,10 @@
       "upper_size": 0
     },
     "trunk_placer": {
-      "type": "minecraft:straight_trunk_placer",
-      "base_height": 10,
-      "height_rand_a": 0,
-      "height_rand_b": 0
+      "type": "wetland_whimsy:bald_cypress_trunk_placer",
+      "base_height": 7,
+      "height_rand_a": 2,
+      "height_rand_b": 2
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",

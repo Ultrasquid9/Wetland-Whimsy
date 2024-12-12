@@ -28,7 +28,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 				Feature.TREE, 
 				new TreeConfiguration.TreeConfigurationBuilder(
 					BlockStateProvider.simple(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()), 
-					new BaldCypressTrunkPlacer(10, 0, 0), 
+					new BaldCypressTrunkPlacer(7, 2, 2), 
 					BlockStateProvider.simple(WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()), 
 					new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 0), 
 					new TwoLayersFeatureSize(0, 0, 0)
