@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 public class WetlandWhimsyConfiguredFeaturesDatagen {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_TREE_CONFIGURATION = ResourceKey.create(
 		Registries.CONFIGURED_FEATURE, 
-		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "bald_cypress_logs")
+		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "bald_cypress_tree")
 	);
 
 	public static void bootstap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -30,8 +30,8 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 					BlockStateProvider.simple(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()), 
 					new BaldCypressTrunkPlacer(7, 2, 2), 
 					BlockStateProvider.simple(WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()), 
-					new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 0), 
-					new TwoLayersFeatureSize(0, 0, 0)
+					new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), 5), 
+					new TwoLayersFeatureSize(0, 2, 4)
 				).build()
 			)
 		);
