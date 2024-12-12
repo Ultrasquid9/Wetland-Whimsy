@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbility;
 
+@SuppressWarnings("null")
 public class StrippableLogBlock extends RotatedPillarBlock {
 	public StrippableLogBlock(BlockBehaviour.Properties properties) {
 		super(properties);

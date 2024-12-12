@@ -12,6 +12,7 @@ import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
+@SuppressWarnings("null")
 public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 	public WetlandWhimsyBlockTagsDatagen(
 		PackOutput output, 

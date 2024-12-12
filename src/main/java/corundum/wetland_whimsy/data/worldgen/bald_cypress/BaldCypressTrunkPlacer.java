@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer.F
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
+@SuppressWarnings("null")
 public class BaldCypressTrunkPlacer extends TrunkPlacer {
 	private static final int[] X = {
 		0,

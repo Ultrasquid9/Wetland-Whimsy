@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+@SuppressWarnings("null")
 public class CordgrassBlock extends BushBlock {
 	protected static final MapCodec<CordgrassBlock> CODEC = simpleCodec(CordgrassBlock::new);
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 24.0, 14.0);
