@@ -2,8 +2,10 @@ package corundum.wetland_whimsy.content;
 
 import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.content.blocks.CordgrassBlock;
+import corundum.wetland_whimsy.content.blocks.PennywortBlock;
 import corundum.wetland_whimsy.content.blocks.StrippableLogBlock;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -80,6 +82,17 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
+	public static final DeferredBlock<PennywortBlock> PENNYWORT = BLOCKS.register(
+		"pennywort",
+		() -> new PennywortBlock(
+			MobEffects.DARKNESS, 
+			3.0f,
+			BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)
+				.noOcclusion()
+				.offsetType(BlockBehaviour.OffsetType.XZ)
+		)
+	);
+
 	// Block items
 	// I am certain that this can be automated, but i do not know how to do that
 
@@ -114,5 +127,9 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredItem<BlockItem> CORDGRASS_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
 		"cordgrass", 
 		CORDGRASS
+	);
+	public static final DeferredItem<BlockItem> PENNYWORT_ITEM = WetlandWhimsyItems.ITEMS.registerSimpleBlockItem(
+		"pennywort", 
+		PENNYWORT
 	);
 }

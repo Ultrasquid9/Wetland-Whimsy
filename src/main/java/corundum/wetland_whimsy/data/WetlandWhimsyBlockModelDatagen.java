@@ -57,6 +57,11 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			this.models()
 				.withExistingParent("cordgrass", this.modLoc("block/cordgrass_base"))
 		);
+		this.simpleBlock(
+			WetlandWhimsyBlocks.PENNYWORT.get(),
+			this.models()
+				.withExistingParent("pennywort", this.modLoc("block/pennywort_base"))
+		);
 
 		this.simpleBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
 	}

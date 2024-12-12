@@ -20,5 +20,6 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR, "Bald Cypress Door");
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR, "Bald Cypress Trapdoor");
 		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
+		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 	}
 }

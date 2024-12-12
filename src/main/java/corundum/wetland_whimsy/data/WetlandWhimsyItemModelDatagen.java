@@ -14,6 +14,8 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 	@Override
 	protected void registerModels() {
 		// Block items
+
+		// Block items that are 3d in the inventory
 		this.withExistingParent(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG_ITEM.get().toString(), 
 			modLoc("block/bald_cypress_log")
@@ -34,8 +36,23 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR_ITEM.get().toString(), 
 			modLoc("block/bald_cypress_trapdoor_bottom")
 		);
+
+		// Block items that are 2d in the inventory and use a block texture
+		this.withExistingParent(
+			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.getId().toString(), 
+			mcLoc("item/generated")
+		)
+		.texture("layer0", "block/bald_cypress_sapling");
+		
+		this.withExistingParent(
+			WetlandWhimsyBlocks.PENNYWORT.getId().toString(), 
+			mcLoc("item/generated")
+		)
+		.texture("layer0", "block/pennywort_leaves_bottom")
+		.texture("layer1", "block/pennywort_leaves_top");
+		
+		// Block items that are 2d in the inventory and use a unique texture
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR_ITEM.get());
-		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING_ITEM.get());
 		this.basicItem(WetlandWhimsyBlocks.CORDGRASS_ITEM.get());
 	}
 }
