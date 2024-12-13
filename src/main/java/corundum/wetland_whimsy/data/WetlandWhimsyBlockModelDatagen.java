@@ -71,5 +71,30 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 		);
 
 		this.simpleBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
+		this.slabBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get(), 
+			modLoc("block/bald_cypress_planks"), 
+			modLoc("block/bald_cypress_planks")
+		);
+		this.stairsBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS.get(), 
+			modLoc("block/bald_cypress_planks")
+		);
+		this.fenceBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get(),
+			modLoc("block/bald_cypress_planks")
+		);
+		this.fenceGateBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE.get(), 
+			modLoc("block/bald_cypress_planks")
+		);
+		this.buttonBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.get(), 
+			modLoc("block/bald_cypress_planks")
+		);
+		this.pressurePlateBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get(), 
+			modLoc("block/bald_cypress_planks")
+		);
 	}
 }

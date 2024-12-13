@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wetland_whimsy:block/bald_cypress_slab"
+    },
+    "type=double": {
+      "model": "wetland_whimsy:block/bald_cypress_planks"
+    },
+    "type=top": {
+      "model": "wetland_whimsy:block/bald_cypress_slab_top"
+    }
+  }
+}

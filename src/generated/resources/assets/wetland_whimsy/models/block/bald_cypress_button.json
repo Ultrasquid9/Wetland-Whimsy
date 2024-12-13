@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "wetland_whimsy:block/bald_cypress_planks"
+  }
+}

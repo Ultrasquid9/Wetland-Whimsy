@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "wetland_whimsy:block/bald_cypress_planks"
+  }
+}

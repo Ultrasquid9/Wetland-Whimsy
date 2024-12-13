@@ -19,8 +19,16 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES, "Bald Cypress Leaves");
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING, "Bald Cypress Sapling");
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, "Bald Cypress Planks");
+		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS, "Bald Cypress Stairs");
+		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_SLAB, "Bald Cypress Slab");
+		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE, "Bald Cypress Fence");
+		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE, "Bald Cypress Fence Gate");
+
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR, "Bald Cypress Door");
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR, "Bald Cypress Trapdoor");
+		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON, "Bald Cypress Button");
+		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE, "Bald Cypress Pressure Plate");
+
 		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 	}

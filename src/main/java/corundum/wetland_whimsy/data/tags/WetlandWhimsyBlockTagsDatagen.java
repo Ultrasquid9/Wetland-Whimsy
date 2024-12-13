@@ -50,6 +50,11 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()
 		);
 
+		// Woodset tags
+		this.tag(BlockTags.WOODEN_FENCES).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get()
+		);
+
 		this.tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
 		);

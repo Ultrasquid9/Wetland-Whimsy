@@ -13,9 +13,15 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -102,9 +108,91 @@ public class WetlandWhimsyBlocks {
 			}
 		}
 	);
+	public static final DeferredBlock<StairBlock> BALD_CYPRESS_STAIRS = registerBlockAndItem(
+		"bald_cypress_stairs", 
+		() -> new StairBlock(
+			BALD_CYPRESS_PLANKS.get().defaultBlockState(),
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+		) {
+			@Override
+			public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return true;
+			}
+			@Override
+			public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 20;
+			}
+			@Override
+			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 5;
+			}
+		}
+	);
+	public static final DeferredBlock<SlabBlock> BALD_CYPRESS_SLAB = registerBlockAndItem(
+		"bald_cypress_slab", 
+		() -> new SlabBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+		) {
+			@Override
+			public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return true;
+			}
+			@Override
+			public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 20;
+			}
+			@Override
+			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 5;
+			}
+		}
+	);
+	public static final DeferredBlock<FenceBlock> BALD_CYPRESS_FENCE = registerBlockAndItem(
+		"bald_cypress_fence", 
+		() -> new FenceBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)
+		) {
+			@Override
+			public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return true;
+			}
+			@Override
+			public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 20;
+			}
+			@Override
+			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 5;
+			}
+		}
+	);
+	public static final DeferredBlock<FenceGateBlock> BALD_CYPRESS_FENCE_GATE = registerBlockAndItem(
+		"bald_cypress_fence_gate", 
+		() -> new FenceGateBlock(
+			WetlandWhimsyTags.BALD_CYPRESS,
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+		) {
+			@Override
+			public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return true;
+			}
+			@Override
+			public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 20;
+			}
+			@Override
+			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+				return 5;
+			}
+		}
+	);
 
-	// Door and trapdoor
-	// Note: these are not flammable, as vanilla doors/trapdoors arent either
+	// Non-flammable members of the woodset
+	// This includes:
+	// - The door
+	// - The trapdoor
+	// - The button
+	// - The pressure plate
 	public static final DeferredBlock<DoorBlock> BALD_CYPRESS_DOOR = registerBlockAndItem(
 		"bald_cypress_door",
 		() -> new DoorBlock(
@@ -116,7 +204,22 @@ public class WetlandWhimsyBlocks {
 		"bald_cypress_trapdoor",
 		() -> new TrapDoorBlock(
 			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
-			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)
+		)
+	);
+	public static final DeferredBlock<ButtonBlock> BALD_CYPRESS_BUTTON = registerBlockAndItem(
+		"bald_cypress_button",
+		() -> new ButtonBlock(
+			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			30,
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)
+		)
+	);
+	public static final DeferredBlock<PressurePlateBlock> BALD_CYPRESS_PRESSURE_PLATE = registerBlockAndItem(
+		"bald_cypress_pressure_plate",
+		() -> new PressurePlateBlock(
+			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)
 		)
 	);
 
