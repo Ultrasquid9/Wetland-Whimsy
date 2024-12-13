@@ -26,6 +26,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS.get());
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get());
+
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE.get());
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get());
 
@@ -59,6 +60,10 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 
 		// Block items that are 2d in the inventory and use a unique texture
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.asItem());
+
+		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
+		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get().asItem());
+
 		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.asItem());
 	}
 }

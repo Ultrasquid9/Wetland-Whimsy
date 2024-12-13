@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlocks;
-import corundum.wetland_whimsy.content.WetlandWhimsyTags;
+import corundum.wetland_whimsy.tags.WetlandWhimsyTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -53,6 +53,21 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 		// Woodset tags
 		this.tag(BlockTags.WOODEN_FENCES).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get()
+		);
+
+		// Sign tags
+		this.tag(BlockTags.SIGNS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
+		);
+		this.tag(BlockTags.WALL_SIGNS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
+		);
+		this.tag(BlockTags.CEILING_HANGING_SIGNS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get()
+		);
+		this.tag(BlockTags.WALL_HANGING_SIGNS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get()
 		);
 
 		this.tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(

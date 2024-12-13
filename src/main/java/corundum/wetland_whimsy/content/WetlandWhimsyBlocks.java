@@ -6,14 +6,19 @@ import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.content.blocks.CordgrassBlock;
 import corundum.wetland_whimsy.content.blocks.PennywortBlock;
 import corundum.wetland_whimsy.content.blocks.StrippableLogBlock;
+import corundum.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.HangingSignItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -22,7 +27,10 @@ import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallHangingSignBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -169,7 +177,7 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredBlock<FenceGateBlock> BALD_CYPRESS_FENCE_GATE = registerBlockAndItem(
 		"bald_cypress_fence_gate", 
 		() -> new FenceGateBlock(
-			WetlandWhimsyTags.BALD_CYPRESS,
+			WetlandWhimsyWoodTypes.BALD_CYPRESS,
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
 		) {
 			@Override
@@ -196,21 +204,21 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredBlock<DoorBlock> BALD_CYPRESS_DOOR = registerBlockAndItem(
 		"bald_cypress_door",
 		() -> new DoorBlock(
-			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET, 
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)
 		)
 	);
 	public static final DeferredBlock<TrapDoorBlock> BALD_CYPRESS_TRAPDOOR = registerBlockAndItem(
 		"bald_cypress_trapdoor",
 		() -> new TrapDoorBlock(
-			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET, 
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)
 		)
 	);
 	public static final DeferredBlock<ButtonBlock> BALD_CYPRESS_BUTTON = registerBlockAndItem(
 		"bald_cypress_button",
 		() -> new ButtonBlock(
-			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET, 
 			30,
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)
 		)
@@ -218,8 +226,40 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredBlock<PressurePlateBlock> BALD_CYPRESS_PRESSURE_PLATE = registerBlockAndItem(
 		"bald_cypress_pressure_plate",
 		() -> new PressurePlateBlock(
-			WetlandWhimsyTags.BALD_CYPRESS_BLOCK_SET, 
+			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET, 
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)
+		)
+	);
+
+	// Signs
+	public static final DeferredBlock<StandingSignBlock> BALD_CYPRESS_SIGN = BLOCKS.register(
+		"bald_cypress_sign", 
+		() -> new StandingSignBlock(
+			WetlandWhimsyWoodTypes.BALD_CYPRESS, 
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
+		)
+	);
+	public static final DeferredBlock<WallSignBlock> BALD_CYPRESS_WALL_SIGN = BLOCKS.register(
+		"bald_cypress_wall_sign", 
+		() -> new WallSignBlock(
+			WetlandWhimsyWoodTypes.BALD_CYPRESS, 
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+				.lootFrom(BALD_CYPRESS_SIGN)
+		)
+	);
+	public static final DeferredBlock<CeilingHangingSignBlock> BALD_CYPRESS_HANGING_SIGN = BLOCKS.register(
+		"bald_cypress_hanging_sign", 
+		() -> new CeilingHangingSignBlock(
+			WetlandWhimsyWoodTypes.BALD_CYPRESS, 
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
+		)
+	);
+	public static final DeferredBlock<WallHangingSignBlock> BALD_CYPRESS_WALL_HANGING_SIGN = BLOCKS.register(
+		"bald_cypress_wall_hanging_sign", 
+		() -> new WallHangingSignBlock(
+			WetlandWhimsyWoodTypes.BALD_CYPRESS, 
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+				.lootFrom(BALD_CYPRESS_HANGING_SIGN)
 		)
 	);
 
@@ -253,5 +293,25 @@ public class WetlandWhimsyBlocks {
 		);
 
 		return register;
+	}
+
+	public static void createSignItems() {
+		WetlandWhimsyItems.ITEMS.register(
+			"bald_cypress_sign", 
+			() -> new SignItem(
+				new Item.Properties().stacksTo(16), 
+				WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(), 
+				WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
+			)
+		);
+
+		WetlandWhimsyItems.ITEMS.register(
+			"bald_cypress_hanging_sign", 
+			() -> new HangingSignItem(
+				WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(), 
+				WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get(),
+				new Item.Properties().stacksTo(16)
+			)
+		);
 	}
 }
