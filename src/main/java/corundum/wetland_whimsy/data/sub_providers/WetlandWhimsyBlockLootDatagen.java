@@ -24,6 +24,8 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 	protected void generate() {
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get());
 		this.dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get());
+		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get());
+		this.dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get());
@@ -44,7 +46,7 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		);
 		this.add(
 			WetlandWhimsyBlocks.CORDGRASS.get(), 
-			BlockLootSubProvider.createShearsOnlyDrop(WetlandWhimsyBlocks.CORDGRASS_ITEM)
+			BlockLootSubProvider.createShearsOnlyDrop(WetlandWhimsyBlocks.CORDGRASS.asItem())
 		);
 	}
 }

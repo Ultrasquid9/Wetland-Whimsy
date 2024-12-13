@@ -32,6 +32,6 @@ public class WetlandWhimsy {
 
 	private void addCreative(BuildCreativeModeTabContentsEvent event) {
 		if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-			event.accept(WetlandWhimsyBlocks.BALD_CYPRESS_LOG_ITEM);
+			event.accept(WetlandWhimsyBlocks.BALD_CYPRESS_LOG);
 	}
 }

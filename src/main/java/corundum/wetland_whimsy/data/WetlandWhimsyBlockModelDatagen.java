@@ -18,11 +18,20 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			modLoc("block/bald_cypress_log"), 
 			modLoc("block/bald_cypress_log_top")
 		);
-
 		this.axisBlock(
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(), 
 			modLoc("block/stripped_bald_cypress_log"), 
 			modLoc("block/stripped_bald_cypress_log_top")
+		);
+		this.axisBlock(
+			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get(), 
+			modLoc("block/bald_cypress_log"), 
+			modLoc("block/bald_cypress_log")
+		);
+		this.axisBlock(
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get(), 
+			modLoc("block/stripped_bald_cypress_log"), 
+			modLoc("block/stripped_bald_cypress_log")
 		);
 
 		this.simpleBlock(
@@ -31,7 +40,6 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				.leaves("bald_cypress_leaves", modLoc("block/bald_cypress_leaves"))
 				.renderType("minecraft:cutout")
 		);
-
 		this.simpleBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get(),
 			this.models()
@@ -45,7 +53,6 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			modLoc("block/bald_cypress_door_bottom"), 
 			modLoc("block/bald_cypress_door_top")
 		);
-
 		this.trapdoorBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get(), 
 			modLoc("block/bald_cypress_trapdoor"), 

@@ -44,6 +44,8 @@ public class StrippableLogBlock extends RotatedPillarBlock {
 		if (context.getItemInHand().getItem() instanceof AxeItem) {
 			if (state.is(WetlandWhimsyBlocks.BALD_CYPRESS_LOG)) {
 				return WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+			} else if (state.is(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD)) {
+				return WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
 			}
 		}
 

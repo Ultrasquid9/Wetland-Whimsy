@@ -15,25 +15,18 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 	protected void registerModels() {
 		// Block items
 
-		// Block items that are 3d in the inventory
+		// Simple block items
+		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get());
+		simpleBlockItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get());
+		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get());
+		simpleBlockItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get());
+
+		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get());
+
+		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
+
 		this.withExistingParent(
-			WetlandWhimsyBlocks.BALD_CYPRESS_LOG_ITEM.get().toString(), 
-			modLoc("block/bald_cypress_log")
-		);
-		this.withExistingParent(
-			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG_ITEM.get().toString(), 
-			modLoc("block/stripped_bald_cypress_log")
-		);
-		this.withExistingParent(
-			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES_ITEM.get().toString(), 
-			modLoc("block/bald_cypress_leaves")
-		);
-		this.withExistingParent(
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS_ITEM.get().toString(), 
-			modLoc("block/bald_cypress_planks")
-		);
-		this.withExistingParent(
-			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR_ITEM.get().toString(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.asItem().toString(), 
 			modLoc("block/bald_cypress_trapdoor_bottom")
 		);
 
@@ -50,9 +43,9 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		)
 		.texture("layer0", "block/pennywort_leaves_bottom")
 		.texture("layer1", "block/pennywort_leaves_top");
-		
+
 		// Block items that are 2d in the inventory and use a unique texture
-		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR_ITEM.get());
-		this.basicItem(WetlandWhimsyBlocks.CORDGRASS_ITEM.get());
+		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.asItem());
+		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.asItem());
 	}
 }
