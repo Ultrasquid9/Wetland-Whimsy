@@ -32,6 +32,8 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN, "Bald Cypress Sign");
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN, "Bald Cypress Hanging Sign");
 
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE, "Limestone");
+
 		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 	}

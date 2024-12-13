@@ -107,5 +107,7 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get(), 
 			modLoc("block/bald_cypress_planks")
 		);
+
+		this.simpleBlock(WetlandWhimsyBlocks.LIMESTONE.get());
 	}
 }

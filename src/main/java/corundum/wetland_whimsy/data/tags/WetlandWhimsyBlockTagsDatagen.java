@@ -35,6 +35,9 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 		this.tag(BlockTags.MINEABLE_WITH_HOE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
+		this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+			WetlandWhimsyBlocks.LIMESTONE.get()
+		);
 
 		// Wood and leaves and stuff
 		this.tag(BlockTags.LEAVES).add(
@@ -71,7 +74,10 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 		);
 
 		this.tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(
-			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
+			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(),
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get(),
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get()
 		);
 	}
 }

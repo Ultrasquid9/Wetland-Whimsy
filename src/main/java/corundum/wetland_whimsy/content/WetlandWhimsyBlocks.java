@@ -263,6 +263,14 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
+	// Limestone 
+	public static final DeferredBlock<Block> LIMESTONE = registerBlockAndItem(
+		"limestone", 
+		() -> new Block(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+
 	// Plants
 	public static final DeferredBlock<CordgrassBlock> CORDGRASS = registerBlockAndItem(
 		"cordgrass",

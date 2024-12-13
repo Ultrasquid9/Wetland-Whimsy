@@ -8,6 +8,7 @@ import java.util.concurrent.CompletableFuture;
 import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
 import corundum.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
+import corundum.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
 import corundum.wetland_whimsy.data.worldgen.WetlandWhimsyConfiguredFeaturesDatagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
@@ -32,7 +33,23 @@ public class Datagen {
 		datagen.addProvider(event.includeClient(), new WetlandWhimsyItemModelDatagen(output, fileHelper));
 		datagen.addProvider(event.includeClient(), new WetlandWhimsyLanguageDatagen(output));
 
-		datagen.addProvider(event.includeClient(), new WetlandWhimsyBlockTagsDatagen(output, lookupProvider, fileHelper));
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyRecipeDatagen(output, lookupProvider));
+
+		// Tags
+		var blockTags = new WetlandWhimsyBlockTagsDatagen(output, lookupProvider, fileHelper);
+
+		datagen.addProvider(event.includeClient(), blockTags);
+		
+		datagen.addProvider(
+			event.includeClient(), 
+			new WetlandWhimsyItemTagsDatagen(
+				output, 
+				lookupProvider, 
+				blockTags.contentsGetter(), 
+				fileHelper
+			)
+		);
+
 
 		datagen.addProvider(
 			event.includeClient(), 
