@@ -36,7 +36,19 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
 		this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-			WetlandWhimsyBlocks.LIMESTONE.get()
+			WetlandWhimsyBlocks.LIMESTONE.get(),
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(),
+			WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(),
+			WetlandWhimsyBlocks.LIMESTONE_STAIRS.get(),
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get(),
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get(),
+			WetlandWhimsyBlocks.LIMESTONE_SLAB.get(),
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get(),
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get(),
+			WetlandWhimsyBlocks.LIMESTONE_WALL.get(),
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(),
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get(),
+			WetlandWhimsyBlocks.LIMESTONE_PILLAR.get()
 		);
 
 		// Wood and leaves and stuff
@@ -57,6 +69,12 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 		this.tag(BlockTags.WOODEN_FENCES).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get()
 		);
+		this.tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(),
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get(),
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get()
+		);
 
 		// Sign tags
 		this.tag(BlockTags.SIGNS).add(
@@ -73,11 +91,11 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get()
 		);
 
-		this.tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(
-			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(),
-			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(),
-			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get(),
-			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get()
+		// Limestone tags
+		this.tag(BlockTags.WALLS).add(
+			WetlandWhimsyBlocks.LIMESTONE_WALL.get(),
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(),
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get()
 		);
 	}
 }

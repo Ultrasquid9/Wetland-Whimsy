@@ -31,8 +31,17 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get());
 
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE.get());
+		simpleBlockItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get());
+		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_BRICKS.get());
+		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_STAIRS.get());
+		simpleBlockItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get());
+		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get());
+		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_SLAB.get());
+		simpleBlockItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get());
+		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get());
+		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
 
-		// These three don't work with the normal simpleBlockItem method
+		// These ones don't work with the normal simpleBlockItem method
 		fenceInventory(
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.getId().toString(), 
 			modLoc("block/bald_cypress_planks")
@@ -44,6 +53,19 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		this.withExistingParent(
 			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.asItem().toString(), 
 			modLoc("block/bald_cypress_trapdoor_bottom")
+		);
+
+		wallInventory(
+			WetlandWhimsyBlocks.LIMESTONE_WALL.getId().toString(), 
+			modLoc("block/limestone")
+		);
+		wallInventory(
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.getId().toString(), 
+			modLoc("block/polished_limestone")
+		);
+		wallInventory(
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.getId().toString(), 
+			modLoc("block/limestone_bricks")
 		);
 
 		// Block items that are 2d in the inventory and use a block texture

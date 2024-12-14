@@ -24,11 +24,13 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -267,6 +269,81 @@ public class WetlandWhimsyBlocks {
 	public static final DeferredBlock<Block> LIMESTONE = registerBlockAndItem(
 		"limestone", 
 		() -> new Block(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<Block> POLISHED_LIMESTONE = registerBlockAndItem(
+		"polished_limestone", 
+		() -> new Block(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<Block> LIMESTONE_BRICKS = registerBlockAndItem(
+		"limestone_bricks", 
+		() -> new Block(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<StairBlock> LIMESTONE_STAIRS = registerBlockAndItem(
+		"limestone_stairs", 
+		() -> new StairBlock(
+			LIMESTONE.get().defaultBlockState(),
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<StairBlock> POLISHED_LIMESTONE_STAIRS = registerBlockAndItem(
+		"polished_limestone_stairs", 
+		() -> new StairBlock(
+			POLISHED_LIMESTONE.get().defaultBlockState(),
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<StairBlock> LIMESTONE_BRICK_STAIRS = registerBlockAndItem(
+		"limestone_brick_stairs", 
+		() -> new StairBlock(
+			LIMESTONE_BRICKS.get().defaultBlockState(),
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<SlabBlock> LIMESTONE_SLAB = registerBlockAndItem(
+		"limestone_slab", 
+		() -> new SlabBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<SlabBlock> POLISHED_LIMESTONE_SLAB = registerBlockAndItem(
+		"polished_limestone_slab", 
+		() -> new SlabBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<SlabBlock> LIMESTONE_BRICK_SLAB = registerBlockAndItem(
+		"limestone_brick_slab", 
+		() -> new SlabBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<WallBlock> LIMESTONE_WALL = registerBlockAndItem(
+		"limestone_wall", 
+		() -> new WallBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<WallBlock> POLISHED_LIMESTONE_WALL = registerBlockAndItem(
+		"polished_limestone_wall", 
+		() -> new WallBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<WallBlock> LIMESTONE_BRICK_WALL = registerBlockAndItem(
+		"limestone_brick_wall", 
+		() -> new WallBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+		)
+	);
+	public static final DeferredBlock<RotatedPillarBlock> LIMESTONE_PILLAR = registerBlockAndItem(
+		"limestone_pillar", 
+		() -> new RotatedPillarBlock(
 			BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
 		)
 	);

@@ -33,6 +33,18 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN, "Bald Cypress Hanging Sign");
 
 		this.addBlock(WetlandWhimsyBlocks.LIMESTONE, "Limestone");
+		this.addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE, "Polished Limestone");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICKS, "Limestone Bricks");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_STAIRS, "Limestone Stairs");
+		this.addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS, "Polished Limestone Stairs");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS, "Limestone Brick Stairs");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_SLAB, "Limestone Slab");
+		this.addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB, "Polished Limestone Slab");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB, "Limestone Brick Slab");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_WALL, "Limestone Wall");
+		this.addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL, "Polished Limestone Wall");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL, "Limestone Brick Wall");
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_PILLAR, "Limestone Pillar");
 
 		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
