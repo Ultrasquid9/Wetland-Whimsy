@@ -8,8 +8,9 @@ import corundum.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlocks;
 import corundum.wetland_whimsy.content.WetlandWhimsyItems;
 import corundum.wetland_whimsy.data.Datagen;
-import corundum.wetland_whimsy.data.worldgen.WetlandWhimsyTrunkPlacerTypes;
 import corundum.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
+import corundum.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
+import corundum.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -26,7 +27,9 @@ public class WetlandWhimsy {
 
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
-		WetlandWhimsyTrunkPlacerTypes.TRUNK_PLACERS.register(modEventBus);
+		
+		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
+		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
 
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
 

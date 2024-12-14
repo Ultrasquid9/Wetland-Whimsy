@@ -1,13 +1,13 @@
-package corundum.wetland_whimsy.data.worldgen;
+package corundum.wetland_whimsy.worldgen;
 
 import corundum.wetland_whimsy.WetlandWhimsy;
-import corundum.wetland_whimsy.data.worldgen.bald_cypress.BaldCypressTrunkPlacer;
+import corundum.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class WetlandWhimsyTrunkPlacerTypes {
+public class WetlandWhimsyTrunkPlacers {
 	public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = DeferredRegister.create(
 		Registries.TRUNK_PLACER_TYPE, 
 		WetlandWhimsy.MODID
