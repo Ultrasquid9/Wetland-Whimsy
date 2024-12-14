@@ -10,6 +10,8 @@ import corundum.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
 import corundum.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
 import corundum.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
 import corundum.wetland_whimsy.data.worldgen.WetlandWhimsyConfiguredFeaturesDatagen;
+import corundum.wetland_whimsy.data.worldgen.WetlandsWhimsyBiomesDatagen;
+import corundum.wetland_whimsy.data.worldgen.WetlandsWhimsyPlacedFeaturesDatagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -57,7 +59,9 @@ public class Datagen {
 				output, 
 				lookupProvider, 
 				new RegistrySetBuilder()
-					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeaturesDatagen::bootstap),
+					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeaturesDatagen::bootstap)
+					.add(Registries.PLACED_FEATURE, WetlandsWhimsyPlacedFeaturesDatagen::bootstap)
+					.add(Registries.BIOME, WetlandsWhimsyBiomesDatagen::bootstap),
 				Collections.singleton(WetlandWhimsy.MODID)
 			)
 		);

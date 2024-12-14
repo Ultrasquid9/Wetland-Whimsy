@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.33,
+        "chance": 0.75,
         "feature": {
           "feature": "wetland_whimsy:bald_cypress_tree",
           "placement": [
@@ -40,21 +40,7 @@
         }
       },
       {
-        "chance": 0.1,
-        "feature": {
-          "feature": "wetland_whimsy:cordgrass_patch",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "wetland_whimsy:pennywort_patch",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.05,
+        "chance": 0.01,
         "feature": {
           "feature": "minecraft:huge_red_mushroom",
           "placement": [
@@ -74,7 +60,7 @@
         }
       },
       {
-        "chance": 0.1,
+        "chance": 0.05,
         "feature": {
           "feature": "minecraft:huge_brown_mushroom",
           "placement": [

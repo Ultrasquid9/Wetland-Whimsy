@@ -32,7 +32,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SWAMP = createKey("trees_swamp");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BOG = createKey("trees_bog");
 
 
 	public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
@@ -69,7 +69,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 				Feature.FLOWER, 
 				new RandomPatchConfiguration(
 					64, 
-					5, 
+					4, 
 					3, 
 					PlacementUtils.onlyWhenEmpty(
 						Feature.SIMPLE_BLOCK, 
@@ -85,9 +85,9 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 			new ConfiguredFeature(
 				Feature.FLOWER, 
 				new RandomPatchConfiguration(
-					32, 
-					7, 
-					3, 
+					48, 
+					10, 
+					4, 
 					PlacementUtils.onlyWhenEmpty(
 						Feature.SIMPLE_BLOCK, 
 						new SimpleBlockConfiguration(
@@ -102,7 +102,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 		final Holder<ConfiguredFeature<?, ?>> HUGE_BROWN_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM);
 
 		context.register(
-			TREES_SWAMP, 
+			TREES_BOG, 
 			new ConfiguredFeature(
 				Feature.RANDOM_SELECTOR, 
 				new RandomFeatureConfiguration(
@@ -112,33 +112,21 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.33F
-						),
-						new WeightedPlacedFeature(
-							PlacementUtils.inlinePlaced(
-								configuredFeatures.getOrThrow(CORDGRASS_PATCH) 
-							), 
-							0.1F
-						),
-						new WeightedPlacedFeature(
-							PlacementUtils.inlinePlaced(
-								configuredFeatures.getOrThrow(PENNYWORT_PATCH) 
-							), 
-							0.1F
+							0.75F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								HUGE_RED_MUSHROOM, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.05F
+							0.01F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								HUGE_BROWN_MUSHROOM, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.1F
+							0.05F
 						)
 					),
 					PlacementUtils.inlinePlaced(
