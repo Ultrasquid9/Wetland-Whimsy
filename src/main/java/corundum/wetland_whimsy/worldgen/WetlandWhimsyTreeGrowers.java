@@ -9,7 +9,7 @@ public class WetlandWhimsyTreeGrowers {
 	public static final TreeGrower BALD_CYPRESS = new TreeGrower(
 		"bald_cypress",
 		Optional.empty(),
-		Optional.of(WetlandWhimsyConfiguredFeaturesDatagen.BALD_CYPRESS_TREE_CONFIGURATION),
+		Optional.of(WetlandWhimsyConfiguredFeaturesDatagen.BALD_CYPRESS_TREE),
 		Optional.empty()
 	);
 }
