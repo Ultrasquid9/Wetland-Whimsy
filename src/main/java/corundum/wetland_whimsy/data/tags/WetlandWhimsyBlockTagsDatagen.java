@@ -56,7 +56,7 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
 		this.tag(BlockTags.LOGS_THAT_BURN).add(
-			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
+			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
 		);
 		this.tag(BlockTags.LOGS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
