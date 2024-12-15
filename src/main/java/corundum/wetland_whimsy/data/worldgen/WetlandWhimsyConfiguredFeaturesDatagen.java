@@ -112,7 +112,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.75F
+							0.45F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(

@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -63,9 +64,11 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 
 	public static List<PlacementModifier> treePlacement() {
 		return ImmutableList.<PlacementModifier>builder()
-			.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
+			.add(PlacementUtils.countExtra(28, 0.1F, 1))
+			.add(InSquarePlacement.spread())
 			.add(SurfaceWaterDepthFilter.forMaxDepth(2))
-			.add(PlacementUtils.countExtra(24, 0.1F, 1))
+			.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
+			.add(BiomeFilter.biome())
 			.add(PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get()))
 			.build();
 	}
@@ -77,6 +80,7 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 			.add(RarityFilter.onAverageOnceEvery(3))
 			.add(InSquarePlacement.spread())
 			.add(PlacementUtils.filteredByBlockSurvival(Blocks.SHORT_GRASS))
+			.add(BiomeFilter.biome())
 			.build();
 	}
 }

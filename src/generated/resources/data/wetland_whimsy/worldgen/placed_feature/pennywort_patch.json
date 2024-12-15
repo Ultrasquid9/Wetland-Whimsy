@@ -24,6 +24,9 @@
           "Name": "minecraft:short_grass"
         }
       }
+    },
+    {
+      "type": "minecraft:biome"
     }
   ]
 }

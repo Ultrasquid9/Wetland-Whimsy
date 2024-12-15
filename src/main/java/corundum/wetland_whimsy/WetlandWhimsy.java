@@ -8,14 +8,18 @@ import corundum.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlocks;
 import corundum.wetland_whimsy.content.WetlandWhimsyItems;
 import corundum.wetland_whimsy.data.Datagen;
+import corundum.wetland_whimsy.data.worldgen.WetlandsWhimsyBiomesDatagen;
 import corundum.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+
+import com.terraformersmc.biolith.api.biome.BiomePlacement;
 
 @Mod(WetlandWhimsy.MODID)
 public class WetlandWhimsy {
@@ -39,6 +43,8 @@ public class WetlandWhimsy {
 		this.eventSetup(modEventBus);
 
 		WetlandWhimsyWoodTypes.registerWoodTypes();
+
+		nukeTheSwamps();
 	}
 
 	public void eventSetup(IEventBus bussin) {
@@ -48,5 +54,9 @@ public class WetlandWhimsy {
 	private void addCreative(BuildCreativeModeTabContentsEvent event) {
 		if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
 			event.accept(WetlandWhimsyBlocks.BALD_CYPRESS_LOG);
+	}
+
+	private void nukeTheSwamps() {
+		BiomePlacement.replaceOverworld(Biomes.SWAMP, WetlandsWhimsyBiomesDatagen.BOG);
 	}
 }

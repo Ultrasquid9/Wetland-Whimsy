@@ -18,6 +18,11 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+
+	maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/'
+    }
 }
 
 base {
@@ -133,6 +138,7 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+	implementation "com.terraformersmc:biolith-neoforge:${rootProject.biolith_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -144,6 +150,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             neo_version            : neo_version,
             neo_version_range      : neo_version_range,
             loader_version_range   : loader_version_range,
+			biolith_version        : biolith_version,
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_license            : mod_license,
