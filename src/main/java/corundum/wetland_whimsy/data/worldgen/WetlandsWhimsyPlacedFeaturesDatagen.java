@@ -27,6 +27,7 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 
 	public static final ResourceKey<PlacedFeature> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> PENNYWORT_PATCH = createKey("pennywort_patch");
+	public static final ResourceKey<PlacedFeature> MUD_POOL = createKey("mud_pool");
 
 	public static void bootstap(BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -50,6 +51,14 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 			PENNYWORT_PATCH, 
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.PENNYWORT_PATCH), 
+				foliagePlacement()
+			)
+		);
+
+		context.register(
+			MUD_POOL, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.MUD_POOL), 
 				foliagePlacement()
 			)
 		);

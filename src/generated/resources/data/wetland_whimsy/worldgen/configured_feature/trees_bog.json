@@ -40,7 +40,7 @@
         }
       },
       {
-        "chance": 0.01,
+        "chance": 0.0075,
         "feature": {
           "feature": "minecraft:huge_red_mushroom",
           "placement": [
@@ -60,7 +60,7 @@
         }
       },
       {
-        "chance": 0.05,
+        "chance": 0.025,
         "feature": {
           "feature": "minecraft:huge_brown_mushroom",
           "placement": [

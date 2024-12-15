@@ -14,7 +14,10 @@ import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
@@ -22,16 +25,19 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureCo
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
 public class WetlandWhimsyConfiguredFeaturesDatagen {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_TREE = createKey("bald_cypress_tree");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
-
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH_SMALL = createKey("pennywort_single");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BOG = createKey("trees_bog");
 
 
@@ -73,9 +79,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 					3, 
 					PlacementUtils.onlyWhenEmpty(
 						Feature.SIMPLE_BLOCK, 
-						new SimpleBlockConfiguration(
-							BlockStateProvider.simple(WetlandWhimsyBlocks.CORDGRASS.get())
-						)
+						new SimpleBlockConfiguration(BlockStateProvider.simple(WetlandWhimsyBlocks.CORDGRASS.get()))
 					)
 				)
 			)
@@ -90,10 +94,43 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 					4, 
 					PlacementUtils.onlyWhenEmpty(
 						Feature.SIMPLE_BLOCK, 
-						new SimpleBlockConfiguration(
-							BlockStateProvider.simple(WetlandWhimsyBlocks.PENNYWORT.get())
-						)
+						new SimpleBlockConfiguration(BlockStateProvider.simple(WetlandWhimsyBlocks.PENNYWORT.get()))
 					)
+				)
+			)
+		);
+
+		context.register(
+			PENNYWORT_PATCH_SMALL,
+			new ConfiguredFeature(
+				Feature.FLOWER, 
+				new RandomPatchConfiguration(
+					4, 
+					3, 
+					4, 
+					PlacementUtils.onlyWhenEmpty(
+						Feature.SIMPLE_BLOCK, 
+						new SimpleBlockConfiguration(BlockStateProvider.simple(WetlandWhimsyBlocks.PENNYWORT.get()))
+					)
+				)
+			)
+		);
+
+		context.register(
+			MUD_POOL, 
+			new ConfiguredFeature(
+				Feature.WATERLOGGED_VEGETATION_PATCH, 
+				new VegetationPatchConfiguration(
+					BlockTags.LUSH_GROUND_REPLACEABLE, 
+					BlockStateProvider.simple(Blocks.MUD), 
+					PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PENNYWORT_PATCH_SMALL)), 
+					CaveSurface.FLOOR, 
+					ConstantInt.of(3), 
+					0.8f, 
+					5, 
+					0.1f, 
+					UniformInt.of(5, 8), 
+					0.7f
 				)
 			)
 		);
@@ -119,14 +156,14 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 								HUGE_RED_MUSHROOM, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.01F
+							0.0075F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								HUGE_BROWN_MUSHROOM, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.05F
+							0.025F
 						)
 					),
 					PlacementUtils.inlinePlaced(
