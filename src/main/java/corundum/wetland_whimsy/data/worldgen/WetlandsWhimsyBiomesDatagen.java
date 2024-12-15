@@ -25,6 +25,9 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class WetlandsWhimsyBiomesDatagen {
+	public static final ResourceKey<Biome> BOG = createKey("bog");
+	public static final ResourceKey<Biome> MARSH = createKey("marsh");
+
 	private static final BiomeSpecialEffects.Builder BOG_EFFECTS = new BiomeSpecialEffects.Builder()
 		.fogColor(0xABD2FF)
 		.skyColor(0x78A7FF)
@@ -35,12 +38,19 @@ public class WetlandsWhimsyBiomesDatagen {
 		.grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
 		.backgroundMusic(new Music(SoundEvents.MUSIC_BIOME_SWAMP, 12000, 24000, false));
 
-	public static final ResourceKey<Biome> BOG = createKey("bog");
-	public static final ResourceKey<Biome> MARSH = createKey("marsh");
+	private static final BiomeSpecialEffects.Builder MARSH_EFFECTS = new BiomeSpecialEffects.Builder()
+		.fogColor(0xaec4dd)
+		.skyColor(0x829ed4)
+		.waterColor(0x446c84)
+		.waterFogColor(0x446c84)
+		.grassColorOverride(0x86974d)
+		.foliageColorOverride(0x567238)
+		.grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
+		.backgroundMusic(new Music(SoundEvents.MUSIC_BIOME_SWAMP, 12000, 24000, false));
 
 	public static void bootstap(BootstrapContext<Biome> context) {
 		context.register(BOG, bogBiome(context));
-		//context.register(MARSH, null);
+		context.register(MARSH, marshBiome(context));
 	}
 
 	private static ResourceKey<Biome> createKey(String name) {
@@ -49,15 +59,28 @@ public class WetlandsWhimsyBiomesDatagen {
 
 	public static Biome bogBiome(BootstrapContext<Biome> context) {
 		HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
-        HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
+		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
 		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.CORDGRASS_PATCH)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.PENNYWORT_PATCH)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.TREES_BOG)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.MUD_POOL);
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.MUD_POOL)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE);
 
 		return makeBiome(generationSettings, BOG_EFFECTS);
+	}
+
+	public static Biome marshBiome(BootstrapContext<Biome> context) {
+		HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
+		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
+
+		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.TREES_MARSH)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.SUPER_THICK_CORDGRASS_PATCH)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.MUD_POOL);
+
+		return makeBiome(generationSettings, MARSH_EFFECTS);
 	}
 
 	public static Biome makeBiome(BiomeGenerationSettings.Builder settings, BiomeSpecialEffects.Builder effects) {
@@ -68,6 +91,7 @@ public class WetlandsWhimsyBiomesDatagen {
 		var mobs = new MobSpawnSettings.Builder();
 		BiomeDefaultFeatures.commonSpawns(mobs);
 		BiomeDefaultFeatures.farmAnimals(mobs);
+		BiomeDefaultFeatures.oceanSpawns(mobs, 10, 8, 20);
 
 		return new Biome.BiomeBuilder()
 			.hasPrecipitation(true)
@@ -119,7 +143,6 @@ public class WetlandsWhimsyBiomesDatagen {
 
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_SWAMP)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_WATERLILY)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP)

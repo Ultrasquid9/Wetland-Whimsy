@@ -39,6 +39,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH_SMALL = createKey("pennywort_single");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BOG = createKey("trees_bog");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_MARSH = createKey("trees_marsh");
 
 
 	public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
@@ -137,6 +138,8 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 
 		final Holder<ConfiguredFeature<?, ?>> HUGE_RED_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM);
 		final Holder<ConfiguredFeature<?, ?>> HUGE_BROWN_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM);
+		final Holder<ConfiguredFeature<?, ?>> BIRCH = configuredFeatures.getOrThrow(TreeFeatures.BIRCH);
+		final Holder<ConfiguredFeature<?, ?>> SPRUCE = configuredFeatures.getOrThrow(TreeFeatures.SPRUCE);
 
 		context.register(
 			TREES_BOG, 
@@ -164,6 +167,42 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
 							0.025F
+						)
+					),
+					PlacementUtils.inlinePlaced(
+						configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
+						PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+					)
+				)
+			)
+		);
+
+		context.register(
+			TREES_MARSH, 
+			new ConfiguredFeature(
+				Feature.RANDOM_SELECTOR, 
+				new RandomFeatureConfiguration(
+					List.of(
+						new WeightedPlacedFeature(
+							PlacementUtils.inlinePlaced(
+								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
+								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+							), 
+							0.40F
+						),
+						new WeightedPlacedFeature(
+							PlacementUtils.inlinePlaced(
+								BIRCH, 
+								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+							), 
+							0.30F
+						),
+						new WeightedPlacedFeature(
+							PlacementUtils.inlinePlaced(
+								SPRUCE, 
+								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+							), 
+							0.30F
 						)
 					),
 					PlacementUtils.inlinePlaced(

@@ -19,6 +19,8 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
+import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
+import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 
 @Mod(WetlandWhimsy.MODID)
 public class WetlandWhimsy {
@@ -52,5 +54,11 @@ public class WetlandWhimsy {
 
 	private void nukeTheSwamps() {
 		BiomePlacement.replaceOverworld(Biomes.SWAMP, WetlandsWhimsyBiomesDatagen.BOG);
+
+		BiomePlacement.addSubOverworld(
+			WetlandsWhimsyBiomesDatagen.BOG, 
+			WetlandsWhimsyBiomesDatagen.MARSH, 
+			CriterionBuilder.deviationMax(BiomeParameterTargets.CONTINENTALNESS, -0.44f)
+		);
 	}
 }

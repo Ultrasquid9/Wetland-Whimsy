@@ -8,18 +8,18 @@
   },
   "downfall": 0.9,
   "effects": {
-    "fog_color": 11260671,
-    "foliage_color": 6254389,
-    "grass_color": 5406272,
+    "fog_color": 11453661,
+    "foliage_color": 5665336,
+    "grass_color": 8820557,
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.swamp"
     },
-    "sky_color": 7907327,
-    "water_color": 5006681,
-    "water_fog_color": 5006681
+    "sky_color": 8560340,
+    "water_color": 4484228,
+    "water_fog_color": 4484228
   },
   "features": [
     [],
@@ -67,11 +67,9 @@
     [],
     [],
     [
-      "wetland_whimsy:cordgrass_patch",
-      "wetland_whimsy:pennywort_patch",
-      "wetland_whimsy:trees_bog",
+      "wetland_whimsy:trees_marsh",
+      "wetland_whimsy:super_thick_cordgrass_patch",
       "wetland_whimsy:mud_pool",
-      "wetland_whimsy:lilypad_clone",
       "minecraft:patch_large_fern",
       "minecraft:patch_grass_badlands",
       "minecraft:flower_swamp",
