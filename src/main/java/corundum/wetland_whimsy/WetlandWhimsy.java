@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import corundum.wetland_whimsy.content.Creative;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlocks;
 import corundum.wetland_whimsy.content.WetlandWhimsyItems;
@@ -12,12 +13,10 @@ import corundum.wetland_whimsy.data.worldgen.WetlandsWhimsyBiomesDatagen;
 import corundum.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
 
@@ -38,7 +37,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
 
 		modEventBus.addListener(Datagen::datagen);
-		modEventBus.addListener(this::addCreative);
+		modEventBus.addListener(Creative::addCreative);
 
 		this.eventSetup(modEventBus);
 
@@ -49,11 +48,6 @@ public class WetlandWhimsy {
 
 	public void eventSetup(IEventBus bussin) {
 		bussin.addListener(WetlandWhimsyBlockEntities::handleSignEntities);
-	}
-
-	private void addCreative(BuildCreativeModeTabContentsEvent event) {
-		if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-			event.accept(WetlandWhimsyBlocks.BALD_CYPRESS_LOG);
 	}
 
 	private void nukeTheSwamps() {
