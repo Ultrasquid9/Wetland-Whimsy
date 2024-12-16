@@ -78,7 +78,8 @@ public class WetlandsWhimsyBiomesDatagen {
 		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.TREES_MARSH)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.SUPER_THICK_CORDGRASS_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.MUD_POOL);
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.MUD_POOL)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandsWhimsyPlacedFeaturesDatagen.MUD_DISK);
 
 		return makeBiome(generationSettings, MARSH_EFFECTS);
 	}

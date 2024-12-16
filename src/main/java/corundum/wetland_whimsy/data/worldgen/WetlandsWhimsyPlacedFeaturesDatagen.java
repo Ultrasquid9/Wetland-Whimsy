@@ -31,6 +31,7 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 	public static final ResourceKey<PlacedFeature> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> PENNYWORT_PATCH = createKey("pennywort_patch");
 	public static final ResourceKey<PlacedFeature> MUD_POOL = createKey("mud_pool");
+	public static final ResourceKey<PlacedFeature> MUD_DISK = createKey("mud_disk");
 	public static final ResourceKey<PlacedFeature> SUPER_THICK_CORDGRASS_PATCH = createKey("super_thick_cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE = createKey("lilypad_clone");
 
@@ -73,6 +74,19 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.MUD_POOL), 
 				foliagePlacement()
+			)
+		);
+		context.register(
+			MUD_DISK, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.MUD_DISK), 
+				ImmutableList.<PlacementModifier>builder()
+					.add(PlacementUtils.countExtra(2, 0.5F, 1))
+					.add(InSquarePlacement.spread())
+					.add(SurfaceWaterDepthFilter.forMaxDepth(2))
+					.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
+					.add(BiomeFilter.biome())
+					.build()
 			)
 		);
 		context.register(
