@@ -122,13 +122,8 @@ dependencies {
 	// Biolith, used for biome generation
 	implementation "com.terraformersmc:biolith-neoforge:${rootProject.biolith_version}"
 
-	// Zepalesque's Zenith library
-	// The lack of documentation means that this may not be sticking around
-	implementation "net.zepalesque.zenith:zenith:${minecraft_version}-${zenith_version}-neoforge"
-
 	// Jar-in-jar, meaning that dependencies are included alongside the mod rather than
 	// having to be downloaded independently. 
-	jarJar("net.zepalesque.zenith:zenith:${minecraft_version}-${zenith_version}-neoforge") 
 	jarJar("com.terraformersmc:biolith-neoforge:${rootProject.biolith_version}")
 }
 
@@ -142,7 +137,6 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             neo_version_range      : neo_version_range,
             loader_version_range   : loader_version_range,
 			biolith_version        : biolith_version,
-			zenith_version         : zenith_version,
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_license            : mod_license,
