@@ -5,8 +5,8 @@
 			"weight": 1,
 			"element": {
 				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:test_structure",
 				"projection": "rigid",
-				"location": "wetland_whimsy:ruins/arch_basic_1",
 				"processors": "minecraft:empty"
 			}
 		}

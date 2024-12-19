@@ -3,7 +3,8 @@
 	"biomes": "#wetland_whimsy:wetland_ruins",
 	"step": "surface_structures",
 	"spawn_overrides": {},
-	"start_pool": "wetland_whimsy:ruins/arch_basic_1",
+	"terrain_adaptation": "beard_thin",
+	"start_pool": "wetland_whimsy:wetland_ruins",
 	"size": 1,
 	"start_height": {
 		"absolute": 0

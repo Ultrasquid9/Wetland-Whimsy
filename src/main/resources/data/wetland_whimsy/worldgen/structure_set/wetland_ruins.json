@@ -1,14 +1,14 @@
 {
 	"structures": [
 		{
-			"structure": "wetland_whimsy:ruins/arch_basic_1",
+			"structure": "wetland_whimsy:wetland_ruins",
 			"weight": 1
 		}
 	],
 	"placement": {
 		"type": "minecraft:random_spread",
-		"salt": 1234567890,
 		"spacing": 5,
-		"separation": 2
+		"separation": 2,
+		"salt": 111112
 	}
 }
