@@ -1,6 +1,31 @@
 {
 	"processors": [
 		{
+			"processor_type": "minecraft:block_rot",
+			"integrity": 0.925,
+			"rottable_blocks": [
+				"minecraft:dirt",
+				"minecraft:grass_block",
+				"minecraft:red_wool",
+				"minecraft:green_wool",
+				"minecraft:light_gray_wool",
+				"minecraft:gray_wool",
+				"wetland_whimsy:limestone",
+				"wetland_whimsy:polished_limestone",
+				"wetland_whimsy:limestone_bricks",
+				"wetland_whimsy:limestone_stairs",
+				"wetland_whimsy:polished_limestone_stairs",
+				"wetland_whimsy:limestone_brick_stairs",
+				"wetland_whimsy:limestone_slab",
+				"wetland_whimsy:polished_limestone_slab",
+				"wetland_whimsy:limestone_brick_slab",
+				"wetland_whimsy:limestone_wall",
+				"wetland_whimsy:polished_limestone_wall",
+				"wetland_whimsy:limestone_brick_wall"
+			]
+		},
+
+		{
 			"processor_type": "minecraft:rule",
 			"rules": [
 				{
@@ -87,6 +112,72 @@
 					},
 					"output_state": {
 						"Name": "minecraft:grass_block"
+					}
+				}
+			]
+		},
+
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:light_gray_wool",
+						"probability": 0.4
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:grass_block"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:block_match",
+						"block": "minecraft:light_gray_wool"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:mud"
+					}
+				}
+			]
+		},
+
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:gray_wool",
+						"probability": 0.15
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:suspicious_mud"
+					},
+					"block_entity_modifier": {
+						"type": "minecraft:append_loot",
+						"loot_table": "wetland_whimsy:basic_vault_loot"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:block_match",
+						"block": "minecraft:gray_wool"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:mud"
 					}
 				}
 			]
@@ -205,11 +296,6 @@
 					}
 				}
 			]
-		},
-
-		{
-			"processor_type": "minecraft:block_rot",
-			"integrity": 0.925
 		}
 	]
 }

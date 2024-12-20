@@ -222,7 +222,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -237,7 +237,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -252,7 +252,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -267,7 +267,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -282,7 +282,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -297,7 +297,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -312,7 +312,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -327,7 +327,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -342,7 +342,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -357,7 +357,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 10.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -372,7 +372,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 8.0,
-                "min": 3.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -387,7 +387,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 8.0,
-                "min": 3.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -402,7 +402,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 8.0,
-                "min": 3.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -416,8 +416,8 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
-                "min": 3.0
+                "max": 6.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -431,8 +431,8 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
-                "min": 3.0
+                "max": 6.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -446,8 +446,8 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
-                "min": 3.0
+                "max": 6.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -552,7 +552,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -567,7 +567,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -582,7 +582,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -597,7 +597,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -606,47 +606,14 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:mushroom_stew"
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:suspicious_stew"
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:music_disc_relic"
         }
       ],
