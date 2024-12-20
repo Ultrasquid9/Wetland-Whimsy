@@ -44,6 +44,23 @@
 				},
 				{
 					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:red_wool",
+						"probability": 0.2
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:decorated_pot"
+					},
+					"block_entity_modifier": {
+						"type": "minecraft:append_loot",
+						"loot_table": "wetland_whimsy:basic_vault_loot"
+					}
+				},
+				{
+					"input_predicate": {
 						"predicate_type": "minecraft:block_match",
 						"block": "minecraft:red_wool"
 					},

@@ -7,6 +7,7 @@ import java.util.concurrent.CompletableFuture;
 
 import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
+import corundum.wetland_whimsy.data.sub_providers.WetlandWhimsyVaultLootDatagen;
 import corundum.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
 import corundum.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
 import corundum.wetland_whimsy.data.worldgen.WetlandWhimsyConfiguredFeaturesDatagen;
@@ -52,7 +53,7 @@ public class Datagen {
 			)
 		);
 
-
+		// Worldgen
 		datagen.addProvider(
 			event.includeClient(), 
 			new DatapackBuiltinEntriesProvider(
@@ -66,6 +67,7 @@ public class Datagen {
 			)
 		);
 
+		// Loot tables
 		datagen.addProvider(
 			event.includeServer(),
 			new LootTableProvider(
@@ -75,6 +77,10 @@ public class Datagen {
 					new SubProviderEntry(
 						WetlandWhimsyBlockLootDatagen::new,
 						LootContextParamSets.BLOCK
+					),
+					new SubProviderEntry(
+						WetlandWhimsyVaultLootDatagen::new,
+						LootContextParamSets.CHEST
 					)
 				), 
 				event.getLookupProvider()
