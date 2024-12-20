@@ -5,9 +5,9 @@
 			"weight": 1,
 			"element": {
 				"element_type": "minecraft:single_pool_element",
-				"location": "wetland_whimsy:test_structure",
+				"location": "wetland_whimsy:arch_1",
 				"projection": "rigid",
-				"processors": "minecraft:empty"
+				"processors": "wetland_whimsy:limestone_rubble"
 			}
 		}
 	]

@@ -1,0 +1,185 @@
+{
+	"processors": [
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:red_wool",
+						"probability": 0.5
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:pennywort"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:red_wool",
+						"probability": 0.3
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:blue_orchid"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:block_match",
+						"block": "minecraft:red_wool"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:air"
+					}
+				}
+			]
+		},
+
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:block_match",
+						"block": "minecraft:green_wool"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:grass_block"
+					}
+				}
+			]
+		},
+
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:limestone_bricks",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:polished_limestone"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:limestone_brick_stairs",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:polished_limestone_stairs"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:limestone_brick_stairs",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:limestone_brick_slab"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:limestone_brick_slab",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:polished_limestone_slab"
+					}
+				}
+			]
+		},
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:polished_limestone",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:limestone"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:polished_limestone_stairs",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:limestone_stairs"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:polished_limestone_stairs",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:limestone_slab"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "wetland_whimsy:polished_limestone_slab",
+						"probability": 0.25
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:limestone_slab"
+					}
+				}
+			]
+		},
+
+		{
+			"processor_type": "minecraft:block_rot",
+			"integrity": 0.925
+		}
+	]
+}
