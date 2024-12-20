@@ -5,7 +5,15 @@
 			"weight": 1
 		},
 		{
+			"structure": "wetland_whimsy:arch_2",
+			"weight": 1
+		},
+		{
 			"structure": "wetland_whimsy:pillar_1",
+			"weight": 1
+		},
+		{
+			"structure": "wetland_whimsy:pillar_2",
 			"weight": 1
 		}
 	],
