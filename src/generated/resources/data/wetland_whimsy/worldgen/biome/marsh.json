@@ -62,7 +62,8 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "minecraft:disk_clay"
+      "minecraft:disk_clay",
+      "wetland_whimsy:limestone_disk"
     ],
     [],
     [],

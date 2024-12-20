@@ -15,14 +15,17 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
+import net.minecraft.world.level.material.Fluids;
 
 public class WetlandsWhimsyPlacedFeaturesDatagen {
 	public static final ResourceKey<PlacedFeature> TREES_BOG = createKey("trees_bog");
@@ -30,8 +33,9 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 
 	public static final ResourceKey<PlacedFeature> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> PENNYWORT_PATCH = createKey("pennywort_patch");
-	public static final ResourceKey<PlacedFeature> MUD_POOL = createKey("mud_pool");
+	public static final ResourceKey<PlacedFeature> LIMESTONE_DISK = createKey("limestone_disk");
 	public static final ResourceKey<PlacedFeature> MUD_DISK = createKey("mud_disk");
+	public static final ResourceKey<PlacedFeature> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<PlacedFeature> SUPER_THICK_CORDGRASS_PATCH = createKey("super_thick_cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE = createKey("lilypad_clone");
 
@@ -68,12 +72,16 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 				foliagePlacement()
 			)
 		);
-
 		context.register(
-			MUD_POOL, 
+			LIMESTONE_DISK, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.MUD_POOL), 
-				foliagePlacement()
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.LIMESTONE_DISK), 
+				ImmutableList.<PlacementModifier>builder()
+					.add(InSquarePlacement.spread())
+					.add(PlacementUtils.HEIGHTMAP_TOP_SOLID)
+					.add(BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)))
+					.add(BiomeFilter.biome())
+					.build()
 			)
 		);
 		context.register(
@@ -87,6 +95,13 @@ public class WetlandsWhimsyPlacedFeaturesDatagen {
 					.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
 					.add(BiomeFilter.biome())
 					.build()
+			)
+		);
+		context.register(
+			MUD_POOL, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.MUD_POOL), 
+				foliagePlacement()
 			)
 		);
 		context.register(

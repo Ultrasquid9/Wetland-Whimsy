@@ -40,6 +40,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH_SMALL = createKey("pennywort_single");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LIMESTONE_DISK = createKey("limestone_disk");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_DISK = createKey("mud_disk");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BOG = createKey("trees_bog");
@@ -120,6 +121,25 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 			)
 		);
 
+		context.register(
+			LIMESTONE_DISK, 
+			new ConfiguredFeature(
+				Feature.DISK, 
+				new DiskConfiguration(
+					RuleBasedBlockStateProvider.simple(WetlandWhimsyBlocks.LIMESTONE.get()), 
+					BlockPredicate.matchesBlocks(List.of(
+						Blocks.DIRT, 
+						Blocks.STONE,
+						Blocks.DIORITE,
+						Blocks.GRANITE,
+						Blocks.ANDESITE,
+						WetlandWhimsyBlocks.LIMESTONE.get()
+					)), 
+					UniformInt.of(3, 6), 
+					4
+				)
+			)
+		);
 		context.register(
 			MUD_DISK, 
 			new ConfiguredFeature(

@@ -97,5 +97,8 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(),
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get()
 		);
+		this.tag(BlockTags.LUSH_GROUND_REPLACEABLE).add(
+			WetlandWhimsyBlocks.LIMESTONE.get()
+		);
 	}
 }

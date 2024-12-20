@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "wetland_whimsy:limestone"
+  },
+  "result": {
+    "count": 1,
+    "id": "wetland_whimsy:polished_limestone"
+  }
+}
