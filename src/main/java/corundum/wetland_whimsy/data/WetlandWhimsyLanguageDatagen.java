@@ -48,5 +48,7 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
+
+		this.addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 	}
 }

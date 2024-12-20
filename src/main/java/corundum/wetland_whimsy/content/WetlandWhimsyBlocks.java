@@ -10,6 +10,7 @@ import corundum.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BrushableBlock;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
@@ -364,6 +366,17 @@ public class WetlandWhimsyBlocks {
 			BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)
 				.noOcclusion()
 				.offsetType(BlockBehaviour.OffsetType.XZ)
+		)
+	);
+
+	// Miscellaneous
+	public static final DeferredBlock<BrushableBlock> SUSSY_MUD = registerBlockAndItem(
+		"suspicious_mud",
+		() -> new BrushableBlock (
+			Blocks.MUD,
+			SoundEvents.BRUSH_SAND,
+			SoundEvents.BRUSH_SAND_COMPLETED,
+			BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)
 		)
 	);
 

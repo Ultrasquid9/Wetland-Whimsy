@@ -68,6 +68,11 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			modLoc("block/limestone_bricks")
 		);
 
+		this.withExistingParent(
+			WetlandWhimsyBlocks.SUSSY_MUD.asItem().toString(), 
+			modLoc("block/suspicious_mud_0")
+		);
+
 		// Block items that are 2d in the inventory and use a block texture
 		this.withExistingParent(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.getId().toString(), 

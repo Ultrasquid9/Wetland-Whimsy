@@ -49,7 +49,7 @@ public class WetlandWhimsy {
 	}
 
 	public void eventSetup(IEventBus bussin) {
-		bussin.addListener(WetlandWhimsyBlockEntities::handleSignEntities);
+		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
 	}
 
 	private void nukeTheSwamps() {

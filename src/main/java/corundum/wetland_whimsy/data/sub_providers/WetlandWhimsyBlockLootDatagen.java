@@ -80,5 +80,10 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 			WetlandWhimsyBlocks.CORDGRASS.get(), 
 			BlockLootSubProvider.createShearsOnlyDrop(WetlandWhimsyBlocks.CORDGRASS.asItem())
 		);
+
+		this.add(
+			WetlandWhimsyBlocks.SUSSY_MUD.get(), 
+			noDrop()
+		);
 	}
 }
