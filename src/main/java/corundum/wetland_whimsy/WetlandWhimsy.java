@@ -9,7 +9,7 @@ import corundum.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import corundum.wetland_whimsy.content.WetlandWhimsyBlocks;
 import corundum.wetland_whimsy.content.WetlandWhimsyItems;
 import corundum.wetland_whimsy.data.Datagen;
-import corundum.wetland_whimsy.data.worldgen.WetlandsWhimsyBiomesDatagen;
+import corundum.wetland_whimsy.data.worldgen.WetlandWhimsyBiomesDatagen;
 import corundum.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
@@ -30,20 +30,18 @@ public class WetlandWhimsy {
 	public WetlandWhimsy(IEventBus modEventBus, ModContainer modContainer) {
 		LOGGER.info("Whimsical");
 
+		modEventBus.addListener(Datagen::datagen);
+		modEventBus.addListener(Creative::addCreative);
+
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
-		
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
 
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
-
-		modEventBus.addListener(Datagen::datagen);
-		modEventBus.addListener(Creative::addCreative);
+		WetlandWhimsyWoodTypes.registerWoodTypes();
 
 		this.eventSetup(modEventBus);
-
-		WetlandWhimsyWoodTypes.registerWoodTypes();
 
 		nukeTheSwamps();
 	}
@@ -53,11 +51,11 @@ public class WetlandWhimsy {
 	}
 
 	private void nukeTheSwamps() {
-		BiomePlacement.replaceOverworld(Biomes.SWAMP, WetlandsWhimsyBiomesDatagen.BOG);
+		BiomePlacement.replaceOverworld(Biomes.SWAMP, WetlandWhimsyBiomesDatagen.BOG);
 
 		BiomePlacement.addSubOverworld(
-			WetlandsWhimsyBiomesDatagen.BOG, 
-			WetlandsWhimsyBiomesDatagen.MARSH, 
+			WetlandWhimsyBiomesDatagen.BOG, 
+			WetlandWhimsyBiomesDatagen.MARSH, 
 			CriterionBuilder.deviationMax(BiomeParameterTargets.CONTINENTALNESS, -0.44f)
 		);
 	}

@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "wetland_whimsy:bog",
+      "required": false
+    },
+    {
+      "id": "wetland_whimsy:marsh",
+      "required": false
+    }
+  ]
+}

@@ -27,7 +27,7 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
 import net.minecraft.world.level.material.Fluids;
 
-public class WetlandsWhimsyPlacedFeaturesDatagen {
+public class WetlandWhimsyPlacedFeaturesDatagen {
 	public static final ResourceKey<PlacedFeature> TREES_BOG = createKey("trees_bog");
 	public static final ResourceKey<PlacedFeature> TREES_MARSH = createKey("trees_marsh");
 
