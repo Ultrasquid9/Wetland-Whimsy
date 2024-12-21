@@ -6,6 +6,7 @@ import corundum.wetland_whimsy.WetlandWhimsy;
 import corundum.wetland_whimsy.content.blocks.CordgrassBlock;
 import corundum.wetland_whimsy.content.blocks.PennywortBlock;
 import corundum.wetland_whimsy.content.blocks.StrippableLogBlock;
+import corundum.wetland_whimsy.content.blocks.SussyMudBlock;
 import corundum.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import corundum.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import net.minecraft.core.BlockPos;
@@ -18,7 +19,6 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BrushableBlock;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
@@ -370,9 +370,9 @@ public class WetlandWhimsyBlocks {
 	);
 
 	// Miscellaneous
-	public static final DeferredBlock<BrushableBlock> SUSSY_MUD = registerBlockAndItem(
+	public static final DeferredBlock<SussyMudBlock> SUSSY_MUD = registerBlockAndItem(
 		"suspicious_mud",
-		() -> new BrushableBlock (
+		() -> new SussyMudBlock (
 			Blocks.MUD,
 			SoundEvents.BRUSH_SAND,
 			SoundEvents.BRUSH_SAND_COMPLETED,
