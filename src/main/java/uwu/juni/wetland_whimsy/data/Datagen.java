@@ -81,5 +81,8 @@ public class Datagen {
 				event.getLookupProvider()
 			)
 		);
+
+		// Others
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyDatamapDatagen(output, lookupProvider));
 	}
 }
