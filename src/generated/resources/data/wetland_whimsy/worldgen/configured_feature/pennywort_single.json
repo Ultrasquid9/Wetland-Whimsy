@@ -8,7 +8,11 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "wetland_whimsy:pennywort"
+              "Name": "wetland_whimsy:pennywort",
+              "Properties": {
+                "facing": "north",
+                "pennywort_count": "1"
+              }
             }
           }
         }

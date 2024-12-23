@@ -1,7 +1,88 @@
 {
   "variants": {
-    "": {
-      "model": "wetland_whimsy:block/pennywort"
+    "facing=down,pennywort_count=1": {
+      "model": "wetland_whimsy:block/p_1"
+    },
+    "facing=down,pennywort_count=2": {
+      "model": "wetland_whimsy:block/p_2"
+    },
+    "facing=down,pennywort_count=3": {
+      "model": "wetland_whimsy:block/p_3"
+    },
+    "facing=down,pennywort_count=4": {
+      "model": "wetland_whimsy:block/p_4"
+    },
+    "facing=east,pennywort_count=1": {
+      "model": "wetland_whimsy:block/p_1",
+      "y": 90
+    },
+    "facing=east,pennywort_count=2": {
+      "model": "wetland_whimsy:block/p_2",
+      "y": 90
+    },
+    "facing=east,pennywort_count=3": {
+      "model": "wetland_whimsy:block/p_3",
+      "y": 90
+    },
+    "facing=east,pennywort_count=4": {
+      "model": "wetland_whimsy:block/p_4",
+      "y": 90
+    },
+    "facing=north,pennywort_count=1": {
+      "model": "wetland_whimsy:block/p_1"
+    },
+    "facing=north,pennywort_count=2": {
+      "model": "wetland_whimsy:block/p_2"
+    },
+    "facing=north,pennywort_count=3": {
+      "model": "wetland_whimsy:block/p_3"
+    },
+    "facing=north,pennywort_count=4": {
+      "model": "wetland_whimsy:block/p_4"
+    },
+    "facing=south,pennywort_count=1": {
+      "model": "wetland_whimsy:block/p_1",
+      "y": 180
+    },
+    "facing=south,pennywort_count=2": {
+      "model": "wetland_whimsy:block/p_2",
+      "y": 180
+    },
+    "facing=south,pennywort_count=3": {
+      "model": "wetland_whimsy:block/p_3",
+      "y": 180
+    },
+    "facing=south,pennywort_count=4": {
+      "model": "wetland_whimsy:block/p_4",
+      "y": 180
+    },
+    "facing=up,pennywort_count=1": {
+      "model": "wetland_whimsy:block/p_1"
+    },
+    "facing=up,pennywort_count=2": {
+      "model": "wetland_whimsy:block/p_2"
+    },
+    "facing=up,pennywort_count=3": {
+      "model": "wetland_whimsy:block/p_3"
+    },
+    "facing=up,pennywort_count=4": {
+      "model": "wetland_whimsy:block/p_4"
+    },
+    "facing=west,pennywort_count=1": {
+      "model": "wetland_whimsy:block/p_1",
+      "y": 270
+    },
+    "facing=west,pennywort_count=2": {
+      "model": "wetland_whimsy:block/p_2",
+      "y": 270
+    },
+    "facing=west,pennywort_count=3": {
+      "model": "wetland_whimsy:block/p_3",
+      "y": 270
+    },
+    "facing=west,pennywort_count=4": {
+      "model": "wetland_whimsy:block/p_4",
+      "y": 270
     }
   }
 }

@@ -2,8 +2,11 @@ package uwu.juni.wetland_whimsy.data;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
@@ -152,10 +155,29 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			this.models()
 				.withExistingParent("cordgrass", this.modLoc("block/cordgrass_base"))
 		);
-		this.simpleBlock(
-			WetlandWhimsyBlocks.PENNYWORT.get(),
-			this.models()
-				.withExistingParent("pennywort", this.modLoc("block/pennywort_base"))
+		pennywort(WetlandWhimsyBlocks.PENNYWORT.get());
+	}
+
+	private void pennywort(Block pennywort) {
+		this.getVariantBuilder(pennywort).forAllStates((state) -> ConfiguredModel.builder()
+			.modelFile(
+				switch (state.getValue(PennywortBlock.PENNYWORT_COUNT)) {
+					case 1 -> models().withExistingParent("p_1", this.modLoc("block/pennywort/pennywort_one"));
+					case 2 -> models().withExistingParent("p_2", this.modLoc("block/pennywort/pennywort_two"));
+					case 3 -> models().withExistingParent("p_3", this.modLoc("block/pennywort/pennywort_three"));
+					default -> models().withExistingParent("p_4", this.modLoc("block/pennywort/pennywort_four"));
+				}
+			)
+			.rotationY(
+				switch (state.getValue(PennywortBlock.FACING)) {
+					case NORTH -> 0;
+					case EAST -> 90;
+					case SOUTH -> 180;
+					case WEST -> 270; 
+					default -> 0; 
+				}
+			)
+			.build()
 		);
 	}
 }
