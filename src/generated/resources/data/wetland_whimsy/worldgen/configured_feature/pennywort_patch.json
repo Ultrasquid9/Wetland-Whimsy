@@ -6,14 +6,169 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "wetland_whimsy:pennywort",
-              "Properties": {
-                "facing": "north",
-                "flower_amount": "1"
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "wetland_whimsy:pennywort",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
               }
-            }
+            ]
           }
         }
       },
@@ -27,7 +182,7 @@
         }
       ]
     },
-    "tries": 48,
+    "tries": 64,
     "xz_spread": 10,
     "y_spread": 4
   }
