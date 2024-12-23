@@ -28,7 +28,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @SuppressWarnings("null")
 public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 	public static final int MAX_PENNYWORTS = 4;
-	public static final IntegerProperty PENNYWORT_COUNT = IntegerProperty.create("pennywort_count", 1, 4);
+	public static final IntegerProperty PENNYWORT_COUNT = BlockStateProperties.FLOWER_AMOUNT;
 	public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
 
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 5.0, 14.0);

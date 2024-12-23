@@ -11,7 +11,7 @@
               "Name": "wetland_whimsy:pennywort",
               "Properties": {
                 "facing": "north",
-                "pennywort_count": "1"
+                "flower_amount": "1"
               }
             }
           }
