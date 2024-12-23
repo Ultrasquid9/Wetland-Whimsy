@@ -610,6 +610,10 @@
         },
         {
           "type": "minecraft:item",
+          "name": "wetland_whimsy:pennywort_salad"
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:suspicious_stew"
         },
         {

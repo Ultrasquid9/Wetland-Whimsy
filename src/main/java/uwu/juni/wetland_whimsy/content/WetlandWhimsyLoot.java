@@ -64,6 +64,7 @@ public class WetlandWhimsyLoot {
 				.add(LootItem.lootTableItem(Items.AMETHYST_SHARD.asItem()).apply(lootCount(1.F, 2.F)))
 
 				.add(LootItem.lootTableItem(Items.MUSHROOM_STEW.asItem()))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.PENNYWORT_SALAD.asItem()))
 				.add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW.asItem()))
 				.add(LootItem.lootTableItem(Items.MUSIC_DISC_RELIC.asItem())) // TODO: Replace with disk by Quizzly 
 			);

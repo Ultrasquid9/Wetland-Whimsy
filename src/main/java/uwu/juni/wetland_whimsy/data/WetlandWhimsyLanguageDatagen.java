@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.data;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -50,5 +51,7 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 
 		this.addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
+
+		this.addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 	}
 }

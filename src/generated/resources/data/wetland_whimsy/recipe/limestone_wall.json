@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "doors",
   "key": {
     "P": {
       "item": "wetland_whimsy:limestone"

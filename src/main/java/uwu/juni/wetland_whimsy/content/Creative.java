@@ -93,6 +93,14 @@ public class Creative {
 				event
 			);
 		}
+
+		if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+			insertItem(
+				Items.BEETROOT_SOUP,
+				WetlandWhimsyItems.PENNYWORT_SALAD.get(), 
+				event
+			);
+		}
 	}
 
 	private static void insertItem(Item previous, Item next, BuildCreativeModeTabContentsEvent event) {

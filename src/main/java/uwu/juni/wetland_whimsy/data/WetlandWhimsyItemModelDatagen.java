@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.data;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -89,10 +90,11 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 
 		// Block items that are 2d in the inventory and use a unique texture
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.asItem());
-
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get().asItem());
-
 		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.asItem());
+
+		// Items
+		this.basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
 	}
 }

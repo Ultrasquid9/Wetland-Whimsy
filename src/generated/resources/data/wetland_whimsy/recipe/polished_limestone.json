@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "idk",
   "key": {
     "I": {
       "item": "wetland_whimsy:limestone"

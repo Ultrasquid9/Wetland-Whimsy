@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "stairs",
   "key": {
     "S": {
       "item": "wetland_whimsy:limestone_bricks"
