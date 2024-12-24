@@ -23,24 +23,24 @@ public class SussyMudBlock extends BrushableBlock {
 	) {
 		super(
 			block, 
+			properties,
 			brush, 
-			complete, 
-			properties
+			complete
 		);
 	}
 
 	@Override
-	protected VoxelShape getCollisionShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
+	public VoxelShape getCollisionShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return SHAPE;
 	}
 
 	@Override
-	protected VoxelShape getVisualShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
+	public VoxelShape getBlockSupportShape(BlockState a, BlockGetter b, BlockPos c) {
 		return Shapes.block();
 	}
 
 	@Override
-	protected VoxelShape getBlockSupportShape(BlockState a, BlockGetter b, BlockPos c) {
+	public VoxelShape getVisualShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return Shapes.block();
 	}
 }

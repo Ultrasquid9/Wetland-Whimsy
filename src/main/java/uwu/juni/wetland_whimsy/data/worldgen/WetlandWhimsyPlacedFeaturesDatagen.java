@@ -8,7 +8,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
@@ -39,7 +39,7 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 	public static final ResourceKey<PlacedFeature> SUPER_THICK_CORDGRASS_PATCH = createKey("super_thick_cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE = createKey("lilypad_clone");
 
-	public static void bootstap(BootstrapContext<PlacedFeature> context) {
+	public static void bootstap(BootstapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
 		context.register(
@@ -156,7 +156,7 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 			.add(CountPlacement.of(3))
 			.add(RarityFilter.onAverageOnceEvery(3))
 			.add(InSquarePlacement.spread())
-			.add(PlacementUtils.filteredByBlockSurvival(Blocks.SHORT_GRASS))
+			.add(PlacementUtils.filteredByBlockSurvival(Blocks.POPPY))
 			.add(BiomeFilter.biome())
 			.build();
 	}

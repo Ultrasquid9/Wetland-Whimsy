@@ -12,7 +12,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
@@ -33,7 +33,7 @@ public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 		);
 
 		this.tag(ItemTags.PLANKS).add(
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.asItem()	
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get().asItem()	
 		);
 
 		this.tag(ItemTags.TRIM_TEMPLATES).add(

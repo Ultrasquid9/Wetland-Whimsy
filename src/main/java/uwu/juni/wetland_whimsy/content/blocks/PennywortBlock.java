@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
@@ -33,7 +32,8 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 5.0, 14.0);
 
-	public PennywortBlock(Holder<MobEffect> effect, float time, BlockBehaviour.Properties properties) {
+	@SuppressWarnings("deprecation")
+	public PennywortBlock(MobEffect effect, int time, BlockBehaviour.Properties properties) {
 		super(effect, time, properties);
 
 		registerDefaultState(
@@ -44,7 +44,7 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	public VoxelShape getShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return SHAPE;
 	}
 
@@ -67,15 +67,21 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection());
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	protected boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
-		return !useContext.isSecondaryUseActive() && useContext.getItemInHand().is(this.asItem()) && state.getValue(PENNYWORT_COUNT) < 4
+	public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+		return !context.isSecondaryUseActive() && context.getItemInHand().is(this.asItem()) && state.getValue(PENNYWORT_COUNT) < 4
 			? true
-			: super.canBeReplaced(state, useContext);
+			: super.canBeReplaced(state, context);
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+	public boolean isValidBonemealTarget(
+		LevelReader p_256559_, 
+		BlockPos p_50898_, 
+		BlockState p_50899_,
+		boolean p_50900_
+	) {
 		return true;
 	}
 

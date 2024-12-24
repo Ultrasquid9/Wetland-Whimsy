@@ -1,6 +1,8 @@
 package uwu.juni.wetland_whimsy.data.sub_providers;
 
 import java.util.Set;
+import java.util.function.Supplier;
+
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -9,19 +11,19 @@ import net.minecraft.world.level.block.Block;
 
 public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 	public WetlandWhimsyBlockLootDatagen(HolderLookup.Provider lookupProvider) {
-		super(Set.of(), FeatureFlags.DEFAULT_FLAGS, lookupProvider);
+		super(Set.of(), FeatureFlags.DEFAULT_FLAGS);
 	}
 
 	@Override
 	protected Iterable<Block> getKnownBlocks() {
 		return WetlandWhimsyBlocks.BLOCKS.getEntries()
 			.stream()
-			.map(block -> (Block) block.value())
+			.map(Supplier::get)
 			.toList();
 	}
 
 	@Override
-	protected void generate() {
+	public void generate() {
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get());
 		this.dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get());
@@ -81,7 +83,7 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		);
 		this.add(
 			WetlandWhimsyBlocks.CORDGRASS.get(), 
-			BlockLootSubProvider.createShearsOnlyDrop(WetlandWhimsyBlocks.CORDGRASS.asItem())
+			BlockLootSubProvider.createShearsOnlyDrop(WetlandWhimsyBlocks.CORDGRASS.get().asItem())
 		);
 
 		this.add(

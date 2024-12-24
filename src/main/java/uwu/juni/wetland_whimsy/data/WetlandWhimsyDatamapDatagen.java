@@ -4,14 +4,10 @@ import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.data.DataMapProvider;
-import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
-import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
-import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-public class WetlandWhimsyDatamapDatagen extends DataMapProvider {
+/* public class WetlandWhimsyDatamapDatagen extends DataMapProvider {
 	public WetlandWhimsyDatamapDatagen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
 		super(packOutput, lookupProvider);
 	}
@@ -30,4 +26,4 @@ public class WetlandWhimsyDatamapDatagen extends DataMapProvider {
 			.add(WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS, new FurnaceFuel(300), false)
 			.build();
 	}
-}
+} */

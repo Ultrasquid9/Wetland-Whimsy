@@ -1,10 +1,9 @@
 package uwu.juni.wetland_whimsy.content;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 
 public class WetlandWhimsyBlockEntities {
-	public static void handleBlockEntities(BlockEntityTypeAddBlocksEvent event) {
+/* 	public static void handleBlockEntities(BlockEntityTypeAddBlocksEvent event) {
 		event.modify(
 			BlockEntityType.SIGN, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(),
@@ -21,5 +20,5 @@ public class WetlandWhimsyBlockEntities {
 			BlockEntityType.BRUSHABLE_BLOCK,
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
 		);
-	}
+	} */
 }

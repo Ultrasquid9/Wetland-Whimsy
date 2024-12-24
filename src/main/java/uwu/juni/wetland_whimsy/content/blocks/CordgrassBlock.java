@@ -1,7 +1,5 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
-import com.mojang.serialization.MapCodec;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -19,7 +17,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("null")
 public class CordgrassBlock extends BushBlock implements BonemealableBlock {
-	protected static final MapCodec<CordgrassBlock> CODEC = simpleCodec(CordgrassBlock::new);
 	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 24.0, 15.0);
 
 	public CordgrassBlock(BlockBehaviour.Properties properties) {
@@ -28,18 +25,18 @@ public class CordgrassBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-		return SHAPE;
-	}
-
-	@Override
-	protected MapCodec<? extends BushBlock> codec() {
-		return CODEC;
-	}
-
-	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+	public boolean isValidBonemealTarget(
+		LevelReader p_256559_, 
+		BlockPos p_50898_, 
+		BlockState p_50899_,
+		boolean p_50900_
+	) {
 		return true;
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
+		return SHAPE;
 	}
 
 	@Override

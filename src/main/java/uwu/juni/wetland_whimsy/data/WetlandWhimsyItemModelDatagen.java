@@ -4,8 +4,9 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 	public WetlandWhimsyItemModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
@@ -52,7 +53,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			modLoc("block/bald_cypress_planks")
 		);
 		this.withExistingParent(
-			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.asItem().toString(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get().asItem().toString(), 
 			modLoc("block/bald_cypress_trapdoor_bottom")
 		);
 
@@ -70,7 +71,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		);
 
 		this.withExistingParent(
-			WetlandWhimsyBlocks.SUSSY_MUD.asItem().toString(), 
+			WetlandWhimsyBlocks.SUSSY_MUD.get().asItem().toString(), 
 			modLoc("block/suspicious_mud_0")
 		);
 
@@ -89,13 +90,22 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		.texture("layer1", "block/pennywort_leaves_top");
 
 		// Block items that are 2d in the inventory and use a unique texture
-		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.asItem());
+		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get().asItem());
-		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.asItem());
+		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.get().asItem());
 
 		// Items
 		this.basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
 		this.basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+	}
+
+	private void simpleBlockItem(Block block) {
+		var name = block.toString(); // DOES NOT WORK, TEMPORARY
+
+		this.withExistingParent(
+			name, 
+			this.mcLoc(name)
+		);
 	}
 }

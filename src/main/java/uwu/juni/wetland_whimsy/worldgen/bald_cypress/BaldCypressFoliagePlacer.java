@@ -2,7 +2,7 @@ package uwu.juni.wetland_whimsy.worldgen.bald_cypress;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
@@ -17,8 +17,9 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 @SuppressWarnings("null")
 public class BaldCypressFoliagePlacer extends FoliagePlacer {
 
-    public static final MapCodec<BaldCypressFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
-		(parts) -> foliagePlacerParts(parts).apply(parts, BaldCypressFoliagePlacer::new)
+	public static final Codec<BaldCypressFoliagePlacer> CODEC = RecordCodecBuilder.create(
+		(instance) -> foliagePlacerParts(instance)
+			.apply(instance, BaldCypressFoliagePlacer::new)
 	);
 
 	public BaldCypressFoliagePlacer(IntProvider radius, IntProvider offset) {

@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.BiConsumer;
 
 import com.google.common.collect.ImmutableList;
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
@@ -34,8 +34,9 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 		0
 	};
 
-	public static final MapCodec<BaldCypressTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
-		(instance) -> trunkPlacerParts(instance).apply(instance, BaldCypressTrunkPlacer::new)
+	public static final Codec<BaldCypressTrunkPlacer> CODEC = RecordCodecBuilder.create(
+		(instance) -> trunkPlacerParts(instance)
+			.apply(instance, BaldCypressTrunkPlacer::new)
 	);
 	
 	public BaldCypressTrunkPlacer(int height, int heightRandA, int heightRandB) {

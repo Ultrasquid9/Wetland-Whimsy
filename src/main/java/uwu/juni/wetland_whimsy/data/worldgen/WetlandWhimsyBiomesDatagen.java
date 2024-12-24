@@ -4,7 +4,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
@@ -48,7 +48,7 @@ public class WetlandWhimsyBiomesDatagen {
 		.grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
 		.backgroundMusic(new Music(SoundEvents.MUSIC_BIOME_SWAMP, 12000, 24000, false));
 
-	public static void bootstap(BootstrapContext<Biome> context) {
+	public static void bootstap(BootstapContext<Biome> context) {
 		context.register(BOG, bogBiome(context));
 		context.register(MARSH, marshBiome(context));
 	}
@@ -57,7 +57,7 @@ public class WetlandWhimsyBiomesDatagen {
         return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name));
     }
 
-	public static Biome bogBiome(BootstrapContext<Biome> context) {
+	public static Biome bogBiome(BootstapContext<Biome> context) {
 		HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
@@ -71,7 +71,7 @@ public class WetlandWhimsyBiomesDatagen {
 		return makeBiome(generationSettings, BOG_EFFECTS);
 	}
 
-	public static Biome marshBiome(BootstrapContext<Biome> context) {
+	public static Biome marshBiome(BootstapContext<Biome> context) {
 		HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
@@ -102,7 +102,6 @@ public class WetlandWhimsyBiomesDatagen {
 				mobs
 					.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8))
 					.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FROG, 10, 2, 5))
-					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 30, 4, 4))
 					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4))
 					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 30, 3, 3))
 					.build()
@@ -133,7 +132,6 @@ public class WetlandWhimsyBiomesDatagen {
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_REDSTONE)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_REDSTONE_LOWER)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND)
-					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND_MEDIUM)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND_LARGE)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND_BURIED)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_LAPIS)

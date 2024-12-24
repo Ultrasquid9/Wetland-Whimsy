@@ -18,8 +18,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableProvider.SubProviderEntry;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
-import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 public class Datagen {
 	public static void datagen(GatherDataEvent event) {
@@ -63,17 +63,17 @@ public class Datagen {
 		datagen.addProvider(event.includeServer(), new WetlandWhimsyBiomeTagsDatagen(output, lookupProvider, fileHelper));
 
 		// Loot tables
-		datagen.addProvider(
+/* 		datagen.addProvider(
 			event.includeServer(),
 			new LootTableProvider(
 				output, 
 				Set.of(), 
 				List.of(
-					new SubProviderEntry(
+					new LootTableProvider.SubProviderEntry(
 						WetlandWhimsyBlockLootDatagen::new,
 						LootContextParamSets.BLOCK
 					),
-					new SubProviderEntry(
+					new LootTableProvider.SubProviderEntry(
 						WetlandWhimsyVaultLootDatagen::new,
 						LootContextParamSets.CHEST
 					)
@@ -83,6 +83,6 @@ public class Datagen {
 		);
 
 		// Others
-		datagen.addProvider(event.includeServer(), new WetlandWhimsyDatamapDatagen(output, lookupProvider));
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyDatamapDatagen(output, lookupProvider)); */
 	}
 }

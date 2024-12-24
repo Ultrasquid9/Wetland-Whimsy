@@ -11,7 +11,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -55,7 +55,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static void bootstap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+	public static void bootstap(BootstapContext<ConfiguredFeature<?, ?>> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
 		SimpleWeightedRandomList.Builder<BlockState> pennywortRandomState = new SimpleWeightedRandomList.Builder<>();
@@ -65,7 +65,8 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 					WetlandWhimsyBlocks.PENNYWORT.get()
 						.defaultBlockState()
 						.setValue(PennywortBlock.FACING, dir)
-						.setValue(PennywortBlock.PENNYWORT_COUNT, i)
+						.setValue(PennywortBlock.PENNYWORT_COUNT, i),
+					1
 				);
 			}
 		}

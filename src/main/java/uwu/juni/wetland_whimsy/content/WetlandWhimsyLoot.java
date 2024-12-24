@@ -15,8 +15,8 @@ public class WetlandWhimsyLoot {
 
 			.withPool(LootPool.lootPool()
 				.setRolls(UniformGenerator.between(1.F, 1.F))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.PENNYWORT.asItem()).apply(lootCount(4.F, 8.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.CORDGRASS.asItem()).apply(lootCount(4.F, 8.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.PENNYWORT.get()).apply(lootCount(4.F, 8.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.CORDGRASS.get()).apply(lootCount(4.F, 8.F)))
 				.add(LootItem.lootTableItem(Blocks.BLUE_ORCHID.asItem()).apply(lootCount(4.F, 8.F)))
 
 				.add(LootItem.lootTableItem(Items.WHEAT.asItem()).apply(lootCount(8.F, 16.F)))
@@ -25,24 +25,24 @@ public class WetlandWhimsyLoot {
 				.add(LootItem.lootTableItem(Items.BEETROOT_SEEDS.asItem()).apply(lootCount(8.F, 16.F)))
 				.add(LootItem.lootTableItem(Items.STICK.asItem()).apply(lootCount(8.F, 16.F)))
 
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.asItem()).apply(lootCount(2.F, 6.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.asItem()).apply(lootCount(2.F, 6.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.asItem()).apply(lootCount(2.F, 6.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.asItem()).apply(lootCount(2.F, 6.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.asItem()).apply(lootCount(2.F, 6.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.asItem()).apply(lootCount(2.F, 6.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get().asItem()).apply(lootCount(2.F, 6.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get().asItem()).apply(lootCount(2.F, 6.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get().asItem()).apply(lootCount(2.F, 6.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get().asItem()).apply(lootCount(2.F, 6.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get().asItem()).apply(lootCount(2.F, 6.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get().asItem()).apply(lootCount(2.F, 6.F)))
 
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICKS.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_PILLAR.asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICKS.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get().asItem()).apply(lootCount(1.F, 10.F)))
 
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_STAIRS.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_SLAB.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_STAIRS.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_SLAB.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get().asItem()).apply(lootCount(1.F, 10.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get().asItem()).apply(lootCount(1.F, 10.F)))
 
 				.add(LootItem.lootTableItem(Items.RAW_GOLD.asItem()).apply(lootCount(1.F, 8.F)))
 				.add(LootItem.lootTableItem(Items.RAW_IRON.asItem()).apply(lootCount(1.F, 8.F)))
@@ -64,9 +64,9 @@ public class WetlandWhimsyLoot {
 				.add(LootItem.lootTableItem(Items.AMETHYST_SHARD.asItem()).apply(lootCount(1.F, 2.F)))
 
 				.add(LootItem.lootTableItem(Items.MUSHROOM_STEW.asItem()))
-				.add(LootItem.lootTableItem(WetlandWhimsyItems.PENNYWORT_SALAD.asItem()))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.PENNYWORT_SALAD.get()))
 				.add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW.asItem()))
-				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.asItem()))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
 			);
 	}
 
@@ -77,15 +77,15 @@ public class WetlandWhimsyLoot {
 				.setRolls(UniformGenerator.between(1.F, 1.F))
 				.add(LootItem.lootTableItem(Items.BREAD.asItem()).apply(lootCount(8.F, 16.F)))
 
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.asItem()).apply(lootCount(4.F, 12.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.asItem()).apply(lootCount(4.F, 12.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.asItem()).apply(lootCount(4.F, 12.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.asItem()).apply(lootCount(4.F, 12.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get().asItem()).apply(lootCount(4.F, 12.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get().asItem()).apply(lootCount(4.F, 12.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get().asItem()).apply(lootCount(4.F, 12.F)))
+				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get().asItem()).apply(lootCount(4.F, 12.F)))
 
 				.add(LootItem.lootTableItem(Items.SKULL_POTTERY_SHERD.asItem()))
 				.add(LootItem.lootTableItem(Items.BREWER_POTTERY_SHERD.asItem()))
 				.add(LootItem.lootTableItem(Items.ANGLER_POTTERY_SHERD.asItem()))
-				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.asItem()))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get().asItem()))
 
 				.add(LootItem.lootTableItem(Items.RAW_GOLD.asItem()).apply(lootCount(3.F, 10.F)))
 				.add(LootItem.lootTableItem(Items.RAW_IRON.asItem()).apply(lootCount(3.F, 10.F)))

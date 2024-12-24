@@ -2,139 +2,139 @@ package uwu.juni.wetland_whimsy.data;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.common.Tags;
+import net.minecraftforge.common.Tags;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 	protected WetlandWhimsyRecipeDatagen(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
-		super(output, provider);
+		super(output);
 	}
 
 	@Override
-	protected void buildRecipes(RecipeOutput recipeOutput) {
+	protected void buildRecipes(Consumer<FinishedRecipe> recipeOutput) {
 
 		// Bald Cypress
 		planksFromLog(
 			recipeOutput, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS,
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(),
 			WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS, 
 			4
 		);
 		twoByTwo(
 			recipeOutput, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_LOG, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD, 
+			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get(), 
 			3
 		);
 		twoByTwo(
 			recipeOutput, 
-			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG, 
-			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD, 
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(), 
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get(), 
 			3
 		);
 		stairsAndSlab(
 			recipeOutput, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS,
-			WetlandWhimsyBlocks.BALD_CYPRESS_SLAB
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get()
 		);
 		doorAndTrapdoor(
 			recipeOutput, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR,
-			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()
 		);
 		buttonAndPressurePlate(
 			recipeOutput, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON,
-			WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get()
 		);
 		fenceAndFenceGate(
 			recipeOutput, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS,
-			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE,
-			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get(),
+			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE.get()
 		);
 		hangingSign(
 			recipeOutput, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN, 
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS
+			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()
 		);
-		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, WetlandWhimsyBlocks.BALD_CYPRESS_SIGN, 3)
+		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(), 3)
 			.group("wooden_sign")
-			.define('P', WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS)
+			.define('P', WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get())
 			.define('/', Tags.Items.RODS_WOODEN)
 			.pattern("PPP")
 			.pattern("PPP")
 			.pattern(" / ")
-			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS))
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()))
 			.save(recipeOutput);
 
 		// Limestone
 		twoByTwo(
 			recipeOutput, 
-			WetlandWhimsyBlocks.LIMESTONE, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
+			WetlandWhimsyBlocks.LIMESTONE.get(), 
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(), 
 			4
 		);
 		twoByTwo(
 			recipeOutput, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
-			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(), 
+			WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(), 
 			4
 		);
 
 		stairsAndSlab(
 			recipeOutput, 
-			WetlandWhimsyBlocks.LIMESTONE, 
-			WetlandWhimsyBlocks.LIMESTONE_STAIRS, 
-			WetlandWhimsyBlocks.LIMESTONE_SLAB
+			WetlandWhimsyBlocks.LIMESTONE.get(), 
+			WetlandWhimsyBlocks.LIMESTONE_STAIRS.get(), 
+			WetlandWhimsyBlocks.LIMESTONE_SLAB.get()
 		);
 		stairsAndSlab(
 			recipeOutput, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(), 
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get(), 
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get()
 		);
 		stairsAndSlab(
 			recipeOutput, 
-			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
-			WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS, 
-			WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB
+			WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(), 
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get(), 
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get()
 		);
 		wall(
 			recipeOutput, 
-			WetlandWhimsyBlocks.LIMESTONE, 
-			WetlandWhimsyBlocks.LIMESTONE_WALL
+			WetlandWhimsyBlocks.LIMESTONE.get(), 
+			WetlandWhimsyBlocks.LIMESTONE_WALL.get()
 		);
 		wall(
 			recipeOutput, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(), 
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get()
 		);
 		wall(
 			recipeOutput, 
-			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
-			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL
+			WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(), 
+			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get()
 		);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, WetlandWhimsyBlocks.LIMESTONE_PILLAR.get(), 2)
-			.group("limestone")
-			.define('L', WetlandWhimsyBlocks.POLISHED_LIMESTONE)
+			.define('L', WetlandWhimsyBlocks.POLISHED_LIMESTONE.get())
 			.pattern("L")
 			.pattern("L")
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get()), has(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get()))
@@ -142,56 +142,56 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 
 		stonecutterList(
 			recipeOutput, 
-			WetlandWhimsyBlocks.LIMESTONE, 
+			WetlandWhimsyBlocks.LIMESTONE.get(), 
 			List.of(
-				WetlandWhimsyBlocks.LIMESTONE_STAIRS,
-				WetlandWhimsyBlocks.LIMESTONE_SLAB,
-				WetlandWhimsyBlocks.LIMESTONE_WALL,
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE,
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS,
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB,
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL,
-				WetlandWhimsyBlocks.LIMESTONE_BRICKS,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL,
-				WetlandWhimsyBlocks.LIMESTONE_PILLAR
+				WetlandWhimsyBlocks.LIMESTONE_STAIRS.get(),
+				WetlandWhimsyBlocks.LIMESTONE_SLAB.get(),
+				WetlandWhimsyBlocks.LIMESTONE_WALL.get(),
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(),
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get(),
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get(),
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get(),
+				WetlandWhimsyBlocks.LIMESTONE_PILLAR.get()
 			)
 		);
 		stonecutterList(
 			recipeOutput, 
-			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
+			WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(), 
 			List.of(
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS,
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB,
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL,
-				WetlandWhimsyBlocks.LIMESTONE_BRICKS,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL,
-				WetlandWhimsyBlocks.LIMESTONE_PILLAR
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get(),
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get(),
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get(),
+				WetlandWhimsyBlocks.LIMESTONE_PILLAR.get()
 			)
 		);
 		stonecutterList(
 			recipeOutput, 
-			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
+			WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(), 
 			List.of(
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB,
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL,
-				WetlandWhimsyBlocks.LIMESTONE_PILLAR
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get(),
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get(),
+				WetlandWhimsyBlocks.LIMESTONE_PILLAR.get()
 			)
 		);
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, WetlandWhimsyItems.PENNYWORT_SALAD)
-			.requires(WetlandWhimsyBlocks.PENNYWORT, 4)
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, WetlandWhimsyItems.PENNYWORT_SALAD.get())
+			.requires(WetlandWhimsyBlocks.PENNYWORT.get(), 4)
 			.requires(Items.BEETROOT, 2)
 			.requires(Items.BOWL)
-			.unlockedBy(getHasName(WetlandWhimsyBlocks.PENNYWORT), has(WetlandWhimsyBlocks.PENNYWORT))
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.PENNYWORT.get()), has(WetlandWhimsyBlocks.PENNYWORT.get()))
 			.save(recipeOutput);
 	}
 
-	private void twoByTwo(RecipeOutput recipeOutput, ItemLike input, ItemLike output, int count) {
+	private void twoByTwo(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike output, int count) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, output, count)
 			.define('I', input)
 			.pattern("II")
@@ -199,7 +199,7 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
-	private void stairsAndSlab(RecipeOutput recipeOutput, ItemLike input, ItemLike stairs, ItemLike slab) {
+	private void stairsAndSlab(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike stairs, ItemLike slab) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairs, 4)
 			.define('S', input)
 			.pattern("  S")
@@ -213,7 +213,7 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
-	private void wall(RecipeOutput recipeOutput, ItemLike input, ItemLike wall) {
+	private void wall(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike wall) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, wall, 6)
 			.define('P', input)
 			.pattern("PPP")
@@ -221,7 +221,7 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
-	private void doorAndTrapdoor(RecipeOutput recipeOutput, ItemLike input, ItemLike door, ItemLike trapdoor) {
+	private void doorAndTrapdoor(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike door, ItemLike trapdoor) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, door, 3)
 			.define('P', input)
 			.pattern("PP")
@@ -236,7 +236,7 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
-	private void buttonAndPressurePlate(RecipeOutput recipeOutput, ItemLike input, ItemLike button, ItemLike pressurePlate) {
+	private void buttonAndPressurePlate(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike button, ItemLike pressurePlate) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, button, 1)
 			.define('P', input)
 			.pattern("P")
@@ -249,7 +249,7 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			input
 		);
 	}
-	private void fenceAndFenceGate(RecipeOutput recipeOutput, ItemLike input, ItemLike fence, ItemLike gate) {
+	private void fenceAndFenceGate(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike fence, ItemLike gate) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, fence, 3)
 			.define('P', input)
 			.define('/', Tags.Items.RODS_WOODEN)
@@ -266,7 +266,7 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.save(recipeOutput);
 	}
 
-	private void stonecutterList(RecipeOutput recipeOutput, ItemLike input, List<ItemLike> outputs) {
+	private void stonecutterList(Consumer<FinishedRecipe> recipeOutput, ItemLike input, List<ItemLike> outputs) {
 		for (ItemLike output : outputs) {
 			var count = 1;
 			
