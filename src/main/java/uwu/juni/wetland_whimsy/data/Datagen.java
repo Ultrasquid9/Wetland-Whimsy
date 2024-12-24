@@ -1,12 +1,8 @@
 package uwu.juni.wetland_whimsy.data;
 
 import java.util.Collections;
-import java.util.List;
-import java.util.Set;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyVaultLootDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
@@ -15,9 +11,6 @@ import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyBiomesDatagen;
 import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyPlacedFeaturesDatagen;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.data.loot.LootTableProvider.SubProviderEntry;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 
@@ -80,9 +73,6 @@ public class Datagen {
 				), 
 				event.getLookupProvider()
 			)
-		);
-
-		// Others
-		datagen.addProvider(event.includeServer(), new WetlandWhimsyDatamapDatagen(output, lookupProvider)); */
+		);*/
 	}
 }
