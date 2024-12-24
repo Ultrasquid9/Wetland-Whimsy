@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "wetland_whimsy:limestone"
+  },
+  "result": "wetland_whimsy:limestone_brick_slab"
+}

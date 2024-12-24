@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "wetland_whimsy:limestone_bricks"
+  },
+  "result": "wetland_whimsy:limestone_pillar"
+}

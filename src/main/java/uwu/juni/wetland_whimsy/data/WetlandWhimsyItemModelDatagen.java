@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 	public WetlandWhimsyItemModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
@@ -101,11 +102,11 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 	}
 
 	private void simpleBlockItem(Block block) {
-		var name = block.toString(); // DOES NOT WORK, TEMPORARY
+		var name = ForgeRegistries.BLOCKS.getKey(block).getPath();
 
 		this.withExistingParent(
 			name, 
-			this.mcLoc(name)
+			this.modLoc("block/" + name)
 		);
 	}
 }

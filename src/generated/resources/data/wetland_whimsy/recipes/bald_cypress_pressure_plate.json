@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "wetland_whimsy:bald_cypress_planks"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "wetland_whimsy:bald_cypress_pressure_plate"
+  },
+  "show_notification": true
+}

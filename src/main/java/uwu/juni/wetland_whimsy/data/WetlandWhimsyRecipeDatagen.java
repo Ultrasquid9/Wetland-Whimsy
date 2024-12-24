@@ -237,9 +237,8 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.save(recipeOutput);
 	}
 	private void buttonAndPressurePlate(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike button, ItemLike pressurePlate) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, button, 1)
-			.define('P', input)
-			.pattern("P")
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, button, 1)
+			.requires(input)
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 

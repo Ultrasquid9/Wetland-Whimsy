@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "wetland_whimsy:bald_cypress_planks"
+    }
+  ],
+  "result": {
+    "item": "wetland_whimsy:bald_cypress_button"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "/": {
+      "tag": "forge:rods/wooden"
+    },
+    "P": {
+      "item": "wetland_whimsy:bald_cypress_planks"
+    }
+  },
+  "pattern": [
+    "/P/",
+    "/P/"
+  ],
+  "result": {
+    "item": "wetland_whimsy:bald_cypress_fence_gate"
+  },
+  "show_notification": true
+}

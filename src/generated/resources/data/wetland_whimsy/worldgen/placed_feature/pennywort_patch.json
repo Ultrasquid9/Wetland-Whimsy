@@ -21,7 +21,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "minecraft:short_grass"
+          "Name": "minecraft:poppy"
         }
       }
     },

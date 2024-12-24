@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bald_cypress_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wetland_whimsy:bald_cypress_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "wetland_whimsy:bald_cypress_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bald_cypress_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "wetland_whimsy:bald_cypress_wood"
+    ]
+  },
+  "sends_telemetry_event": false
+}
