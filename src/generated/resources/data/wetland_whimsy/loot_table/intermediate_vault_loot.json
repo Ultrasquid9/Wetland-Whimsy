@@ -334,7 +334,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:music_disc_relic"
+          "name": "wetland_whimsy:disc"
         }
       ],
       "rolls": {

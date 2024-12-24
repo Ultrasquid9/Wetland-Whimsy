@@ -12,6 +12,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 @SuppressWarnings("null")
@@ -38,6 +39,10 @@ public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 
 		this.tag(ItemTags.TRIM_TEMPLATES).add(
 			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()	
+		);
+
+		this.tag(Tags.Items.MUSIC_DISCS).add(
+			WetlandWhimsyItems.DISC.get()	
 		);
 	}
 }

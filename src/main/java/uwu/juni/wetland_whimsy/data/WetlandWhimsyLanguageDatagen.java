@@ -54,6 +54,7 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 		this.addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		this.addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
+		this.addItem(WetlandWhimsyItems.DISC, "Music Disc");
 
 		this.add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 	}

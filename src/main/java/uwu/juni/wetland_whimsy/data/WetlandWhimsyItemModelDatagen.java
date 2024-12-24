@@ -97,5 +97,6 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		// Items
 		this.basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
 		this.basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+		this.basicItem(WetlandWhimsyItems.DISC.get());
 	}
 }

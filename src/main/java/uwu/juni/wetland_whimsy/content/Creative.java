@@ -102,6 +102,14 @@ public class Creative {
 			);
 		}
 
+		if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+			insertItem(
+				Items.MUSIC_DISC_RELIC, 
+				WetlandWhimsyItems.DISC.get(), 
+				event
+			);
+		}
+
 		if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 			insertItem(
 				Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 
