@@ -101,6 +101,14 @@ public class Creative {
 				event
 			);
 		}
+
+		if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+			insertItem(
+				Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 
+				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 
+				event
+			);
+		}
 	}
 
 	private static void insertItem(Item previous, Item next, BuildCreativeModeTabContentsEvent event) {

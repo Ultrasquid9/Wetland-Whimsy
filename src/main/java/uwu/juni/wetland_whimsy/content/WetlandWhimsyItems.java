@@ -22,4 +22,8 @@ public class WetlandWhimsyItems {
 		)
 		.stacksTo(1)
 	);
+
+	public static final DeferredItem<Item> DOTS_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.registerSimpleItem(
+		"dots_armor_trim_smithing_template"
+	);
 }

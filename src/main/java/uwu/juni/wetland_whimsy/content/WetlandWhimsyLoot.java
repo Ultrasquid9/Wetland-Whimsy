@@ -66,7 +66,7 @@ public class WetlandWhimsyLoot {
 				.add(LootItem.lootTableItem(Items.MUSHROOM_STEW.asItem()))
 				.add(LootItem.lootTableItem(WetlandWhimsyItems.PENNYWORT_SALAD.asItem()))
 				.add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW.asItem()))
-				.add(LootItem.lootTableItem(Items.MUSIC_DISC_RELIC.asItem())) // TODO: Replace with disk by Quizzly 
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.asItem()))
 			);
 	}
 
@@ -85,7 +85,7 @@ public class WetlandWhimsyLoot {
 				.add(LootItem.lootTableItem(Items.SKULL_POTTERY_SHERD.asItem()))
 				.add(LootItem.lootTableItem(Items.BREWER_POTTERY_SHERD.asItem()))
 				.add(LootItem.lootTableItem(Items.ANGLER_POTTERY_SHERD.asItem()))
-				.add(LootItem.lootTableItem(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE.asItem())) // TODO: Custom armor trim
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.asItem()))
 
 				.add(LootItem.lootTableItem(Items.RAW_GOLD.asItem()).apply(lootCount(3.F, 10.F)))
 				.add(LootItem.lootTableItem(Items.RAW_IRON.asItem()).apply(lootCount(3.F, 10.F)))

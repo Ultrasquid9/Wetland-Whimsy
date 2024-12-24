@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:smithing_trim",
+	"addition": {
+		"tag": "minecraft:trim_materials"
+	},
+	"base": {
+		"tag": "minecraft:trimmable_armor"
+	},
+	"template": {
+		"item": "wetland_whimsy:dots_armor_trim_smithing_template"
+	}
+}

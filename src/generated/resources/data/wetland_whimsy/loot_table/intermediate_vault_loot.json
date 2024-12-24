@@ -93,7 +93,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:coast_armor_trim_smithing_template"
+          "name": "wetland_whimsy:dots_armor_trim_smithing_template"
         },
         {
           "type": "minecraft:item",

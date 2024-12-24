@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -33,6 +34,10 @@ public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 
 		this.tag(ItemTags.PLANKS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.asItem()	
+		);
+
+		this.tag(ItemTags.TRIM_TEMPLATES).add(
+			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()	
 		);
 	}
 }

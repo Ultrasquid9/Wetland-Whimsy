@@ -618,7 +618,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:music_disc_relic"
+          "name": "wetland_whimsy:dots_armor_trim_smithing_template"
         }
       ],
       "rolls": {
