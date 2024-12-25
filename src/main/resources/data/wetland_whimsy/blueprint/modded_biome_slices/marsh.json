@@ -1,0 +1,18 @@
+{
+	"levels": [ 
+		"minecraft:overworld"
+	],
+	"provider": {
+		"type": "blueprint:multi_noise",
+		"areas": {
+			"minecraft:swamp": "wetland_whimsy:marsh"
+		},
+		"biomes": [
+			{
+				"biome": "blueprint:original_source_marker"
+			}
+		],
+		"only_map_from_areas": true
+	},
+	"weight": 50
+}
