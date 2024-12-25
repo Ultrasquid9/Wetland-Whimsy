@@ -5,14 +5,12 @@ import java.util.List;
 import java.util.Set;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.data.registries.*;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyVaultLootDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyConfiguredFeaturesDatagen;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyBiomesDatagen;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyPlacedFeaturesDatagen;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;
@@ -40,9 +38,10 @@ public class Datagen {
 				output, 
 				lookupProvider, 
 				new RegistrySetBuilder()
-					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeaturesDatagen::bootstap)
-					.add(Registries.PLACED_FEATURE, WetlandWhimsyPlacedFeaturesDatagen::bootstap)
-					.add(Registries.BIOME, WetlandWhimsyBiomesDatagen::bootstap),
+					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeatures::bootstap)
+					.add(Registries.PLACED_FEATURE, WetlandWhimsyPlacedFeatures::bootstap)
+					.add(Registries.BIOME, WetlandWhimsyBiomes::bootstap)
+					.add(Registries.JUKEBOX_SONG, WetlandWhimsyJukebox::bootstap),
 				Collections.singleton(WetlandWhimsy.MODID)
 			)
 		);

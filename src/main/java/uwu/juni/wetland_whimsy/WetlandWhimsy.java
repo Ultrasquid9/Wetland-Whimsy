@@ -8,8 +8,9 @@ import uwu.juni.wetland_whimsy.content.Creative;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyBiomesDatagen;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
@@ -35,6 +36,7 @@ public class WetlandWhimsy {
 
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
+		WetlandWhimsySounds.SOUNDS.register(modEventBus);
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
 
@@ -51,11 +53,11 @@ public class WetlandWhimsy {
 	}
 
 	private void nukeTheSwamps() {
-		BiomePlacement.replaceOverworld(Biomes.SWAMP, WetlandWhimsyBiomesDatagen.BOG);
+		BiomePlacement.replaceOverworld(Biomes.SWAMP, WetlandWhimsyBiomes.BOG);
 
 		BiomePlacement.addSubOverworld(
-			WetlandWhimsyBiomesDatagen.BOG, 
-			WetlandWhimsyBiomesDatagen.MARSH, 
+			WetlandWhimsyBiomes.BOG, 
+			WetlandWhimsyBiomes.MARSH, 
 			CriterionBuilder.deviationMax(BiomeParameterTargets.CONTINENTALNESS, -0.44f)
 		);
 	}

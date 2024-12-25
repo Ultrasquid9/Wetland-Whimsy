@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.worldgen;
+package uwu.juni.wetland_whimsy.data.registries;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecora
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
-public class WetlandWhimsyConfiguredFeaturesDatagen {
+public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_TREE = createKey("bald_cypress_tree");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");

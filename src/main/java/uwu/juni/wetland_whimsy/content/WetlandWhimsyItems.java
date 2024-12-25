@@ -1,6 +1,7 @@
 package uwu.juni.wetland_whimsy.content;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyJukebox;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -34,5 +35,6 @@ public class WetlandWhimsyItems {
 		new Item.Properties()
 			.stacksTo(1)
 			.rarity(Rarity.RARE)
+			.jukeboxPlayable(WetlandWhimsyJukebox.NUKE_THE_SWAMPS)
 	);
 }

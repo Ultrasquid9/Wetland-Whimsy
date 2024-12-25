@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.worldgen;
+package uwu.juni.wetland_whimsy.data.registries;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import net.minecraft.core.HolderGetter;
@@ -24,7 +24,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
-public class WetlandWhimsyBiomesDatagen {
+public class WetlandWhimsyBiomes {
 	public static final ResourceKey<Biome> BOG = createKey("bog");
 	public static final ResourceKey<Biome> MARSH = createKey("marsh");
 
@@ -62,11 +62,11 @@ public class WetlandWhimsyBiomesDatagen {
 		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
 		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.CORDGRASS_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.PENNYWORT_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.TREES_BOG)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.MUD_POOL)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE);
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.CORDGRASS_PATCH)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.PENNYWORT_PATCH)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.TREES_BOG)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.MUD_POOL)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE);
 
 		return makeBiome(generationSettings, BOG_EFFECTS);
 	}
@@ -76,10 +76,10 @@ public class WetlandWhimsyBiomesDatagen {
 		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
 		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.TREES_MARSH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.SUPER_THICK_CORDGRASS_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.MUD_POOL)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.MUD_DISK);
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.TREES_MARSH)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.SUPER_THICK_CORDGRASS_PATCH)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.MUD_POOL)
+			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.MUD_DISK);
 
 		return makeBiome(generationSettings, MARSH_EFFECTS);
 	}
@@ -141,7 +141,7 @@ public class WetlandWhimsyBiomesDatagen {
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_COPPER)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CavePlacements.UNDERWATER_MAGMA)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_CLAY)
-					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, WetlandWhimsyPlacedFeaturesDatagen.LIMESTONE_DISK)
+					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, WetlandWhimsyPlacedFeatures.LIMESTONE_DISK)
 
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_SWAMP)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH)

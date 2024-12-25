@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.worldgen;
+package uwu.juni.wetland_whimsy.data.registries;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
 import net.minecraft.world.level.material.Fluids;
 
-public class WetlandWhimsyPlacedFeaturesDatagen {
+public class WetlandWhimsyPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> TREES_BOG = createKey("trees_bog");
 	public static final ResourceKey<PlacedFeature> TREES_MARSH = createKey("trees_marsh");
 
@@ -45,7 +45,7 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 		context.register(
 			TREES_BOG, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.TREES_BOG), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.TREES_BOG), 
 				bogTreePlacement()
 			)
 		);
@@ -53,7 +53,7 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 		context.register(
 			TREES_MARSH, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.TREES_MARSH), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.TREES_MARSH), 
 				marshTreePlacement()
 			)
 		);
@@ -61,21 +61,21 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 		context.register(
 			CORDGRASS_PATCH, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.CORDGRASS_PATCH), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.CORDGRASS_PATCH), 
 				foliagePlacement()
 			)
 		);
 		context.register(
 			PENNYWORT_PATCH, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.PENNYWORT_PATCH), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.PENNYWORT_PATCH), 
 				foliagePlacement()
 			)
 		);
 		context.register(
 			LIMESTONE_DISK, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.LIMESTONE_DISK), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.LIMESTONE_DISK), 
 				ImmutableList.<PlacementModifier>builder()
 					.add(InSquarePlacement.spread())
 					.add(PlacementUtils.HEIGHTMAP_TOP_SOLID)
@@ -87,7 +87,7 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 		context.register(
 			MUD_DISK, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.MUD_DISK), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.MUD_DISK), 
 				ImmutableList.<PlacementModifier>builder()
 					.add(PlacementUtils.countExtra(2, 0.5F, 1))
 					.add(InSquarePlacement.spread())
@@ -100,14 +100,14 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 		context.register(
 			MUD_POOL, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.MUD_POOL), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.MUD_POOL), 
 				foliagePlacement()
 			)
 		);
 		context.register(
 			SUPER_THICK_CORDGRASS_PATCH, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.CORDGRASS_PATCH), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.CORDGRASS_PATCH), 
 				bogTreePlacement()
 			)
 		);

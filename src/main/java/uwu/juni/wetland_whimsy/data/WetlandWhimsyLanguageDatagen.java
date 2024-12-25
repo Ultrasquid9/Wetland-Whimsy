@@ -57,5 +57,6 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addItem(WetlandWhimsyItems.DISC, "Music Disc");
 
 		this.add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
+		this.add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");
 	}
 }
