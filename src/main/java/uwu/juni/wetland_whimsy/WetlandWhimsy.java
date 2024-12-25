@@ -45,18 +45,16 @@ public class WetlandWhimsy {
 
 		this.eventSetup(modEventBus);
 
-		nukeTheSwamps();
+		marshification();
 	}
 
 	public void eventSetup(IEventBus bussin) {
 		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
 	}
 
-	private void nukeTheSwamps() {
-		BiomePlacement.replaceOverworld(Biomes.SWAMP, WetlandWhimsyBiomes.BOG);
-
+	private void marshification() {
 		BiomePlacement.addSubOverworld(
-			WetlandWhimsyBiomes.BOG, 
+			Biomes.SWAMP, 
 			WetlandWhimsyBiomes.MARSH, 
 			CriterionBuilder.deviationMax(BiomeParameterTargets.CONTINENTALNESS, -0.44f)
 		);

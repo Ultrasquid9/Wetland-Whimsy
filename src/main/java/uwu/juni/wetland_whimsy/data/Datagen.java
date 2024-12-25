@@ -31,7 +31,7 @@ public class Datagen {
 		datagen.addProvider(event.includeClient(), new WetlandWhimsyLanguageDatagen(output));
 		datagen.addProvider(event.includeServer(), new WetlandWhimsyRecipeDatagen(output, lookupProvider));
 
-		// Worldgen
+		// Registry-based datagen 
 		datagen.addProvider(
 			event.includeClient(), 
 			new DatapackBuiltinEntriesProvider(
