@@ -25,18 +25,7 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class WetlandWhimsyBiomesDatagen {
-	public static final ResourceKey<Biome> BOG = createKey("bog");
 	public static final ResourceKey<Biome> MARSH = createKey("marsh");
-
-	private static final BiomeSpecialEffects.Builder BOG_EFFECTS = new BiomeSpecialEffects.Builder()
-		.fogColor(0xABD2FF)
-		.skyColor(0x78A7FF)
-		.waterColor(0x4C6559)
-		.waterFogColor(0x4C6559)
-		.grassColorOverride(0x527e40)
-		.foliageColorOverride(0x5F6F35)
-		.grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
-		.backgroundMusic(new Music(SoundEvents.MUSIC_BIOME_SWAMP, 12000, 24000, false));
 
 	private static final BiomeSpecialEffects.Builder MARSH_EFFECTS = new BiomeSpecialEffects.Builder()
 		.fogColor(0xaec4dd)
@@ -49,26 +38,11 @@ public class WetlandWhimsyBiomesDatagen {
 		.backgroundMusic(new Music(SoundEvents.MUSIC_BIOME_SWAMP, 12000, 24000, false));
 
 	public static void bootstap(BootstapContext<Biome> context) {
-		context.register(BOG, bogBiome(context));
 		context.register(MARSH, marshBiome(context));
 	}
 
 	private static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name));
-    }
-
-	public static Biome bogBiome(BootstapContext<Biome> context) {
-		HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
-		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
-
-		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.CORDGRASS_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.PENNYWORT_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.TREES_BOG)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.MUD_POOL)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE);
-
-		return makeBiome(generationSettings, BOG_EFFECTS);
+		return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name));
 	}
 
 	public static Biome marshBiome(BootstapContext<Biome> context) {

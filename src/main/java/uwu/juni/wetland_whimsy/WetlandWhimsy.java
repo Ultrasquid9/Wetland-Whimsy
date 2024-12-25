@@ -51,15 +51,6 @@ public class WetlandWhimsy {
 
 		ElysiumBiomeRegistry.replaceOverworldBiome(
 			Biomes.SWAMP, 
-			WetlandWhimsyBiomesDatagen.BOG, 
-			1, 
-			24, 
-			new ResourceLocation(MODID, "nuketheswamps"),
-			registryAccess
-		);
-
-		ElysiumBiomeRegistry.replaceOverworldBiome(
-			WetlandWhimsyBiomesDatagen.BOG, 
 			WetlandWhimsyBiomesDatagen.MARSH, 
 			0.3, 
 			16, 

@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -30,45 +31,39 @@ public class WetlandWhimsyBiomeTagsDatagen extends BiomeTagsProvider {
 	public void addTags(@Nonnull HolderLookup.Provider provider) {
 		addOptionalTagToList(
 			Tags.Biomes.IS_SWAMP, 
-			WetlandWhimsyBiomesDatagen.BOG,
 			WetlandWhimsyBiomesDatagen.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.IS_OVERWORLD, 
-			WetlandWhimsyBiomesDatagen.BOG,
 			WetlandWhimsyBiomesDatagen.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS, 
-			WetlandWhimsyBiomesDatagen.BOG,
 			WetlandWhimsyBiomesDatagen.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.HAS_MINESHAFT, 
-			WetlandWhimsyBiomesDatagen.BOG,
 			WetlandWhimsyBiomesDatagen.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.HAS_RUINED_PORTAL_SWAMP, 
-			WetlandWhimsyBiomesDatagen.BOG,
 			WetlandWhimsyBiomesDatagen.MARSH
 		);
 
 
 		addOptionalTagToList(
 			BiomeTags.HAS_TRAIL_RUINS, 
-			WetlandWhimsyBiomesDatagen.BOG,
+			Biomes.SWAMP,
 			WetlandWhimsyBiomesDatagen.MARSH
 		);
 
 
 		addOptionalTagToList(
 			BiomeTags.HAS_SWAMP_HUT, 
-			WetlandWhimsyBiomesDatagen.BOG,
 			WetlandWhimsyBiomesDatagen.MARSH
 		);
 
