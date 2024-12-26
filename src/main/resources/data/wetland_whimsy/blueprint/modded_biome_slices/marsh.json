@@ -7,12 +7,8 @@
 		"areas": {
 			"minecraft:swamp": "wetland_whimsy:marsh"
 		},
-		"biomes": [
-			{
-				"biome": "blueprint:original_source_marker"
-			}
-		],
+		"biomes": "minecraft:overworld",
 		"only_map_from_areas": true
 	},
-	"weight": 50
+	"weight": 18
 }
