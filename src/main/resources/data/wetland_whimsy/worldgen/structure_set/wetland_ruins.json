@@ -15,14 +15,6 @@
 		{
 			"structure": "wetland_whimsy:pillar_2",
 			"weight": 2
-		},
-		{
-			"structure": "wetland_whimsy:arena_1",
-			"weight": 1
-		},
-		{
-			"structure": "wetland_whimsy:arena_2",
-			"weight": 1
 		}
 	],
 	"placement": {
