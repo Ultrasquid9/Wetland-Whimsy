@@ -50,7 +50,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 	public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
 		return ResourceKey.create(
 			Registries.CONFIGURED_FEATURE, 
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
+			new ResourceLocation(WetlandWhimsy.MODID, name)
 		);
 	}
 

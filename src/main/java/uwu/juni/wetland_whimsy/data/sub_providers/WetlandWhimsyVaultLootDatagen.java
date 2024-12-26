@@ -22,11 +22,11 @@ public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
 	@Override
 	public void generate(BiConsumer<ResourceLocation, Builder> output) {			
 		output.accept(
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "basic_vault_loot"),
+			new ResourceLocation(WetlandWhimsy.MODID, "basic_vault_loot"),
 			WetlandWhimsyLoot.createBasicLootTable()
 		);
 		output.accept(
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "intermediate_vault_loot"),
+			new ResourceLocation(WetlandWhimsy.MODID, "intermediate_vault_loot"),
 			WetlandWhimsyLoot.createIntermediateLootTable()
 		);
 	}

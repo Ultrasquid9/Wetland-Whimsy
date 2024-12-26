@@ -20,8 +20,9 @@ public class WetlandWhimsy {
 	public static final String MODID = "wetland_whimsy";
 	public static final Logger LOGGER = LogUtils.getLogger();
 
-	public WetlandWhimsy(FMLJavaModLoadingContext context) {
-		IEventBus modEventBus = context.getModEventBus();
+	@SuppressWarnings("removal") // Needed for support for Forge 47.3.0
+	public WetlandWhimsy() {
+		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		LOGGER.info("Whimsical");
 
 		modEventBus.addListener(Datagen::datagen);
