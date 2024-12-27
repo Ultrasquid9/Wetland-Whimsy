@@ -2,6 +2,11 @@ package uwu.juni.wetland_whimsy.content;
 
 import java.util.function.Supplier;
 
+import com.teamabnormals.blueprint.common.block.sign.BlueprintCeilingHangingSignBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintStandingSignBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
+
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
@@ -245,14 +250,14 @@ public class WetlandWhimsyBlocks {
 	// Signs
 	public static final RegistryObject<StandingSignBlock> BALD_CYPRESS_SIGN = BLOCKS.register(
 		"bald_cypress_sign", 
-		() -> new StandingSignBlock(
+		() -> new BlueprintStandingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_SIGN),
 			WetlandWhimsyWoodTypes.BALD_CYPRESS
 		)
 	);
 	public static final RegistryObject<WallSignBlock> BALD_CYPRESS_WALL_SIGN = BLOCKS.register(
 		"bald_cypress_wall_sign", 
-		() -> new WallSignBlock(
+		() -> new BlueprintWallSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN)
 				.lootFrom(BALD_CYPRESS_SIGN),
 			WetlandWhimsyWoodTypes.BALD_CYPRESS
@@ -260,14 +265,14 @@ public class WetlandWhimsyBlocks {
 	);
 	public static final RegistryObject<CeilingHangingSignBlock> BALD_CYPRESS_HANGING_SIGN = BLOCKS.register(
 		"bald_cypress_hanging_sign", 
-		() -> new CeilingHangingSignBlock(
+		() -> new BlueprintCeilingHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_SIGN),
 			WetlandWhimsyWoodTypes.BALD_CYPRESS
 		)
 	);
 	public static final RegistryObject<WallHangingSignBlock> BALD_CYPRESS_WALL_HANGING_SIGN = BLOCKS.register(
 		"bald_cypress_wall_hanging_sign", 
-		() -> new WallHangingSignBlock(
+		() -> new BlueprintWallHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN)
 				.lootFrom(BALD_CYPRESS_HANGING_SIGN),
 			WetlandWhimsyWoodTypes.BALD_CYPRESS
