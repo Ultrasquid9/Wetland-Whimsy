@@ -52,7 +52,6 @@ public class WetlandWhimsyBiomes {
 		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.TREES_MARSH)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.SUPER_THICK_CORDGRASS_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.MUD_POOL)
 			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.MUD_DISK);
 
 		return makeBiome(generationSettings, MARSH_EFFECTS);
@@ -115,7 +114,6 @@ public class WetlandWhimsyBiomes {
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_COPPER)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CavePlacements.UNDERWATER_MAGMA)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_CLAY)
-					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, WetlandWhimsyPlacedFeatures.LIMESTONE_DISK)
 
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_SWAMP)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH)

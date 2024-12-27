@@ -11,7 +11,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -37,7 +36,7 @@ public class WetlandWhimsyPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> MUD_DISK = createKey("mud_disk");
 	public static final ResourceKey<PlacedFeature> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<PlacedFeature> SUPER_THICK_CORDGRASS_PATCH = createKey("super_thick_cordgrass_patch");
-	public static final ResourceKey<PlacedFeature> LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE = createKey("lilypad_clone");
+	public static final ResourceKey<PlacedFeature> FERN_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE = createKey("fern_clone");
 
 	public static void bootstap(BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -112,10 +111,15 @@ public class WetlandWhimsyPlacedFeatures {
 			)
 		);
 		context.register(
-			LILYPAD_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE, 
+			FERN_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(VegetationFeatures.PATCH_WATERLILY), 
-				VegetationPlacements.worldSurfaceSquaredWithCount(4)
+				configuredFeatures.getOrThrow(VegetationFeatures.PATCH_LARGE_FERN), 
+				ImmutableList.<PlacementModifier>builder()
+					.add(RarityFilter.onAverageOnceEvery(4))
+					.add(InSquarePlacement.spread())
+					.add(PlacementUtils.HEIGHTMAP)
+					.add(BiomeFilter.biome())
+					.build()
 			)
 		);
 	}
@@ -129,7 +133,7 @@ public class WetlandWhimsyPlacedFeatures {
 
 	public static List<PlacementModifier> bogTreePlacement() {
 		return ImmutableList.<PlacementModifier>builder()
-			.add(PlacementUtils.countExtra(28, 0.1F, 1))
+			.add(PlacementUtils.countExtra(26, 0.1F, 1))
 			.add(InSquarePlacement.spread())
 			.add(SurfaceWaterDepthFilter.forMaxDepth(2))
 			.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)

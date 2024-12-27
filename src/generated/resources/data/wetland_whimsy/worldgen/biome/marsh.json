@@ -62,15 +62,13 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "minecraft:disk_clay",
-      "wetland_whimsy:limestone_disk"
+      "minecraft:disk_clay"
     ],
     [],
     [],
     [
       "wetland_whimsy:trees_marsh",
       "wetland_whimsy:super_thick_cordgrass_patch",
-      "wetland_whimsy:mud_pool",
       "wetland_whimsy:mud_disk",
       "minecraft:patch_large_fern",
       "minecraft:patch_grass_badlands",
