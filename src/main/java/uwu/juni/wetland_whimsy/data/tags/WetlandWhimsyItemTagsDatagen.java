@@ -39,5 +39,9 @@ public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 		this.tag(ItemTags.TRIM_TEMPLATES).add(
 			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()	
 		);
+
+		this.tag(ItemTags.MUSIC_DISCS).add(
+			WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC.get()	
+		);
 	}
 }

@@ -10,6 +10,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.misc.Creative;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
@@ -24,7 +25,6 @@ public class WetlandWhimsy {
 	public static final String MODID = "wetland_whimsy";
 	public static final Logger LOGGER = LogUtils.getLogger();
 
-	@SuppressWarnings("removal") // Needed for support for Forge 47.3.0
 	public WetlandWhimsy() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		LOGGER.info("Whimsical");
@@ -37,6 +37,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
 		WetlandWhimsyBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
+		WetlandWhimsySounds.SOUNDS.register(modEventBus);
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
 		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);

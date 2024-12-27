@@ -1,0 +1,10 @@
+{
+	"nuke_the_swamps": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:nuke_the_swamps",
+				"stream": true
+			}
+		]
+	}
+}

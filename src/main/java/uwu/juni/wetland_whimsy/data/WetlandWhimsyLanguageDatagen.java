@@ -54,7 +54,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 		this.addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		this.addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
+		this.addItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC, "Music Disc");
 
 		this.add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
+		this.add("item.wetland_whimsy.nuke_the_swamps_music_disc.desc", "Quizzly - Nuke The Swamps");
 	}
 }

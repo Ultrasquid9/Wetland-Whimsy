@@ -7,7 +7,7 @@ import com.google.common.collect.ImmutableList;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyVaultLootDatagen;
+import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyLootDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
@@ -74,7 +74,7 @@ public class Datagen {
 						LootContextParamSets.BLOCK
 					),
 					new LootTableProvider.SubProviderEntry(
-						WetlandWhimsyVaultLootDatagen::new,
+						WetlandWhimsyLootDatagen::new,
 						LootContextParamSets.CHEST
 					)
 				)

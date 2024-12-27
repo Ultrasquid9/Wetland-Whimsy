@@ -9,18 +9,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
 
 @SuppressWarnings("null")
-public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
-	public WetlandWhimsyVaultLootDatagen() {}
+public class WetlandWhimsyLootDatagen implements LootTableSubProvider {
+	public WetlandWhimsyLootDatagen() {}
 
 	@Override
 	public void generate(BiConsumer<ResourceLocation, Builder> output) {			
 		output.accept(
 			new ResourceLocation(WetlandWhimsy.MODID, "basic_vault_loot"),
 			WetlandWhimsyLoot.createBasicLootTable()
-		);
-		output.accept(
-			new ResourceLocation(WetlandWhimsy.MODID, "intermediate_vault_loot"),
-			WetlandWhimsyLoot.createIntermediateLootTable()
 		);
 	}
 }
