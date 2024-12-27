@@ -49,16 +49,8 @@ public class WetlandWhimsyBiomesDatagen {
 		HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 		HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
-		var generationSettings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.TREES_MARSH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.SUPER_THICK_CORDGRASS_PATCH)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.MUD_POOL)
-			.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.MUD_DISK);
+		var settings = new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers);
 
-		return makeBiome(generationSettings, MARSH_EFFECTS);
-	}
-
-	public static Biome makeBiome(BiomeGenerationSettings.Builder settings, BiomeSpecialEffects.Builder effects) {
 		BiomeDefaultFeatures.addDefaultCarversAndLakes(settings);
 		BiomeDefaultFeatures.addFerns(settings);
 		BiomeDefaultFeatures.addDefaultGrass(settings);
@@ -80,7 +72,7 @@ public class WetlandWhimsyBiomesDatagen {
 					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 30, 3, 3))
 					.build()
 			)
-			.specialEffects(effects.build())
+			.specialEffects(MARSH_EFFECTS.build())
 			.generationSettings(
 				settings
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, CavePlacements.AMETHYST_GEODE)
@@ -113,13 +105,15 @@ public class WetlandWhimsyBiomesDatagen {
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_COPPER)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CavePlacements.UNDERWATER_MAGMA)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_CLAY)
-					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, WetlandWhimsyPlacedFeaturesDatagen.LIMESTONE_DISK)
 
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_SWAMP)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.TREES_MARSH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.SUPER_THICK_CORDGRASS_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeaturesDatagen.MUD_DISK)
 					.build()
 			)
 			.temperatureAdjustment(Biome.TemperatureModifier.NONE)

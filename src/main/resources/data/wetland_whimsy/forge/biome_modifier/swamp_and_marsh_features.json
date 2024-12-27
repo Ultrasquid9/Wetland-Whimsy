@@ -1,0 +1,12 @@
+{
+	"type": "forge:add_features",
+	"biomes": [
+		"minecraft:swamp",
+		"wetland_whimsy:marsh"
+	],
+	"features": [
+		"wetland_whimsy:mud_pool",
+		"wetland_whimsy:limestone_disk"
+	],
+	"step": "vegetal_decoration"
+}
