@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import uwu.juni.wetland_whimsy.content.Creative;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.data.Datagen;
@@ -27,8 +28,10 @@ public class WetlandWhimsy {
 
 		modEventBus.addListener(Datagen::datagen);
 		modEventBus.addListener(Creative::addCreative);
+		modEventBus.addListener(WetlandWhimsyBlockEntities::blockEntityRendering);
 
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
+		WetlandWhimsyBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
