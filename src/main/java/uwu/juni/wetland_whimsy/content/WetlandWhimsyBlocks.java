@@ -12,6 +12,9 @@ import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.content.blocks.StrippableLogBlock;
 import uwu.juni.wetland_whimsy.content.blocks.SussyMudBlock;
+import uwu.juni.wetland_whimsy.content.items.FlammableBlockItem;
+import uwu.juni.wetland_whimsy.content.items.FlammableHangingSignItem;
+import uwu.juni.wetland_whimsy.content.items.FlammableSignItem;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.BaldCypressTree;
 import net.minecraft.core.BlockPos;
@@ -19,9 +22,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -49,7 +50,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-@SuppressWarnings("null")
 public class WetlandWhimsyBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, WetlandWhimsy.MODID);
 
@@ -58,25 +58,29 @@ public class WetlandWhimsyBlocks {
 		"bald_cypress_log", 
 		() -> new StrippableLogBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_LOG)
-		)
+		),
+		300
 	);
 	public static final RegistryObject<StrippableLogBlock> STRIPPED_BALD_CYPRESS_LOG = registerBlockAndItem(
 		"stripped_bald_cypress_log", 
 		() -> new StrippableLogBlock(
 			BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)
-		)
+		),
+		300
 	);
 	public static final RegistryObject<StrippableLogBlock> BALD_CYPRESS_WOOD = registerBlockAndItem(
 		"bald_cypress_wood", 
 		() -> new StrippableLogBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_LOG)
-		)
+		),
+		300
 	);
 	public static final RegistryObject<StrippableLogBlock> STRIPPED_BALD_CYPRESS_WOOD = registerBlockAndItem(
 		"stripped_bald_cypress_wood", 
 		() -> new StrippableLogBlock(
 			BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)
-		)
+		),
+		300
 	);
 
 	// Sapling & Leaves
@@ -85,7 +89,8 @@ public class WetlandWhimsyBlocks {
 		() -> new SaplingBlock(
 			new BaldCypressTree(),
 			Block.Properties.copy(Blocks.OAK_SAPLING)
-		)
+		),
+		100
 	);
 	public static final RegistryObject<LeavesBlock> BALD_CYPRESS_LEAVES = registerBlockAndItem(
 		"bald_cypress_leaves", 
@@ -127,7 +132,8 @@ public class WetlandWhimsyBlocks {
 			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 				return 5;
 			}
-		}
+		},
+		300
 	);
 	@SuppressWarnings("deprecation")
 	public static final RegistryObject<StairBlock> BALD_CYPRESS_STAIRS = registerBlockAndItem(
@@ -148,7 +154,8 @@ public class WetlandWhimsyBlocks {
 			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 				return 5;
 			}
-		}
+		},
+		300
 	);
 	public static final RegistryObject<SlabBlock> BALD_CYPRESS_SLAB = registerBlockAndItem(
 		"bald_cypress_slab", 
@@ -167,7 +174,8 @@ public class WetlandWhimsyBlocks {
 			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 				return 5;
 			}
-		}
+		},
+		300
 	);
 	public static final RegistryObject<FenceBlock> BALD_CYPRESS_FENCE = registerBlockAndItem(
 		"bald_cypress_fence", 
@@ -186,7 +194,8 @@ public class WetlandWhimsyBlocks {
 			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 				return 5;
 			}
-		}
+		},
+		300
 	);
 	public static final RegistryObject<FenceGateBlock> BALD_CYPRESS_FENCE_GATE = registerBlockAndItem(
 		"bald_cypress_fence_gate", 
@@ -206,7 +215,8 @@ public class WetlandWhimsyBlocks {
 			public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 				return 5;
 			}
-		}
+		},
+		300
 	);
 
 	// Non-flammable members of the woodset
@@ -220,14 +230,16 @@ public class WetlandWhimsyBlocks {
 		() -> new DoorBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_DOOR),
 			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET
-		)
+		),
+		200
 	);
 	public static final RegistryObject<TrapDoorBlock> BALD_CYPRESS_TRAPDOOR = registerBlockAndItem(
 		"bald_cypress_trapdoor",
 		() -> new TrapDoorBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR),
 			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET
-		)
+		),
+		300
 	);
 	public static final RegistryObject<ButtonBlock> BALD_CYPRESS_BUTTON = registerBlockAndItem(
 		"bald_cypress_button",
@@ -236,7 +248,8 @@ public class WetlandWhimsyBlocks {
 			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET, 
 			30,
 			false
-		)
+		),
+		100
 	);
 	public static final RegistryObject<PressurePlateBlock> BALD_CYPRESS_PRESSURE_PLATE = registerBlockAndItem(
 		"bald_cypress_pressure_plate",
@@ -244,7 +257,8 @@ public class WetlandWhimsyBlocks {
 			Sensitivity.EVERYTHING, 
 			BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE), 
 			WetlandWhimsyWoodTypes.BALD_CYPRESS_BLOCK_SET
-		)
+		),
+		300
 	);
 
 	// Signs
@@ -409,22 +423,44 @@ public class WetlandWhimsyBlocks {
 		return register;
 	}
 
+	/// Creates a flammable block item
+	private static <T extends Block> RegistryObject<T> registerBlockAndItem(
+		String name, 
+		Supplier<T> block, 
+		int burntime
+	) {
+		var register = BLOCKS.register(name, block);
+
+		WetlandWhimsyItems.ITEMS.register(
+			name, 
+			() -> new FlammableBlockItem(
+				register.get(), 
+				new Item.Properties(),
+				burntime
+			)
+		);
+
+		return register;
+	}
+
 	public static void createSignItems() {
 		WetlandWhimsyItems.ITEMS.register(
 			"bald_cypress_sign", 
-			() -> new SignItem(
-				new Item.Properties().stacksTo(16), 
+			() -> new FlammableSignItem(
 				WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
+				WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get(),
+				new Item.Properties().stacksTo(16),
+				200
 			)
 		);
 
 		WetlandWhimsyItems.ITEMS.register(
 			"bald_cypress_hanging_sign", 
-			() -> new HangingSignItem(
+			() -> new FlammableHangingSignItem(
 				WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(), 
 				WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get(),
-				new Item.Properties().stacksTo(16)
+				new Item.Properties().stacksTo(16),
+				800
 			)
 		);
 	}
