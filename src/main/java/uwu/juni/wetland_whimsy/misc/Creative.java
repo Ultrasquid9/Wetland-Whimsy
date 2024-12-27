@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.content;
+package uwu.juni.wetland_whimsy.misc;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -6,6 +6,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 
 public class Creative {
 	public static void addCreative(final BuildCreativeModeTabContentsEvent event) {

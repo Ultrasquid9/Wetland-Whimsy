@@ -4,13 +4,13 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import uwu.juni.wetland_whimsy.content.Creative;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.misc.Creative;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
