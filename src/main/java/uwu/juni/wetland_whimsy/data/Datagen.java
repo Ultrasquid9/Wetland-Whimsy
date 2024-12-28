@@ -41,6 +41,11 @@ public class Datagen {
 					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeatures::bootstap)
 					.add(Registries.PLACED_FEATURE, WetlandWhimsyPlacedFeatures::bootstap)
 					.add(Registries.BIOME, WetlandWhimsyBiomes::bootstap)
+
+					.add(Registries.STRUCTURE_SET, WetlandWhimsyStructureSets::bootstap)
+					.add(Registries.STRUCTURE, WetlandWhimsyStructures::bootstap)
+					.add(Registries.TEMPLATE_POOL, WetlandWhimsyStructurePools::bootstap)
+
 					.add(Registries.JUKEBOX_SONG, WetlandWhimsyJukebox::bootstap),
 				Collections.singleton(WetlandWhimsy.MODID)
 			)
