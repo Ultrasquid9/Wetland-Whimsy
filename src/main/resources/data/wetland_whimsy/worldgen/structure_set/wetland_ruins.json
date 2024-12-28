@@ -17,6 +17,18 @@
 			"weight": 2
 		},
 		{
+			"structure": "wetland_whimsy:pillar_3",
+			"weight": 2
+		},
+		{
+			"structure": "wetland_whimsy:wall_1",
+			"weight": 2
+		},
+		{
+			"structure": "wetland_whimsy:wall_2",
+			"weight": 2
+		},
+		{
 			"structure": "wetland_whimsy:arena_1",
 			"weight": 1
 		},
