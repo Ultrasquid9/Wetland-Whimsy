@@ -17,6 +17,15 @@
         "projection": "rigid"
       },
       "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:wall_3",
+        "processors": "wetland_whimsy:limestone_rubble",
+        "projection": "rigid"
+      },
+      "weight": 1
     }
   ],
   "fallback": "minecraft:empty"
