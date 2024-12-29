@@ -9,11 +9,31 @@
 			"weight": 2
 		},
 		{
+			"structure": "wetland_whimsy:arch_3",
+			"weight": 2
+		},
+		{
 			"structure": "wetland_whimsy:pillar_1",
 			"weight": 2
 		},
 		{
 			"structure": "wetland_whimsy:pillar_2",
+			"weight": 2
+		},
+		{
+			"structure": "wetland_whimsy:pillar_3",
+			"weight": 2
+		},
+		{
+			"structure": "wetland_whimsy:wall_1",
+			"weight": 2
+		},
+		{
+			"structure": "wetland_whimsy:wall_2",
+			"weight": 2
+		},
+		{
+			"structure": "wetland_whimsy:wall_3",
 			"weight": 2
 		}
 	],
