@@ -8,7 +8,7 @@
   "start_height": {
     "absolute": 0
   },
-  "start_pool": "wetland_whimsy:arena",
+  "start_pool": "wetland_whimsy:arena/arena_base",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
   "use_expansion_hack": false

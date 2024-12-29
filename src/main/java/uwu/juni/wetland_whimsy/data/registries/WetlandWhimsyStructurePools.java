@@ -20,7 +20,9 @@ public class WetlandWhimsyStructurePools {
 	public static final ResourceKey<StructureTemplatePool> ARCH = createKey("arch");
 	public static final ResourceKey<StructureTemplatePool> PILLAR = createKey("pillar");
 	public static final ResourceKey<StructureTemplatePool> WALL = createKey("wall");
-	public static final ResourceKey<StructureTemplatePool> ARENA = createKey("arena");
+
+	public static final ResourceKey<StructureTemplatePool> ARENA_BASE = createKey("arena/arena_base");
+	public static final ResourceKey<StructureTemplatePool> ARENA_SPAWNER = createKey("arena/arena_spawner");
 
 	private static ResourceKey<StructureTemplatePool> createKey(String name) {
 		return ResourceKey.create(
@@ -72,12 +74,23 @@ public class WetlandWhimsyStructurePools {
 		);
 
 		context.register(
-			ARENA, 
+			ARENA_BASE, 
 			new StructureTemplatePool(
 				fallback, 
 				ImmutableList.of(
-					Pair.of(pool("arena_1", context), 1),
-					Pair.of(pool("arena_2", context), 1)
+					Pair.of(pool("arena/arena_base/arena_1", context), 1)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
+
+		context.register(
+			ARENA_SPAWNER, 
+			new StructureTemplatePool(
+				fallback, 
+				ImmutableList.of(
+					Pair.of(pool("arena/arena_spawner/spawner_1", context), 1),
+					Pair.of(pool("arena/arena_spawner/spawner_2", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)
