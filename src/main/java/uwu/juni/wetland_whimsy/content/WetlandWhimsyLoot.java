@@ -1,5 +1,6 @@
 package uwu.juni.wetland_whimsy.content;
 
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -7,6 +8,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 public class WetlandWhimsyLoot {
@@ -65,7 +67,7 @@ public class WetlandWhimsyLoot {
 
 				.add(LootItem.lootTableItem(Items.MUSHROOM_STEW.asItem()))
 				.add(LootItem.lootTableItem(WetlandWhimsyItems.PENNYWORT_SALAD.get()))
-				.add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW.asItem()))
+				.add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW.asItem()).apply(stew()))
 				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
 				.add(LootItem.lootTableItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC.get().asItem()))
 			);
@@ -74,5 +76,17 @@ public class WetlandWhimsyLoot {
 	@SuppressWarnings("rawtypes")
 	private static LootItemConditionalFunction.Builder lootCount(float a, float b) {
 		return SetItemCountFunction.setCount(UniformGenerator.between(a, b));
+	}
+
+	@SuppressWarnings("rawtypes")
+	private static LootItemConditionalFunction.Builder stew() {
+		return SetStewEffectFunction.stewEffect()
+			.withEffect(MobEffects.POISON, UniformGenerator.between(3, 7))
+			.withEffect(MobEffects.SATURATION, UniformGenerator.between(3, 7))
+			.withEffect(MobEffects.HUNGER, UniformGenerator.between(3, 7))
+			.withEffect(MobEffects.LUCK, UniformGenerator.between(3, 7))
+			.withEffect(MobEffects.UNLUCK, UniformGenerator.between(3, 7))
+			.withEffect(MobEffects.BLINDNESS, UniformGenerator.between(3, 7))
+			.withEffect(MobEffects.DARKNESS, UniformGenerator.between(3, 7));
 	}
 }

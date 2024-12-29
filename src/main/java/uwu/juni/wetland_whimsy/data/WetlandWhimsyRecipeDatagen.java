@@ -189,6 +189,16 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.requires(Items.BOWL)
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.PENNYWORT.get()), has(WetlandWhimsyBlocks.PENNYWORT.get()))
 			.save(recipeOutput);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 2)
+			.define('T', WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get())
+			.define('D', Items.DIAMOND)
+			.define('L', WetlandWhimsyBlocks.LIMESTONE.get())
+			.pattern("DTD")
+			.pattern("DLD")
+			.pattern("DDD")
+			.unlockedBy(getHasName(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()), has(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+			.save(recipeOutput);
 	}
 
 	private void twoByTwo(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike output, int count) {

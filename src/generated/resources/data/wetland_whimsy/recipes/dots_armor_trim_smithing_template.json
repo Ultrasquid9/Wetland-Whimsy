@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "L": {
+      "item": "wetland_whimsy:limestone"
+    },
+    "T": {
+      "item": "wetland_whimsy:dots_armor_trim_smithing_template"
+    }
+  },
+  "pattern": [
+    "DTD",
+    "DLD",
+    "DDD"
+  ],
+  "result": {
+    "count": 2,
+    "item": "wetland_whimsy:dots_armor_trim_smithing_template"
+  },
+  "show_notification": true
+}
