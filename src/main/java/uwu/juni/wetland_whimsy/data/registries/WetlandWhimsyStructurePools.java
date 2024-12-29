@@ -78,7 +78,10 @@ public class WetlandWhimsyStructurePools {
 			new StructureTemplatePool(
 				fallback, 
 				ImmutableList.of(
-					Pair.of(pool("arena/arena_base/arena_1", context), 1)
+					Pair.of(pool("arena/arena_base/arena_1", context), 1),
+					Pair.of(pool("arena/arena_base/arena_2", context), 1),
+					Pair.of(pool("arena/arena_base/arena_3", context), 1),
+					Pair.of(pool("arena/arena_base/arena_4", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)
@@ -90,7 +93,10 @@ public class WetlandWhimsyStructurePools {
 				fallback, 
 				ImmutableList.of(
 					Pair.of(pool("arena/arena_spawner/spawner_1", context), 1),
-					Pair.of(pool("arena/arena_spawner/spawner_2", context), 1)
+					Pair.of(pool("arena/arena_spawner/spawner_2", context), 1),
+					Pair.of(pool("arena/arena_spawner/spawner_3", context), 1),
+					Pair.of(pool("arena/arena_spawner/spawner_4", context), 1),
+					Pair.of(pool("arena/arena_spawner/spawner_5", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)

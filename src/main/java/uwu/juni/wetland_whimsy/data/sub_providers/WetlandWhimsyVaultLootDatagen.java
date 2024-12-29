@@ -38,5 +38,12 @@ public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
 			), 
 			WetlandWhimsyLoot.createIntermediateLootTable()
 		);
+		output.accept(
+			ResourceKey.create(
+				Registries.LOOT_TABLE,
+				ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "epic_vault_loot")
+			), 
+			WetlandWhimsyLoot.createEpicLootTable()
+		);
 	}
 }

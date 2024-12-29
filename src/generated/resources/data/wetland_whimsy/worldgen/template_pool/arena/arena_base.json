@@ -8,6 +8,33 @@
         "projection": "rigid"
       },
       "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:arena/arena_base/arena_2",
+        "processors": "wetland_whimsy:limestone_rubble",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:arena/arena_base/arena_3",
+        "processors": "wetland_whimsy:limestone_rubble",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:arena/arena_base/arena_4",
+        "processors": "wetland_whimsy:limestone_rubble",
+        "projection": "rigid"
+      },
+      "weight": 1
     }
   ],
   "fallback": "minecraft:empty"

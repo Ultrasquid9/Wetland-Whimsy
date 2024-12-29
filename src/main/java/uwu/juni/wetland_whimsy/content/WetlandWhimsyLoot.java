@@ -112,6 +112,31 @@ public class WetlandWhimsyLoot {
 			);
 	}
 
+	public static LootTable.Builder createEpicLootTable() {
+		return LootTable.lootTable()
+
+			.withPool(LootPool.lootPool()
+				.setRolls(UniformGenerator.between(1.F, 1.F))
+				.add(LootItem.lootTableItem(Items.GOLDEN_CARROT.asItem()).apply(lootCount(12.F, 22.F)))
+
+				.add(LootItem.lootTableItem(Items.SKULL_POTTERY_SHERD.asItem()))
+				.add(LootItem.lootTableItem(Items.BREWER_POTTERY_SHERD.asItem()))
+				.add(LootItem.lootTableItem(Items.ANGLER_POTTERY_SHERD.asItem()))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.asItem()))
+
+				.add(LootItem.lootTableItem(Items.GOLD_INGOT.asItem()).apply(lootCount(8.F, 24.F)))
+				.add(LootItem.lootTableItem(Items.IRON_INGOT.asItem()).apply(lootCount(8.F, 24.F)))
+				.add(LootItem.lootTableItem(Items.COPPER_INGOT.asItem()).apply(lootCount(8.F, 24.F)))
+
+				.add(LootItem.lootTableItem(Items.DIAMOND.asItem()).apply(lootCount(4.F, 8.F)))
+				.add(LootItem.lootTableItem(Items.EMERALD.asItem()).apply(lootCount(10.F, 12.F)))
+
+				.add(LootItem.lootTableItem(Items.MUSHROOM_STEW.asItem()))
+				.add(LootItem.lootTableItem(Items.BEETROOT_SOUP.asItem()))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.DISC.asItem())) 
+			);
+	}
+
 	@SuppressWarnings("rawtypes")
 	private static LootItemConditionalFunction.Builder lootCount(float a, float b) {
 		return SetItemCountFunction.setCount(UniformGenerator.between(a, b));
