@@ -116,7 +116,70 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:beetroot_soup"
+          "functions": [
+            {
+              "effects": [
+                {
+                  "type": "minecraft:poison",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:hunger",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:luck",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:unluck",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:darkness",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                }
+              ],
+              "function": "minecraft:set_stew_effect"
+            }
+          ],
+          "name": "minecraft:suspicious_stew"
         },
         {
           "type": "minecraft:item",
