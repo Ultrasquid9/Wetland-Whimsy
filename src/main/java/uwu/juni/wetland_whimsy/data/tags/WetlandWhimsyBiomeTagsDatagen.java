@@ -29,57 +29,33 @@ public class WetlandWhimsyBiomeTagsDatagen extends BiomeTagsProvider {
 
 	@Override
 	public void addTags(@Nonnull HolderLookup.Provider provider) {
-		addOptionalTagToList(
+		addTagsToBiome(
+			WetlandWhimsyBiomes.MARSH, 
 			Tags.Biomes.IS_SWAMP, 
-			WetlandWhimsyBiomes.MARSH
-		);
-
-		addOptionalTagToList(
 			BiomeTags.IS_OVERWORLD, 
-			WetlandWhimsyBiomes.MARSH
-		);
-
-		addOptionalTagToList(
-			BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS, 
-			WetlandWhimsyBiomes.MARSH
-		);
-
-		addOptionalTagToList(
 			BiomeTags.HAS_MINESHAFT, 
-			WetlandWhimsyBiomes.MARSH
-		);
-
-		addOptionalTagToList(
+			BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS, 
 			BiomeTags.HAS_RUINED_PORTAL_SWAMP, 
-			WetlandWhimsyBiomes.MARSH
+			BiomeTags.HAS_SWAMP_HUT, 
+			BiomeTags.HAS_SHIPWRECK_BEACHED, 
+			BiomeTags.IS_BEACH
 		);
-
 
 		addOptionalTagToList(
 			BiomeTags.HAS_TRAIL_RUINS, 
 			Biomes.SWAMP,
 			WetlandWhimsyBiomes.MARSH
 		);
-
-
-		addOptionalTagToList(
-			BiomeTags.HAS_SWAMP_HUT, 
-			WetlandWhimsyBiomes.MARSH
-		);
-
-		addOptionalTagToList(
-			BiomeTags.HAS_SHIPWRECK_BEACHED, 
-			WetlandWhimsyBiomes.MARSH
-		);
-
-		addOptionalTagToList(
-			BiomeTags.IS_BEACH, 
-			WetlandWhimsyBiomes.MARSH
-		);
 	}
 
 	private void addOptionalTagToList(TagKey<Biome> tag, ResourceKey<Biome>... biomes) {
 		for (var biome : biomes) {
+			tag(tag).addOptional(biome.location());
+		}
+	}
+
+	private void addTagsToBiome(ResourceKey<Biome> biome, TagKey<Biome>... tags) {
+		for (var tag : tags) {
 			tag(tag).addOptional(biome.location());
 		}
 	}
