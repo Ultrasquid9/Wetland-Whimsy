@@ -94,6 +94,19 @@ public class Creative {
 				WetlandWhimsyBlocks.SUSSY_MUD.asItem(), 
 				event
 			);
+			insertItem(
+				Items.SOUL_CAMPFIRE,
+				WetlandWhimsyBlocks.LIMESTONE_BRAZIER.asItem(), 
+				event
+			);
+		}
+
+		if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+			insertItem(
+				Items.DECORATED_POT,
+				WetlandWhimsyBlocks.LIMESTONE_BRAZIER.asItem(), 
+				event
+			);
 		}
 
 		if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
