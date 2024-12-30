@@ -48,8 +48,9 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.LIMESTONE_WALL.get(),
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(),
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get(),
-			WetlandWhimsyBlocks.LIMESTONE_PILLAR.get()
-		);
+			WetlandWhimsyBlocks.LIMESTONE_PILLAR.get(),
+			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()
+			);
 		this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
 		);

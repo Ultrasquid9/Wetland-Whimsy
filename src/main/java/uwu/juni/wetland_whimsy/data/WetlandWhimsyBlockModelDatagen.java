@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.data;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
@@ -156,6 +157,7 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				.withExistingParent("cordgrass", this.modLoc("block/cordgrass_base"))
 		);
 		pennywort(WetlandWhimsyBlocks.PENNYWORT.get());
+		brazier(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get());
 	}
 
 	private void pennywort(Block pennywort) {
@@ -179,5 +181,17 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			)
 			.build()
 		);
+	}
+
+	private void brazier(Block brazier) {
+		this.getVariantBuilder(brazier).forAllStates((state) -> {
+			var model = state.getValue(BrazierBlock.LIT)
+				? models().withExistingParent("brazier_lit", this.modLoc("block/limestone_brazier_lit_base"))
+				: models().withExistingParent("brazier", this.modLoc("block/limestone_brazier_base"));
+
+			return ConfiguredModel.builder()
+				.modelFile(model)
+				.build();
+		});
 	}
 }

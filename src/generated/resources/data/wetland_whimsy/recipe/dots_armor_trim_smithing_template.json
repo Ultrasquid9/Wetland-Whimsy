@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "limestone",
   "key": {
     "D": {
       "item": "minecraft:diamond"

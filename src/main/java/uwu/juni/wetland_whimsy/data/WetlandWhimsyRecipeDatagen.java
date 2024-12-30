@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
@@ -191,7 +192,6 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.save(recipeOutput);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 2)
-			.group("limestone")
 			.define('D', Items.DIAMOND)
 			.define('T', WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE)
 			.define('L', WetlandWhimsyBlocks.LIMESTONE)
@@ -199,6 +199,15 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.pattern("DLD")
 			.pattern("DDD")
 			.unlockedBy(getHasName(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()), has(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+			.save(recipeOutput);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(), 1)
+			.define('C', ItemTags.COALS)
+			.define('R', Items.REDSTONE)
+			.define('L', WetlandWhimsyBlocks.POLISHED_LIMESTONE)
+			.pattern("LCL")
+			.pattern("LRL")
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()), has(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()))
 			.save(recipeOutput);
 
 	}

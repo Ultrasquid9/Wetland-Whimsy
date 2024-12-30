@@ -3,6 +3,7 @@ package uwu.juni.wetland_whimsy.content;
 import java.util.function.Supplier;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.content.blocks.StrippableLogBlock;
@@ -38,6 +39,7 @@ import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -377,6 +379,14 @@ public class WetlandWhimsyBlocks {
 			SoundEvents.BRUSH_SAND,
 			SoundEvents.BRUSH_SAND_COMPLETED,
 			BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)
+		)
+	);
+
+	public static final DeferredBlock<BrazierBlock> LIMESTONE_BRAZIER = registerBlockAndItem(
+		"limestone_brazier",
+		() -> new BrazierBlock (
+			BlockBehaviour.Properties.ofFullCopy(LIMESTONE.get())
+				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0)
 		)
 	);
 
