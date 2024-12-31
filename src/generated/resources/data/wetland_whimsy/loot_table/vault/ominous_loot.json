@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "wetland_whimsy:intermediate_loot",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "wetland_whimsy:epic_loot",
+          "weight": 2
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "wetland_whimsy:intermediate_loot"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 3.0,
+        "min": 1.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.25,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "wetland_whimsy:epic_loot"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "wetland_whimsy:vault/ominous_loot"
+}

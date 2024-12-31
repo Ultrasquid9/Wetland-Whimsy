@@ -1,0 +1,77 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_1",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_2",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_3",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_4",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_5",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_6",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_7",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/spawner/spawner_8",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

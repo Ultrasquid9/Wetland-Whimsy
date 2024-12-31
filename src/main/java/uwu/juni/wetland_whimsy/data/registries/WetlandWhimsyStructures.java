@@ -1,6 +1,8 @@
 package uwu.juni.wetland_whimsy.data.registries;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -13,8 +15,10 @@ import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.Structure.StructureSettings;
+import net.minecraft.world.level.levelgen.structure.pools.DimensionPadding;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
+import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 import net.neoforged.neoforge.common.Tags;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
@@ -23,6 +27,7 @@ public class WetlandWhimsyStructures {
 	public static final ResourceKey<Structure> PILLAR = createKey("pillar");
 	public static final ResourceKey<Structure> WALL = createKey("wall");
 	public static final ResourceKey<Structure> ARENA = createKey("arena");
+	public static final ResourceKey<Structure> SWAMP_DUNGEON = createKey("swamp_dungeon");
 
 	private static ResourceKey<Structure> createKey(String name) {
 		return ResourceKey.create(
@@ -55,6 +60,12 @@ public class WetlandWhimsyStructures {
 			ARENA, 
 			WetlandWhimsyStructurePools.ARENA_BASE
 		);
+
+		registerSurfaceRuins(
+			context, 
+			SWAMP_DUNGEON, 
+			WetlandWhimsyStructurePools.SWAMP_DUNGEON_ENTRANCE
+		);
 	}
 
 	public static void registerSurfaceRuins(
@@ -75,10 +86,15 @@ public class WetlandWhimsyStructures {
 					TerrainAdjustment.BEARD_THIN
 				), 
 				templatePools.getOrThrow(pool), 
-				1, 
+				Optional.empty(), 
+				18, 
 				ConstantHeight.of(VerticalAnchor.absolute(0)), 
-				false,
-				Heightmap.Types.WORLD_SURFACE_WG
+				false, 
+				Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 
+				100, 
+				List.of(), 
+				DimensionPadding.ZERO, 
+				LiquidSettings.IGNORE_WATERLOGGING
 			)
 		);
 	}

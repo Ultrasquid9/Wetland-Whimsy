@@ -12,6 +12,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public class WetlandWhimsyStructureProcessors {
 	public static final ResourceKey<StructureProcessorList> LIMESTONE_RUBBLE = createKey("limestone_rubble");
+	public static final ResourceKey<StructureProcessorList> DUNGEON = createKey("dungeon");
 
 	private static ResourceKey<StructureProcessorList> createKey(String name) {
 		return ResourceKey.create(
@@ -23,6 +24,14 @@ public class WetlandWhimsyStructureProcessors {
 	public static void bootstap(BootstrapContext<StructureProcessorList> context) {
 		context.register(
 			LIMESTONE_RUBBLE, 
+			new StructureProcessorList(
+				ImmutableList.of(
+					new RuleProcessor(ImmutableList.of())
+				)
+			)
+		);
+		context.register(
+			DUNGEON, 
 			new StructureProcessorList(
 				ImmutableList.of(
 					new RuleProcessor(ImmutableList.of())

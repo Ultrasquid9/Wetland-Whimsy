@@ -28,14 +28,15 @@ public class WetlandWhimsyStructureSets {
 			WETLAND_RUINS, 
 			new StructureSet(
 				ImmutableList.of(
-					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.ARCH), 2),
-					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.PILLAR), 2),
-					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.WALL), 2),
-					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.ARENA))
+					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.ARCH), 4),
+					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.PILLAR), 4),
+					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.WALL), 4),
+					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.ARENA), 3),
+					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.SWAMP_DUNGEON), 2)
 				),
 				new RandomSpreadStructurePlacement(
-					12, 
-					6, 
+					10, 
+					5, 
 					RandomSpreadType.LINEAR, 
 					1918171615
 				)
