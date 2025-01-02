@@ -3,10 +3,10 @@
 	"render_type": "minecraft:cutout",
 	"ambientocclusion": false,
 	"textures": {
-		"0": "block/campfire_fire",
+		"0": "block/soul_campfire_fire",
 		"1": "wetland_whimsy:block/polished_limestone",
-		"2": "wetland_whimsy:block/brazier/brazier_top_lit",
-		"particle": "wetland_whimsy:block/brazier/brazier_top_lit"
+		"2": "wetland_whimsy:block/brazier/soul_brazier_top_lit",
+		"particle": "wetland_whimsy:block/brazier/soul_brazier_top_lit"
 	},
 	"elements": [
 		{

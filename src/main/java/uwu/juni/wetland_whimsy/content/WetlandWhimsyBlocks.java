@@ -389,6 +389,13 @@ public class WetlandWhimsyBlocks {
 				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0)
 		)
 	);
+	public static final DeferredBlock<BrazierBlock> SOUL_BRAZIER = registerBlockAndItem(
+		"soul_brazier",
+		() -> new BrazierBlock (
+			BlockBehaviour.Properties.ofFullCopy(LIMESTONE_BRAZIER.get())
+				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 10 : 0)
+		)
+	);
 
 	/// There was indeed a way to automate this 
 	public static <T extends Block> DeferredBlock<T> registerBlockAndItem(String name, Supplier<T> block) {

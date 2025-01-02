@@ -49,7 +49,9 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		this.dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get());
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get());
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
+
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get());
+		this.dropSelf(WetlandWhimsyBlocks.SOUL_BRAZIER.get());
 
 		this.add(
 			WetlandWhimsyBlocks.PENNYWORT.get(), 

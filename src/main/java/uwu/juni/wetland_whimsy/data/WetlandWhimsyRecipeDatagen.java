@@ -210,6 +210,14 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()), has(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()))
 			.save(recipeOutput);
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.SOUL_BRAZIER.get(), 1)
+			.define('C', ItemTags.SOUL_FIRE_BASE_BLOCKS)
+			.define('R', Items.REDSTONE)
+			.define('L', WetlandWhimsyBlocks.POLISHED_LIMESTONE)
+			.pattern("LCL")
+			.pattern("LRL")
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.SOUL_BRAZIER.get()), has(WetlandWhimsyBlocks.SOUL_BRAZIER.get()))
+			.save(recipeOutput);
 	}
 
 	private void twoByTwo(RecipeOutput recipeOutput, ItemLike input, ItemLike output, int count) {

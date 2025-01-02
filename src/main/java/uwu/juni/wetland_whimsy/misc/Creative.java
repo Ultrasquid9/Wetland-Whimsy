@@ -94,10 +94,11 @@ public class Creative {
 				WetlandWhimsyBlocks.SUSSY_MUD.asItem(), 
 				event
 			);
-			insertItem(
+			insertItems(
+				event,
 				Items.SOUL_CAMPFIRE,
 				WetlandWhimsyBlocks.LIMESTONE_BRAZIER.asItem(), 
-				event
+				WetlandWhimsyBlocks.SOUL_BRAZIER.asItem()
 			);
 		}
 
