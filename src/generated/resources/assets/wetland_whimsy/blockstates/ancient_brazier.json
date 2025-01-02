@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "wetland_whimsy:block/ancient_brazier"
+    },
+    "lit=true": {
+      "model": "wetland_whimsy:block/ancient_brazier_lit"
+    }
+  }
+}

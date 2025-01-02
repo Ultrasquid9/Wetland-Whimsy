@@ -91,5 +91,9 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 			WetlandWhimsyBlocks.SUSSY_MUD.get(), 
 			noDrop()
 		);
+		this.add(
+			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get(), 
+			noDrop()
+		);
 	}
 }

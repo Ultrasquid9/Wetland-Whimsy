@@ -170,6 +170,12 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			"block/limestone_brazier_base",
 			"block/soul_brazier_lit_base"
 		);
+		brazier(
+			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get(),
+			"ancient_brazier",
+			"block/ancient_brazier_base",
+			"block/ancient_brazier_lit_base"
+		);
 	}
 
 	private void pennywort(Block pennywort) {
