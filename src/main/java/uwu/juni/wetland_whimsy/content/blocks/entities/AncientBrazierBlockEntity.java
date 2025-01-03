@@ -11,7 +11,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Spawner;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -28,8 +27,6 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 	public AncientBrazierBlockEntity(BlockPos pos, BlockState state) {
 		super(WetlandWhimsyBlockEntities.ANCIENT_BRAZIER.get(), pos, state);
 	}
-
-	public BaseSpawner getSpawner() { return this.spawner; }
 
 	@Override
 	protected void loadAdditional(@Nonnull CompoundTag tag, @Nonnull Provider registries) {
@@ -55,13 +52,6 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 		return this.spawner.onEventTriggered(this.level, id) 
 			? true 
 			: super.triggerEvent(id, type);
-	}
-
-	@Override
-	public CompoundTag getUpdateTag(@Nonnull Provider registries) {
-		CompoundTag compoundtag = this.saveCustomOnly(registries);
-		compoundtag.remove("SpawnPotentials");
-		return compoundtag;
 	}
 
 	public static void clientTick(Level level, BlockPos pos, BlockState state, AncientBrazierBlockEntity blockEntity) {

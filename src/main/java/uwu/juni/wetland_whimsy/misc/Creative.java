@@ -98,7 +98,8 @@ public class Creative {
 				event,
 				Items.SOUL_CAMPFIRE,
 				WetlandWhimsyBlocks.LIMESTONE_BRAZIER.asItem(), 
-				WetlandWhimsyBlocks.SOUL_BRAZIER.asItem()
+				WetlandWhimsyBlocks.SOUL_BRAZIER.asItem(),
+				WetlandWhimsyBlocks.ANCIENT_BRAZIER.asItem()
 			);
 		}
 
@@ -130,6 +131,14 @@ public class Creative {
 			insertItem(
 				Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 
 				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 
+				event
+			);
+		}
+
+		if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+			insertItem(
+				Items.TRIAL_SPAWNER, 
+				WetlandWhimsyBlocks.ANCIENT_BRAZIER.asItem(), 
 				event
 			);
 		}
