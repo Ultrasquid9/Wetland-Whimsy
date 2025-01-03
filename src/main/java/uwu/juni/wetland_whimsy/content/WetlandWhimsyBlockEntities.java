@@ -1,11 +1,10 @@
 package uwu.juni.wetland_whimsy.content;
 
-import java.util.function.Supplier;
-
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
 
@@ -16,7 +15,7 @@ public class WetlandWhimsyBlockEntities {
 	);
 
 	@SuppressWarnings("null")
-	public static final Supplier<BlockEntityType<AncientBrazierBlockEntity>> ANCIENT_BRAZIER = BLOCK_ENTITY_TYPES.register(
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AncientBrazierBlockEntity>> ANCIENT_BRAZIER = BLOCK_ENTITY_TYPES.register(
 		"ancient_brazier",
 		() -> BlockEntityType.Builder.of(
 			AncientBrazierBlockEntity::new,
