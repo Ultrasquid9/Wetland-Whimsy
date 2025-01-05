@@ -6,8 +6,17 @@ import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
@@ -16,8 +25,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 
 public class AncientPotBlock extends BaseEntityBlock {
@@ -68,5 +79,47 @@ public class AncientPotBlock extends BaseEntityBlock {
 			return null;
 
 		return state.setValue(FACING, context.getHorizontalDirection());
+	}
+
+	@Override
+	protected ItemInteractionResult useItemOn(
+		@Nonnull ItemStack stack, 
+		@Nonnull BlockState state, 
+		@Nonnull Level level, 
+		@Nonnull BlockPos pos,
+		@Nonnull Player player, 
+		@Nonnull InteractionHand hand, 
+		@Nonnull BlockHitResult hitResult
+	) {
+		if (!stack.is(Items.BEETROOT))
+			return ItemInteractionResult.SUCCESS;
+
+		if (!player.isCreative())
+			stack.consumeAndReturn(1, player);
+
+		if (level instanceof ServerLevel serverlevel) {
+			serverlevel.sendParticles(
+				ParticleTypes.DUST_PLUME,
+				(double)pos.getX() + 0.5,
+				(double)pos.getY() + 1.2,
+				(double)pos.getZ() + 0.5,
+				7,
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			);
+		}
+
+		level.playSound(
+			null, 
+			pos, 
+			WetlandWhimsySounds.ANCIENT_POT_INSERT.get(), 
+			SoundSource.BLOCKS, 
+			1.0F, 
+			1.0F
+		);
+
+		return ItemInteractionResult.SUCCESS;
 	}
 }

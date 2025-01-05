@@ -411,6 +411,7 @@ public class WetlandWhimsyBlocks {
 		"ancient_pot",
 		() -> new AncientPotBlock (
 			BlockBehaviour.Properties.ofFullCopy(Blocks.DECORATED_POT)
+				.sound(WetlandWhimsySounds.ANCIENT_POT_SOUNDS)
 		)
 	);
 

@@ -80,6 +80,11 @@ public class Creative {
 
 		if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
 			insertItem(
+				Items.DECORATED_POT,
+				WetlandWhimsyBlocks.ANCIENT_POT.asItem(), 
+				event
+			);
+			insertItem(
 				Items.CHERRY_HANGING_SIGN,
 				WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.asItem(), 
 				event
