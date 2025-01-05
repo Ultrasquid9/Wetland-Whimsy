@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
+import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 
 public class WetlandWhimsyBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(
@@ -20,6 +21,15 @@ public class WetlandWhimsyBlockEntities {
 		() -> BlockEntityType.Builder.of(
 			AncientBrazierBlockEntity::new,
 			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get()
+		).build(null)
+	);
+
+	@SuppressWarnings("null")
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AncientPotBlockEntity>> ANCIENT_POT = BLOCK_ENTITY_TYPES.register(
+		"ancient_pot",
+		() -> BlockEntityType.Builder.of(
+			AncientPotBlockEntity::new,
+			WetlandWhimsyBlocks.ANCIENT_POT.get()
 		).build(null)
 	);
 

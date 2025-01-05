@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
@@ -404,6 +405,12 @@ public class WetlandWhimsyBlocks {
 			BlockBehaviour.Properties.ofFullCopy(LIMESTONE_BRAZIER.get())
 				.sound(SoundType.TRIAL_SPAWNER)
 				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 8 : 0)
+		)
+	);
+	public static final DeferredBlock<AncientPotBlock> ANCIENT_POT = registerBlockAndItem(
+		"ancient_pot",
+		() -> new AncientPotBlock (
+			BlockBehaviour.Properties.ofFullCopy(Blocks.DECORATED_POT)
 		)
 	);
 

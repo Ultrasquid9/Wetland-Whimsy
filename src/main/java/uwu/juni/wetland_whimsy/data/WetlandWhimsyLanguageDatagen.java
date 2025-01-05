@@ -54,6 +54,7 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRAZIER, "Limestone Brazier");
 		this.addBlock(WetlandWhimsyBlocks.SOUL_BRAZIER, "Soul Brazier");
 		this.addBlock(WetlandWhimsyBlocks.ANCIENT_BRAZIER, "Ancient Brazier");
+		this.addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
 
 		this.addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		this.addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
