@@ -8,6 +8,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
+import uwu.juni.wetland_whimsy.misc.Config;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 
 public record BogBiomeModifier(HolderSet<Biome> biomes) implements BiomeModifier {
@@ -15,6 +16,8 @@ public record BogBiomeModifier(HolderSet<Biome> biomes) implements BiomeModifier
 	@SuppressWarnings("null")
 	@Override
 	public void modify(Holder<Biome> biome, Phase phase, Builder builder) {
+		if (!Config.changeSwamp) return;
+
 		if (!biomes.contains(biome) || !phase.equals(Phase.BEFORE_EVERYTHING)) 
 			return;
 

@@ -29,12 +29,14 @@ import net.minecraft.world.level.material.Fluids;
 public class WetlandWhimsyPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> TREES_BOG = createKey("trees_bog");
 	public static final ResourceKey<PlacedFeature> TREES_MARSH = createKey("trees_marsh");
+	public static final ResourceKey<PlacedFeature> LIMESTONE_DISK_SWAMP = createKey("limestone_disk_swamp");
+	public static final ResourceKey<PlacedFeature> LIMESTONE_DISK_MARSH = createKey("limestone_disk_marsh");
+	public static final ResourceKey<PlacedFeature> MUD_POOL_SWAMP = createKey("mud_pool_swamp");
+	public static final ResourceKey<PlacedFeature> MUD_POOL_MARSH = createKey("mud_pool_marsh");
 
 	public static final ResourceKey<PlacedFeature> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> PENNYWORT_PATCH = createKey("pennywort_patch");
-	public static final ResourceKey<PlacedFeature> LIMESTONE_DISK = createKey("limestone_disk");
 	public static final ResourceKey<PlacedFeature> MUD_DISK = createKey("mud_disk");
-	public static final ResourceKey<PlacedFeature> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<PlacedFeature> SUPER_THICK_CORDGRASS_PATCH = createKey("super_thick_cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> FERN_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE = createKey("fern_clone");
 
@@ -72,7 +74,19 @@ public class WetlandWhimsyPlacedFeatures {
 			)
 		);
 		context.register(
-			LIMESTONE_DISK, 
+			LIMESTONE_DISK_SWAMP, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.LIMESTONE_DISK), 
+				ImmutableList.<PlacementModifier>builder()
+					.add(InSquarePlacement.spread())
+					.add(PlacementUtils.HEIGHTMAP_TOP_SOLID)
+					.add(BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)))
+					.add(BiomeFilter.biome())
+					.build()
+			)
+		);
+		context.register(
+			LIMESTONE_DISK_MARSH, 
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.LIMESTONE_DISK), 
 				ImmutableList.<PlacementModifier>builder()
@@ -97,7 +111,14 @@ public class WetlandWhimsyPlacedFeatures {
 			)
 		);
 		context.register(
-			MUD_POOL, 
+			MUD_POOL_SWAMP, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.MUD_POOL), 
+				foliagePlacement()
+			)
+		);
+		context.register(
+			MUD_POOL_MARSH, 
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.MUD_POOL), 
 				foliagePlacement()

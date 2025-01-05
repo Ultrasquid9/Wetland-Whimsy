@@ -1,0 +1,9 @@
+{
+	"type": "wetland_whimsy:configurable_additions",
+	"biomes": "minecraft:swamp",
+	"features": [
+		"wetland_whimsy:mud_pool_swamp",
+		"wetland_whimsy:limestone_disk_swamp"
+	],
+	"step": "vegetal_decoration"
+}

@@ -10,6 +10,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.misc.Config;
 import uwu.juni.wetland_whimsy.misc.Creative;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import eu.midnightdust.lib.config.MidnightConfig;
 
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
 import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
@@ -31,6 +33,8 @@ public class WetlandWhimsy {
 
 	public WetlandWhimsy(IEventBus modEventBus, ModContainer modContainer) {
 		LOGGER.info("Whimsical");
+
+		MidnightConfig.init(MODID, Config.class);
 
 		modEventBus.addListener(Datagen::datagen);
 		modEventBus.addListener(Creative::addCreative);
@@ -56,6 +60,9 @@ public class WetlandWhimsy {
 	}
 
 	private void marshification() {
+		if (!Config.generateMarsh)
+			return;
+
 		BiomePlacement.addSubOverworld(
 			Biomes.SWAMP, 
 			WetlandWhimsyBiomes.MARSH, 
