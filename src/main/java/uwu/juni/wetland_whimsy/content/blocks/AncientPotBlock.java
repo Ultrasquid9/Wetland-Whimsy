@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 
@@ -97,6 +98,10 @@ public class AncientPotBlock extends BaseEntityBlock {
 		if (!player.isCreative())
 			stack.consumeAndReturn(1, player);
 
+		var entity = level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
+		entity.increaseLootQuality();
+		entity.setChanged();
+
 		if (level instanceof ServerLevel serverlevel) {
 			serverlevel.sendParticles(
 				ParticleTypes.DUST_PLUME,
@@ -121,5 +126,20 @@ public class AncientPotBlock extends BaseEntityBlock {
 		);
 
 		return ItemInteractionResult.SUCCESS;
+	}
+
+	@Override
+	public BlockState playerWillDestroy(
+		@Nonnull Level level, 
+		@Nonnull BlockPos pos, 
+		@Nonnull BlockState state, 
+		@Nonnull Player player
+	) {
+		if (!level.isClientSide())
+			level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get())
+				.get()
+				.dropLoot(level, pos);
+
+		return super.playerWillDestroy(level, pos, state, player);
 	}
 }
