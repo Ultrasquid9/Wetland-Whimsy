@@ -27,6 +27,7 @@ public class WetlandWhimsyStructurePools {
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ENTRANCE = createKey("swamp_dungeon/entrance");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_HOLE = createKey("swamp_dungeon/hole");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ROOM = createKey("swamp_dungeon/room");
+	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ROOM_LOWER = createKey("swamp_dungeon/room_lower");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_SPAWNER = createKey("swamp_dungeon/spawner");
 
 	private static ResourceKey<StructureTemplatePool> createKey(String name) {
@@ -147,13 +148,23 @@ public class WetlandWhimsyStructurePools {
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_2", context), 1),
 
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_1", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_2", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_3", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_4", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_5", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_6", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_7", context), 1)
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_1", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_2", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_3", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_4", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_5", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_6", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_7", context), 2)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
+		context.register(
+			SWAMP_DUNGEON_ROOM_LOWER, 
+			new StructureTemplatePool(
+				fallback, 
+				ImmutableList.of(
+					Pair.of(dungeon_pool("swamp_dungeon/room_lower/lower_room_1", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)

@@ -115,7 +115,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 1
+      "weight": 2
     },
     {
       "element": {
@@ -124,7 +124,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 1
+      "weight": 2
     },
     {
       "element": {
@@ -133,7 +133,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 1
+      "weight": 2
     },
     {
       "element": {
@@ -142,7 +142,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 1
+      "weight": 2
     },
     {
       "element": {
@@ -151,7 +151,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 1
+      "weight": 2
     },
     {
       "element": {
@@ -160,7 +160,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 1
+      "weight": 2
     },
     {
       "element": {
@@ -169,7 +169,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 1
+      "weight": 2
     }
   ],
   "fallback": "minecraft:empty"

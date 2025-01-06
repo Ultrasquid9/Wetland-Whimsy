@@ -87,7 +87,7 @@ public class WetlandWhimsyStructures {
 				), 
 				templatePools.getOrThrow(pool), 
 				Optional.empty(), 
-				18, 
+				16, 
 				ConstantHeight.of(VerticalAnchor.absolute(0)), 
 				false, 
 				Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 
