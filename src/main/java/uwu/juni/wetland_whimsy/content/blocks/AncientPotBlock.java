@@ -30,8 +30,10 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
+import uwu.juni.wetland_whimsy.misc.Config;
 
 public class AncientPotBlock extends BaseEntityBlock {
 	public static final MapCodec<AncientPotBlock> CODEC = simpleCodec(AncientPotBlock::new);
@@ -156,9 +158,32 @@ public class AncientPotBlock extends BaseEntityBlock {
 	}
 
 	private void dropLoot(Level level, BlockPos pos) {
-		if (!level.isClientSide())
-			level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get())
-				.get()
-				.dropLoot(level, pos);
+		if (level instanceof ServerLevel serverLevel) {
+			var blockEntity = level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
+			blockEntity.dropLoot(level, pos);
+
+			serverLevel.sendParticles(
+				ParticleTypes.DUST_PLUME,
+				(double)pos.getX() + 0.5,
+				(double)pos.getY() + 0.5,
+				(double)pos.getZ() + 0.5,
+				10,
+				0.2,
+				0.2,
+				0.2,
+				0.0
+			);
+			serverLevel.sendParticles(
+				WetlandWhimsyParticleTypes.ANCIENT_SOULS.get(),
+				(double)pos.getX() + 0.5,
+				(double)pos.getY() + 0.5,
+				(double)pos.getZ() + 0.5,
+				Math.min(Config.ancientPotMaxParticleCount, blockEntity.lootQuality() - 1),
+				0.2,
+				0.2,
+				0.2,
+				0.0
+			);
+		}
 	}
 }

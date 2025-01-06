@@ -4,9 +4,11 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import uwu.juni.wetland_whimsy.client.WetlandWhimsyParticles;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
@@ -17,6 +19,7 @@ import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
 import net.minecraft.world.level.biome.Biomes;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -31,7 +34,7 @@ public class WetlandWhimsy {
 	public static final String MODID = "wetland_whimsy";
 	public static final Logger LOGGER = LogUtils.getLogger();
 
-	public WetlandWhimsy(IEventBus modEventBus, ModContainer modContainer) {
+	public WetlandWhimsy(IEventBus modEventBus, ModContainer modContainer, Dist dist) {
 		LOGGER.info("Whimsical");
 
 		MidnightConfig.init(MODID, Config.class);
@@ -42,6 +45,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
 		WetlandWhimsyBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
+		WetlandWhimsyParticleTypes.PARTICLE_TYPES.register(modEventBus);
 		WetlandWhimsySounds.SOUNDS.register(modEventBus);
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
@@ -51,6 +55,9 @@ public class WetlandWhimsy {
 		WetlandWhimsyWoodTypes.registerWoodTypes();
 
 		this.eventSetup(modEventBus);
+
+		if (dist == Dist.CLIENT)
+			modEventBus.addListener(WetlandWhimsyParticles::registerParticleProviders);
 
 		marshification();
 	}

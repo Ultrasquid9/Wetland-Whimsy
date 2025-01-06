@@ -38,6 +38,7 @@ public class AncientPotBlockEntity extends BlockEntity {
 	}
 
 	public void increaseLootQuality() { lootQuality++; }
+	public int lootQuality() { return lootQuality; }
 
 	/// Gambling
 	public void dropLoot(Level level, BlockPos pos) {
@@ -56,7 +57,7 @@ public class AncientPotBlockEntity extends BlockEntity {
 				continue;
 
 			i++;
-			if (i >= Integer.min(lootQuality, 10)) break;
+			if (i >= Integer.min(lootQuality, Config.ancientPotMaxDropCount)) break;
 
 			var stack = new ItemStack(BuiltInRegistries.ITEM.get(item));
 			growStack(stack);
