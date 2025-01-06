@@ -43,11 +43,17 @@ public class AncientPotBlockEntity extends BlockEntity {
 	public void dropLoot(Level level, BlockPos pos) {
 		lootQuality += 2; // Ensuring that it is not zero
 
+		var chance2 = Config.ancientPotItems.size() / (lootQuality * 5);
+		if (chance2 <= 0) 
+			chance2 = 1;
+
 		var i = 0;
 		var j = 0;
 		for (var item : Config.ancientPotItems) {
-			if (random.nextInt(0, lootQuality - random.nextInt(0, lootQuality)) == 0) continue;
-			if (random.nextBoolean()) continue;
+			if (random.nextInt(0, lootQuality - random.nextInt(0, lootQuality)) == 0) 
+				continue;
+			if (random.nextInt(0, chance2) != 0) 
+				continue;
 
 			i++;
 			if (i >= Integer.min(lootQuality, 10)) break;
@@ -64,17 +70,26 @@ public class AncientPotBlockEntity extends BlockEntity {
 			);
 			j++;
 		}
-		
+
 		if (j == 0)
 			Block.popResource(
 				level, 
 				pos, 
-				new ItemStack(BuiltInRegistries.ITEM.get(Config.ancientPotItems.get(Config.ancientPotItems.size() - 1)))
+				new ItemStack(
+					BuiltInRegistries.ITEM.get(
+						Config.ancientPotItems.get(
+							random.nextInt(Config.ancientPotItems.size() - 3, Config.ancientPotItems.size() - 1)
+						)
+					)
+				)
 			);
 	}
 
 	private void growStack(ItemStack stack) {
 		if (stack.toString().contains("template")) return;
 		stack.grow(Integer.min(stack.getMaxStackSize(), random.nextInt(0, lootQuality)) - 1);
+
+		if (stack.isDamageableItem())
+			stack.setDamageValue(random.nextInt(1, stack.getMaxDamage() - 1));
 	}
 }

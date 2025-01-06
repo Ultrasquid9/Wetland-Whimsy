@@ -12,6 +12,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -135,11 +136,29 @@ public class AncientPotBlock extends BaseEntityBlock {
 		@Nonnull BlockState state, 
 		@Nonnull Player player
 	) {
+		dropLoot(level, pos);
+		return super.playerWillDestroy(level, pos, state, player);
+	}
+
+	@Override
+	protected void onProjectileHit(
+		@Nonnull Level level, 
+		@Nonnull BlockState state, 
+		@Nonnull BlockHitResult result, 
+		@Nonnull Projectile projectile
+	) {
+		BlockPos pos = result.getBlockPos();
+
+		if (!level.isClientSide && projectile.mayInteract(level, pos) && projectile.mayBreak(level)) {
+			dropLoot(level, pos);
+			level.destroyBlock(pos, true, projectile);
+		}
+	}
+
+	private void dropLoot(Level level, BlockPos pos) {
 		if (!level.isClientSide())
 			level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get())
 				.get()
 				.dropLoot(level, pos);
-
-		return super.playerWillDestroy(level, pos, state, player);
 	}
 }
