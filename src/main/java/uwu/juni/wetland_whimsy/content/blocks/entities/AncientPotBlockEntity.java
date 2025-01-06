@@ -18,9 +18,11 @@ import uwu.juni.wetland_whimsy.misc.Config;
 
 public class AncientPotBlockEntity extends BlockEntity {
 	private int lootQuality;
+	private ThreadLocalRandom random;
 
 	public AncientPotBlockEntity(BlockPos pos, BlockState state) {
 		super(WetlandWhimsyBlockEntities.ANCIENT_POT.get(), pos, state);
+		random = ThreadLocalRandom.current();
 	}
 
 	@Override
@@ -37,12 +39,42 @@ public class AncientPotBlockEntity extends BlockEntity {
 
 	public void increaseLootQuality() { lootQuality++; }
 
+	/// Gambling
 	public void dropLoot(Level level, BlockPos pos) {
-		var random = ThreadLocalRandom.current();
-		var index = Config.ancientPotItems.size() > 1 
-			? Config.ancientPotItems.size()
-			: 1;
+		lootQuality += 2; // Ensuring that it is not zero
 
-		Block.popResource(level, pos, new ItemStack(BuiltInRegistries.ITEM.get(Config.ancientPotItems.get(random.nextInt(0, index)))));
+		var i = 0;
+		var j = 0;
+		for (var item : Config.ancientPotItems) {
+			if (random.nextInt(0, lootQuality - random.nextInt(0, lootQuality)) == 0) continue;
+			if (random.nextBoolean()) continue;
+
+			i++;
+			if (i >= Integer.min(lootQuality, 10)) break;
+
+			var stack = new ItemStack(BuiltInRegistries.ITEM.get(item));
+			growStack(stack);
+
+			if (stack.getCount() == 0) continue;
+
+			Block.popResource(
+				level, 
+				pos, 
+				stack
+			);
+			j++;
+		}
+		
+		if (j == 0)
+			Block.popResource(
+				level, 
+				pos, 
+				new ItemStack(BuiltInRegistries.ITEM.get(Config.ancientPotItems.get(Config.ancientPotItems.size() - 1)))
+			);
+	}
+
+	private void growStack(ItemStack stack) {
+		if (stack.toString().contains("template")) return;
+		stack.grow(Integer.min(stack.getMaxStackSize(), random.nextInt(0, lootQuality)) - 1);
 	}
 }

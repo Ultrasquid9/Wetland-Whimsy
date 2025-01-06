@@ -138,6 +138,11 @@ public class Creative {
 				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 
 				event
 			);
+			insertItem(
+				Items.OMINOUS_TRIAL_KEY, 
+				WetlandWhimsyItems.ANCIENT_COIN.get(), 
+				event
+			);
 		}
 
 		if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {

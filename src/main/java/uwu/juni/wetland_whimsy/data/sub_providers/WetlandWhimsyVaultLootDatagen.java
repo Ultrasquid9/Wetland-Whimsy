@@ -3,6 +3,7 @@ package uwu.juni.wetland_whimsy.data.sub_providers;
 import java.util.function.BiConsumer;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -12,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -26,6 +28,7 @@ public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
 
 	public static final ResourceKey<LootTable> NORMAL_VAULT_LOOT = createKey("vault/normal_loot");
 	public static final ResourceKey<LootTable> OMINOUS_VAULT_LOOT = createKey("vault/ominous_loot");
+	public static final ResourceKey<LootTable> ANCIENT_COIN = createKey("vault/ancient_coin");
 
 	private static ResourceKey<LootTable> createKey(String name) {
 		return ResourceKey.create(
@@ -98,6 +101,14 @@ public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
 						.when(LootItemRandomChanceCondition.randomChance(0.25F))
 						.add(NestedLootTable.lootTableReference(EPIC_LOOT))
 				)
+		);
+
+		output.accept(
+			ANCIENT_COIN, 
+			LootTable.lootTable().withPool(LootPool.lootPool()
+				.setRolls(UniformGenerator.between(1.F, 1.F))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.ANCIENT_COIN.get()))
+			)
 		);
 	}
 }
