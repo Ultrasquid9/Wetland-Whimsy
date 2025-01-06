@@ -36,9 +36,12 @@
   "block.wetland_whimsy.stripped_bald_cypress_log": "Stripped Bald Cypress Log",
   "block.wetland_whimsy.stripped_bald_cypress_wood": "Stripped Bald Cypress Wood",
   "block.wetland_whimsy.suspicious_mud": "Suspicious Mud",
+  "item.wetland_whimsy.ancient_coin": "Ancient Coin",
   "item.wetland_whimsy.disc": "Music Disc",
   "item.wetland_whimsy.dots_armor_trim_smithing_template": "Smithing Template",
   "item.wetland_whimsy.pennywort_salad": "Pennywort Salad",
   "jukebox_song.wetland_whimsy.nuke_the_swamps": "Quizzly - Nuke The Swamps",
-  "trim_pattern.wetland_whimsy.dots": "Dots Armor Trim"
+  "trim_pattern.wetland_whimsy.dots": "Dots Armor Trim",
+  "wetland_whimsy.midnightconfig.category.biomes": "Biomes",
+  "wetland_whimsy.midnightconfig.category.swamp_dungeon": "Swamp Dungeon"
 }

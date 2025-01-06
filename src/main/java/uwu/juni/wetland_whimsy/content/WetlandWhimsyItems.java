@@ -37,4 +37,8 @@ public class WetlandWhimsyItems {
 			.rarity(Rarity.RARE)
 			.jukeboxPlayable(WetlandWhimsyJukebox.NUKE_THE_SWAMPS)
 	);
+
+	public static final DeferredItem<Item> ANCIENT_COIN = ITEMS.registerSimpleItem(
+		"ancient_coin"
+	);
 }

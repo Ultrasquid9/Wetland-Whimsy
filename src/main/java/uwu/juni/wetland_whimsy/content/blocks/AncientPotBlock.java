@@ -13,7 +13,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -29,6 +28,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 
@@ -92,8 +92,8 @@ public class AncientPotBlock extends BaseEntityBlock {
 		@Nonnull InteractionHand hand, 
 		@Nonnull BlockHitResult hitResult
 	) {
-		if (!stack.is(Items.BEETROOT))
-			return ItemInteractionResult.SUCCESS;
+		if (!stack.is(WetlandWhimsyItems.ANCIENT_COIN))
+			return ItemInteractionResult.FAIL;
 
 		if (!player.isCreative())
 			stack.consumeAndReturn(1, player);

@@ -19,11 +19,14 @@ public class Config extends MidnightConfig {
 
 	@Entry(
 		category = SWAMP_DUNGEON,
-		name = "Ancient Pot Items"
+		name = "Ancient Pot Items",
+		idMode = 0
 	)
-	public static List<ResourceLocation> chandelierMaxDamage = Lists.newArrayList(
+	public static List<ResourceLocation> ancientPotItems = Lists.newArrayList(
 		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "cordgrass")
 	);
+
+	/* -- Biomes -- */
 
 	@Entry(
 		category = BIOMES,

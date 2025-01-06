@@ -59,8 +59,12 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		this.addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
 		this.addItem(WetlandWhimsyItems.DISC, "Music Disc");
+		this.addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
 
 		this.add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		this.add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");
+
+		this.add(WetlandWhimsy.MODID + ".midnightconfig.category.biomes", "Biomes");
+		this.add(WetlandWhimsy.MODID + ".midnightconfig.category.swamp_dungeon", "Swamp Dungeon");
 	}
 }
