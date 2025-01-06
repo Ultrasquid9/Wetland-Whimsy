@@ -1,7 +1,5 @@
 package uwu.juni.wetland_whimsy.worldgen.bald_cypress;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -27,7 +25,7 @@ public class BaldCypressFoliagePlacer extends FoliagePlacer {
 
 	@Override
 	public int foliageHeight(RandomSource random, int height, TreeConfiguration config) {
-		return 7; // IDK
+		return random.nextInt(6, 9);
 	}
 
 	@Override
@@ -44,7 +42,7 @@ public class BaldCypressFoliagePlacer extends FoliagePlacer {
 	) {
 		var pos = attachment.pos();
 
-		var leafHeight = foliageHeight - ThreadLocalRandom.current().nextInt(2, 4);
+		var leafHeight = foliageHeight - random.nextInt(2, 4);
 
 		for (int i = 0; i < foliageHeight; i++) {
 			this.placeLeavesRow(level, blockSetter, random, config, pos, offset, i - leafHeight, false);
