@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "L": {
+      "item": "wetland_whimsy:polished_limestone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "LCL",
+    "LRL"
+  ],
+  "result": {
+    "item": "wetland_whimsy:limestone_brazier"
+  },
+  "show_notification": true
+}

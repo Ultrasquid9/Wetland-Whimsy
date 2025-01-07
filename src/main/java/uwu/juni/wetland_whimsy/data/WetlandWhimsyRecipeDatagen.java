@@ -14,6 +14,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.Tags;
@@ -210,6 +211,24 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.requires(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get())
 			.requires(Items.CHEST)
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()))
+			.save(recipeOutput);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(), 1)
+			.define('C', ItemTags.COALS)
+			.define('R', Items.REDSTONE)
+			.define('L', WetlandWhimsyBlocks.POLISHED_LIMESTONE.get())
+			.pattern("LCL")
+			.pattern("LRL")
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()), has(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()))
+			.save(recipeOutput);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.SOUL_BRAZIER.get(), 1)
+			.define('C', ItemTags.SOUL_FIRE_BASE_BLOCKS)
+			.define('R', Items.REDSTONE)
+			.define('L', WetlandWhimsyBlocks.POLISHED_LIMESTONE.get())
+			.pattern("LCL")
+			.pattern("LRL")
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.SOUL_BRAZIER.get()), has(WetlandWhimsyBlocks.SOUL_BRAZIER.get()))
 			.save(recipeOutput);
 	}
 

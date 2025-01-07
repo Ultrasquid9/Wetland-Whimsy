@@ -84,6 +84,17 @@ public class Creative {
 				of(Items.SUSPICIOUS_GRAVEL), 
 				WetlandWhimsyBlocks.SUSSY_MUD
 			)
+			.addItemsAfter(
+				of(Items.SOUL_CAMPFIRE), 
+				WetlandWhimsyBlocks.LIMESTONE_BRAZIER,
+				WetlandWhimsyBlocks.SOUL_BRAZIER
+			)
+
+			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
+			.addItemsAfter(
+				of(Items.LECTERN), 
+				WetlandWhimsyBlocks.LIMESTONE_BRAZIER
+			)
 
 			.tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
 			.addItemsAfter(

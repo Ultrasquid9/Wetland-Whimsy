@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,waterlogged=false": {
+      "model": "wetland_whimsy:block/brazier"
+    },
+    "lit=false,waterlogged=true": {
+      "model": "wetland_whimsy:block/brazier"
+    },
+    "lit=true,waterlogged=false": {
+      "model": "wetland_whimsy:block/brazier_lit"
+    },
+    "lit=true,waterlogged=true": {
+      "model": "wetland_whimsy:block/brazier_lit"
+    }
+  }
+}

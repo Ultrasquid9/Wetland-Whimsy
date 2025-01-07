@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.data;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -161,6 +162,19 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				.withExistingParent("cordgrass", this.modLoc("block/cordgrass_base"))
 		);
 		pennywort(WetlandWhimsyBlocks.PENNYWORT.get());
+
+		brazier(
+			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(),
+			"brazier",
+			"block/limestone_brazier_base",
+			"block/limestone_brazier_lit_base"
+		);
+		brazier(
+			WetlandWhimsyBlocks.SOUL_BRAZIER.get(),
+			"soul_brazier",
+			"block/limestone_brazier_base",
+			"block/soul_brazier_lit_base"
+		);
 	}
 
 	private void pennywort(Block pennywort) {
@@ -192,5 +206,17 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 		
 		simpleBlock(signBlock, sign);
 		simpleBlock(wallSignBlock, sign);
+	}
+
+	private void brazier(Block brazier, String name, String unlitBase, String litBase) {
+		this.getVariantBuilder(brazier).forAllStates((state) -> {
+			var model = state.getValue(BrazierBlock.LIT)
+				? models().withExistingParent(name + "_lit", this.modLoc(litBase))
+				: models().withExistingParent(name, this.modLoc(unlitBase));
+
+			return ConfiguredModel.builder()
+				.modelFile(model)
+				.build();
+		});
 	}
 }

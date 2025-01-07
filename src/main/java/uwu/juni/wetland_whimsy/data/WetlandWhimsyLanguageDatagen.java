@@ -47,6 +47,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL, "Limestone Brick Wall");
 		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_PILLAR, "Limestone Pillar");
 
+		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRAZIER, "Limestone Brazier");
+		this.addBlock(WetlandWhimsyBlocks.SOUL_BRAZIER, "Soul Brazier");
+
 		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 

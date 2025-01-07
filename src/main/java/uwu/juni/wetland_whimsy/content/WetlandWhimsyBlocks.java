@@ -8,6 +8,7 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlo
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.content.blocks.StrippableLogBlock;
@@ -46,6 +47,7 @@ import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.PressurePlateBlock.Sensitivity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -405,6 +407,21 @@ public class WetlandWhimsyBlocks {
 			SoundEvents.BRUSH_SAND,
 			SoundEvents.BRUSH_SAND_COMPLETED,
 			BlockBehaviour.Properties.copy(Blocks.MUD)
+		)
+	);
+
+	public static final RegistryObject<BrazierBlock> LIMESTONE_BRAZIER = registerBlockAndItem(
+		"limestone_brazier",
+		() -> new BrazierBlock (
+			BlockBehaviour.Properties.copy(LIMESTONE.get())
+				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0)
+		)
+	);
+	public static final RegistryObject<BrazierBlock> SOUL_BRAZIER = registerBlockAndItem(
+		"soul_brazier",
+		() -> new BrazierBlock (
+			BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get())
+				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 10 : 0)
 		)
 	);
 
