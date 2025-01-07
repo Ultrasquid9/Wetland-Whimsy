@@ -199,6 +199,18 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.pattern("DDD")
 			.unlockedBy(getHasName(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()), has(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
 			.save(recipeOutput);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get(), 1)
+			.define('P', WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get())
+			.pattern("P P")
+			.pattern("PPP")
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()))
+			.save(recipeOutput);
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond().get(), 1)
+			.requires(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get())
+			.requires(Items.CHEST)
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()))
+			.save(recipeOutput);
 	}
 
 	private void twoByTwo(Consumer<FinishedRecipe> recipeOutput, ItemLike input, ItemLike output, int count) {

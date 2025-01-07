@@ -56,6 +56,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
 		this.addItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC, "Music Disc");
 
+		this.addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst(), "Bald Cypress Boat");
+		this.addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond(), "Bald Cypress Chest Boat");
+
 		this.add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		this.add("item.wetland_whimsy.nuke_the_swamps_music_disc.desc", "Quizzly - Nuke The Swamps");
 	}

@@ -1,6 +1,10 @@
 package uwu.juni.wetland_whimsy.content;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+
+import com.mojang.datafixers.util.Pair;
+import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
+
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -11,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class WetlandWhimsyItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, WetlandWhimsy.MODID);
+	public static final ItemSubRegistryHelper HELPER = WetlandWhimsy.REGISTRY_HELPER.getItemSubHelper();
 
 	public static final RegistryObject<Item> PENNYWORT_SALAD = ITEMS.register(
 		"pennywort_salad", 
@@ -41,5 +46,10 @@ public class WetlandWhimsyItems {
 				.stacksTo(1), 
 			4440
 		)
+	);
+
+	public static final Pair<RegistryObject<Item>, RegistryObject<Item>> BALD_CYPRESS_BOAT = HELPER.createBoatAndChestBoatItem(
+		"bald_cypress", 
+		WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS
 	);
 }

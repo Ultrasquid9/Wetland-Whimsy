@@ -100,6 +100,9 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		this.basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
 		this.basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
 		this.basicItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC.get());
+		
+		this.basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get());
+		this.basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond().get());
 	}
 
 	private void simpleBlockItem(Block block) {

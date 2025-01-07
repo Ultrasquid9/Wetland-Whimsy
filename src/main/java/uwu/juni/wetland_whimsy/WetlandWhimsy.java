@@ -1,6 +1,7 @@
 package uwu.juni.wetland_whimsy;
 
 import com.mojang.logging.LogUtils;
+import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -25,6 +26,8 @@ public class WetlandWhimsy {
 	public static final String MODID = "wetland_whimsy";
 	public static final Logger LOGGER = LogUtils.getLogger();
 
+	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
+
 	public WetlandWhimsy() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		LOGGER.info("Whimsical");
@@ -34,6 +37,7 @@ public class WetlandWhimsy {
 		modEventBus.addListener(Creative::addCreative);
 		modEventBus.addListener(WetlandWhimsyBlockEntities::blockEntityRendering);
 
+		REGISTRY_HELPER.register(modEventBus);
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
 		WetlandWhimsyBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
