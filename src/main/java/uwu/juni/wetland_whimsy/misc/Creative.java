@@ -1,131 +1,106 @@
 package uwu.juni.wetland_whimsy.misc;
 
+import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
+
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 
+import static net.minecraft.world.item.crafting.Ingredient.of;
+
 public class Creative {
 	public static void addCreative(final BuildCreativeModeTabContentsEvent event) {
-		if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-			insertItems(
-				event,
-				Items.CHERRY_BUTTON, 
-				WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get().asItem(), 
-				WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get().asItem(),
-				WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get().asItem(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.get().asItem()
-			);
+		CreativeModeTabContentsPopulator.mod(WetlandWhimsy.MODID)
 
-			insertItems(
-				event,
-				Items.CUT_RED_SANDSTONE_SLAB,
-				WetlandWhimsyBlocks.LIMESTONE.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_STAIRS.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_SLAB.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_WALL.get().asItem(), 
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE.get().asItem(), 
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get().asItem(), 
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get().asItem(), 
-				WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_BRICKS.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get().asItem(), 
-				WetlandWhimsyBlocks.LIMESTONE_PILLAR.get().asItem()
-			);
-		}
+			.tab(CreativeModeTabs.BUILDING_BLOCKS)
+			.addItemsAfter(
+				of(Items.CHERRY_BUTTON), 
+				WetlandWhimsyBlocks.BALD_CYPRESS_LOG, 
+				WetlandWhimsyBlocks.BALD_CYPRESS_WOOD, 
+				WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG,
+				WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD,
+				WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS,
+				WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS,
+				WetlandWhimsyBlocks.BALD_CYPRESS_SLAB,
+				WetlandWhimsyBlocks.BALD_CYPRESS_FENCE, 
+				WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE, 
+				WetlandWhimsyBlocks.BALD_CYPRESS_DOOR, 
+				WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR, 
+				WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE, 
+				WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON
+			)
+			.addItemsAfter(
+				of(Items.CUT_RED_SANDSTONE_SLAB),
+				WetlandWhimsyBlocks.LIMESTONE, 
+				WetlandWhimsyBlocks.LIMESTONE_STAIRS, 
+				WetlandWhimsyBlocks.LIMESTONE_SLAB, 
+				WetlandWhimsyBlocks.LIMESTONE_WALL, 
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS, 
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB, 
+				WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL, 
+				WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS, 
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB, 
+				WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL, 
+				WetlandWhimsyBlocks.LIMESTONE_PILLAR
+			)
 
-		if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-			insertItem(
-				Items.CHERRY_LOG,
-				WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get().asItem(), 
-				event
-			);
-			insertItem(
-				Items.CHERRY_LEAVES,
-				WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get().asItem(), 
-				event
-			);
-			insertItem(
-				Items.CHERRY_SAPLING,
-				WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get().asItem(), 
-				event
-			);
+			.tab(CreativeModeTabs.NATURAL_BLOCKS)
+			.addItemsAfter(
+				of(Items.CHERRY_LOG),
+				WetlandWhimsyBlocks.BALD_CYPRESS_LOG
+			)
+			.addItemsAfter(
+				of(Items.CHERRY_LEAVES),
+				WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES
+			)
+			.addItemsAfter(
+				of(Items.CHERRY_SAPLING),
+				WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING
+			)
+			.addItemsAfter(
+				of(Items.LARGE_FERN),
+				WetlandWhimsyBlocks.CORDGRASS
+			)
+			.addItemsAfter(
+				of(Items.NETHER_WART),
+				WetlandWhimsyBlocks.PENNYWORT
+			)
 
-			insertItem(
-				Items.LARGE_FERN,
-				WetlandWhimsyBlocks.CORDGRASS.get().asItem(), 
-				event
-			);
-			insertItem(
-				Items.NETHER_WART,
-				WetlandWhimsyBlocks.PENNYWORT.get().asItem(), 
-				event
-			);
-		}
+			.tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+			.addItemsAfter(
+				of(Items.CHERRY_SIGN), 
+				WetlandWhimsyBlocks.BALD_CYPRESS_SIGN
+			)
+			.addItemsAfter(
+				of(Items.CHERRY_HANGING_SIGN), 
+				WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN
+			)
+			.addItemsAfter(
+				of(Items.SUSPICIOUS_GRAVEL), 
+				WetlandWhimsyBlocks.SUSSY_MUD
+			)
 
-		if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-			insertItem(
-				Items.CHERRY_HANGING_SIGN,
-				WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem(), 
-				event
-			);
-			insertItem(
-				Items.CHERRY_HANGING_SIGN,
-				WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get().asItem(), 
-				event
-			);
-			insertItem(
-				Items.SUSPICIOUS_GRAVEL,
-				WetlandWhimsyBlocks.SUSSY_MUD.get().asItem(), 
-				event
-			);
-		}
+			.tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
+			.addItemsAfter(
+				of(Items.MUSIC_DISC_RELIC), 
+				WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC
+			)
 
-		if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-			insertItem(
-				Items.BEETROOT_SOUP,
-				WetlandWhimsyItems.PENNYWORT_SALAD.get(), 
-				event
+			.tab(CreativeModeTabs.FOOD_AND_DRINKS)
+			.addItemsAfter(
+				of(Items.BEETROOT_SOUP), 
+				WetlandWhimsyItems.PENNYWORT_SALAD
+			)
+
+			.tab(CreativeModeTabs.INGREDIENTS)
+			.addItemsAfter(
+				of(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE), 
+				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE
 			);
-		}
-
-		if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-			insertItem(
-				Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 
-				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 
-				event
-			);
-		}
-	}
-
-	private static void insertItem(Item previous, Item next, BuildCreativeModeTabContentsEvent event) {
-		event.accept(next);
-	}
-
-	private static void insertItems(BuildCreativeModeTabContentsEvent event, Item start, Item... items) {
-		var previous = start;
-
-		for (var next : items) {
-			insertItem(
-				previous, 
-				next, 
-				event
-			);
-
-			previous = next;
-		}
 	}
 }
