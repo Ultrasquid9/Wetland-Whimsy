@@ -1,8 +1,8 @@
 package uwu.juni.wetland_whimsy.worldgen.bald_cypress;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
@@ -10,8 +10,10 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
@@ -21,17 +23,11 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
 @SuppressWarnings("null")
 public class BaldCypressTrunkPlacer extends TrunkPlacer {
-	private static final int[] X = {
-		0,
-		-1,
-		0,
-		1
-	};
-	private static final int[] Y = {
-		-1,
-		0,
-		1,
-		0
+	private static final Direction[] DIRS = {
+		Direction.NORTH,
+		Direction.SOUTH,
+		Direction.EAST,
+		Direction.WEST
 	};
 
 	public static final Codec<BaldCypressTrunkPlacer> CODEC = RecordCodecBuilder.create(
@@ -65,7 +61,7 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 			if (i > 2 && i < height - 2 && i % 2 != 0) {
 				for (int j = 0; j < 4; j++) {
 					if (Math.random() < ((float)i / height) - 0.25) {
-						this.branch(level, blockSetter, random, pos.above(i), X[j], Y[j], config);
+						this.branch(level, blockSetter, random, pos.above(i), DIRS[j], config);
 					}
 				}
 			}
@@ -81,16 +77,12 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 		BiConsumer<BlockPos, BlockState> blockSetter,
 		RandomSource random, 
 		BlockPos pos, 
-		int x,
-		int y,
+		Direction dir,
 		TreeConfiguration config
 	) {
-		for (int i = 0; i < 2; i++) {
-			var new_x = x * i;
-			var new_y = y * i;
+        Function<BlockState, BlockState> fn = block -> block.trySetValue(RotatedPillarBlock.AXIS, dir.getAxis());
 
-			this.placeLog(level, blockSetter, random, pos.offset(new_x, 0, new_y), config);
-		}
+		this.placeLog(level, blockSetter, random, pos.relative(dir), config, fn);
 	}
 
 	public void root(
@@ -100,8 +92,8 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 		BlockPos pos,
 		TreeConfiguration config
 	) {
-		var rootPosX = ThreadLocalRandom.current().nextInt(-1, 1);
-		var rootPosZ = ThreadLocalRandom.current().nextInt(-1, 1);
+		var rootPosX = random.nextInt(-1, 1);
+		var rootPosZ = random.nextInt(-1, 1);
 
 		TrunkPlacer.setDirtAt(level, blockSetter, random, pos.offset(rootPosX, -1, rootPosZ), config);
 
