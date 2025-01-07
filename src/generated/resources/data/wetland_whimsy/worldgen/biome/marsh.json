@@ -78,7 +78,8 @@
       "minecraft:patch_pumpkin",
       "minecraft:seagrass_swamp",
       "wetland_whimsy:limestone_disk_marsh",
-      "wetland_whimsy:mud_pool_marsh"
+      "wetland_whimsy:mud_pool_marsh",
+      "wetland_whimsy:bloodcap_patch_marsh"
     ]
   ],
   "has_precipitation": true,

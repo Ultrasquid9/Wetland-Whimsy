@@ -37,6 +37,7 @@ import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
 public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_TREE = createKey("bald_cypress_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODCAP_PATCH = createKey("bloodcap_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH_SMALL = createKey("pennywort_single");
@@ -87,6 +88,21 @@ public class WetlandWhimsyConfiguredFeatures {
 			)
 		);
 
+		context.register(
+			BLOODCAP_PATCH,
+			new ConfiguredFeature(
+				Feature.RANDOM_PATCH, 
+				new RandomPatchConfiguration(
+					8, 
+					4, 
+					3, 
+					PlacementUtils.onlyWhenEmpty(
+						Feature.SIMPLE_BLOCK, 
+						new SimpleBlockConfiguration(BlockStateProvider.simple(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get()))
+					)
+				)
+			)
+		);
 		context.register(
 			CORDGRASS_PATCH, 
 			new ConfiguredFeature(

@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
+import uwu.juni.wetland_whimsy.content.blocks.BloodcapMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
@@ -370,6 +371,14 @@ public class WetlandWhimsyBlocks {
 			BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)
 				.noOcclusion()
 				.offsetType(BlockBehaviour.OffsetType.XZ)
+		)
+	);
+	public static final DeferredBlock<BloodcapMushroomBlock> BLOODCAP_MUSHROOM = registerBlockAndItem(
+		"bloodcap_mushroom", 
+		() -> new BloodcapMushroomBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)
+				.offsetType(BlockBehaviour.OffsetType.XZ)
+				.lightLevel($ -> 2)
 		)
 	);
 

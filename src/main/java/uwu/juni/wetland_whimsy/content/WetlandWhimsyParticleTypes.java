@@ -18,4 +18,8 @@ public class WetlandWhimsyParticleTypes {
 		"ancient_souls",
 		() -> new SimpleParticleType(true)
 	);
+	public static final Supplier<SimpleParticleType> BLOODCAP_SPORES = PARTICLE_TYPES.register(
+		"bloodcap_spores",
+		() -> new SimpleParticleType(false)
+	);
 }

@@ -5,7 +5,8 @@
 		"wetland_whimsy:trees_bog",
 		"wetland_whimsy:cordgrass_patch",
 		"wetland_whimsy:pennywort_patch",
-		"wetland_whimsy:fern_clone"
+		"wetland_whimsy:fern_clone",
+		"wetland_whimsy:bloodcap_patch_swamp"
 	],
 	"step": "underground_ores"
 }

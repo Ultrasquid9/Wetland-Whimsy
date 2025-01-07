@@ -1,0 +1,8 @@
+{
+	"type": "neoforge:add_features",
+	"biomes": "#minecraft:is_overworld",
+	"features": [
+		"wetland_whimsy:bloodcap_patch"
+	],
+	"step": "underground_decoration"
+}

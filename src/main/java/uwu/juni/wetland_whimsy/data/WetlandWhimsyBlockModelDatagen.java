@@ -159,6 +159,14 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 		);
 		pennywort(WetlandWhimsyBlocks.PENNYWORT.get());
 
+		this.simpleBlock(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get(),
+			this.models()
+				.withExistingParent("bloodcap", this.mcLoc("block/cross"))
+				.texture("cross", this.modLoc("block/bloodcap_mushroom"))
+				.renderType("minecraft:cutout")
+		);
+
 		brazier(
 			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(),
 			"brazier",

@@ -82,6 +82,12 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			mcLoc("item/generated")
 		)
 		.texture("layer0", "block/bald_cypress_sapling");
+
+		this.withExistingParent(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.getId().toString(), 
+			mcLoc("item/generated")
+		)
+		.texture("layer0", "block/bloodcap_mushroom");
 		
 		this.withExistingParent(
 			WetlandWhimsyBlocks.PENNYWORT.getId().toString(), 
