@@ -44,14 +44,15 @@ public class AncientPotBlockEntity extends BlockEntity {
 	public void dropLoot(Level level, BlockPos pos) {
 		lootQuality += 2; // Ensuring that it is not zero
 
-		var chance2 = Config.ancientPotItems.size() / (lootQuality * 5);
+		var chance2 = Config.ancientPotItems.size() / (int)(lootQuality * 2.5);
 		if (chance2 <= 0) 
 			chance2 = 1;
 
 		var i = 0;
 		var j = 0;
 		for (var item : Config.ancientPotItems) {
-			if (random.nextInt(0, lootQuality - random.nextInt(0, lootQuality)) == 0) 
+			var thign = lootQuality == 2 ? lootQuality : (int)(lootQuality / 1.25);
+			if (random.nextInt(0, thign - random.nextInt(0, thign)) == 0) 
 				continue;
 			if (random.nextInt(0, chance2) != 0) 
 				continue;
@@ -79,7 +80,7 @@ public class AncientPotBlockEntity extends BlockEntity {
 				new ItemStack(
 					BuiltInRegistries.ITEM.get(
 						Config.ancientPotItems.get(
-							random.nextInt(Config.ancientPotItems.size() - 3, Config.ancientPotItems.size() - 1)
+							random.nextInt(Config.ancientPotItems.size() - 3, Config.ancientPotItems.size())
 						)
 					)
 				)

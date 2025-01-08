@@ -1,10 +1,16 @@
 {
   "variants": {
-    "lit=false": {
+    "lit=false,smoldering=false": {
       "model": "wetland_whimsy:block/ancient_brazier"
     },
-    "lit=true": {
+    "lit=false,smoldering=true": {
+      "model": "wetland_whimsy:block/ancient_brazier_smoldering"
+    },
+    "lit=true,smoldering=false": {
       "model": "wetland_whimsy:block/ancient_brazier_lit"
+    },
+    "lit=true,smoldering=true": {
+      "model": "wetland_whimsy:block/ancient_brazier_smoldering"
     }
   }
 }

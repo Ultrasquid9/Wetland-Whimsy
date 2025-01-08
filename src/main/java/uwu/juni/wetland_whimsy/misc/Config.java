@@ -16,6 +16,21 @@ public class Config extends MidnightConfig {
 
 	@Entry(
 		category = SWAMP_DUNGEON,
+		name = "Ancient Brazier Entities",
+		idMode = -1 // There is no option for mobs apparently
+	)
+	public static List<ResourceLocation> ancientBrazierEntities = Lists.newArrayList(
+		ResourceLocation.withDefaultNamespace("zombie"),
+		ResourceLocation.withDefaultNamespace("skeleton"),
+		ResourceLocation.withDefaultNamespace("spider"),
+		ResourceLocation.withDefaultNamespace("cave_spider"),
+		ResourceLocation.withDefaultNamespace("drowned"),
+		ResourceLocation.withDefaultNamespace("bogged"),
+		ResourceLocation.withDefaultNamespace("witch")
+	);
+
+	@Entry(
+		category = SWAMP_DUNGEON,
 		name = "Ancient Pot Max Particles",
 		isSlider = true,
 		min = 0,

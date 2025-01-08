@@ -41,6 +41,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0);
 
 	public static final BooleanProperty LIT = BlockStateProperties.LIT;
+	public static final BooleanProperty SMOLDERING = BooleanProperty.create("smoldering");
 
 	public AncientBrazierBlock(Properties properties) {
 		super(properties);
@@ -48,12 +49,13 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		registerDefaultState(
 			stateDefinition.any()
 				.setValue(LIT, Boolean.valueOf(true))
+				.setValue(SMOLDERING, Boolean.valueOf(false))
 		);
 	}
 
 	@Override
 	protected void createBlockStateDefinition(@Nonnull Builder<Block, BlockState> builder) {
-		builder.add(LIT);
+		builder.add(LIT, SMOLDERING);
 	}
 
 	@Override
@@ -69,7 +71,9 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
-		return defaultBlockState().setValue(LIT, Boolean.valueOf(false));
+		return defaultBlockState()
+			.setValue(LIT, Boolean.valueOf(false))
+			.setValue(SMOLDERING, Boolean.valueOf(false));
 	}
 
 	@SuppressWarnings("null")
@@ -89,7 +93,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		InteractionHand hand,
 		BlockHitResult hitResult
 	) {
-		if (state.getValue(LIT))
+		if (state.getValue(LIT) || state.getValue(SMOLDERING))
 			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
 		if (stack.is(Items.FLINT_AND_STEEL) || stack.is(Items.FIRE_CHARGE)) {
@@ -105,8 +109,9 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	@SuppressWarnings("null")
 	@Override
 	public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
-		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity && state.getValue(LIT))
-			entity.hurt(level.damageSources().hotFloor(), 1.0F);
+		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity)
+			if (state.getValue(LIT) || state.getValue(SMOLDERING))
+				entity.hurt(level.damageSources().hotFloor(), 1.0F);
 
 		super.stepOn(level, pos, state, entity);
 	}
@@ -143,6 +148,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 			&& projectile.isOnFire()
 			&& projectile.mayInteract(level, blockpos)
 			&& !state.getValue(LIT)
+			&& !state.getValue(SMOLDERING)
 		) {
 			level.setBlock(blockpos, state.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
 		}

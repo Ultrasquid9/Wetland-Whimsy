@@ -3,12 +3,15 @@ package uwu.juni.wetland_whimsy.content.blocks.entities;
 import javax.annotation.Nonnull;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.SpawnData;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
+import uwu.juni.wetland_whimsy.misc.Config;
 
 public class AncientBrazier extends BaseSpawner {
 	private int spawnedEntityCount;
@@ -44,6 +47,8 @@ public class AncientBrazier extends BaseSpawner {
 
 		if (this.spawnDelay == 1) {
 			this.spawnedEntityCount++;
+
+			this.setRandomEntity(serverLevel, pos);;
 		}
 
 		super.serverTick(serverLevel, pos);
@@ -52,10 +57,19 @@ public class AncientBrazier extends BaseSpawner {
 			this.spawnedEntityCount = 0;
 			serverLevel.setBlock(
 				pos, 
-				serverLevel.getBlockState(pos).setValue(BlockStateProperties.LIT, false), 
+				serverLevel.getBlockState(pos)
+					.setValue(BlockStateProperties.LIT, false)
+					.setValue(AncientBrazierBlock.SMOLDERING, true), 
 				2
 			);
 			return;
 		}
+	}
+
+	private void setRandomEntity(ServerLevel level, BlockPos pos) {
+		var random = level.getRandom();
+		var entity = Config.ancientBrazierEntities.get(random.nextInt(0, Config.ancientBrazierEntities.size()));
+
+		this.setEntityId(BuiltInRegistries.ENTITY_TYPE.get(entity), level, random, pos);
 	}
 }

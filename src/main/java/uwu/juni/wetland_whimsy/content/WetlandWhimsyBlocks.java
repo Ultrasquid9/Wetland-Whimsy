@@ -413,7 +413,13 @@ public class WetlandWhimsyBlocks {
 		() -> new AncientBrazierBlock (
 			BlockBehaviour.Properties.ofFullCopy(LIMESTONE_BRAZIER.get())
 				.sound(SoundType.TRIAL_SPAWNER)
-				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 8 : 0)
+				.lightLevel(
+					state -> state.getValue(BlockStateProperties.LIT)
+						? 6
+						: state.getValue(AncientBrazierBlock.SMOLDERING)
+							? 4
+							: 0
+				)
 		)
 	);
 	public static final DeferredBlock<AncientPotBlock> ANCIENT_POT = registerBlockAndItem(
