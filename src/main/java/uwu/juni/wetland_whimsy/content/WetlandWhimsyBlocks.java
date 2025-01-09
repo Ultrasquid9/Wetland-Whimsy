@@ -414,11 +414,11 @@ public class WetlandWhimsyBlocks {
 			BlockBehaviour.Properties.ofFullCopy(LIMESTONE_BRAZIER.get())
 				.sound(SoundType.TRIAL_SPAWNER)
 				.lightLevel(
-					state -> state.getValue(BlockStateProperties.LIT)
-						? 6
-						: state.getValue(AncientBrazierBlock.SMOLDERING)
-							? 4
-							: 0
+					state -> switch (state.getValue(AncientBrazierBlock.FLAME)) {
+						case AncientBrazierBlock.Flame.LIT -> 6;
+						case AncientBrazierBlock.Flame.SMOLDERING -> 4;
+						default -> 0;
+					}
 				)
 		)
 	);

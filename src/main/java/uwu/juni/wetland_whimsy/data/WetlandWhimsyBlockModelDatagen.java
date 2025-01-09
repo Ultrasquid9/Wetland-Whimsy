@@ -241,13 +241,11 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 
 	private void ancientBrazier(Block brazier, String name, String unlitBase, String litBase) {
 		this.getVariantBuilder(brazier).forAllStates((state) -> {
-			var model = state.getValue(BrazierBlock.LIT)
-				? models().withExistingParent(name + "_lit", this.modLoc(litBase))
-				: models().withExistingParent(name, this.modLoc(unlitBase));
-
-			model = state.getValue(AncientBrazierBlock.SMOLDERING)
-				? models().withExistingParent(name + "_smoldering", this.modLoc(litBase.replace("lit", "smoldering")))
-				: model;
+			var model = switch (state.getValue(AncientBrazierBlock.FLAME)) {
+				case AncientBrazierBlock.Flame.LIT -> models().withExistingParent(name + "_lit", this.modLoc(litBase));
+				case AncientBrazierBlock.Flame.SMOLDERING -> models().withExistingParent(name + "_smoldering", this.modLoc(litBase.replace("lit", "smoldering")));
+				case AncientBrazierBlock.Flame.UNLIT -> models().withExistingParent(name, this.modLoc(unlitBase));
+			};
 
 			return ConfiguredModel.builder()
 				.modelFile(model)

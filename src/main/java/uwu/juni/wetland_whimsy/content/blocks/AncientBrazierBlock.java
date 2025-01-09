@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -28,7 +29,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -36,26 +37,51 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
 
 public class AncientBrazierBlock extends BaseEntityBlock {
+	public enum Flame implements StringRepresentable {
+		LIT,
+		SMOLDERING,
+		UNLIT;
+
+		@Override
+		public String getSerializedName() {
+			return switch (this) {
+				case LIT -> "lit";
+				case SMOLDERING -> "smoldering";
+				case UNLIT -> "unlit";
+			};
+		}
+
+		private boolean isLit() {
+			return switch (this) {
+				case UNLIT -> false;
+				default -> true;
+			};
+		}
+	}
+
 	public static final MapCodec<AncientBrazierBlock> CODEC = simpleCodec(AncientBrazierBlock::new);
 
 	private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0);
 
-	public static final BooleanProperty LIT = BlockStateProperties.LIT;
-	public static final BooleanProperty SMOLDERING = BooleanProperty.create("smoldering");
+	public static final EnumProperty<AncientBrazierBlock.Flame> FLAME = EnumProperty.create(
+		"flame", 
+		AncientBrazierBlock.Flame.class, 
+		Flame.LIT, 
+		Flame.SMOLDERING, 
+		Flame.UNLIT
+	);
 
 	public AncientBrazierBlock(Properties properties) {
 		super(properties);
 
 		registerDefaultState(
-			stateDefinition.any()
-				.setValue(LIT, Boolean.valueOf(true))
-				.setValue(SMOLDERING, Boolean.valueOf(false))
+			stateDefinition.any().setValue(FLAME, Flame.UNLIT)
 		);
 	}
 
 	@Override
 	protected void createBlockStateDefinition(@Nonnull Builder<Block, BlockState> builder) {
-		builder.add(LIT, SMOLDERING);
+		builder.add(FLAME);
 	}
 
 	@Override
@@ -71,9 +97,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
-		return defaultBlockState()
-			.setValue(LIT, Boolean.valueOf(false))
-			.setValue(SMOLDERING, Boolean.valueOf(false));
+		return defaultBlockState().setValue(FLAME, Flame.UNLIT);
 	}
 
 	@SuppressWarnings("null")
@@ -93,12 +117,12 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		InteractionHand hand,
 		BlockHitResult hitResult
 	) {
-		if (state.getValue(LIT) || state.getValue(SMOLDERING))
+		if (state.getValue(FLAME).isLit())
 			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
 		if (stack.is(Items.FLINT_AND_STEEL) || stack.is(Items.FIRE_CHARGE)) {
 			level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-			level.setBlock(pos, state.setValue(LIT, Boolean.valueOf(true)), 3);
+			level.setBlock(pos, state.setValue(FLAME, Flame.LIT), 3);
 
 			return ItemInteractionResult.SUCCESS;
 		}
@@ -110,7 +134,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	@Override
 	public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
 		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity)
-			if (state.getValue(LIT) || state.getValue(SMOLDERING))
+			if (state.getValue(FLAME).isLit())
 				entity.hurt(level.damageSources().hotFloor(), 1.0F);
 
 		super.stepOn(level, pos, state, entity);
@@ -121,7 +145,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {	
 		super.animateTick(state, level, pos, random);
 
-		if (!state.getValue(LIT))
+		if (!state.getValue(FLAME).equals(Flame.LIT))
 			return;
 
 		if (random.nextInt(10) == 0) {
@@ -147,8 +171,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 			!level.isClientSide
 			&& projectile.isOnFire()
 			&& projectile.mayInteract(level, blockpos)
-			&& !state.getValue(LIT)
-			&& !state.getValue(SMOLDERING)
+			&& !state.getValue(FLAME).isLit()
 		) {
 			level.setBlock(blockpos, state.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
 		}
