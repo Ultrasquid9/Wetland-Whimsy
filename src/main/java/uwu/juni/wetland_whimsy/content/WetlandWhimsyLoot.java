@@ -42,9 +42,6 @@ public class WetlandWhimsyLoot {
 				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_STAIRS.asItem()).apply(lootCount(1.F, 10.F)))
 				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.asItem()).apply(lootCount(1.F, 10.F)))
 				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_SLAB.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.asItem()).apply(lootCount(1.F, 10.F)))
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.asItem()).apply(lootCount(1.F, 10.F)))
 
 				.add(LootItem.lootTableItem(Items.RAW_GOLD.asItem()).apply(lootCount(1.F, 8.F)))
 				.add(LootItem.lootTableItem(Items.RAW_IRON.asItem()).apply(lootCount(1.F, 8.F)))
