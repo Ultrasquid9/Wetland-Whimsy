@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -388,6 +389,14 @@ public class WetlandWhimsyBlocks {
 			BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)
 				.noOcclusion()
 				.lightLevel($ -> 7)
+		)
+	);
+	public static final DeferredBlock<HalfTransparentBlock> ARIA_MUSHROOM_BLOCK = registerBlockAndItem(
+		"aria_mushroom_block", 
+		() -> new HalfTransparentBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM_BLOCK)
+				.noOcclusion()
+				.lightLevel($ -> 9)
 		)
 	);
 

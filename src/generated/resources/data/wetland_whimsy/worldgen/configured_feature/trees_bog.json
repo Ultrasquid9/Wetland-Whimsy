@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.45,
+        "chance": 0.6,
         "feature": {
           "feature": "wetland_whimsy:bald_cypress_tree",
           "placement": [
@@ -40,7 +40,27 @@
         }
       },
       {
-        "chance": 0.0075,
+        "chance": 0.01,
+        "feature": {
+          "feature": "wetland_whimsy:huge_aria_mushroom",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "wetland_whimsy:bald_cypress_sapling",
+                  "Properties": {
+                    "stage": "0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.015,
         "feature": {
           "feature": "minecraft:huge_red_mushroom",
           "placement": [

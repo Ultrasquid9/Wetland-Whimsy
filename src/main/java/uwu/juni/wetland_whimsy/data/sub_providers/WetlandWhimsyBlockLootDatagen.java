@@ -72,6 +72,12 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get()
 		);
 
+
+		this.dropOther(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
+			WetlandWhimsyBlocks.ARIA_MUSHROOM.get()
+		);
+
 		this.add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(), 
 			createDoorTable(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get())

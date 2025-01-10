@@ -204,21 +204,28 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 		);
 
 		this.getVariantBuilder(WetlandWhimsyBlocks.ARIA_MUSHROOM.get()).forAllStates((state) -> ConfiguredModel.builder() 
-		.modelFile(
-			this.models().withExistingParent("aria", this.modLoc("block/aria_mushroom_base"))
-		)
-		.rotationY(
-			switch (state.getValue(AncientPotBlock.FACING)) {
-				case NORTH -> 180;
-				case EAST -> 270;
-				case SOUTH -> 0;
-				case WEST -> 90; 
-				default -> 0; 
-			}
-		)
-		.build()
-	);
+			.modelFile(
+				this.models().withExistingParent("aria", this.modLoc("block/aria_mushroom_base"))
+			)
+			.rotationY(
+				switch (state.getValue(AncientPotBlock.FACING)) {
+					case NORTH -> 180;
+					case EAST -> 270;
+					case SOUTH -> 0;
+					case WEST -> 90; 
+					default -> 0; 
+				}
+			)
+			.build()
+		);
 
+		this.simpleBlock(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
+			this.models()
+				.withExistingParent("aria_mushroom_block", this.mcLoc("block/cube_all"))
+				.texture("all", modLoc("block/aria_mushroom_block"))
+				.renderType("minecraft:translucent")
+		);
 	}
 
 	private void pennywort(Block pennywort) {

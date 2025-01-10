@@ -42,6 +42,7 @@ public class WetlandWhimsyPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH = createKey("bloodcap_patch");
 	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH_MARSH = createKey("bloodcap_patch_marsh");
 	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH_SWAMP = createKey("bloodcap_patch_swamp");
+	public static final ResourceKey<PlacedFeature> HUGE_ARIA = createKey("huge_aria");
 	public static final ResourceKey<PlacedFeature> MUD_DISK = createKey("mud_disk");
 	public static final ResourceKey<PlacedFeature> SUPER_THICK_CORDGRASS_PATCH = createKey("super_thick_cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> FERN_CLONE_CAUSE_FUCK_THE_FEATURE_CYCLE = createKey("fern_clone");
@@ -104,6 +105,20 @@ public class WetlandWhimsyPlacedFeatures {
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.BLOODCAP_PATCH), 
 				foliagePlacement()
+			)
+		);
+		context.register(
+			HUGE_ARIA, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.HUGE_ARIA_MUSHROOM), 
+				ImmutableList.<PlacementModifier>builder()
+					.add(PlacementUtils.countExtra(2, 0.5F, 1))
+					.add(InSquarePlacement.spread())
+					.add(SurfaceWaterDepthFilter.forMaxDepth(0))
+					.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
+					.add(BiomeFilter.biome())
+					.add(PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get()))
+					.build()
 			)
 		);
 

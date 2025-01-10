@@ -63,7 +63,7 @@ public class AriaMushroomBlock extends BushBlock implements BonemealableBlock {
 		var x = super.getStateForPlacement(context);
 		if (x == null) return null;
 
-		var dir = context.getClickedFace();
+		var dir = context.getClickedFace().getOpposite();
 
 		for (var d : DIRECTIONS)
 			if (d == dir)

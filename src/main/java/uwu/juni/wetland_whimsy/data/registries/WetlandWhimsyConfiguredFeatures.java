@@ -5,6 +5,7 @@ import java.util.List;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
 import net.minecraft.core.Direction;
@@ -21,6 +22,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -33,10 +35,12 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockS
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
 public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_TREE = createKey("bald_cypress_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_ARIA_MUSHROOM = createKey("huge_aria_mushroom");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODCAP_PATCH = createKey("bloodcap_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
@@ -82,7 +86,34 @@ public class WetlandWhimsyConfiguredFeatures {
 					new BaldCypressFoliagePlacer(ConstantInt.of(4), ConstantInt.of(6)),
 					new TwoLayersFeatureSize(0, 2, 4)
 				)
-				.decorators(List.of(new LeaveVineDecorator(0.2f), new TrunkVineDecorator()))
+				.decorators(List.of(
+					new LeaveVineDecorator(0.2f), 
+					new TrunkVineDecorator()
+				))
+				.ignoreVines()
+				.build()
+			)
+		);
+
+		context.register(
+			HUGE_ARIA_MUSHROOM, 
+			new ConfiguredFeature<>(
+				Feature.TREE, 
+				new TreeConfiguration.TreeConfigurationBuilder(
+
+					BlockStateProvider.simple(
+						Blocks.MUSHROOM_STEM
+							.defaultBlockState()
+							.setValue(HugeMushroomBlock.UP, Boolean.valueOf(false))
+							.setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))
+					),
+					new StraightTrunkPlacer(4, 1, 2),
+
+					BlockStateProvider.simple(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get()), 
+					new AriaMushroomFoliagePlacer(ConstantInt.of(4), ConstantInt.of(6)),
+
+					new TwoLayersFeatureSize(0, 2, 4)
+				)
 				.ignoreVines()
 				.build()
 			)
@@ -215,14 +246,21 @@ public class WetlandWhimsyConfiguredFeatures {
 								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.45F
+							0.6F
+						),
+						new WeightedPlacedFeature(
+							PlacementUtils.inlinePlaced(
+								configuredFeatures.getOrThrow(HUGE_ARIA_MUSHROOM), 
+								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+							), 
+							0.01F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								HUGE_RED_MUSHROOM, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.0075F
+							0.015F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(

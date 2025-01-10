@@ -1,6 +1,7 @@
 package uwu.juni.wetland_whimsy.worldgen;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -16,5 +17,10 @@ public class WetlandWhimsyFoliagePlacers {
 	public static final DeferredHolder<FoliagePlacerType<?>, ?> BALD_CYPRESS_FOLIAGE_PLACER = FOLIAGE_PLACERS.register(
 		"bald_cypress_foliage_placer", 
 		() -> new FoliagePlacerType<>(BaldCypressFoliagePlacer.CODEC)
+	);
+
+	public static final DeferredHolder<FoliagePlacerType<?>, ?> ARIA_MUSHROOM_FOLIAGE_PLACER = FOLIAGE_PLACERS.register(
+		"aria_mushroom_foliage_placer", 
+		() -> new FoliagePlacerType<>(AriaMushroomFoliagePlacer.CODEC)
 	);
 }
