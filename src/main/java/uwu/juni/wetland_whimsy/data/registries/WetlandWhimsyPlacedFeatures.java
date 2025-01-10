@@ -40,8 +40,7 @@ public class WetlandWhimsyPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> PENNYWORT_PATCH = createKey("pennywort_patch");
 	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH = createKey("bloodcap_patch");
-	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH_MARSH = createKey("bloodcap_patch_marsh");
-	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH_SWAMP = createKey("bloodcap_patch_swamp");
+	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH_SURFACE = createKey("bloodcap_patch_surface");
 	public static final ResourceKey<PlacedFeature> HUGE_ARIA = createKey("huge_aria");
 	public static final ResourceKey<PlacedFeature> MUD_DISK = createKey("mud_disk");
 	public static final ResourceKey<PlacedFeature> SUPER_THICK_CORDGRASS_PATCH = createKey("super_thick_cordgrass_patch");
@@ -94,14 +93,7 @@ public class WetlandWhimsyPlacedFeatures {
 			)
 		);
 		context.register(
-			BLOODCAP_PATCH_MARSH, 
-			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.BLOODCAP_PATCH), 
-				foliagePlacement()
-			)
-		);
-		context.register(
-			BLOODCAP_PATCH_SWAMP, 
+			BLOODCAP_PATCH_SURFACE, 
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.BLOODCAP_PATCH), 
 				foliagePlacement()

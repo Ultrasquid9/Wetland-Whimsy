@@ -14,6 +14,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -98,6 +99,9 @@ public class BloodcapMushroomBlock extends BushBlock implements BonemealableBloc
 		@Nonnull BlockPos pos, 
 		@Nonnull Entity entity
 	) {
+		if (entity.getType() == EntityType.MOOSHROOM) 
+			return;
+
 		if (level.isClientSide || level.getDifficulty() == Difficulty.PEACEFUL)
 			return;
 		else if (entity instanceof LivingEntity lEntity)

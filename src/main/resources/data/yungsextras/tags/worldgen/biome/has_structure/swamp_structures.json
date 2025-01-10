@@ -1,7 +1,9 @@
 {
 	"replace": false,
 	"values": [
-		"wetland_whimsy:bog",
-		"wetland_whimsy:marsh"
+		{
+			"id": "wetland_whimsy:marsh",
+			"required": "false"
+		}
 	]
 }
