@@ -101,6 +101,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.asItem());
+		this.basicItem(WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem());
 		this.basicItem(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.asItem());
 		this.basicItem(WetlandWhimsyBlocks.SOUL_BRAZIER.asItem());
 		this.basicItem(WetlandWhimsyBlocks.ANCIENT_BRAZIER.asItem());

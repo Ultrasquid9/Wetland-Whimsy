@@ -66,6 +66,13 @@ public class Creative {
 				event
 			);
 
+			insertItems(
+				event, 
+				Items.RED_MUSHROOM, 
+				WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.asItem(),
+				WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem()
+			);
+
 			insertItem(
 				Items.LARGE_FERN,
 				WetlandWhimsyBlocks.CORDGRASS.asItem(), 

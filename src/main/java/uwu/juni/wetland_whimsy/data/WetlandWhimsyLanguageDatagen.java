@@ -50,6 +50,7 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 		this.addBlock(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, "Bloodcap Mushroom");
+		this.addBlock(WetlandWhimsyBlocks.ARIA_MUSHROOM, "Aria Mushroom");
 
 		this.addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 		this.addBlock(WetlandWhimsyBlocks.LIMESTONE_BRAZIER, "Limestone Brazier");
