@@ -21,8 +21,7 @@ public class WetlandWhimsyStructurePools {
 	public static final ResourceKey<StructureTemplatePool> PILLAR = createKey("pillar");
 	public static final ResourceKey<StructureTemplatePool> WALL = createKey("wall");
 
-	public static final ResourceKey<StructureTemplatePool> ARENA_BASE = createKey("arena/arena_base");
-	public static final ResourceKey<StructureTemplatePool> ARENA_SPAWNER = createKey("arena/arena_spawner");
+	public static final ResourceKey<StructureTemplatePool> ARENA = createKey("arena/arena_base");
 
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ENTRANCE = createKey("swamp_dungeon/entrance");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_HOLE = createKey("swamp_dungeon/hole");
@@ -81,29 +80,14 @@ public class WetlandWhimsyStructurePools {
 		);
 
 		context.register(
-			ARENA_BASE, 
+			ARENA, 
 			new StructureTemplatePool(
 				fallback, 
 				ImmutableList.of(
-					Pair.of(pool("arena/arena_base/arena_1", context), 1),
-					Pair.of(pool("arena/arena_base/arena_2", context), 1),
-					Pair.of(pool("arena/arena_base/arena_3", context), 1),
-					Pair.of(pool("arena/arena_base/arena_4", context), 1)
-				),
-				StructureTemplatePool.Projection.RIGID
-			)
-		);
-
-		context.register(
-			ARENA_SPAWNER, 
-			new StructureTemplatePool(
-				fallback, 
-				ImmutableList.of(
-					Pair.of(pool("arena/arena_spawner/spawner_1", context), 1),
-					Pair.of(pool("arena/arena_spawner/spawner_2", context), 1),
-					Pair.of(pool("arena/arena_spawner/spawner_3", context), 1),
-					Pair.of(pool("arena/arena_spawner/spawner_4", context), 1),
-					Pair.of(pool("arena/arena_spawner/spawner_5", context), 1)
+					Pair.of(pool("arena/arena_1", context), 1),
+					Pair.of(pool("arena/arena_2", context), 1),
+					Pair.of(pool("arena/arena_3", context), 1),
+					Pair.of(pool("arena/arena_4", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)
@@ -177,14 +161,8 @@ public class WetlandWhimsyStructurePools {
 			new StructureTemplatePool(
 				fallback, 
 				ImmutableList.of(
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_1", context), 3),
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_2", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_3", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_4", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_5", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_6", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_7", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_8", context), 1)
+					Pair.of(dungeon_pool("swamp_dungeon/spawner/regular_brazier", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/spawner/ancient_brazier", context), 3)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)

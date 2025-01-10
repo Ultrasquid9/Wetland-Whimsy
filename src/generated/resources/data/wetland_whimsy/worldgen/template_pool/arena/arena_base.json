@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:arena/arena_base/arena_1",
+        "location": "wetland_whimsy:arena/arena_1",
         "processors": "wetland_whimsy:limestone_rubble",
         "projection": "rigid"
       },
@@ -12,7 +12,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:arena/arena_base/arena_2",
+        "location": "wetland_whimsy:arena/arena_2",
         "processors": "wetland_whimsy:limestone_rubble",
         "projection": "rigid"
       },
@@ -21,7 +21,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:arena/arena_base/arena_3",
+        "location": "wetland_whimsy:arena/arena_3",
         "processors": "wetland_whimsy:limestone_rubble",
         "projection": "rigid"
       },
@@ -30,7 +30,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:arena/arena_base/arena_4",
+        "location": "wetland_whimsy:arena/arena_4",
         "processors": "wetland_whimsy:limestone_rubble",
         "projection": "rigid"
       },

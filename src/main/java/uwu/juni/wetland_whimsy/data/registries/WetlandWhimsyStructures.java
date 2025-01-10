@@ -58,7 +58,7 @@ public class WetlandWhimsyStructures {
 		registerSurfaceRuins(
 			context, 
 			ARENA, 
-			WetlandWhimsyStructurePools.ARENA_BASE
+			WetlandWhimsyStructurePools.ARENA
 		);
 
 		registerSurfaceRuins(
