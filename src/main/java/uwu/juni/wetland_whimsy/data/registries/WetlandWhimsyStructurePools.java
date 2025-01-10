@@ -29,6 +29,7 @@ public class WetlandWhimsyStructurePools {
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ROOM = createKey("swamp_dungeon/room");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ROOM_LOWER = createKey("swamp_dungeon/room_lower");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_SPAWNER = createKey("swamp_dungeon/spawner");
+	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_LOOT = createKey("swamp_dungeon/loot");
 
 	private static ResourceKey<StructureTemplatePool> createKey(String name) {
 		return ResourceKey.create(
@@ -182,6 +183,17 @@ public class WetlandWhimsyStructurePools {
 					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_6", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_7", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/spawner/spawner_8", context), 1)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
+		context.register(
+			SWAMP_DUNGEON_LOOT, 
+			new StructureTemplatePool(
+				fallback, 
+				ImmutableList.of(
+					Pair.of(dungeon_pool("swamp_dungeon/loot/loot", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/loot/loot_empty", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)
