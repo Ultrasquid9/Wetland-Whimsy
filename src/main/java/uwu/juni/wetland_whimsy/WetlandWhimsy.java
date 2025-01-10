@@ -17,6 +17,7 @@ import uwu.juni.wetland_whimsy.misc.Creative;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
+import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeDecorators;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.api.distmarker.Dist;
@@ -49,6 +50,7 @@ public class WetlandWhimsy {
 		WetlandWhimsySounds.SOUNDS.register(modEventBus);
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
+		WetlandWhimsyTreeDecorators.TREE_DECORATORS.register(modEventBus);
 		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
 
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 

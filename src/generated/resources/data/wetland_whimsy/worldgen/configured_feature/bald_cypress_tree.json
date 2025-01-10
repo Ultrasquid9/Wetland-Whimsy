@@ -8,6 +8,10 @@
       },
       {
         "type": "minecraft:trunk_vine"
+      },
+      {
+        "type": "wetland_whimsy:aria_mushrooms",
+        "probability": 0.15
       }
     ],
     "dirt_provider": {

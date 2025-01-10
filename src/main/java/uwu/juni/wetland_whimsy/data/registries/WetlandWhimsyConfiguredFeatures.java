@@ -6,6 +6,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
+import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
 import net.minecraft.core.Direction;
@@ -88,7 +89,8 @@ public class WetlandWhimsyConfiguredFeatures {
 				)
 				.decorators(List.of(
 					new LeaveVineDecorator(0.2f), 
-					new TrunkVineDecorator()
+					new TrunkVineDecorator(),
+					new AriaMushroomTreeDecorator(0.15F)
 				))
 				.ignoreVines()
 				.build()
@@ -114,6 +116,9 @@ public class WetlandWhimsyConfiguredFeatures {
 
 					new TwoLayersFeatureSize(0, 2, 4)
 				)
+				.decorators(List.of(
+					new AriaMushroomTreeDecorator(1F)
+				))
 				.ignoreVines()
 				.build()
 			)

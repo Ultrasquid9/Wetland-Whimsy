@@ -3,7 +3,6 @@ package uwu.juni.wetland_whimsy.worldgen.aria_mushroom;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -59,8 +58,6 @@ public class AriaMushroomFoliagePlacer extends FoliagePlacer {
 		int range,
 		boolean large
 	) {
-		WetlandWhimsy.LOGGER.info(String.valueOf(localX) + " " + String.valueOf(localZ));
-
         return Mth.square(localX) + funniTreeMath(localY) + Mth.square(localZ) > range;
 	}
 
