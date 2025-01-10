@@ -433,8 +433,8 @@ public class WetlandWhimsyBlocks {
 				.sound(SoundType.TRIAL_SPAWNER)
 				.lightLevel(
 					state -> switch (state.getValue(AncientBrazierBlock.FLAME)) {
-						case AncientBrazierBlock.Flame.LIT -> 6;
-						case AncientBrazierBlock.Flame.SMOLDERING -> 4;
+						case AncientBrazierBlock.Flame.LIT -> 9;
+						case AncientBrazierBlock.Flame.SMOLDERING -> 6;
 						default -> 0;
 					}
 				)

@@ -1,22 +1,39 @@
 package uwu.juni.wetland_whimsy.content.blocks.entities;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.BaseSpawner;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.SpawnData;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.neoforged.neoforge.event.EventHooks;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyVaultLootDatagen;
@@ -59,14 +76,23 @@ public class AncientBrazier extends BaseSpawner {
 		
 		if (this.spawnDelay > 3) 
 			this.spawnDelay -= 3;
+		else if (this.spawnDelay > 0)
+			this.spawnDelay -= 1;
 
 		if (this.spawnDelay == 1) {
 			this.spawnedEntityCount++;
+			
+			var entity = serverLevel.getBlockEntity(pos);
+			if (entity != null)
+				entity.setChanged();
 
 			this.setRandomEntity(serverLevel, pos);;
 		}
 
-		super.serverTick(serverLevel, pos);
+		var uuid = spawnDelay <= 0 ? spawnMob(serverLevel, pos) : Optional.empty();
+
+		if (uuid.isPresent())
+			this.spawnDelay = serverLevel.getRandom().nextInt(200, 400);
 
 		if (this.spawnedEntityCount >= 8) {
 			this.spawnedEntityCount = 0;
@@ -86,6 +112,94 @@ public class AncientBrazier extends BaseSpawner {
 		var entity = Config.ancientBrazierEntities.get(random.nextInt(0, Config.ancientBrazierEntities.size()));
 
 		this.setEntityId(BuiltInRegistries.ENTITY_TYPE.get(entity), level, random, pos);
+	}
+
+	// Copied from Vanilla's TrialSpawner class
+	public Optional<UUID> spawnMob(ServerLevel level, BlockPos pos) {
+		var randomsource = level.getRandom();
+		var spawndata = this.getOrCreateNextSpawnData(level, level.getRandom(), pos);
+		var compoundtag = spawndata.entityToSpawn();
+		var listtag = compoundtag.getList("Pos", 6);
+		var optional = EntityType.by(compoundtag);
+
+		if (optional.isEmpty()) 
+			return Optional.empty();
+
+		int i = listtag.size();
+		double d0 = i >= 1
+			? listtag.getDouble(0)
+			: (double)pos.getX() + (randomsource.nextDouble() - randomsource.nextDouble()) * 7 + 0.5;
+		double d1 = i >= 2 ? listtag.getDouble(1) : (double)(pos.getY() + randomsource.nextInt(3) - 1);
+		double d2 = i >= 3
+			? listtag.getDouble(2)
+			: (double)pos.getZ() + (randomsource.nextDouble() - randomsource.nextDouble()) * 7 + 0.5;
+
+		if (!level.noCollision(optional.get().getSpawnAABB(d0, d1, d2))) 
+			return Optional.empty();
+
+		Vec3 vec3 = new Vec3(d0, d1, d2);
+		if (!inLineOfSight(level, pos.getCenter(), vec3))
+			return Optional.empty();
+
+		BlockPos blockpos = BlockPos.containing(vec3);
+		if (!SpawnPlacements.checkSpawnRules(optional.get(), level, MobSpawnType.TRIAL_SPAWNER, blockpos, level.getRandom()))
+			return Optional.empty();
+
+		if (spawndata.getCustomSpawnRules().isPresent()) {
+			SpawnData.CustomSpawnRules spawndata$customspawnrules = spawndata.getCustomSpawnRules().get();
+			if (!spawndata$customspawnrules.isValidPosition(blockpos, level)) {
+				return Optional.empty();
+			}
+		}
+
+		Entity entity = EntityType.loadEntityRecursive(compoundtag, level, p_312375_ -> {
+			p_312375_.moveTo(d0, d1, d2, randomsource.nextFloat() * 360.0F, 0.0F);
+			return p_312375_;
+		});
+		if (entity == null)
+			return Optional.empty();
+
+		if (entity instanceof Mob mob) {
+			if (!mob.checkSpawnObstruction(level))
+				return Optional.empty();
+
+			boolean flag = spawndata.getEntityToSpawn().size() == 1 && spawndata.getEntityToSpawn().contains("id", 8);
+			EventHooks.finalizeMobSpawnSpawner(
+				mob, 
+				level, 
+				level.getCurrentDifficultyAt(mob.blockPosition()), 
+				MobSpawnType.TRIAL_SPAWNER, 
+				null, 
+				this, 
+				flag
+			);
+
+			mob.setPersistenceRequired();
+			spawndata.getEquipment().ifPresent(mob::equip);
+		}
+
+		if (!level.tryAddFreshEntityWithPassengers(entity))
+			return Optional.empty();
+
+		level.levelEvent(3011, pos, 1);
+		level.levelEvent(3012, blockpos, 1); 
+
+		level.gameEvent(entity, GameEvent.ENTITY_PLACE, blockpos);
+
+		return Optional.of(entity.getUUID());
+	}
+
+	private static boolean inLineOfSight(Level level, Vec3 spawnerPos, Vec3 mobPos) {
+		var blockhitresult = level.clip(
+			new ClipContext(
+				mobPos, 
+				spawnerPos, 
+				ClipContext.Block.VISUAL, 
+				ClipContext.Fluid.NONE, 
+				CollisionContext.empty()
+			)
+		);
+		return blockhitresult.getBlockPos().equals(BlockPos.containing(spawnerPos)) || blockhitresult.getType() == HitResult.Type.MISS;
 	}
 
 	private void ejectLoot(ServerLevel level, BlockPos pos, RandomSource random) {
@@ -109,5 +223,17 @@ public class AncientBrazier extends BaseSpawner {
 		}
 
 		level.levelEvent(3014, pos, 0);
+	}
+
+	@Override
+	public CompoundTag save(@Nonnull CompoundTag tag) {
+        tag.putShort("SpawnedEntityCount", (short)this.spawnedEntityCount);
+		return super.save(tag);
+	}
+
+	@Override
+	public void load(@Nullable Level level, @Nonnull BlockPos pos, @Nonnull CompoundTag tag) {
+		spawnedEntityCount = tag.getInt("SpawnedEntityCount");
+		super.load(level, pos, tag);
 	}
 }
