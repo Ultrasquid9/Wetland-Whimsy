@@ -2,10 +2,14 @@ package uwu.juni.wetland_whimsy.data.sub_providers;
 
 import java.util.Set;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 
 public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 	public WetlandWhimsyBlockLootDatagen(HolderLookup.Provider lookupProvider) {
@@ -52,6 +56,7 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 
 		this.dropSelf(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get());
 		this.dropSelf(WetlandWhimsyBlocks.ARIA_MUSHROOM.get());
+		this.dropSelf(WetlandWhimsyBlocks.ARIA_SPORES.get());
 
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get());
 		this.dropSelf(WetlandWhimsyBlocks.SOUL_BRAZIER.get());
@@ -76,6 +81,28 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		this.dropOther(
 			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
 			WetlandWhimsyBlocks.ARIA_MUSHROOM.get()
+		);
+		this.add(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(), 
+			(block) -> {
+				return LootTable.lootTable()
+					.withPool(
+						LootPool.lootPool()
+							.when(this.hasSilkTouch())
+							.add(LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK))
+					)
+					.withPool(
+						applyExplosionCondition(
+							WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK,
+							LootPool.lootPool()
+								.when(this.hasSilkTouch().invert())
+								.add(
+									LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM)
+										.apply(WetlandWhimsyLoot.lootCount(-6, 2))
+								)
+						)
+					);
+			}
 		);
 
 		this.add(

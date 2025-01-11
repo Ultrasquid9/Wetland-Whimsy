@@ -61,6 +61,11 @@ public class Creative {
 				event
 			);
 			insertItem(
+				Items.RED_MUSHROOM_BLOCK,
+				WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.asItem(), 
+				event
+			);
+			insertItem(
 				Items.CHERRY_SAPLING,
 				WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.asItem(), 
 				event
@@ -70,7 +75,8 @@ public class Creative {
 				event, 
 				Items.RED_MUSHROOM, 
 				WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.asItem(),
-				WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem()
+				WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem(),
+				WetlandWhimsyBlocks.ARIA_SPORES.asItem()
 			);
 
 			insertItem(

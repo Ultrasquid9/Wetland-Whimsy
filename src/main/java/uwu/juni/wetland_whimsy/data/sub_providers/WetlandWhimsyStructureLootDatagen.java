@@ -14,20 +14,15 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 @SuppressWarnings("null")
-public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
+public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
 
 	public static final ResourceKey<LootTable> BASIC_LOOT = createKey("basic_loot");
 	public static final ResourceKey<LootTable> INTERMEDIATE_LOOT = createKey("intermediate_loot");
 	public static final ResourceKey<LootTable> EPIC_LOOT = createKey("epic_loot");
 
-	public static final ResourceKey<LootTable> NORMAL_VAULT_LOOT = createKey("vault/normal_loot");
-	public static final ResourceKey<LootTable> OMINOUS_VAULT_LOOT = createKey("vault/ominous_loot");
 	public static final ResourceKey<LootTable> ANCIENT_COIN = createKey("vault/ancient_coin");
 
 	private static ResourceKey<LootTable> createKey(String name) {
@@ -41,7 +36,7 @@ public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
 	@SuppressWarnings("unused") // Why did they want me to store this thing 
 	private HolderLookup.Provider thing;
 
-	public WetlandWhimsyVaultLootDatagen(HolderLookup.Provider lookupProvider) {
+	public WetlandWhimsyStructureLootDatagen(HolderLookup.Provider lookupProvider) {
 		thing = lookupProvider;
 	}
 
@@ -61,52 +56,9 @@ public class WetlandWhimsyVaultLootDatagen implements LootTableSubProvider {
 		);
 
 		output.accept(
-			NORMAL_VAULT_LOOT,
-			LootTable.lootTable()
-				.withPool(
-					LootPool.lootPool()
-						.setRolls(ConstantValue.exactly(1.0F))
-						.add(NestedLootTable.lootTableReference(BASIC_LOOT).setWeight(8))
-						.add(NestedLootTable.lootTableReference(INTERMEDIATE_LOOT).setWeight(2))
-				)
-				.withPool(
-					LootPool.lootPool()
-						.setRolls(UniformGenerator.between(1.0F, 3.0F))
-						.add(NestedLootTable.lootTableReference(BASIC_LOOT))
-				)
-				.withPool(
-					LootPool.lootPool()
-						.setRolls(ConstantValue.exactly(1.0F))
-						.when(LootItemRandomChanceCondition.randomChance(0.25F))
-						.add(NestedLootTable.lootTableReference(INTERMEDIATE_LOOT))
-				)
-		);
-		output.accept(
-			OMINOUS_VAULT_LOOT,
-			LootTable.lootTable()
-				.withPool(
-					LootPool.lootPool()
-						.setRolls(ConstantValue.exactly(1.0F))
-						.add(NestedLootTable.lootTableReference(INTERMEDIATE_LOOT).setWeight(8))
-						.add(NestedLootTable.lootTableReference(EPIC_LOOT).setWeight(2))
-				)
-				.withPool(
-					LootPool.lootPool()
-						.setRolls(UniformGenerator.between(1.0F, 3.0F))
-						.add(NestedLootTable.lootTableReference(INTERMEDIATE_LOOT))
-				)
-				.withPool(
-					LootPool.lootPool()
-						.setRolls(ConstantValue.exactly(1.0F))
-						.when(LootItemRandomChanceCondition.randomChance(0.25F))
-						.add(NestedLootTable.lootTableReference(EPIC_LOOT))
-				)
-		);
-
-		output.accept(
 			ANCIENT_COIN, 
 			LootTable.lootTable().withPool(LootPool.lootPool()
-				.setRolls(UniformGenerator.between(1.F, 1.F))
+				.setRolls(UniformGenerator.between(1.F, 3.F))
 				.add(LootItem.lootTableItem(WetlandWhimsyItems.ANCIENT_COIN.get()))
 			)
 		);

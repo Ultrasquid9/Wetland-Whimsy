@@ -218,6 +218,11 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.pattern("LRL")
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.SOUL_BRAZIER.get()), has(WetlandWhimsyBlocks.SOUL_BRAZIER.get()))
 			.save(recipeOutput);
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WetlandWhimsyBlocks.ARIA_SPORES.get(), 3)
+			.requires(WetlandWhimsyBlocks.ARIA_MUSHROOM)
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.ARIA_MUSHROOM), has(WetlandWhimsyBlocks.ARIA_MUSHROOM))
+			.save(recipeOutput);
 	}
 
 	private void twoByTwo(RecipeOutput recipeOutput, ItemLike input, ItemLike output, int count) {

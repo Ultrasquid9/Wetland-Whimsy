@@ -36,7 +36,7 @@ import net.neoforged.neoforge.event.EventHooks;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyVaultLootDatagen;
+import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootDatagen;
 import uwu.juni.wetland_whimsy.misc.Config;
 
 public class AncientBrazier extends BaseSpawner {
@@ -47,8 +47,8 @@ public class AncientBrazier extends BaseSpawner {
 		this.spawnedEntityCount = 0;
 
 		this.lootTablesToEject = new SimpleWeightedRandomList.Builder<ResourceKey<LootTable>>()
-			.add(WetlandWhimsyVaultLootDatagen.INTERMEDIATE_LOOT)
-			.add(WetlandWhimsyVaultLootDatagen.ANCIENT_COIN)
+			.add(WetlandWhimsyStructureLootDatagen.INTERMEDIATE_LOOT)
+			.add(WetlandWhimsyStructureLootDatagen.ANCIENT_COIN)
 			.build();
 	}
 

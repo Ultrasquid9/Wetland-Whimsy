@@ -137,7 +137,7 @@ public class WetlandWhimsyLoot {
 	}
 
 	@SuppressWarnings("rawtypes")
-	private static LootItemConditionalFunction.Builder lootCount(float a, float b) {
+	public static LootItemConditionalFunction.Builder lootCount(float a, float b) {
 		return SetItemCountFunction.setCount(UniformGenerator.between(a, b));
 	}
 

@@ -12,4 +12,10 @@ public class WetlandWhimsyTreeGrowers {
 		Optional.of(WetlandWhimsyConfiguredFeatures.BALD_CYPRESS_TREE),
 		Optional.empty()
 	);
+	public static final TreeGrower HUGE_ARIA_MUSHROOM = new TreeGrower(
+		"huge_aria_mushroom",
+		Optional.empty(),
+		Optional.of(WetlandWhimsyConfiguredFeatures.HUGE_ARIA_MUSHROOM),
+		Optional.empty()
+	);
 }

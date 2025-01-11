@@ -40,9 +40,9 @@
     "ignore_vines": true,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
-      "limit": 0,
-      "lower_size": 2,
-      "upper_size": 4
+      "limit": 1,
+      "lower_size": 0,
+      "upper_size": 1
     },
     "trunk_placer": {
       "type": "wetland_whimsy:bald_cypress_trunk_placer",

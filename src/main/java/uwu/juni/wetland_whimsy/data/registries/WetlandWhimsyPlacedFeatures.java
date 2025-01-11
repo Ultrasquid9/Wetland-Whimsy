@@ -104,7 +104,7 @@ public class WetlandWhimsyPlacedFeatures {
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.HUGE_ARIA_MUSHROOM), 
 				ImmutableList.<PlacementModifier>builder()
-					.add(PlacementUtils.countExtra(2, 0.5F, 1))
+					.add(RarityFilter.onAverageOnceEvery(3))
 					.add(InSquarePlacement.spread())
 					.add(SurfaceWaterDepthFilter.forMaxDepth(0))
 					.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
@@ -169,7 +169,7 @@ public class WetlandWhimsyPlacedFeatures {
 			SUPER_THICK_CORDGRASS_PATCH, 
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.CORDGRASS_PATCH), 
-				bogTreePlacement()
+				marshFoliagePlacement()
 			)
 		);
 		context.register(
@@ -195,7 +195,7 @@ public class WetlandWhimsyPlacedFeatures {
 
 	public static List<PlacementModifier> bogTreePlacement() {
 		return ImmutableList.<PlacementModifier>builder()
-			.add(PlacementUtils.countExtra(26, 0.1F, 1))
+			.add(PlacementUtils.countExtra(2, 0.5F, 3))
 			.add(InSquarePlacement.spread())
 			.add(SurfaceWaterDepthFilter.forMaxDepth(2))
 			.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
@@ -206,8 +206,8 @@ public class WetlandWhimsyPlacedFeatures {
 
 	public static List<PlacementModifier> marshTreePlacement() {
 		return ImmutableList.<PlacementModifier>builder()
-			.add(CountPlacement.of(4))
-			.add(RarityFilter.onAverageOnceEvery(5))
+			.add(CountPlacement.of(2))
+			.add(RarityFilter.onAverageOnceEvery(7))
 			.add(InSquarePlacement.spread())
 			.add(SurfaceWaterDepthFilter.forMaxDepth(0))
 			.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
@@ -224,6 +224,17 @@ public class WetlandWhimsyPlacedFeatures {
 			.add(InSquarePlacement.spread())
 			.add(PlacementUtils.filteredByBlockSurvival(Blocks.SHORT_GRASS))
 			.add(BiomeFilter.biome())
+			.build();
+	}
+
+	public static List<PlacementModifier> marshFoliagePlacement() {
+		return ImmutableList.<PlacementModifier>builder()
+			.add(PlacementUtils.countExtra(17, 0.5F, 6))
+			.add(InSquarePlacement.spread())
+			.add(SurfaceWaterDepthFilter.forMaxDepth(2))
+			.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
+			.add(BiomeFilter.biome())
+			.add(PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get()))
 			.build();
 	}
 }

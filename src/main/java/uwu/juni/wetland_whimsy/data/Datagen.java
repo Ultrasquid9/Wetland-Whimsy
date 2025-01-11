@@ -7,7 +7,7 @@ import java.util.Set;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.data.registries.*;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyVaultLootDatagen;
+import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
@@ -78,7 +78,7 @@ public class Datagen {
 						LootContextParamSets.BLOCK
 					),
 					new SubProviderEntry(
-						WetlandWhimsyVaultLootDatagen::new,
+						WetlandWhimsyStructureLootDatagen::new,
 						LootContextParamSets.CHEST
 					)
 				), 

@@ -45,6 +45,8 @@ import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -398,6 +400,20 @@ public class WetlandWhimsyBlocks {
 				.noOcclusion()
 				.lightLevel($ -> 9)
 		)
+	);
+	public static final DeferredBlock<SaplingBlock> ARIA_SPORES = registerBlockAndItem(
+		"aria_spores", 
+		() -> new SaplingBlock(
+			WetlandWhimsyTreeGrowers.HUGE_ARIA_MUSHROOM, 
+			BlockBehaviour.Properties.ofFullCopy(ARIA_MUSHROOM.get())
+		) {
+			protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
+
+			@Override
+			protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+				return SHAPE;
+			}
+		}
 	);
 
 	// Miscellaneous

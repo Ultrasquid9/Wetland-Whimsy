@@ -226,6 +226,12 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				.texture("all", modLoc("block/aria_mushroom_block"))
 				.renderType("minecraft:translucent")
 		);
+		this.simpleBlock(
+			WetlandWhimsyBlocks.ARIA_SPORES.get(),
+			this.models()
+				.withExistingParent("aria_spores", this.modLoc("block/aria_spores_base"))
+				.renderType("minecraft:cutout")
+		);
 	}
 
 	private void pennywort(Block pennywort) {
