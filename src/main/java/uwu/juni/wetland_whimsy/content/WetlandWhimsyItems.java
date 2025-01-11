@@ -2,10 +2,12 @@ package uwu.juni.wetland_whimsy.content;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyJukebox;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -26,8 +28,11 @@ public class WetlandWhimsyItems {
 			.stacksTo(1)
 	);
 
-	public static final DeferredItem<Item> DOTS_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.registerSimpleItem(
-		"dots_armor_trim_smithing_template"
+	public static final DeferredItem<Item> DOTS_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register(
+		"dots_armor_trim_smithing_template",
+		() -> SmithingTemplateItem.createArmorTrimTemplate(
+			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "dots")
+		)
 	);
 
 	public static final DeferredItem<Item> DISC = ITEMS.registerSimpleItem(

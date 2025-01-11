@@ -46,7 +46,8 @@ public class Datagen {
 					.add(Registries.STRUCTURE, WetlandWhimsyStructures::bootstap)
 					.add(Registries.TEMPLATE_POOL, WetlandWhimsyStructurePools::bootstap)
 
-					.add(Registries.JUKEBOX_SONG, WetlandWhimsyJukebox::bootstap),
+					.add(Registries.JUKEBOX_SONG, WetlandWhimsyJukebox::bootstap)
+					.add(Registries.TRIM_PATTERN, WetlandWhimsyArmorTrims::bootstap),
 				Collections.singleton(WetlandWhimsy.MODID)
 			)
 		);
