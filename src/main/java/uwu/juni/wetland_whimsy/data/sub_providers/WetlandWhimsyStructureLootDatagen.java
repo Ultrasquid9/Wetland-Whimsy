@@ -14,7 +14,6 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
@@ -58,8 +57,7 @@ public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
 		output.accept(
 			ANCIENT_COIN, 
 			LootTable.lootTable().withPool(LootPool.lootPool()
-				.setRolls(UniformGenerator.between(1.F, 3.F))
-				.add(LootItem.lootTableItem(WetlandWhimsyItems.ANCIENT_COIN.get()))
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.ANCIENT_COIN.get()).apply(WetlandWhimsyLoot.lootCount(1.F, 3.F)))
 			)
 		);
 	}

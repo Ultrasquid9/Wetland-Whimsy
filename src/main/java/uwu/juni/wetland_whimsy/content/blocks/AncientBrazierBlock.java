@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -192,5 +193,10 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	@Override
 	protected RenderShape getRenderShape(@Nonnull BlockState state) {
 		return RenderShape.MODEL;
+	}
+
+	@Override
+	protected boolean isPathfindable(@Nonnull BlockState state, @Nonnull PathComputationType path) {
+		return !state.getValue(FLAME).isLit();
 	}
 }

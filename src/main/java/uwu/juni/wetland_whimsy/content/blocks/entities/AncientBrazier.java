@@ -11,7 +11,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -33,7 +32,6 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.neoforge.event.EventHooks;
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootDatagen;
@@ -91,8 +89,12 @@ public class AncientBrazier extends BaseSpawner {
 
 		var uuid = spawnDelay <= 0 ? spawnMob(serverLevel, pos) : Optional.empty();
 
-		if (uuid.isPresent())
+		if (uuid.isPresent()) {
 			this.spawnDelay = serverLevel.getRandom().nextInt(200, 400);
+
+			for (int i = 0; i < serverLevel.getRandom().nextInt(2, 4); i++)
+				spawnMob(serverLevel, pos);
+		}
 
 		if (this.spawnedEntityCount >= 8) {
 			this.spawnedEntityCount = 0;
@@ -115,6 +117,7 @@ public class AncientBrazier extends BaseSpawner {
 	}
 
 	// Copied from Vanilla's TrialSpawner class
+	@SuppressWarnings("null")
 	public Optional<UUID> spawnMob(ServerLevel level, BlockPos pos) {
 		var randomsource = level.getRandom();
 		var spawndata = this.getOrCreateNextSpawnData(level, level.getRandom(), pos);
