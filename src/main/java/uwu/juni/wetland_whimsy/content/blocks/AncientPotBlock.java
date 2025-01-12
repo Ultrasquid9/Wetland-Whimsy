@@ -23,8 +23,10 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 
@@ -122,71 +124,17 @@ public class AncientPotBlock extends BaseEntityBlock {
 			var blockEntity = level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
 			blockEntity.dropLoot(level, pos);
 
-/* 			serverLevel.sendParticles(
-				ParticleTypes.DUST_PLUME,
-				(double)pos.getX() + 0.5,
-				(double)pos.getY() + 0.5,{
-	"nuke_the_swamps": {
-		"sounds": [
-		{
-			"name": "wetland_whimsy:nuke_the_swamps",
-			"stream": true
-		}
-		]
-	},
-
-	"pot_break": {
-		"sounds": [
-			{
-				"name": "wetland_whimsy:pot_break_1",
-				"stream": true
-			},
-			{
-				"name": "wetland_whimsy:pot_break_2",
-				"stream": true
-			},
-			{
-				"name": "wetland_whimsy:pot_break_3",
-				"stream": true
-			}
-		]
-	},
-	"pot_insert": {
-		"sounds": [
-			{
-				"name": "wetland_whimsy:pot_insert_1",
-				"stream": true
-			},
-			{
-				"name": "wetland_whimsy:pot_insert_2",
-				"stream": true
-			},
-			{
-				"name": "wetland_whimsy:pot_insert_3",
-				"stream": true
-			}
-		]
-	}
-}
-
-				(double)pos.getZ() + 0.5,
-				10,
-				0.2,
-				0.2,
-				0.2,
-				0.0
-			); */
-/* 			serverLevel.sendParticles(
+			serverLevel.sendParticles(
 				WetlandWhimsyParticleTypes.ANCIENT_SOULS.get(),
 				(double)pos.getX() + 0.5,
 				(double)pos.getY() + 0.5,
 				(double)pos.getZ() + 0.5,
-				Math.min(Config.ancientPotMaxParticleCount, blockEntity.lootQuality() - 1),
+				Math.min(WetlandWhimsy.config.ancientPotMaxParticleCount, blockEntity.lootQuality() - 1),
 				0.2,
 				0.2,
 				0.2,
 				0.0
-			); */
+			);
 		}
 	}
 }

@@ -10,9 +10,11 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import uwu.juni.wetland_whimsy.client.WetlandWhimsyParticles;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.misc.Creative;
@@ -44,11 +46,13 @@ public class WetlandWhimsy {
 		modEventBus.addListener(Datagen::datagen);
 		modEventBus.addListener(Creative::addCreative);
 		modEventBus.addListener(WetlandWhimsyBlockEntities::blockEntityRendering);
+		modEventBus.addListener(WetlandWhimsyParticles::registerParticleProviders);
 
 		REGISTRY_HELPER.register(modEventBus);
 		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
 		WetlandWhimsyBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
+		WetlandWhimsyParticleTypes.PARTICLE_TYPES.register(modEventBus);
 		WetlandWhimsySounds.SOUNDS.register(modEventBus);
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
