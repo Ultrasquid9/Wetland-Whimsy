@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.data;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import net.minecraft.data.PackOutput;
@@ -175,6 +176,12 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			"block/limestone_brazier_base",
 			"block/soul_brazier_lit_base"
 		);
+		ancientBrazier(
+			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get(),
+			"ancient_brazier",
+			"block/ancient_brazier_base",
+			"block/ancient_brazier_lit_base"
+		);
 	}
 
 	private void pennywort(Block pennywort) {
@@ -213,6 +220,20 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			var model = state.getValue(BrazierBlock.LIT)
 				? models().withExistingParent(name + "_lit", this.modLoc(litBase))
 				: models().withExistingParent(name, this.modLoc(unlitBase));
+
+			return ConfiguredModel.builder()
+				.modelFile(model)
+				.build();
+		});
+	}
+
+	private void ancientBrazier(Block brazier, String name, String unlitBase, String litBase) {
+		this.getVariantBuilder(brazier).forAllStates((state) -> {
+			var model = switch (state.getValue(AncientBrazierBlock.FLAME)) {
+				case LIT -> models().withExistingParent(name + "_lit", this.modLoc(litBase));
+				case SMOLDERING -> models().withExistingParent(name + "_smoldering", this.modLoc(litBase.replace("lit", "smoldering")));
+				case UNLIT -> models().withExistingParent(name, this.modLoc(unlitBase));
+			};
 
 			return ConfiguredModel.builder()
 				.modelFile(model)

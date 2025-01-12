@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.content.blocks.blockentities.client;
+package uwu.juni.wetland_whimsy.content.blocks.entities.client;
 
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.BrushableBlockRenderer;

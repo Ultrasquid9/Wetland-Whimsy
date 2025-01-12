@@ -98,10 +98,13 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		this.basicItem(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.SOUL_BRAZIER.get().asItem());
 
+		this.basicItem(WetlandWhimsyBlocks.ANCIENT_BRAZIER.get().asItem());
+
 		// Items
 		this.basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
 		this.basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
 		this.basicItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC.get());
+		this.basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());
 		
 		this.basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get());
 		this.basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond().get());

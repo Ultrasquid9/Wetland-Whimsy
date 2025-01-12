@@ -6,8 +6,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.blocks.blockentities.SussyMudBlockEntity;
-import uwu.juni.wetland_whimsy.content.blocks.blockentities.client.SussyMudBlockRenderer;
+import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
+import uwu.juni.wetland_whimsy.content.blocks.entities.SussyMudBlockEntity;
+import uwu.juni.wetland_whimsy.content.blocks.entities.client.SussyMudBlockRenderer;
 
 public class WetlandWhimsyBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(
@@ -18,7 +19,19 @@ public class WetlandWhimsyBlockEntities {
 	@SuppressWarnings("null")
 	public static final RegistryObject<BlockEntityType<SussyMudBlockEntity>> SUSSY_MUD = BLOCK_ENTITIES.register(
 		"suspicious_mud", 
-		() -> BlockEntityType.Builder.of(SussyMudBlockEntity::new, WetlandWhimsyBlocks.SUSSY_MUD.get()).build(null)
+		() -> BlockEntityType.Builder.of(
+			SussyMudBlockEntity::new, 
+			WetlandWhimsyBlocks.SUSSY_MUD.get()
+		).build(null)
+	);
+
+	@SuppressWarnings("null")
+	public static final RegistryObject<BlockEntityType<AncientBrazierBlockEntity>> ANCIENT_BRAZIER = BLOCK_ENTITIES.register(
+		"ancient_brazier",
+		() -> BlockEntityType.Builder.of(
+			AncientBrazierBlockEntity::new,
+			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get()
+		).build(null)
 	);
 
 	public static void blockEntityRendering(EntityRenderersEvent.RegisterRenderers event) {

@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import uwu.juni.wetland_whimsy.content.blocks.blockentities.SussyMudBlockEntity;
+import uwu.juni.wetland_whimsy.content.blocks.entities.SussyMudBlockEntity;
 
 @SuppressWarnings("null")
 public class SussyMudBlock extends BrushableBlock {

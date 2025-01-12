@@ -8,6 +8,7 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlo
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
@@ -422,6 +423,21 @@ public class WetlandWhimsyBlocks {
 		() -> new BrazierBlock (
 			BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get())
 				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 10 : 0)
+		)
+	);
+
+	public static final RegistryObject<AncientBrazierBlock> ANCIENT_BRAZIER = registerBlockAndItem(
+		"ancient_brazier",
+		() -> new AncientBrazierBlock (
+			BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get())
+				//.sound(SoundType.)
+				.lightLevel(
+					state -> switch (state.getValue(AncientBrazierBlock.FLAME)) {
+						case LIT -> 1;
+						case SMOLDERING -> 6;
+						default -> 0;
+					}
+				)
 		)
 	);
 

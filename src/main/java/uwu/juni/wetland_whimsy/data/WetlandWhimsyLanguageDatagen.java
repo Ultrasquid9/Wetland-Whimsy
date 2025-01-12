@@ -54,10 +54,12 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		this.addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 
 		this.addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
+		this.addBlock(WetlandWhimsyBlocks.ANCIENT_BRAZIER, "Ancient Brazier");
 
 		this.addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		this.addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
 		this.addItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC, "Music Disc");
+		this.addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
 
 		this.addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst(), "Bald Cypress Boat");
 		this.addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond(), "Bald Cypress Chest Boat");

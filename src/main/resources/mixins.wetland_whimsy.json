@@ -1,0 +1,10 @@
+{
+	"required": true,
+	"package": "uwu.juni.wetland_whimsy.mixins",
+	"minVersion": "0.8",
+	"compatibilityLevel": "JAVA_17",
+	"refmap": "mixins.wetland_whimsy.refmap.json",
+	"mixins": [
+		"BaseSpawnerAccessor"
+	]
+}

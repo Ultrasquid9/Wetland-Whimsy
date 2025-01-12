@@ -81,7 +81,7 @@
 					},
 					"block_entity_modifier": {
 						"type": "minecraft:append_loot",
-						"loot_table": "wetland_whimsy:basic_vault_loot"
+						"loot_table": "wetland_whimsy:basic_loot"
 					}
 				},
 				{
@@ -196,7 +196,7 @@
 					},
 					"block_entity_modifier": {
 						"type": "minecraft:append_loot",
-						"loot_table": "wetland_whimsy:basic_vault_loot"
+						"loot_table": "wetland_whimsy:basic_loot"
 					}
 				},
 				{

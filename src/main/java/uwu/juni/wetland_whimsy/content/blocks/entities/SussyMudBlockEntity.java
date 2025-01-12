@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.content.blocks.blockentities;
+package uwu.juni.wetland_whimsy.content.blocks.entities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;

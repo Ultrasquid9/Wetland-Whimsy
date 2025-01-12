@@ -52,4 +52,9 @@ public class WetlandWhimsyItems {
 		"bald_cypress", 
 		WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS
 	);
+
+	public static final RegistryObject<Item> ANCIENT_COIN = ITEMS.register(
+		"ancient_coin",
+		() -> new Item(new Item.Properties())
+	);
 }
