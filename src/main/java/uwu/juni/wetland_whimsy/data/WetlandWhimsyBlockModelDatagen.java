@@ -3,6 +3,7 @@ package uwu.juni.wetland_whimsy.data;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import net.minecraft.data.PackOutput;
@@ -181,6 +182,22 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			"ancient_brazier",
 			"block/ancient_brazier_base",
 			"block/ancient_brazier_lit_base"
+		);
+
+		this.getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates((state) -> ConfiguredModel.builder() 
+			.modelFile(
+				this.models().withExistingParent("ancient_pot", this.modLoc("block/ancient_pot_base"))
+			)
+			.rotationY(
+				switch (state.getValue(AncientPotBlock.FACING)) {
+					case NORTH -> 180;
+					case EAST -> 270;
+					case SOUTH -> 0;
+					case WEST -> 90; 
+					default -> 0; 
+				}
+			)
+			.build()
 		);
 	}
 

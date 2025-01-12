@@ -44,6 +44,8 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get());
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
 
+		simpleBlockItem(WetlandWhimsyBlocks.ANCIENT_POT.get());
+
 		// These ones don't work with the normal simpleBlockItem method
 		fenceInventory(
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.getId().toString(), 

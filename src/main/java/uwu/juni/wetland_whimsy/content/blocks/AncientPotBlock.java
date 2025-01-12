@@ -2,18 +2,13 @@ package uwu.juni.wetland_whimsy.content.blocks;
 
 import javax.annotation.Nonnull;
 
-import com.mojang.serialization.MapCodec;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -99,29 +94,6 @@ public class AncientPotBlock extends BaseEntityBlock {
 		entity.increaseLootQuality();
 		entity.setChanged();
 
-		if (level instanceof ServerLevel serverLevel) {
-			serverLevel.addParticle(
-				ParticleTypes.SMOKE, 
-				(double)pos.getX() + 0.5,
-				(double)pos.getY() + 1.2,
-				(double)pos.getZ() + 0.5,
-				0.0D, 
-				0.0D, 
-				0.0D
-			);
-/* 			serverlevel.addParticle(
-				ParticleTypes.ASH,
-				(double)pos.getX() + 0.5,
-				(double)pos.getY() + 1.2,
-				(double)pos.getZ() + 0.5,
-				7,
-				0.0,
-				0.0,
-				0.0,
-				0.0
-			); */
-		}
-
 		level.playSound(
 			null, 
 			pos, 
@@ -145,22 +117,6 @@ public class AncientPotBlock extends BaseEntityBlock {
 		super.playerWillDestroy(level, pos, state, player);
 	}
 
-
-/* 	@Override
-	protected void onProjectileHit(
-		@Nonnull Level level, 
-		@Nonnull BlockState state, 
-		@Nonnull BlockHitResult result, 
-		@Nonnull Projectile projectile
-	) {
-		BlockPos pos = result.getBlockPos();
-
-		if (!level.isClientSide && projectile.mayInteract(level, pos) && projectile.mayBreak(level)) {
-			dropLoot(level, pos);
-			level.destroyBlock(pos, true, projectile);
-		}
-	} */
-
 	private void dropLoot(Level level, BlockPos pos) {
 		if (level instanceof ServerLevel serverLevel) {
 			var blockEntity = level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
@@ -169,7 +125,50 @@ public class AncientPotBlock extends BaseEntityBlock {
 /* 			serverLevel.sendParticles(
 				ParticleTypes.DUST_PLUME,
 				(double)pos.getX() + 0.5,
-				(double)pos.getY() + 0.5,
+				(double)pos.getY() + 0.5,{
+	"nuke_the_swamps": {
+		"sounds": [
+		{
+			"name": "wetland_whimsy:nuke_the_swamps",
+			"stream": true
+		}
+		]
+	},
+
+	"pot_break": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:pot_break_1",
+				"stream": true
+			},
+			{
+				"name": "wetland_whimsy:pot_break_2",
+				"stream": true
+			},
+			{
+				"name": "wetland_whimsy:pot_break_3",
+				"stream": true
+			}
+		]
+	},
+	"pot_insert": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:pot_insert_1",
+				"stream": true
+			},
+			{
+				"name": "wetland_whimsy:pot_insert_2",
+				"stream": true
+			},
+			{
+				"name": "wetland_whimsy:pot_insert_3",
+				"stream": true
+			}
+		]
+	}
+}
+
 				(double)pos.getZ() + 0.5,
 				10,
 				0.2,

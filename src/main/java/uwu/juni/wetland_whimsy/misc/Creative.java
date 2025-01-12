@@ -87,7 +87,12 @@ public class Creative {
 			.addItemsAfter(
 				of(Items.SOUL_CAMPFIRE), 
 				WetlandWhimsyBlocks.LIMESTONE_BRAZIER,
-				WetlandWhimsyBlocks.SOUL_BRAZIER
+				WetlandWhimsyBlocks.SOUL_BRAZIER,
+				WetlandWhimsyBlocks.ANCIENT_BRAZIER
+			)
+			.addItemsAfter(
+				of(Items.DECORATED_POT), 
+				WetlandWhimsyBlocks.ANCIENT_POT
 			)
 
 			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
@@ -112,6 +117,10 @@ public class Creative {
 			.addItemsAfter(
 				of(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE), 
 				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE
+			)
+			.addItemsAfter(
+				of(Items.SNORT_POTTERY_SHERD), 
+				WetlandWhimsyItems.ANCIENT_COIN
 			);
 	}
 }

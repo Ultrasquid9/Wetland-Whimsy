@@ -83,8 +83,8 @@ public class AncientPotBlockEntity extends BlockEntity {
 						ResourceLocation.tryParse(
 							WetlandWhimsy.config.ancientPotItems.get(
 								random.nextInt(
-									WetlandWhimsy.config.ancientPotItems.size() - 3, 
-									WetlandWhimsy.config.ancientPotItems.size()
+									WetlandWhimsy.config.ancientPotItems.size() - 4, 
+									WetlandWhimsy.config.ancientPotItems.size() - 1
 								)
 							)
 						)
