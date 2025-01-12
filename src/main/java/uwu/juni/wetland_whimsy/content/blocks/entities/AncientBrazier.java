@@ -113,9 +113,11 @@ public class AncientBrazier extends BaseSpawner {
 	@SuppressWarnings("deprecation")
 	private void setRandomEntity(ServerLevel level, BlockPos pos) {
 		var random = level.getRandom();
-		var entity = WetlandWhimsy.config.ancientBrazierEntities.get(random.nextInt(0, WetlandWhimsy.config.ancientBrazierEntities.size()));
+		var entity = WetlandWhimsy.config.ancientBrazierEntities.get(
+			random.nextInt(0, WetlandWhimsy.config.ancientBrazierEntities.size())
+		);
 
-		this.setEntityId(BuiltInRegistries.ENTITY_TYPE.get(entity), level, random, pos);
+		this.setEntityId(BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.tryParse(entity)), level, random, pos);
 	}
 
 	// Copied from Vanilla's TrialSpawner class
