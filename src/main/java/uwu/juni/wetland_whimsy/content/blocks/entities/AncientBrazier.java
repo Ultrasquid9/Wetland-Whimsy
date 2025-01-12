@@ -16,13 +16,13 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -34,6 +34,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootDatagen;
@@ -99,13 +100,12 @@ public class AncientBrazier extends BaseSpawner {
 			this.setRandomEntity(serverLevel, pos);;
 		}
 
-		spawnDelay = ((BaseSpawnerAccessor) this).getSpawnDelay();
 		var uuid = spawnDelay <= 0 ? spawnMob(serverLevel, pos) : Optional.empty();
 
 		if (uuid.isPresent()) {
 			((BaseSpawnerAccessor) this).setSpawnDelay(serverLevel.getRandom().nextInt(200, 400));
 
-			for (int i = 0; i < serverLevel.getRandom().nextInt(2, 4); i++)
+			for (int i = 0; i < serverLevel.getRandom().nextInt(0, 4); i++)
 				spawnMob(serverLevel, pos);
 		}
 
@@ -142,6 +142,8 @@ public class AncientBrazier extends BaseSpawner {
 		if (optional.isEmpty()) 
 			return Optional.empty();
 
+		WetlandWhimsy.LOGGER.info("EntityType exists");
+
 		int i = listtag.size();
 		double d0 = i >= 1
 			? listtag.getDouble(0)
@@ -154,17 +156,15 @@ public class AncientBrazier extends BaseSpawner {
 		if (!level.noCollision(optional.get().getAABB(d0, d1, d2))) 
 			return Optional.empty();
 
+		WetlandWhimsy.LOGGER.info("Collision exists");
+
 		Vec3 vec3 = new Vec3(d0, d1, d2);
 		if (!inLineOfSight(level, pos.getCenter(), vec3))
 			return Optional.empty();
 
-		BlockPos blockpos = BlockPos.containing(vec3);
-		if (!SpawnPlacements.checkSpawnRules(optional.get(), level, MobSpawnType.SPAWNER, blockpos, level.getRandom()))
-			return Optional.empty();
+		WetlandWhimsy.LOGGER.info("In line of sight");
 
-/* 		if (spawndata.getCustomSpawnRules().isPresent()) {
-			SpawnData.CustomSpawnRules spawndata$customspawnrules = spawndata.getCustomSpawnRules().get();
-		} */
+		BlockPos blockpos = BlockPos.containing(vec3);
 
 		Entity entity = EntityType.loadEntityRecursive(compoundtag, level, p_312375_ -> {
 			p_312375_.moveTo(d0, d1, d2, randomsource.nextFloat() * 360.0F, 0.0F);
@@ -172,12 +172,13 @@ public class AncientBrazier extends BaseSpawner {
 		});
 		if (entity == null)
 			return Optional.empty();
+		
+		WetlandWhimsy.LOGGER.info("Entity loaded");
 
 		if (entity instanceof Mob mob) {
 			if (!mob.checkSpawnObstruction(level))
 				return Optional.empty();
 
-			//boolean flag = spawndata.getEntityToSpawn().size() == 1 && spawndata.getEntityToSpawn().contains("id", 8);
 			var event = net.minecraftforge.event.ForgeEventFactory.onFinalizeSpawnSpawner(
 				mob, 
 				level, 
@@ -201,16 +202,16 @@ public class AncientBrazier extends BaseSpawner {
 			}
 
 			mob.setPersistenceRequired();
-			//spawndata.getEquipment().ifPresent(mob::equip);
 		}
 
 		if (!level.tryAddFreshEntityWithPassengers(entity))
 			return Optional.empty();
 
-		//level.levelEvent(3011, pos, 1);
-		//level.levelEvent(3012, blockpos, 1); 
-
+		level.levelEvent(2004, pos, 0);
 		level.gameEvent(entity, GameEvent.ENTITY_PLACE, blockpos);
+		if (entity instanceof Mob) {
+		   ((Mob)entity).spawnAnim();
+		}
 
 		return Optional.of(entity.getUUID());
 	}
@@ -249,7 +250,14 @@ public class AncientBrazier extends BaseSpawner {
 			);
 		}
 
-		//level.levelEvent(3014, pos, 0);
+		level.playSound(
+			null, 
+			pos, 
+			SoundEvents.AMETHYST_BLOCK_BREAK, 
+			SoundSource.BLOCKS, 
+			1.0F, 
+			1.0F
+		);
 	}
 
 	@Override
