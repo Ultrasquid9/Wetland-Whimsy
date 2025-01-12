@@ -80,7 +80,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 					new BaldCypressTrunkPlacer(6, 2, 2),
 					BlockStateProvider.simple(WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()), 
 					new BaldCypressFoliagePlacer(ConstantInt.of(4), ConstantInt.of(6)),
-					new TwoLayersFeatureSize(0, 2, 4)
+					new TwoLayersFeatureSize(1, 0, 1)
 				)
 				.decorators(List.of(new LeaveVineDecorator(0.2f), new TrunkVineDecorator()))
 				.ignoreVines()
@@ -200,21 +200,21 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.45F
+							0.4F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								HUGE_RED_MUSHROOM, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.0075F
+							0.06F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								HUGE_BROWN_MUSHROOM, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.025F
+							0.15F
 						)
 					),
 					PlacementUtils.inlinePlaced(
@@ -224,6 +224,7 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 				)
 			)
 		);
+
 
 		context.register(
 			TREES_MARSH, 
@@ -236,21 +237,21 @@ public class WetlandWhimsyConfiguredFeaturesDatagen {
 								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.40F
+							0.30F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								BIRCH, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.30F
+							0.50F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								SPRUCE, 
 								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
 							), 
-							0.30F
+							0.50F
 						)
 					),
 					PlacementUtils.inlinePlaced(

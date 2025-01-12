@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.4,
+        "chance": 0.3,
         "feature": {
           "feature": "wetland_whimsy:bald_cypress_tree",
           "placement": [
@@ -40,7 +40,7 @@
         }
       },
       {
-        "chance": 0.3,
+        "chance": 0.5,
         "feature": {
           "feature": "minecraft:birch",
           "placement": [
@@ -60,7 +60,7 @@
         }
       },
       {
-        "chance": 0.3,
+        "chance": 0.5,
         "feature": {
           "feature": "minecraft:spruce",
           "placement": [
