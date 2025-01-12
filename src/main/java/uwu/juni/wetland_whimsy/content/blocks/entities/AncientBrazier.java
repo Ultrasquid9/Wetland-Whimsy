@@ -1,13 +1,10 @@
 package uwu.juni.wetland_whimsy.content.blocks.entities;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.google.common.collect.Lists;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -41,15 +38,6 @@ import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootData
 import uwu.juni.wetland_whimsy.mixins.BaseSpawnerAccessor;
 
 public class AncientBrazier extends BaseSpawner {
-	public static List<ResourceLocation> ancientBrazierEntities = Lists.newArrayList(
-		new ResourceLocation("minecraft", "zombie"),
-		new ResourceLocation("minecraft", "skeleton"),
-		new ResourceLocation("minecraft", "spider"),
-		new ResourceLocation("minecraft", "cave_spider"),
-		new ResourceLocation("minecraft", "drowned"),
-		new ResourceLocation("minecraft", "witch")
-	);
-
 	private int spawnedEntityCount;
 	private SimpleWeightedRandomList<ResourceLocation> lootTablesToEject;
 
@@ -125,7 +113,7 @@ public class AncientBrazier extends BaseSpawner {
 	@SuppressWarnings("deprecation")
 	private void setRandomEntity(ServerLevel level, BlockPos pos) {
 		var random = level.getRandom();
-		var entity = ancientBrazierEntities.get(random.nextInt(0, ancientBrazierEntities.size()));
+		var entity = WetlandWhimsy.config.ancientBrazierEntities.get(random.nextInt(0, WetlandWhimsy.config.ancientBrazierEntities.size()));
 
 		this.setEntityId(BuiltInRegistries.ENTITY_TYPE.get(entity), level, random, pos);
 	}

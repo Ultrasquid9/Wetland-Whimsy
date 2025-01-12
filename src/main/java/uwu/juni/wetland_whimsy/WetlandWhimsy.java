@@ -3,6 +3,8 @@ package uwu.juni.wetland_whimsy;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +16,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.misc.Creative;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
@@ -28,9 +31,14 @@ public class WetlandWhimsy {
 
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
 
+	public static WetlandWhimsyConfig config;
+
 	public WetlandWhimsy() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		LOGGER.info("Whimsical");
+
+		AutoConfig.register(WetlandWhimsyConfig.class, Toml4jConfigSerializer::new);
+		config = AutoConfig.getConfigHolder(WetlandWhimsyConfig.class).getConfig();
 
 		modEventBus.addListener(this::commonSetup);
 		modEventBus.addListener(Datagen::datagen);
