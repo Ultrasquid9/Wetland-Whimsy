@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
+import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 import uwu.juni.wetland_whimsy.content.blocks.entities.SussyMudBlockEntity;
 import uwu.juni.wetland_whimsy.content.blocks.entities.client.SussyMudBlockRenderer;
 
@@ -31,6 +32,15 @@ public class WetlandWhimsyBlockEntities {
 		() -> BlockEntityType.Builder.of(
 			AncientBrazierBlockEntity::new,
 			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get()
+		).build(null)
+	);
+
+	@SuppressWarnings("null")
+	public static final RegistryObject<BlockEntityType<AncientPotBlockEntity>> ANCIENT_POT = BLOCK_ENTITIES.register(
+		"ancient_pot",
+		() -> BlockEntityType.Builder.of(
+			AncientPotBlockEntity::new,
+			WetlandWhimsyBlocks.ANCIENT_POT.get()
 		).build(null)
 	);
 

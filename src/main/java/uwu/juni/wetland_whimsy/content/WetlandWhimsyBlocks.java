@@ -9,6 +9,7 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
@@ -438,6 +439,13 @@ public class WetlandWhimsyBlocks {
 						default -> 0;
 					}
 				)
+		)
+	);
+	public static final RegistryObject<AncientPotBlock> ANCIENT_POT = registerBlockAndItem(
+		"ancient_pot",
+		() -> new AncientPotBlock (
+			BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)
+				.sound(WetlandWhimsySounds.ANCIENT_POT_SOUNDS)
 		)
 	);
 
