@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.content;
 
 import java.util.function.Supplier;
 
+import javax.annotation.Nonnull;
+
 import com.teamabnormals.blueprint.common.block.sign.BlueprintCeilingHangingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintStandingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlock;
@@ -10,6 +12,8 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
+import uwu.juni.wetland_whimsy.content.blocks.BloodcapMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
@@ -20,6 +24,7 @@ import uwu.juni.wetland_whimsy.content.items.FlammableHangingSignItem;
 import uwu.juni.wetland_whimsy.content.items.FlammableSignItem;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.BaldCypressTree;
+import uwu.juni.wetland_whimsy.worldgen.HugeAriaMushroom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -34,6 +39,7 @@ import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -50,6 +56,8 @@ import net.minecraft.world.level.block.PressurePlateBlock.Sensitivity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -399,6 +407,49 @@ public class WetlandWhimsyBlocks {
 				.noOcclusion()
 				.offsetType(BlockBehaviour.OffsetType.XZ)
 		)
+	);
+	public static final RegistryObject<BloodcapMushroomBlock> BLOODCAP_MUSHROOM = registerBlockAndItem(
+		"bloodcap_mushroom", 
+		() -> new BloodcapMushroomBlock(
+			BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM)
+				.offsetType(BlockBehaviour.OffsetType.XZ)
+				.lightLevel($ -> 2)
+		)
+	);
+	public static final RegistryObject<AriaMushroomBlock> ARIA_MUSHROOM = registerBlockAndItem(
+		"aria_mushroom", 
+		() -> new AriaMushroomBlock(
+			BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM)
+				.noOcclusion()
+				.lightLevel($ -> 7)
+		)
+	);
+	public static final RegistryObject<HalfTransparentBlock> ARIA_MUSHROOM_BLOCK = registerBlockAndItem(
+		"aria_mushroom_block", 
+		() -> new HalfTransparentBlock(
+			BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK)
+				.noOcclusion()
+				.lightLevel($ -> 9)
+		)
+	);
+	public static final RegistryObject<SaplingBlock> ARIA_SPORES = registerBlockAndItem(
+		"aria_spores", 
+		() -> new SaplingBlock(
+			new HugeAriaMushroom(), 
+			BlockBehaviour.Properties.copy(ARIA_MUSHROOM.get())
+		) {
+			protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
+
+			@Override
+			public VoxelShape getShape(
+				@Nonnull BlockState state, 
+				@Nonnull BlockGetter level, 
+				@Nonnull BlockPos pos, 
+				@Nonnull CollisionContext context
+			) {
+				return SHAPE;
+			}
+		}
 	);
 
 	// Miscellaneous

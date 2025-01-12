@@ -1,0 +1,11 @@
+{
+	"type": "forge:add_features",
+	"biomes": [
+		"minecraft:mushroom_fields",
+		"minecraft:dark_forest"
+	],
+	"features": [
+		"wetland_whimsy:huge_aria"
+	],
+	"step": "vegetal_decoration"
+}

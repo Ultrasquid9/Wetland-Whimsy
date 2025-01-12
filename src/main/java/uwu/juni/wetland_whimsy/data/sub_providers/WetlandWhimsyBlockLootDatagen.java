@@ -4,9 +4,13 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 
 public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 	public WetlandWhimsyBlockLootDatagen() {
@@ -51,6 +55,10 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get());
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
 
+		this.dropSelf(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get());
+		this.dropSelf(WetlandWhimsyBlocks.ARIA_MUSHROOM.get());
+		this.dropSelf(WetlandWhimsyBlocks.ARIA_SPORES.get());
+
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get());
 		this.dropSelf(WetlandWhimsyBlocks.SOUL_BRAZIER.get());
 
@@ -86,6 +94,33 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		this.add(
 			WetlandWhimsyBlocks.CORDGRASS.get(), 
 			BlockLootSubProvider.createShearsOnlyDrop(WetlandWhimsyBlocks.CORDGRASS.get().asItem())
+		);
+
+		this.dropOther(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
+			WetlandWhimsyBlocks.ARIA_MUSHROOM.get()
+		);
+		this.add(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(), 
+			(block) -> {
+				return LootTable.lootTable()
+					.withPool(
+						LootPool.lootPool()
+							.when(HAS_SILK_TOUCH)
+							.add(LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get()))
+					)
+					.withPool(
+						applyExplosionCondition(
+							WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
+							LootPool.lootPool()
+								.when(HAS_SILK_TOUCH.invert())
+								.add(
+									LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM.get())
+										.apply(WetlandWhimsyLoot.lootCount(-6, 2))
+								)
+						)
+					);
+			}
 		);
 
 		this.add(

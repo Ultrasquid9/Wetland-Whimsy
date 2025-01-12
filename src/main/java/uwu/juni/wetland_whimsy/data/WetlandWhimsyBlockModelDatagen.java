@@ -164,6 +164,43 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				.withExistingParent("cordgrass", this.modLoc("block/cordgrass_base"))
 		);
 		pennywort(WetlandWhimsyBlocks.PENNYWORT.get());
+		this.simpleBlock(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get(),
+			this.models()
+				.withExistingParent("bloodcap", this.mcLoc("block/cross"))
+				.texture("cross", this.modLoc("block/bloodcap_mushroom"))
+				.renderType("minecraft:cutout")
+		);
+
+		this.getVariantBuilder(WetlandWhimsyBlocks.ARIA_MUSHROOM.get()).forAllStates((state) -> ConfiguredModel.builder() 
+			.modelFile(
+				this.models().withExistingParent("aria", this.modLoc("block/aria_mushroom_base"))
+			)
+			.rotationY(
+				switch (state.getValue(AncientPotBlock.FACING)) {
+					case NORTH -> 180;
+					case EAST -> 270;
+					case SOUTH -> 0;
+					case WEST -> 90; 
+					default -> 0; 
+				}
+			)
+			.build()
+		);
+
+		this.simpleBlock(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
+			this.models()
+				.withExistingParent("aria_mushroom_block", this.mcLoc("block/cube_all"))
+				.texture("all", modLoc("block/aria_mushroom_block"))
+				.renderType("minecraft:translucent")
+		);
+		this.simpleBlock(
+			WetlandWhimsyBlocks.ARIA_SPORES.get(),
+			this.models()
+				.withExistingParent("aria_spores", this.modLoc("block/aria_spores_base"))
+				.renderType("minecraft:cutout")
+		);
 
 		brazier(
 			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(),

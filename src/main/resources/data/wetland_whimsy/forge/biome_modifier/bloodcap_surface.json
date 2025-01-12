@@ -1,0 +1,8 @@
+{
+	"type": "forge:add_features",
+	"biomes": "#wetland_whimsy:bloodcap_surface",
+	"features": [
+		"wetland_whimsy:bloodcap_patch_surface"
+	],
+	"step": "vegetal_decoration"
+}

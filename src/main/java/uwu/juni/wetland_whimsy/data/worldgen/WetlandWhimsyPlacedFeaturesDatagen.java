@@ -13,7 +13,9 @@ import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
 import net.minecraft.world.level.material.Fluids;
 
@@ -32,6 +35,9 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 
 	public static final ResourceKey<PlacedFeature> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<PlacedFeature> PENNYWORT_PATCH = createKey("pennywort_patch");
+	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH = createKey("bloodcap_patch");
+	public static final ResourceKey<PlacedFeature> BLOODCAP_PATCH_SURFACE = createKey("bloodcap_patch_surface");
+	public static final ResourceKey<PlacedFeature> HUGE_ARIA = createKey("huge_aria");
 	public static final ResourceKey<PlacedFeature> LIMESTONE_DISK = createKey("limestone_disk");
 	public static final ResourceKey<PlacedFeature> MUD_DISK = createKey("mud_disk");
 	public static final ResourceKey<PlacedFeature> MUD_POOL = createKey("mud_pool");
@@ -69,6 +75,40 @@ public class WetlandWhimsyPlacedFeaturesDatagen {
 			new PlacedFeature(
 				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.PENNYWORT_PATCH), 
 				foliagePlacement()
+			)
+		);
+		context.register(
+			BLOODCAP_PATCH, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.BLOODCAP_PATCH), 
+				ImmutableList.<PlacementModifier>builder()
+					.add(CountPlacement.of(UniformInt.of(20, 50)))
+					.add(PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT)
+					.add(InSquarePlacement.spread())
+					.add(SurfaceRelativeThresholdFilter.of(Heightmap.Types.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -64))
+					.add(BiomeFilter.biome())
+					.build()
+			)
+		);
+		context.register(
+			BLOODCAP_PATCH_SURFACE, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.BLOODCAP_PATCH), 
+				foliagePlacement()
+			)
+		);
+		context.register(
+			HUGE_ARIA, 
+			new PlacedFeature(
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeaturesDatagen.HUGE_ARIA_MUSHROOM), 
+				ImmutableList.<PlacementModifier>builder()
+					.add(RarityFilter.onAverageOnceEvery(3))
+					.add(InSquarePlacement.spread())
+					.add(SurfaceWaterDepthFilter.forMaxDepth(0))
+					.add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
+					.add(BiomeFilter.biome())
+					.add(PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get()))
+					.build()
 			)
 		);
 		context.register(

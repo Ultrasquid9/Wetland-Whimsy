@@ -44,6 +44,8 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get());
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
 
+		simpleBlockItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get());
+
 		simpleBlockItem(WetlandWhimsyBlocks.ANCIENT_POT.get());
 
 		// These ones don't work with the normal simpleBlockItem method
@@ -92,6 +94,18 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		.texture("layer0", "block/pennywort_leaves_bottom")
 		.texture("layer1", "block/pennywort_leaves_top");
 
+		this.withExistingParent(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.getId().toString(), 
+			mcLoc("item/generated")
+		)
+		.texture("layer0", "block/bloodcap_mushroom");
+
+		this.withExistingParent(
+			WetlandWhimsyBlocks.ARIA_SPORES.getId().toString(), 
+			mcLoc("item/generated")
+		)
+		.texture("layer0", "block/aria_spores");
+
 		// Block items that are 2d in the inventory and use a unique texture
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
@@ -99,6 +113,8 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get().asItem());
 		this.basicItem(WetlandWhimsyBlocks.SOUL_BRAZIER.get().asItem());
+
+		this.basicItem(WetlandWhimsyBlocks.ARIA_MUSHROOM.get().asItem());
 
 		this.basicItem(WetlandWhimsyBlocks.ANCIENT_BRAZIER.get().asItem());
 

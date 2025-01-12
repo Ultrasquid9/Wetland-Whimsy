@@ -22,6 +22,7 @@ import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
+import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeDecorators;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
 
 import org.slf4j.Logger;
@@ -54,6 +55,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyItems.ITEMS.register(modEventBus);
 		WetlandWhimsyParticleTypes.PARTICLE_TYPES.register(modEventBus);
 		WetlandWhimsySounds.SOUNDS.register(modEventBus);
+		WetlandWhimsyTreeDecorators.TREE_DECORATORS.register(modEventBus);
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
 		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
