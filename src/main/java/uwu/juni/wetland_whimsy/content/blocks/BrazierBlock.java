@@ -18,38 +18,32 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
+public class BrazierBlock extends Block {
 	private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0);
 
 	public static final BooleanProperty LIT = BlockStateProperties.LIT;
-	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public BrazierBlock(Properties properties) {
 		super(properties);
 
 		registerDefaultState(
-			stateDefinition.any()
-				.setValue(LIT, Boolean.valueOf(true))
-				.setValue(WATERLOGGED, Boolean.valueOf(false))
+			stateDefinition.any().setValue(LIT, Boolean.valueOf(true))
 		);
 	}
 
 	@Override
 	protected void createBlockStateDefinition(@Nonnull Builder<Block, BlockState> builder) {
-		builder.add(LIT, WATERLOGGED);
+		builder.add(LIT);
 	}
 
 	@Override
@@ -57,7 +51,6 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 		var water = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
 
 		return defaultBlockState()
-			.setValue(WATERLOGGED, Boolean.valueOf(water))
 			.setValue(LIT, Boolean.valueOf(!water));
 	}
 
@@ -65,28 +58,6 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 	@Override
 	public VoxelShape getShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return SHAPE;
-	}
-
-	@SuppressWarnings("null")
-	@Override
-	public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
-		if (state.getValue(BlockStateProperties.WATERLOGGED)) 
-			return false;
-
-		if (state.getValue(LIT) && !level.isClientSide())
-				level.playSound(null, pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-		level.setBlock(pos, state.setValue(WATERLOGGED, Boolean.valueOf(true)).setValue(LIT, Boolean.valueOf(false)), 3);
-		level.scheduleTick(pos, fluidState.getType(), fluidState.getType().getTickDelay(level));
-		return true;
-	}
-	
-	@SuppressWarnings("deprecation") // No it isnt lol 
-	@Override
-	public FluidState getFluidState(@Nonnull BlockState state) {
-		return state.getValue(WATERLOGGED) 
-			? Fluids.WATER.getSource(false) 
-			: super.getFluidState(state);
 	}
 
 	@SuppressWarnings("null")
@@ -108,7 +79,7 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 			return InteractionResult.SUCCESS;
 		}
 
-		if (state.getValue(WATERLOGGED) || state.getValue(LIT))
+		if (state.getValue(LIT))
 			return InteractionResult.PASS;
 
 		if (stack.is(Items.FLINT_AND_STEEL) || stack.is(Items.FIRE_CHARGE)) {
@@ -160,7 +131,6 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 			&& projectile.isOnFire()
 			&& projectile.mayInteract(level, blockpos)
 			&& !state.getValue(LIT)
-			&& !state.getValue(WATERLOGGED)
 		) {
 			level.setBlock(blockpos, state.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
 		}
