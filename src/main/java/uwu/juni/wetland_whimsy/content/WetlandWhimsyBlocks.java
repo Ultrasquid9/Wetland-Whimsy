@@ -485,7 +485,7 @@ public class WetlandWhimsyBlocks {
 				//.sound(SoundType.)
 				.lightLevel(
 					state -> switch (state.getValue(AncientBrazierBlock.FLAME)) {
-						case LIT -> 1;
+						case LIT -> 10;
 						case SMOLDERING -> 6;
 						default -> 0;
 					}
