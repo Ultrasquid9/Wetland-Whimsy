@@ -1,0 +1,30 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1918171615,
+    "separation": 5,
+    "spacing": 10
+  },
+  "structures": [
+    {
+      "structure": "wetland_whimsy:arch",
+      "weight": 4
+    },
+    {
+      "structure": "wetland_whimsy:pillar",
+      "weight": 4
+    },
+    {
+      "structure": "wetland_whimsy:wall",
+      "weight": 4
+    },
+    {
+      "structure": "wetland_whimsy:arena",
+      "weight": 3
+    },
+    {
+      "structure": "wetland_whimsy:swamp_dungeon",
+      "weight": 2
+    }
+  ]
+}

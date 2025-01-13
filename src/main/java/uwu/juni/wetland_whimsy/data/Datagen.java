@@ -6,14 +6,18 @@ import java.util.Set;
 import com.google.common.collect.ImmutableList;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyConfiguredFeatures;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyPlacedFeatures;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyStructurePools;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyStructureProcessors;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyStructureSets;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyStructures;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyConfiguredFeaturesDatagen;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyBiomesDatagen;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyPlacedFeaturesDatagen;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;
@@ -33,16 +37,22 @@ public class Datagen {
 		datagen.addProvider(event.includeClient(), new WetlandWhimsyLanguageDatagen(output));
 		datagen.addProvider(event.includeServer(), new WetlandWhimsyRecipeDatagen(output, lookupProvider));
 
-		// Worldgen
+		// Worldgen and registries
 		datagen.addProvider(
 			event.includeClient(), 
 			new DatapackBuiltinEntriesProvider(
 				output, 
 				lookupProvider, 
 				new RegistrySetBuilder()
-					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeaturesDatagen::bootstap)
-					.add(Registries.PLACED_FEATURE, WetlandWhimsyPlacedFeaturesDatagen::bootstap)
-					.add(Registries.BIOME, WetlandWhimsyBiomesDatagen::bootstap),
+					.add(Registries.CONFIGURED_FEATURE, WetlandWhimsyConfiguredFeatures::bootstap)
+					.add(Registries.PLACED_FEATURE, WetlandWhimsyPlacedFeatures::bootstap)
+					.add(Registries.BIOME, WetlandWhimsyBiomes::bootstap)
+
+					.add(Registries.STRUCTURE_SET, WetlandWhimsyStructureSets::bootstap)
+					.add(Registries.STRUCTURE, WetlandWhimsyStructures::bootstap)
+					.add(Registries.TEMPLATE_POOL, WetlandWhimsyStructurePools::bootstap)
+					.add(Registries.PROCESSOR_LIST, WetlandWhimsyStructureProcessors::bootstap),
+					
 				Collections.singleton(WetlandWhimsy.MODID)
 			)
 		);

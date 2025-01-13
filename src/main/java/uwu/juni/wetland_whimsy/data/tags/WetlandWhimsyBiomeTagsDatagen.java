@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import javax.annotation.Nonnull;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyBiomesDatagen;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -31,50 +31,50 @@ public class WetlandWhimsyBiomeTagsDatagen extends BiomeTagsProvider {
 	public void addTags(@Nonnull HolderLookup.Provider provider) {
 		addOptionalTagToList(
 			Tags.Biomes.IS_SWAMP, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.IS_OVERWORLD, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.HAS_MINESHAFT, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.HAS_RUINED_PORTAL_SWAMP, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 
 		addOptionalTagToList(
 			BiomeTags.HAS_TRAIL_RUINS, 
 			Biomes.SWAMP,
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 
 		addOptionalTagToList(
 			BiomeTags.HAS_SWAMP_HUT, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.HAS_SHIPWRECK_BEACHED, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 
 		addOptionalTagToList(
 			BiomeTags.IS_BEACH, 
-			WetlandWhimsyBiomesDatagen.MARSH
+			WetlandWhimsyBiomes.MARSH
 		);
 	}
 

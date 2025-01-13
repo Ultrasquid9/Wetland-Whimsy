@@ -7,12 +7,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import uwu.juni.wetland_whimsy.data.worldgen.WetlandWhimsyConfiguredFeaturesDatagen;
+import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyConfiguredFeatures;
 
 public class HugeAriaMushroom extends AbstractTreeGrower {
 	@Override
 	@Nullable
 	protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(@Nonnull RandomSource p_222910_, boolean p_222911_) {
-		return WetlandWhimsyConfiguredFeaturesDatagen.HUGE_ARIA_MUSHROOM;
+		return WetlandWhimsyConfiguredFeatures.HUGE_ARIA_MUSHROOM;
 	}
 }
