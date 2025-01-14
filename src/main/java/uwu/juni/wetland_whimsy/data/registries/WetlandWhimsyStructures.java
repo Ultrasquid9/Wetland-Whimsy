@@ -64,7 +64,8 @@ public class WetlandWhimsyStructures {
 		registerSurfaceRuins(
 			context, 
 			SWAMP_DUNGEON, 
-			WetlandWhimsyStructurePools.SWAMP_DUNGEON_ENTRANCE
+			WetlandWhimsyStructurePools.SWAMP_DUNGEON_ENTRANCE,
+			TerrainAdjustment.NONE
 		);
 	}
 
@@ -72,6 +73,20 @@ public class WetlandWhimsyStructures {
 		BootstrapContext<Structure> context, 
 		ResourceKey<Structure> structure, 
 		ResourceKey<StructureTemplatePool> pool
+	) { 
+		registerSurfaceRuins(
+			context, 
+			structure, 
+			pool,
+			TerrainAdjustment.BEARD_THIN
+		);
+	}
+
+	public static void registerSurfaceRuins(
+		BootstrapContext<Structure> context, 
+		ResourceKey<Structure> structure, 
+		ResourceKey<StructureTemplatePool> pool,
+		TerrainAdjustment adjustment
 	) {
 		var biomes = context.lookup(Registries.BIOME);
 		var templatePools = context.lookup(Registries.TEMPLATE_POOL);
@@ -83,7 +98,7 @@ public class WetlandWhimsyStructures {
 					biomes.getOrThrow(Tags.Biomes.IS_SWAMP), 
 					Map.of(), 
 					GenerationStep.Decoration.SURFACE_STRUCTURES, 
-					TerrainAdjustment.BEARD_THIN
+					adjustment
 				), 
 				templatePools.getOrThrow(pool), 
 				Optional.empty(), 

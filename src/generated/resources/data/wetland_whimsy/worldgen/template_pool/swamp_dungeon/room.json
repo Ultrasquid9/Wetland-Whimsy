@@ -3,33 +3,6 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/atrium_1",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/atrium_2",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/atrium_3",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
         "location": "wetland_whimsy:swamp_dungeon/room/combat_room_1",
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
@@ -120,6 +93,15 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/room/digsite_1",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "wetland_whimsy:swamp_dungeon/room/hallway_1",
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
@@ -175,6 +157,33 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "wetland_whimsy:swamp_dungeon/room/hallway_7",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/room/hallway_8",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/room/hallway_9",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/room/hallway_10",
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },

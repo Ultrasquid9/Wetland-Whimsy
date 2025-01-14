@@ -25,6 +25,7 @@ public class WetlandWhimsyStructurePools {
 
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ENTRANCE = createKey("swamp_dungeon/entrance");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_HOLE = createKey("swamp_dungeon/hole");
+	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ATRIUM = createKey("swamp_dungeon/atrium");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ROOM = createKey("swamp_dungeon/room");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ROOM_LOWER = createKey("swamp_dungeon/room_lower");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_SPAWNER = createKey("swamp_dungeon/spawner");
@@ -114,14 +115,22 @@ public class WetlandWhimsyStructurePools {
 			)
 		);
 		context.register(
+			SWAMP_DUNGEON_ATRIUM, 
+			new StructureTemplatePool(
+				fallback, 
+				ImmutableList.of(
+					Pair.of(dungeon_pool("swamp_dungeon/atrium/atrium_1", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/atrium/atrium_2", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/atrium/atrium_3", context), 1)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
+		context.register(
 			SWAMP_DUNGEON_ROOM, 
 			new StructureTemplatePool(
 				fallback, 
 				ImmutableList.of(
-					Pair.of(dungeon_pool("swamp_dungeon/room/atrium_1", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/atrium_2", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room/atrium_3", context), 1),
-
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_2", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_3", context), 1),
@@ -133,6 +142,8 @@ public class WetlandWhimsyStructurePools {
 
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_2", context), 1),
+					
+					Pair.of(dungeon_pool("swamp_dungeon/room/digsite_1", context), 1),
 
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_1", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_2", context), 2),
@@ -140,7 +151,10 @@ public class WetlandWhimsyStructurePools {
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_4", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_5", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_6", context), 2),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_7", context), 2)
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_7", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_8", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_9", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_10", context), 2)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)
@@ -151,7 +165,8 @@ public class WetlandWhimsyStructurePools {
 				fallback, 
 				ImmutableList.of(
 					Pair.of(dungeon_pool("swamp_dungeon/room_lower/lower_room_1", context), 1),
-					Pair.of(dungeon_pool("swamp_dungeon/room_lower/lower_room_2", context), 1)
+					Pair.of(dungeon_pool("swamp_dungeon/room_lower/lower_room_2", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/room_lower/lower_room_3", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)

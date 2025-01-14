@@ -131,6 +131,21 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
+                "max": 5.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:torch"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
                 "max": 6.0,
                 "min": 2.0
               },
@@ -326,7 +341,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
+                "max": 6.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -341,7 +356,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
+                "max": 6.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -356,7 +371,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 8.0,
+                "max": 6.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -371,7 +386,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 6.0,
+                "max": 3.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -386,7 +401,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 6.0,
+                "max": 3.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -401,7 +416,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 6.0,
+                "max": 3.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -446,7 +461,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 10.0,
+                "max": 6.0,
                 "min": 2.0
               },
               "function": "minecraft:set_count"
@@ -461,7 +476,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 10.0,
+                "max": 6.0,
                 "min": 2.0
               },
               "function": "minecraft:set_count"
@@ -476,13 +491,43 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 10.0,
+                "max": 6.0,
                 "min": 2.0
               },
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:brown_mushroom"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "wetland_whimsy:bloodcap_mushroom"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "wetland_whimsy:aria_mushroom"
         },
         {
           "type": "minecraft:item",
@@ -498,21 +543,6 @@
             }
           ],
           "name": "minecraft:mud"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:diamond"
         },
         {
           "type": "minecraft:item",
@@ -558,6 +588,73 @@
             }
           ],
           "name": "minecraft:amethyst_shard"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "effects": [
+                {
+                  "type": "minecraft:poison",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:hunger",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:luck",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:unluck",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                },
+                {
+                  "type": "minecraft:darkness",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  }
+                }
+              ],
+              "function": "minecraft:set_stew_effect"
+            }
+          ],
+          "name": "minecraft:bowl"
         },
         {
           "type": "minecraft:item",
@@ -699,7 +796,37 @@
         },
         {
           "type": "minecraft:item",
-          "name": "wetland_whimsy:dots_armor_trim_smithing_template"
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:poison"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
         }
       ],
       "rolls": {
