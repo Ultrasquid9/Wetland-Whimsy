@@ -53,7 +53,6 @@ public class WetlandWhimsyBiomes {
 
 		BiomeDefaultFeatures.addDefaultCarversAndLakes(settings);
 		BiomeDefaultFeatures.addFerns(settings);
-		BiomeDefaultFeatures.addDefaultGrass(settings);
 
 		var mobs = new MobSpawnSettings.Builder();
 		BiomeDefaultFeatures.commonSpawns(mobs);
@@ -107,6 +106,7 @@ public class WetlandWhimsyBiomes {
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_CLAY)
 
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_SWAMP)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN)

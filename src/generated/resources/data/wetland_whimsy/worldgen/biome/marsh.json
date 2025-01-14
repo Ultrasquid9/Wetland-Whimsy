@@ -67,8 +67,8 @@
     [],
     [
       "minecraft:patch_large_fern",
-      "minecraft:patch_grass_badlands",
       "minecraft:flower_swamp",
+      "minecraft:patch_grass_normal",
       "minecraft:patch_dead_bush",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
