@@ -47,5 +47,10 @@
   "item.wetland_whimsy.nuke_the_swamps_music_disc": "Music Disc",
   "item.wetland_whimsy.nuke_the_swamps_music_disc.desc": "Quizzly - Nuke The Swamps",
   "item.wetland_whimsy.pennywort_salad": "Pennywort Salad",
+  "text.autoconfig.wetland_whimsy.option.ancientBrazierEntities": "Ancient Brazier Entities",
+  "text.autoconfig.wetland_whimsy.option.ancientPotItems": "Ancient Pot Items",
+  "text.autoconfig.wetland_whimsy.option.ancientPotMaxDropCount": "Ancient Pot Max Drops",
+  "text.autoconfig.wetland_whimsy.option.ancientPotMaxParticleCount": "Ancient Pot Max Particles",
+  "text.autoconfig.wetland_whimsy.title": "Wetland Whimsy Config",
   "trim_pattern.wetland_whimsy.dots": "Dots Armor Trim"
 }

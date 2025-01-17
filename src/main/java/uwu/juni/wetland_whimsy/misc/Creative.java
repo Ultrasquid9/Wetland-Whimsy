@@ -59,8 +59,18 @@ public class Creative {
 				WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES
 			)
 			.addItemsAfter(
+				of(Items.RED_MUSHROOM_BLOCK),
+				WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK
+			)
+			.addItemsAfter(
 				of(Items.CHERRY_SAPLING),
 				WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING
+			)
+			.addItemsAfter(
+				of(Items.RED_MUSHROOM),
+				WetlandWhimsyBlocks.BLOODCAP_MUSHROOM,
+				WetlandWhimsyBlocks.ARIA_MUSHROOM,
+				WetlandWhimsyBlocks.ARIA_SPORES
 			)
 			.addItemsAfter(
 				of(Items.LARGE_FERN),

@@ -70,5 +70,15 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 		this.add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		this.add("item.wetland_whimsy.nuke_the_swamps_music_disc.desc", "Quizzly - Nuke The Swamps");
+
+		addConfig("ancientPotMaxParticleCount", "Ancient Pot Max Particles");
+		addConfig("ancientPotMaxDropCount", "Ancient Pot Max Drops");
+		addConfig("ancientPotItems", "Ancient Pot Items");
+		addConfig("ancientBrazierEntities", "Ancient Brazier Entities");
+		this.add("text.autoconfig.wetland_whimsy.title", "Wetland Whimsy Config");
+	}
+
+	private void addConfig(String key, String trans) {
+		this.add("text.autoconfig.wetland_whimsy.option." + key, trans);
 	}
 }

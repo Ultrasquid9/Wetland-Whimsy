@@ -6,7 +6,9 @@ import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -62,6 +64,15 @@ public class WetlandWhimsy {
 
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
 		WetlandWhimsyWoodTypes.registerWoodTypes();
+
+		ModLoadingContext.get().registerExtensionPoint(
+			ConfigScreenHandler.ConfigScreenFactory.class, 
+			() -> {
+				return new ConfigScreenHandler.ConfigScreenFactory((minecraft, screen) -> {
+					return AutoConfig.getConfigScreen(WetlandWhimsyConfig.class, screen).get();
+				});
+			}
+		);
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {

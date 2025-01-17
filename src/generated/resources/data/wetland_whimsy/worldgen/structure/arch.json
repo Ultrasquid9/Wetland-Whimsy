@@ -10,6 +10,6 @@
   },
   "start_pool": "wetland_whimsy:arch",
   "step": "underground_decoration",
-  "terrain_adaptation": "beard_box",
+  "terrain_adaptation": "beard_thin",
   "use_expansion_hack": false
 }
