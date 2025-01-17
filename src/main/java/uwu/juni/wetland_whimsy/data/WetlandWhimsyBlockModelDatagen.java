@@ -4,8 +4,10 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -174,7 +176,13 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 
 		this.getVariantBuilder(WetlandWhimsyBlocks.ARIA_MUSHROOM.get()).forAllStates((state) -> ConfiguredModel.builder() 
 			.modelFile(
-				this.models().withExistingParent("aria", this.modLoc("block/aria_mushroom_base"))
+				state.getValue(AriaMushroomBlock.FACING) == Direction.UP 
+					? this.models()
+						.withExistingParent("aria_ground", mcLoc("cross"))
+						.texture("cross", modLoc("block/compat/aria_mushroom_box"))
+						.renderType("minecraft:cutout")
+					: this.models()
+						.withExistingParent("aria", modLoc("block/aria_mushroom_base"))
 			)
 			.rotationY(
 				switch (state.getValue(AncientPotBlock.FACING)) {

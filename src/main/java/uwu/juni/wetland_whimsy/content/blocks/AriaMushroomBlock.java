@@ -25,13 +25,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class AriaMushroomBlock extends BushBlock implements BonemealableBlock {
-	private static Direction[] DIRECTIONS = {
-		Direction.NORTH,
-		Direction.SOUTH,
-		Direction.EAST,
-		Direction.WEST
-	};
-
 	public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
 
 	protected static final VoxelShape SHAPE_NORTH = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 5.0);
@@ -41,6 +34,10 @@ public class AriaMushroomBlock extends BushBlock implements BonemealableBlock {
 
 	public AriaMushroomBlock(Properties properties) {
 		super(properties);
+
+		registerDefaultState(
+			stateDefinition.any().setValue(FACING, Direction.UP)
+		);
 	}
 
 	@Override
@@ -56,7 +53,7 @@ public class AriaMushroomBlock extends BushBlock implements BonemealableBlock {
 
 		var dir = context.getClickedFace().getOpposite();
 
-		for (var d : DIRECTIONS)
+		for (var d : Direction.Plane.HORIZONTAL)
 			if (d == dir)
 				return x.setValue(FACING, d);
 
@@ -168,7 +165,7 @@ public class AriaMushroomBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	private boolean canSurvive(Level level, BlockPos pos, BlockState state) {
-		for (var d : DIRECTIONS) {
+		for (var d : Direction.Plane.HORIZONTAL) {
 			state = state.setValue(FACING, d);
 
 			if (state.canSurvive(level, pos))
@@ -179,7 +176,7 @@ public class AriaMushroomBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	private BlockState getValidDir(Level level, BlockPos pos, BlockState state) {
-		for (var d : DIRECTIONS) {
+		for (var d : Direction.Plane.HORIZONTAL) {
 			state = state.setValue(FACING, d);
 
 			if (state.canSurvive(level, pos))

@@ -39,7 +39,7 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 		registerDefaultState(
 			stateDefinition.any()
 				.setValue(FACING, Direction.NORTH)
-				.setValue(PENNYWORT_COUNT, 1)
+				.setValue(PENNYWORT_COUNT, 4)
 		);
 	}
 

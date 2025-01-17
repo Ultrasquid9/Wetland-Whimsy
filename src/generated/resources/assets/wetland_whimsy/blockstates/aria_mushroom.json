@@ -15,7 +15,7 @@
       "model": "wetland_whimsy:block/aria"
     },
     "facing=up": {
-      "model": "wetland_whimsy:block/aria"
+      "model": "wetland_whimsy:block/aria_ground"
     },
     "facing=west": {
       "model": "wetland_whimsy:block/aria",

@@ -5,6 +5,8 @@ import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import net.mehvahdjukaar.supplementaries.common.utils.FlowerPotHandler;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,6 +21,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.misc.Creative;
 import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
@@ -76,9 +79,9 @@ public class WetlandWhimsy {
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> {
-			this.compost();
-		});
+		compat();
+
+		event.enqueueWork(() -> { this.compost(); });
 	}
 
 	private void compost() {
@@ -98,5 +101,29 @@ public class WetlandWhimsy {
 			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get().asItem(), 
 			.3F
 		);
+	}
+
+	private void compat() {
+		if (Compat.SUPPLEMENTARIES) {
+			var cordgrass_rl = new ResourceLocation(MODID, "block/compat/cordgrass_box");
+			var pennywort_rl = new ResourceLocation(MODID, "block/compat/pennywort_box");
+			var aria_rl = new ResourceLocation(MODID, "block/compat/aria_box");
+			
+			FlowerPotHandler.CUSTOM_MODELS.add(cordgrass_rl);
+			FlowerPotHandler.registerCustomSimpleFlower(
+				WetlandWhimsyBlocks.CORDGRASS.get().asItem(), 
+				cordgrass_rl
+			);
+			FlowerPotHandler.CUSTOM_MODELS.add(pennywort_rl);
+			FlowerPotHandler.registerCustomSimpleFlower(
+				WetlandWhimsyBlocks.PENNYWORT.get().asItem(), 
+				pennywort_rl
+			);
+			FlowerPotHandler.CUSTOM_MODELS.add(aria_rl);
+			FlowerPotHandler.registerCustomSimpleFlower(
+				WetlandWhimsyBlocks.ARIA_MUSHROOM.get().asItem(), 
+				aria_rl
+			);
+		}
 	}
 }

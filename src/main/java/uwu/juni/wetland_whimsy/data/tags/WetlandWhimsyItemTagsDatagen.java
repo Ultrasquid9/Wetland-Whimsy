@@ -35,6 +35,9 @@ public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 		this.tag(ItemTags.PLANKS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get().asItem()	
 		);
+		this.tag(ItemTags.SAPLINGS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get().asItem()
+		);
 
 		this.tag(ItemTags.TRIM_TEMPLATES).add(
 			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()	
