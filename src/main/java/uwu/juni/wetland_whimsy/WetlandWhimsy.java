@@ -2,11 +2,13 @@ package uwu.juni.wetland_whimsy;
 
 import org.slf4j.Logger;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.logging.LogUtils;
 
-import uwu.juni.wetland_whimsy.client.WetlandWhimsyParticles;
+import uwu.juni.wetland_whimsy.client.WetlandWhimsyClient;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
@@ -24,6 +26,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import eu.midnightdust.lib.config.MidnightConfig;
 
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
@@ -35,36 +38,43 @@ public class WetlandWhimsy {
 	public static final String MODID = "wetland_whimsy";
 	public static final Logger LOGGER = LogUtils.getLogger();
 
+	private static final ImmutableList<DeferredRegister<?>> REGISTRIES = ImmutableList.of(
+		WetlandWhimsyBlocks.BLOCKS,
+		WetlandWhimsyBlockEntities.BLOCK_ENTITY_TYPES,
+		WetlandWhimsyEntityTypes.ENTITIES,
+		WetlandWhimsyItems.ITEMS,
+		WetlandWhimsyParticleTypes.PARTICLE_TYPES,
+		WetlandWhimsySounds.SOUNDS,
+		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS,
+		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS,
+		WetlandWhimsyTreeDecorators.TREE_DECORATORS,
+		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS
+	);
+
 	public WetlandWhimsy(IEventBus modEventBus, ModContainer modContainer, Dist dist) {
 		LOGGER.info("Whimsical");
 
 		MidnightConfig.init(MODID, Config.class);
 
-		modEventBus.addListener(Datagen::datagen);
-		modEventBus.addListener(Creative::addCreative);
-
-		WetlandWhimsyBlocks.BLOCKS.register(modEventBus);
-		WetlandWhimsyBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
-		WetlandWhimsyItems.ITEMS.register(modEventBus);
-		WetlandWhimsyParticleTypes.PARTICLE_TYPES.register(modEventBus);
-		WetlandWhimsySounds.SOUNDS.register(modEventBus);
-		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
-		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
-		WetlandWhimsyTreeDecorators.TREE_DECORATORS.register(modEventBus);
-		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
+		for (var registry : REGISTRIES) 
+			registry.register(modEventBus);
 
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
 		WetlandWhimsyWoodTypes.registerWoodTypes();
 
-		this.eventSetup(modEventBus);
+		this.bussin(modEventBus);
 
 		if (dist == Dist.CLIENT)
-			modEventBus.addListener(WetlandWhimsyParticles::registerParticleProviders);
+			WetlandWhimsyClient.clientBussin(modEventBus);
 
 		marshification();
 	}
 
-	public void eventSetup(IEventBus bussin) {
+	public void bussin(IEventBus bussin) {
+		bussin.addListener(Datagen::datagen);
+		bussin.addListener(Creative::addCreative);
+
+		bussin.addListener(WetlandWhimsyEntityTypes::registerAttributes);
 		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
 	}
 
