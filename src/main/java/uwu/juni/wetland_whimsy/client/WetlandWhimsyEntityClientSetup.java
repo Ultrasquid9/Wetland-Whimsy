@@ -7,6 +7,8 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyModel;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyRenderer;
+import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderModel;
+import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderRenderer;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishModel;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishRenderer;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
@@ -22,6 +24,10 @@ public class WetlandWhimsyEntityClientSetup {
 			BlemishModel.LAYER_LOCATION, 
 			BlemishModel::createBodyLayer
 		);
+		event.registerLayerDefinition(
+			SwampSpiderModel.LAYER_LOCATION, 
+			SwampSpiderModel::createBodyLayer
+		);
 	}
 
 	public static void entityRenderer(FMLClientSetupEvent event) {
@@ -32,6 +38,10 @@ public class WetlandWhimsyEntityClientSetup {
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.BLEMISH.get(), 
 			BlemishRenderer::new
+		);
+		EntityRenderers.register(
+			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
+			SwampSpiderRenderer::new
 		);
 	}
 }

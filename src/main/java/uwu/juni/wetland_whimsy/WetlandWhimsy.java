@@ -78,6 +78,7 @@ public class WetlandWhimsy {
 		bussin.addListener(Creative::addCreative);
 
 		bussin.addListener(WetlandWhimsyEntityTypes::registerAttributes);
+		bussin.addListener(WetlandWhimsyEntityTypes::registerSpawnPlacements);
 		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
 	}
 
