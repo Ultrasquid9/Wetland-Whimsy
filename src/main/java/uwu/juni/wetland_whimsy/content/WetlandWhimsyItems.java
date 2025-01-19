@@ -65,6 +65,15 @@ public class WetlandWhimsyItems {
 			new Item.Properties()
 		)
 	);
+	public static final DeferredItem<Item> SWAMP_SPIDER_SPAWN_EGG = ITEMS.register(
+		"swamp_spider_spawn_egg",
+		() -> new DeferredSpawnEggItem(
+			WetlandWhimsyEntityTypes.SWAMP_SPIDER, 
+			0x584a45, 
+			0x9a2f6c, 
+			new Item.Properties()
+		)
+	);
 
 	public static final DeferredItem<Item> DAGGER = ITEMS.register(
 		"dagger",

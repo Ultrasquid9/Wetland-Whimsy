@@ -11,8 +11,8 @@ import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-public class WetlandWhimsyDatamapDatagen extends DataMapProvider {
-	public WetlandWhimsyDatamapDatagen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+public class WetlandWhimsyDatamaps extends DataMapProvider {
+	public WetlandWhimsyDatamaps(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
 		super(packOutput, lookupProvider);
 	}
 

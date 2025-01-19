@@ -13,8 +13,8 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 @SuppressWarnings("null")
-public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
-	public WetlandWhimsyBlockTagsDatagen(
+public class WetlandWhimsyBlockTags extends BlockTagsProvider {
+	public WetlandWhimsyBlockTags(
 		PackOutput output, 
 		CompletableFuture<HolderLookup.Provider> lookupProvider, 
 		ExistingFileHelper existingFileHelper

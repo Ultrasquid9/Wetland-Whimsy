@@ -19,8 +19,8 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 
 @SuppressWarnings("null")
-public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
-	protected WetlandWhimsyRecipeDatagen(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
+public class WetlandWhimsyRecipes extends RecipeProvider {
+	protected WetlandWhimsyRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
 		super(output, provider);
 	}
 

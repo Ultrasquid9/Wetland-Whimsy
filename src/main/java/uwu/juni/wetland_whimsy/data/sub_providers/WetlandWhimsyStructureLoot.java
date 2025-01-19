@@ -15,7 +15,7 @@ import net.minecraft.world.level.storage.loot.LootTable.Builder;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 
 @SuppressWarnings("null")
-public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
+public class WetlandWhimsyStructureLoot implements LootTableSubProvider {
 
 	public static final ResourceKey<LootTable> BASIC_LOOT = createKey("basic_loot");
 	public static final ResourceKey<LootTable> INTERMEDIATE_LOOT = createKey("intermediate_loot");
@@ -34,7 +34,7 @@ public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
 	@SuppressWarnings("unused") // Why did they want me to store this thing 
 	private HolderLookup.Provider thing;
 
-	public WetlandWhimsyStructureLootDatagen(HolderLookup.Provider lookupProvider) {
+	public WetlandWhimsyStructureLoot(HolderLookup.Provider lookupProvider) {
 		thing = lookupProvider;
 	}
 

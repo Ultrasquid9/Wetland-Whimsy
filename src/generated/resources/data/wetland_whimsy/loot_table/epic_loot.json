@@ -112,10 +112,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:mushroom_stew"
-        },
-        {
-          "type": "minecraft:item",
           "functions": [
             {
               "effects": [
@@ -180,6 +176,10 @@
             }
           ],
           "name": "minecraft:suspicious_stew"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:mushroom_stew"
         },
         {
           "type": "minecraft:item",

@@ -7,8 +7,8 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
-	public WetlandWhimsyItemModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
+public class WetlandWhimsyItemModels extends ItemModelProvider {
+	public WetlandWhimsyItemModels(PackOutput output, ExistingFileHelper fileHelper) {
 		super(output, WetlandWhimsy.MODID, fileHelper);
 	}
 
@@ -125,6 +125,10 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 
 		withExistingParent(
 			WetlandWhimsyItems.BLEMISH_SPAWN_EGG.getId().getPath(), 
+			mcLoc("item/template_spawn_egg")
+		);
+		withExistingParent(
+			WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG.getId().getPath(), 
 			mcLoc("item/template_spawn_egg")
 		);
 	}

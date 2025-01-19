@@ -429,13 +429,15 @@
                 "min": 1.0
               },
               "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:poison"
             }
           ],
           "name": "minecraft:tipped_arrow"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_potion",
+          "id": "minecraft:poison"
         }
       ],
       "rolls": {

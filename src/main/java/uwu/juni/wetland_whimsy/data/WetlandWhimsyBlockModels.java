@@ -12,8 +12,8 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
-	public WetlandWhimsyBlockModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
+public class WetlandWhimsyBlockModels extends BlockStateProvider {
+	public WetlandWhimsyBlockModels(PackOutput output, ExistingFileHelper fileHelper) {
 		super(output, WetlandWhimsy.MODID, fileHelper);
 	}
 

@@ -11,8 +11,8 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 
-public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
-	public WetlandWhimsyBlockLootDatagen(HolderLookup.Provider lookupProvider) {
+public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
+	public WetlandWhimsyBlockLoot(HolderLookup.Provider lookupProvider) {
 		super(Set.of(), FeatureFlags.DEFAULT_FLAGS, lookupProvider);
 	}
 

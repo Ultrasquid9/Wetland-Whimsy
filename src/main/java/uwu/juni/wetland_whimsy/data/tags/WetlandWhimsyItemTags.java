@@ -16,8 +16,8 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 @SuppressWarnings("null")
-public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
-	public WetlandWhimsyItemTagsDatagen(
+public class WetlandWhimsyItemTags extends ItemTagsProvider {
+	public WetlandWhimsyItemTags(
 		PackOutput output, 
 		CompletableFuture<HolderLookup.Provider> registries, 
 		CompletableFuture<TagLookup<Block>> blockTags, 

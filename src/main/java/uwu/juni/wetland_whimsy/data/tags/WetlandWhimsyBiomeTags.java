@@ -18,8 +18,8 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 @SuppressWarnings("unchecked")
-public class WetlandWhimsyBiomeTagsDatagen extends BiomeTagsProvider {
-	public WetlandWhimsyBiomeTagsDatagen(
+public class WetlandWhimsyBiomeTags extends BiomeTagsProvider {
+	public WetlandWhimsyBiomeTags(
 		PackOutput output, 
 		CompletableFuture<HolderLookup.Provider> registries, 
 		ExistingFileHelper helper

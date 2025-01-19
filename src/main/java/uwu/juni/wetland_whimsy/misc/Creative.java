@@ -187,6 +187,11 @@ public class Creative {
 				WetlandWhimsyItems.BLEMISH_SPAWN_EGG.asItem(), 
 				event
 			);
+			insertItem(
+				Items.CAVE_SPIDER_SPAWN_EGG, 
+				WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG.asItem(), 
+				event
+			);
 		}
 	}
 

@@ -7,8 +7,8 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
-	public WetlandWhimsyLanguageDatagen(PackOutput output) {
+public class WetlandWhimsyLanguage extends LanguageProvider {
+	public WetlandWhimsyLanguage(PackOutput output) {
 		super(output, WetlandWhimsy.MODID, "en_us");
 	}
 
@@ -71,6 +71,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 		addEntityType(WetlandWhimsyEntityTypes.BLEMISH, "Blemish");
 		addItem(WetlandWhimsyItems.BLEMISH_SPAWN_EGG, "Blemish Spawn Egg");
+
+		addEntityType(WetlandWhimsyEntityTypes.SWAMP_SPIDER, "Swamp Spider");
+		addItem(WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG, "Swamp Spider Spawn Egg");
 
 		add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");

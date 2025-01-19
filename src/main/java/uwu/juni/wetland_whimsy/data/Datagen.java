@@ -6,11 +6,12 @@ import java.util.Set;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.data.registries.*;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootDatagen;
-import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTagsDatagen;
-import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
-import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTagsDatagen;
+import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLoot;
+import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyEntityLoot;
+import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLoot;
+import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTags;
+import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTags;
+import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTags;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;
@@ -26,10 +27,10 @@ public class Datagen {
 		var lookupProvider = event.getLookupProvider();
 		var output = datagen.getPackOutput();
 
-		datagen.addProvider(event.includeClient(), new WetlandWhimsyBlockModelDatagen(output, fileHelper));
-		datagen.addProvider(event.includeClient(), new WetlandWhimsyItemModelDatagen(output, fileHelper));
-		datagen.addProvider(event.includeClient(), new WetlandWhimsyLanguageDatagen(output));
-		datagen.addProvider(event.includeServer(), new WetlandWhimsyRecipeDatagen(output, lookupProvider));
+		datagen.addProvider(event.includeClient(), new WetlandWhimsyBlockModels(output, fileHelper));
+		datagen.addProvider(event.includeClient(), new WetlandWhimsyItemModels(output, fileHelper));
+		datagen.addProvider(event.includeClient(), new WetlandWhimsyLanguage(output));
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyRecipes(output, lookupProvider));
 
 		// Registry-based datagen 
 		datagen.addProvider(
@@ -53,11 +54,11 @@ public class Datagen {
 		);
 
 		// Tags
-		var blockTags = new WetlandWhimsyBlockTagsDatagen(output, lookupProvider, fileHelper);
+		var blockTags = new WetlandWhimsyBlockTags(output, lookupProvider, fileHelper);
 		datagen.addProvider(event.includeServer(), blockTags);		
 		datagen.addProvider(
 			event.includeServer(), 
-			new WetlandWhimsyItemTagsDatagen(
+			new WetlandWhimsyItemTags(
 				output, 
 				lookupProvider, 
 				blockTags.contentsGetter(), 
@@ -65,7 +66,7 @@ public class Datagen {
 			)
 		);
 
-		datagen.addProvider(event.includeServer(), new WetlandWhimsyBiomeTagsDatagen(output, lookupProvider, fileHelper));
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyBiomeTags(output, lookupProvider, fileHelper));
 
 		// Loot tables
 		datagen.addProvider(
@@ -75,12 +76,16 @@ public class Datagen {
 				Set.of(), 
 				List.of(
 					new SubProviderEntry(
-						WetlandWhimsyBlockLootDatagen::new,
+						WetlandWhimsyBlockLoot::new,
 						LootContextParamSets.BLOCK
 					),
 					new SubProviderEntry(
-						WetlandWhimsyStructureLootDatagen::new,
+						WetlandWhimsyStructureLoot::new,
 						LootContextParamSets.CHEST
+					),
+					new SubProviderEntry(
+						WetlandWhimsyEntityLoot::new,
+						LootContextParamSets.ENTITY
 					)
 				), 
 				event.getLookupProvider()
@@ -88,6 +93,6 @@ public class Datagen {
 		);
 
 		// Others
-		datagen.addProvider(event.includeServer(), new WetlandWhimsyDatamapDatagen(output, lookupProvider));
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyDatamaps(output, lookupProvider));
 	}
 }
