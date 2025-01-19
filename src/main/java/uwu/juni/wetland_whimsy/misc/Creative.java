@@ -164,6 +164,11 @@ public class Creative {
 				WetlandWhimsyBlocks.ANCIENT_BRAZIER.asItem(), 
 				event
 			);
+			insertItem(
+				Items.BOGGED_SPAWN_EGG, 
+				WetlandWhimsyItems.SLUDGE_SPAWN_EGG.asItem(), 
+				event
+			);
 		}
 	}
 

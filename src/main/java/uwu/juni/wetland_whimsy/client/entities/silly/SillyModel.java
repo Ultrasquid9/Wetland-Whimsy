@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.client.entities;
+package uwu.juni.wetland_whimsy.client.entities.silly;
 
 import javax.annotation.Nonnull;
 
