@@ -47,10 +47,10 @@ public class WetlandWhimsyItems {
 		"ancient_coin"
 	);
 
-	public static final DeferredItem<Item> SLUDGE_SPAWN_EGG = ITEMS.register(
-		"sludge_spawn_egg",
+	public static final DeferredItem<Item> BLEMISH_SPAWN_EGG = ITEMS.register(
+		"blemish_spawn_egg",
 		() -> new DeferredSpawnEggItem(
-			WetlandWhimsyEntityTypes.SLUDGE, 
+			WetlandWhimsyEntityTypes.BLEMISH, 
 			0x4c6559, 
 			0xbbc9b3, 
 			new Item.Properties()

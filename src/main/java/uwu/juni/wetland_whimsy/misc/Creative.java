@@ -166,7 +166,7 @@ public class Creative {
 			);
 			insertItem(
 				Items.BOGGED_SPAWN_EGG, 
-				WetlandWhimsyItems.SLUDGE_SPAWN_EGG.asItem(), 
+				WetlandWhimsyItems.BLEMISH_SPAWN_EGG.asItem(), 
 				event
 			);
 		}

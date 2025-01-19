@@ -20,11 +20,11 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-public class SludgeEntity extends Monster {
+public class BlemishEntity extends Monster {
 	public final AnimationState idleAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
-	public SludgeEntity(EntityType<? extends SludgeEntity> entityType, Level level) {
+	public BlemishEntity(EntityType<? extends BlemishEntity> entityType, Level level) {
 		super(entityType, level);
 	}
 
@@ -43,7 +43,7 @@ public class SludgeEntity extends Monster {
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.4)
-			.add(Attributes.ATTACK_DAMAGE, 5)
+			.add(Attributes.ATTACK_DAMAGE, 8)
 			.add(Attributes.MAX_HEALTH, 33.0);
 	}
 

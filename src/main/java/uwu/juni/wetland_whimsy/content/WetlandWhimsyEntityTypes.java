@@ -9,7 +9,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
-import uwu.juni.wetland_whimsy.content.entities.SludgeEntity;
+import uwu.juni.wetland_whimsy.content.entities.BlemishEntity;
 
 public class WetlandWhimsyEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = WetlandWhimsy.registry(
@@ -26,14 +26,14 @@ public class WetlandWhimsyEntityTypes {
 		.build("silly")
 	);
 
-	public static final Supplier<EntityType<SludgeEntity>> SLUDGE = ENTITIES.register(
-		"sludge", 
+	public static final Supplier<EntityType<BlemishEntity>> BLEMISH = ENTITIES.register(
+		"blemish", 
 		() -> EntityType.Builder.of(
-			SludgeEntity::new, 
+			BlemishEntity::new, 
 			MobCategory.CREATURE
 		)
 		.sized(1, 1)
-		.build("sludge")
+		.build("blemish")
 	);
 
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
@@ -42,8 +42,8 @@ public class WetlandWhimsyEntityTypes {
 			SillyEntity.createAttributes().build()
 		);
 		event.put(
-			WetlandWhimsyEntityTypes.SLUDGE.get(),
-			SludgeEntity.createAttributes().build()
+			WetlandWhimsyEntityTypes.BLEMISH.get(),
+			BlemishEntity.createAttributes().build()
 		);
 	}
 }

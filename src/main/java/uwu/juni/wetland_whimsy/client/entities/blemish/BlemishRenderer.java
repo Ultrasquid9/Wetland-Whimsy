@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.client.entities.sludge;
+package uwu.juni.wetland_whimsy.client.entities.blemish;
 
 import javax.annotation.Nonnull;
 
@@ -9,26 +9,26 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.entities.SludgeEntity;
+import uwu.juni.wetland_whimsy.content.entities.BlemishEntity;
 
-public class SludgeRenderer extends MobRenderer<SludgeEntity, SludgeModel<SludgeEntity>> {
+public class BlemishRenderer extends MobRenderer<BlemishEntity, BlemishModel<BlemishEntity>> {
 
-	public SludgeRenderer(EntityRendererProvider.Context context) {
+	public BlemishRenderer(EntityRendererProvider.Context context) {
 		super(
 			context, 
-			new SludgeModel<>(context.bakeLayer(SludgeModel.LAYER_LOCATION)), 
+			new BlemishModel<>(context.bakeLayer(BlemishModel.LAYER_LOCATION)), 
 			.45F
 		);
 	}
 	
 	@Override
-	public ResourceLocation getTextureLocation(@Nonnull SludgeEntity entity) {
-		return WetlandWhimsy.rLoc("textures/entity/sludge.png");
+	public ResourceLocation getTextureLocation(@Nonnull BlemishEntity entity) {
+		return WetlandWhimsy.rLoc("textures/entity/blemish.png");
 	}
 
 	@Override
 	public void render(
-		@Nonnull SludgeEntity entity, 
+		@Nonnull BlemishEntity entity, 
 		float entityYaw, 
 		float partialTicks, 
 		@Nonnull PoseStack poseStack,

@@ -1,12 +1,12 @@
-package uwu.juni.wetland_whimsy.client.entities.sludge;
+package uwu.juni.wetland_whimsy.client.entities.blemish;
 
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 
-public class SludgeAnimations {
-	public static final AnimationDefinition SLUDGE_IDLE = AnimationDefinition.Builder.withLength(2.0F).looping()
+public class BlemishAnimations {
+	public static final AnimationDefinition BLEMISH_IDLE = AnimationDefinition.Builder.withLength(2.0F).looping()
 		.addAnimation("model_base", new AnimationChannel(AnimationChannel.Targets.POSITION, 
 			new Keyframe(0.0F, KeyframeAnimations.posVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),
 			new Keyframe(1.0F, KeyframeAnimations.posVec(0.0F, -1.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),
@@ -63,7 +63,7 @@ public class SludgeAnimations {
 		))
 		.build();
 
-	public static final AnimationDefinition SLUDGE_WALK = AnimationDefinition.Builder.withLength(1.25F).looping()
+	public static final AnimationDefinition BLEMISH_WALK = AnimationDefinition.Builder.withLength(1.25F).looping()
 		.addAnimation("left_arm", new AnimationChannel(AnimationChannel.Targets.ROTATION, 
 			new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),
 			new Keyframe(0.25F, KeyframeAnimations.degreeVec(-27.5F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),
@@ -105,7 +105,7 @@ public class SludgeAnimations {
 		))
 		.build();
 
-	public static final AnimationDefinition SLUDGE_ATTACK = AnimationDefinition.Builder.withLength(1.25F)
+	public static final AnimationDefinition BLEMISH_ATTACK = AnimationDefinition.Builder.withLength(1.25F)
 		.addAnimation("left_arm", new AnimationChannel(AnimationChannel.Targets.ROTATION, 
 			new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),
 			new Keyframe(0.4167F, KeyframeAnimations.degreeVec(-23.9639F, 34.4219F, 37.8019F), AnimationChannel.Interpolations.LINEAR),

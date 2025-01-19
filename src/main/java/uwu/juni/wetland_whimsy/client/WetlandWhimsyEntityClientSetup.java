@@ -7,8 +7,8 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyModel;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyRenderer;
-import uwu.juni.wetland_whimsy.client.entities.sludge.SludgeModel;
-import uwu.juni.wetland_whimsy.client.entities.sludge.SludgeRenderer;
+import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishModel;
+import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishRenderer;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 
 @OnlyIn(Dist.CLIENT)
@@ -19,8 +19,8 @@ public class WetlandWhimsyEntityClientSetup {
 			SillyModel::createBodyLayer
 		);
 		event.registerLayerDefinition(
-			SludgeModel.LAYER_LOCATION, 
-			SludgeModel::createBodyLayer
+			BlemishModel.LAYER_LOCATION, 
+			BlemishModel::createBodyLayer
 		);
 	}
 
@@ -30,8 +30,8 @@ public class WetlandWhimsyEntityClientSetup {
 			SillyRenderer::new
 		);
 		EntityRenderers.register(
-			WetlandWhimsyEntityTypes.SLUDGE.get(), 
-			SludgeRenderer::new
+			WetlandWhimsyEntityTypes.BLEMISH.get(), 
+			BlemishRenderer::new
 		);
 	}
 }

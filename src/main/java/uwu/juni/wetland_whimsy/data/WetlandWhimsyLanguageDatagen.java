@@ -66,8 +66,8 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addItem(WetlandWhimsyItems.DISC, "Music Disc");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
 
-		addEntityType(WetlandWhimsyEntityTypes.SLUDGE, "Sludge");
-		addItem(WetlandWhimsyItems.SLUDGE_SPAWN_EGG, "Sludge Spawn Egg");
+		addEntityType(WetlandWhimsyEntityTypes.BLEMISH, "Blemish");
+		addItem(WetlandWhimsyItems.BLEMISH_SPAWN_EGG, "Blemish Spawn Egg");
 
 		add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");

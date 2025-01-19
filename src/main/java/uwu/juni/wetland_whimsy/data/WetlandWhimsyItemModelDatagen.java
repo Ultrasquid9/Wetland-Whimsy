@@ -121,7 +121,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());
 
 		withExistingParent(
-			WetlandWhimsyItems.SLUDGE_SPAWN_EGG.getId().getPath(), 
+			WetlandWhimsyItems.BLEMISH_SPAWN_EGG.getId().getPath(), 
 			mcLoc("item/template_spawn_egg")
 		);
 	}
