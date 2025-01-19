@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
@@ -17,7 +16,7 @@ public class WetlandWhimsyStructureProcessors {
 	private static ResourceKey<StructureProcessorList> createKey(String name) {
 		return ResourceKey.create(
 			Registries.PROCESSOR_LIST, 
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
+			WetlandWhimsy.rLoc(name)
 		);
 	}
 

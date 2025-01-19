@@ -62,8 +62,8 @@ public class Config extends MidnightConfig {
 		ResourceLocation.withDefaultNamespace("raw_gold"),
 		ResourceLocation.withDefaultNamespace("raw_iron"),
 
-		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "disc"),
-		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "dots_armor_trim_smithing_template"),
+		WetlandWhimsy.rLoc("disc"),
+		WetlandWhimsy.rLoc("dots_armor_trim_smithing_template"),
 
 		ResourceLocation.withDefaultNamespace("diamond_helmet"),
 		ResourceLocation.withDefaultNamespace("diamond_chestplate"),
@@ -93,8 +93,8 @@ public class Config extends MidnightConfig {
 		ResourceLocation.withDefaultNamespace("gold_shovel"),
 		ResourceLocation.withDefaultNamespace("gold_hoe"),
 
-		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "bald_cypress_log"),
-		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "bald_cypress_sapling"),
+		WetlandWhimsy.rLoc("bald_cypress_log"),
+		WetlandWhimsy.rLoc("bald_cypress_sapling"),
 
 		ResourceLocation.withDefaultNamespace("golden_carrot"),
 		ResourceLocation.withDefaultNamespace("bread"),
@@ -107,8 +107,8 @@ public class Config extends MidnightConfig {
 		ResourceLocation.withDefaultNamespace("brown_mushroom"),
 		ResourceLocation.withDefaultNamespace("slimeball"),
 		ResourceLocation.withDefaultNamespace("mud"),
-		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "pennywort"),
-		ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "cordgrass")
+		WetlandWhimsy.rLoc("pennywort"),
+		WetlandWhimsy.rLoc("cordgrass")
 	);
 
 	/* -- Biomes -- */

@@ -2,7 +2,6 @@ package uwu.juni.wetland_whimsy.content;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyJukebox;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -31,7 +30,7 @@ public class WetlandWhimsyItems {
 	public static final DeferredItem<Item> DOTS_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register(
 		"dots_armor_trim_smithing_template",
 		() -> SmithingTemplateItem.createArmorTrimTemplate(
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "dots")
+			WetlandWhimsy.rLoc("dots")
 		)
 	);
 

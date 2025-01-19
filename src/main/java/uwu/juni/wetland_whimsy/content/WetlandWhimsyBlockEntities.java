@@ -10,9 +10,8 @@ import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 
 public class WetlandWhimsyBlockEntities {
-	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(
-		Registries.BLOCK_ENTITY_TYPE, 
-		WetlandWhimsy.MODID
+	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = WetlandWhimsy.registry(
+		Registries.BLOCK_ENTITY_TYPE
 	);
 
 	@SuppressWarnings("null")

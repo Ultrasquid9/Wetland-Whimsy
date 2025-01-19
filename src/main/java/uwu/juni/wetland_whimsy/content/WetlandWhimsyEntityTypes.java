@@ -2,7 +2,7 @@ package uwu.juni.wetland_whimsy.content;
 
 import java.util.function.Supplier;
 
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -11,9 +11,8 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
 
 public class WetlandWhimsyEntityTypes {
-	public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(
-		BuiltInRegistries.ENTITY_TYPE, 
-		WetlandWhimsy.MODID
+	public static final DeferredRegister<EntityType<?>> ENTITIES = WetlandWhimsy.registry(
+		Registries.ENTITY_TYPE
 	);
 
 	public static final Supplier<EntityType<SillyEntity>> SILLY_ENTITY = ENTITIES.register(

@@ -21,6 +21,9 @@ import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeDecorators;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -62,7 +65,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
 		WetlandWhimsyWoodTypes.registerWoodTypes();
 
-		this.bussin(modEventBus);
+		bussin(modEventBus);
 
 		if (dist == Dist.CLIENT)
 			WetlandWhimsyClient.clientBussin(modEventBus);
@@ -70,7 +73,7 @@ public class WetlandWhimsy {
 		marshification();
 	}
 
-	public void bussin(IEventBus bussin) {
+	private void bussin(IEventBus bussin) {
 		bussin.addListener(Datagen::datagen);
 		bussin.addListener(Creative::addCreative);
 
@@ -87,5 +90,18 @@ public class WetlandWhimsy {
 			WetlandWhimsyBiomes.MARSH, 
 			CriterionBuilder.deviationMax(BiomeParameterTargets.CONTINENTALNESS, -0.44f)
 		);
+	}
+
+	/// Create a ResourceLocation with the "wetland_whimsy" namespace
+	public static ResourceLocation rLoc(String loc) {
+		return ResourceLocation.fromNamespaceAndPath(
+			MODID,
+			loc
+		);
+	}
+
+	/// Create a DeferredRegister with the "wetland_whimsy" namespace
+	public static <T> DeferredRegister<T> registry(ResourceKey<Registry<T>> registry) {
+		return DeferredRegister.create(registry, MODID);
 	}
 }

@@ -16,9 +16,8 @@ import uwu.juni.wetland_whimsy.worldgen.modifiers.ConfigurableModifiers.Configur
 import uwu.juni.wetland_whimsy.worldgen.modifiers.ConfigurableModifiers.ConfigurableRemovals;
 
 public class WetlandWhimsyBiomeModifiers {
-	public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(
-		NeoForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, 
-		WetlandWhimsy.MODID
+	public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS = WetlandWhimsy.registry(
+		NeoForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS
 	);
 
 	public static final DeferredHolder<MapCodec<? extends BiomeModifier>, MapCodec<BogBiomeModifier>> BOG_ENVIRONMENT = BIOME_MODIFIERS.register(

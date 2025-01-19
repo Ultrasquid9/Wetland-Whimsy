@@ -11,7 +11,6 @@ import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -42,7 +41,7 @@ public class WetlandWhimsyBiomes {
 	}
 
 	private static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name));
+        return ResourceKey.create(Registries.BIOME, WetlandWhimsy.rLoc(name));
     }
 
 	public static Biome marshBiome(BootstrapContext<Biome> context) {

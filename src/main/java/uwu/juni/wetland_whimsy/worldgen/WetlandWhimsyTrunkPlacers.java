@@ -8,9 +8,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class WetlandWhimsyTrunkPlacers {
-	public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = DeferredRegister.create(
-		Registries.TRUNK_PLACER_TYPE, 
-		WetlandWhimsy.MODID
+	public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = WetlandWhimsy.registry(
+		Registries.TRUNK_PLACER_TYPE
 	);
 	
 	public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<BaldCypressTrunkPlacer>> BALD_CYPRESS_TRUNK_PLACER = TRUNK_PLACERS.register(

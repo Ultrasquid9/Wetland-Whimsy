@@ -1,7 +1,6 @@
 package uwu.juni.wetland_whimsy.content;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.neoforged.neoforge.common.util.DeferredSoundType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -9,9 +8,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public class WetlandWhimsySounds {
-	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(
-		BuiltInRegistries.SOUND_EVENT, 
-		WetlandWhimsy.MODID
+	public static final DeferredRegister<SoundEvent> SOUNDS = WetlandWhimsy.registry(
+		Registries.SOUND_EVENT
 	);
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> ANCIENT_POT_BREAK = createSound("pot_break");
@@ -32,12 +30,7 @@ public class WetlandWhimsySounds {
 	public static DeferredHolder<SoundEvent, SoundEvent> createSound(String name) {
 		return SOUNDS.register(
 			name, 
-			() -> SoundEvent.createVariableRangeEvent(
-				ResourceLocation.fromNamespaceAndPath(
-					WetlandWhimsy.MODID, 
-					name
-				)
-			)
+			() -> SoundEvent.createVariableRangeEvent(WetlandWhimsy.rLoc(name))
 		);
 	}
 }

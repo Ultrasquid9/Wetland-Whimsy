@@ -23,10 +23,7 @@ public class SillyRenderer extends MobRenderer<SillyEntity, SillyModel<SillyEnti
 	
 	@Override
 	public ResourceLocation getTextureLocation(@Nonnull SillyEntity entity) {
-		return ResourceLocation.fromNamespaceAndPath(
-			WetlandWhimsy.MODID, 
-			"textures/entity/silly.png"
-		);
+		return WetlandWhimsy.rLoc("textures/entity/silly.png");
 	}
 
 	@Override

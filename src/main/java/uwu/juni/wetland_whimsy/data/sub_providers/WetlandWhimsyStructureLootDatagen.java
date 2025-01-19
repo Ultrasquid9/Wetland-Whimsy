@@ -9,7 +9,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
@@ -27,7 +26,7 @@ public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
 	private static ResourceKey<LootTable> createKey(String name) {
 		return ResourceKey.create(
 			Registries.LOOT_TABLE, 
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
+			WetlandWhimsy.rLoc(name)
 		);
 	}
 
