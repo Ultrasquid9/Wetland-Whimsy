@@ -65,6 +65,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
 		addItem(WetlandWhimsyItems.DISC, "Music Disc");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
+		addItem(WetlandWhimsyItems.BLEMISH_ROD, "Blemish Rod");
+		addItem(WetlandWhimsyItems.RUSTED_ARTIFACT, "Rusted Artifact");
+		addItem(WetlandWhimsyItems.DAGGER, "Dagger");
 
 		addEntityType(WetlandWhimsyEntityTypes.BLEMISH, "Blemish");
 		addItem(WetlandWhimsyItems.BLEMISH_SPAWN_EGG, "Blemish Spawn Egg");

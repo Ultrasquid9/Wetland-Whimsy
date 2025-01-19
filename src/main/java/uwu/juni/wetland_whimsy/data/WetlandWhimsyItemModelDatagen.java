@@ -119,6 +119,9 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
 		basicItem(WetlandWhimsyItems.DISC.get());
 		basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());
+		basicItem(WetlandWhimsyItems.BLEMISH_ROD.get());
+		basicItem(WetlandWhimsyItems.RUSTED_ARTIFACT.get());
+		basicItem(WetlandWhimsyItems.DAGGER.get());
 
 		withExistingParent(
 			WetlandWhimsyItems.BLEMISH_SPAWN_EGG.getId().getPath(), 

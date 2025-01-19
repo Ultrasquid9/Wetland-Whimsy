@@ -145,6 +145,7 @@ public class WetlandWhimsyLoot {
 				.add(LootItem.lootTableItem(Items.MUSHROOM_STEW.asItem()))
 				.add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW.asItem()).apply(stew()))
 				.add(LootItem.lootTableItem(WetlandWhimsyItems.DISC.asItem())) 
+				.add(LootItem.lootTableItem(WetlandWhimsyItems.RUSTED_ARTIFACT.asItem())) 
 			);
 	}
 

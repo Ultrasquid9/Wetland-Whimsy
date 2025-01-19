@@ -184,6 +184,10 @@
         {
           "type": "minecraft:item",
           "name": "wetland_whimsy:disc"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "wetland_whimsy:rusted_artifact"
         }
       ],
       "rolls": {

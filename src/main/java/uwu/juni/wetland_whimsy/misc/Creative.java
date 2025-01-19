@@ -145,7 +145,25 @@ public class Creative {
 			);
 		}
 
+		if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+			insertItem(
+				Items.MACE, 
+				WetlandWhimsyItems.DAGGER.get(), 
+				event
+			);
+		}
+
 		if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+			insertItem(
+				Items.BREEZE_ROD, 
+				WetlandWhimsyItems.BLEMISH_ROD.get(), 
+				event
+			);
+			insertItem(
+				Items.HEAVY_CORE, 
+				WetlandWhimsyItems.RUSTED_ARTIFACT.get(), 
+				event
+			);
 			insertItem(
 				Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 
 				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 

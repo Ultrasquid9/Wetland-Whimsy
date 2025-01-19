@@ -1,7 +1,9 @@
 package uwu.juni.wetland_whimsy.content;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.items.DaggerItem;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyJukebox;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -46,6 +48,13 @@ public class WetlandWhimsyItems {
 	public static final DeferredItem<Item> ANCIENT_COIN = ITEMS.registerSimpleItem(
 		"ancient_coin"
 	);
+	public static final DeferredItem<Item> BLEMISH_ROD = ITEMS.registerSimpleItem(
+		"blemish_rod"
+	);
+	public static final DeferredItem<Item> RUSTED_ARTIFACT = ITEMS.registerSimpleItem(
+		"rusted_artifact",
+		new Item.Properties().rarity(Rarity.RARE)
+	);
 
 	public static final DeferredItem<Item> BLEMISH_SPAWN_EGG = ITEMS.register(
 		"blemish_spawn_egg",
@@ -54,6 +63,17 @@ public class WetlandWhimsyItems {
 			0x4c6559, 
 			0xbbc9b3, 
 			new Item.Properties()
+		)
+	);
+
+	public static final DeferredItem<Item> DAGGER = ITEMS.register(
+		"dagger",
+		() -> new DaggerItem(
+			new Item.Properties()
+				.rarity(Rarity.EPIC)
+				.durability(560)
+				.component(DataComponents.TOOL, DaggerItem.createToolProperties())
+				.attributes(DaggerItem.createAttributes(5F, -3.2F))
 		)
 	);
 }
