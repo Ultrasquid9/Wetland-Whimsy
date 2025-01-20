@@ -12,6 +12,8 @@ public class Config extends MidnightConfig {
 	public static final String BIOMES = "biomes";
 	public static final String SWAMP_DUNGEON = "swamp_dungeon";
 
+	public static final boolean CURRENTLY_IRRELEVANT_VALUE = false;
+
 	/* -- Swamp Dungeon -- */
 
 	@Entry(
