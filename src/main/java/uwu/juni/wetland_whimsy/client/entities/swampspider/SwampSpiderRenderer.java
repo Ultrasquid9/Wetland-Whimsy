@@ -19,6 +19,8 @@ public class SwampSpiderRenderer extends MobRenderer<SwampSpiderEntity, SwampSpi
 			new SwampSpiderModel<>(context.bakeLayer(SwampSpiderModel.LAYER_LOCATION)), 
 			.85F
 		);
+
+		this.addLayer(new SwampSpiderGlowLayer<>(this));
 	}
 	
 	@Override

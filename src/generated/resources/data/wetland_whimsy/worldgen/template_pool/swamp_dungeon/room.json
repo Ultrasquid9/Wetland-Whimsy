@@ -75,6 +75,15 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_9",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "wetland_whimsy:swamp_dungeon/room/dead_end_1",
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
