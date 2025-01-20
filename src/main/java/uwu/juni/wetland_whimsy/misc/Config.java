@@ -26,7 +26,8 @@ public class Config extends MidnightConfig {
 		ResourceLocation.withDefaultNamespace("cave_spider"),
 		ResourceLocation.withDefaultNamespace("drowned"),
 		ResourceLocation.withDefaultNamespace("bogged"),
-		ResourceLocation.withDefaultNamespace("witch")
+		WetlandWhimsy.rLoc("swamp_spider"),
+		WetlandWhimsy.rLoc("blemish")
 	);
 
 	@Entry(
@@ -64,6 +65,7 @@ public class Config extends MidnightConfig {
 
 		WetlandWhimsy.rLoc("disc"),
 		WetlandWhimsy.rLoc("dots_armor_trim_smithing_template"),
+		WetlandWhimsy.rLoc("rusted_artifact"),
 
 		ResourceLocation.withDefaultNamespace("diamond_helmet"),
 		ResourceLocation.withDefaultNamespace("diamond_chestplate"),

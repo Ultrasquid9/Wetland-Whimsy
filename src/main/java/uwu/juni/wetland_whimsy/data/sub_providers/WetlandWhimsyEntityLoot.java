@@ -38,10 +38,10 @@ public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
 			LootTable.lootTable()
 				.withPool(LootPool.lootPool()
-				.setRolls(UniformGenerator.between(1.F, 1.F))
+				.setRolls(UniformGenerator.between(1.F, 2.F))
 
-				.add(WetlandWhimsyLoot.lootEntry(Items.FERMENTED_SPIDER_EYE, -1, 2))
-				.add(WetlandWhimsyLoot.lootEntry(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, 0, 6))
+				.add(WetlandWhimsyLoot.lootEntry(Items.FERMENTED_SPIDER_EYE, 0, 1))
+				.add(WetlandWhimsyLoot.lootEntry(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, -1, 6))
 			) 
 		);
 
