@@ -139,6 +139,7 @@ public class WetlandWhimsyStructurePools {
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_7", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_8", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_9", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_10", context), 1),
 
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_2", context), 1),

@@ -75,7 +75,7 @@ public class WetlandWhimsy {
 
 	private void bussin(IEventBus bussin) {
 		bussin.addListener(Datagen::datagen);
-		bussin.addListener(Creative::addCreative);
+		bussin.addListener(Creative::new);
 
 		bussin.addListener(WetlandWhimsyEntityTypes::registerAttributes);
 		bussin.addListener(WetlandWhimsyEntityTypes::registerSpawnPlacements);
