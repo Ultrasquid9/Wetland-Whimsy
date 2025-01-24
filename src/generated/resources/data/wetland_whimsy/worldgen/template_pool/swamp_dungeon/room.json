@@ -206,6 +206,15 @@
         "projection": "rigid"
       },
       "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/room/hallway_11",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 2
     }
   ],
   "fallback": "minecraft:empty"

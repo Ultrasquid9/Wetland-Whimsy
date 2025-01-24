@@ -155,7 +155,8 @@ public class WetlandWhimsyStructurePools {
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_7", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_8", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_9", context), 2),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_10", context), 2)
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_10", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_11", context), 2)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)
