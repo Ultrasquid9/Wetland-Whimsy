@@ -12,8 +12,14 @@ public class WetlandWhimsySounds {
 		Registries.SOUND_EVENT
 	);
 
+	public static final DeferredHolder<SoundEvent, SoundEvent> BLEMISH_AMBIENT = createSound("blemish_ambient");
+	public static final DeferredHolder<SoundEvent, SoundEvent> BLEMISH_HIT = createSound("blemish_hit");
+	public static final DeferredHolder<SoundEvent, SoundEvent> BLEMISH_DEATH = createSound("blemish_death");
+
 	public static final DeferredHolder<SoundEvent, SoundEvent> ANCIENT_POT_BREAK = createSound("pot_break");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ANCIENT_POT_INSERT = createSound("pot_insert");
+
+	public static final DeferredHolder<SoundEvent, SoundEvent> NUKE_THE_SWAMPS = createSound("nuke_the_swamps");
 
 	public static final DeferredSoundType ANCIENT_POT_SOUNDS = new DeferredSoundType(
 		1.5F, 
@@ -24,8 +30,6 @@ public class WetlandWhimsySounds {
 		ANCIENT_POT_BREAK, 
 		ANCIENT_POT_BREAK
 	);
-
-	public static final DeferredHolder<SoundEvent, SoundEvent> NUKE_THE_SWAMPS = createSound("nuke_the_swamps");
 
 	public static DeferredHolder<SoundEvent, SoundEvent> createSound(String name) {
 		return SOUNDS.register(

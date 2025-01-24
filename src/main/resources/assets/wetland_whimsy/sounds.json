@@ -39,5 +39,29 @@
 				"stream": true
 			}
 		]
+	},
+
+	"blemish_ambient": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:blemish_ambient_1",
+				"volume": 1.5
+			},
+			{
+				"name": "wetland_whimsy:blemish_ambient_2",
+				"volume": 1.5
+			}
+		]
+	},
+	"blemish_hit": {
+		"sounds": [
+			"wetland_whimsy:blemish_hit_1",
+			"wetland_whimsy:blemish_hit_2"
+		]
+	},
+	"blemish_death": {
+		"sounds": [
+			"wetland_whimsy:blemish_death_1"
+		]
 	}
 }

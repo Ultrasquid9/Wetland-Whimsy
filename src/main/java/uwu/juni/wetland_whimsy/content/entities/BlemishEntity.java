@@ -3,7 +3,6 @@ package uwu.juni.wetland_whimsy.content.entities;
 import javax.annotation.Nonnull;
 
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -19,6 +18,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 
 public class BlemishEntity extends Monster {
 	public final AnimationState idleAnimationState = new AnimationState();
@@ -54,17 +54,17 @@ public class BlemishEntity extends Monster {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.SKELETON_AMBIENT;
+		return WetlandWhimsySounds.BLEMISH_AMBIENT.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(@Nonnull DamageSource a) {
-		return SoundEvents.SKELETON_HURT;
+		return WetlandWhimsySounds.BLEMISH_HIT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.SKELETON_DEATH;
+		return WetlandWhimsySounds.BLEMISH_DEATH.get();
 	}
 
 	private void setupAnimationStates() {

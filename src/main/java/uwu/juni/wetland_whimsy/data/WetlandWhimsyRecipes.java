@@ -230,6 +230,14 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			WetlandWhimsyBlocks.CORDGRASS_THATCH, 
 			1
 		);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyItems.DAGGER.get(), 1)
+			.define('D', WetlandWhimsyItems.RUSTED_ARTIFACT)
+			.define('B', WetlandWhimsyItems.BLEMISH_ROD)
+			.pattern(" D")
+			.pattern("B ")
+			.unlockedBy(getHasName(WetlandWhimsyItems.RUSTED_ARTIFACT.get()), has(WetlandWhimsyItems.RUSTED_ARTIFACT.get()))
+			.save(recipeOutput);
 	}
 
 	private void twoByTwo(RecipeOutput recipeOutput, ItemLike input, ItemLike output, int count) {

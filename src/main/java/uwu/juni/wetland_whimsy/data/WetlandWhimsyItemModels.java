@@ -125,6 +125,12 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.DAGGER.get());
 
 		withExistingParent(
+			WetlandWhimsyItems.DAGGER.getId().getPath(), 
+			mcLoc("item/handheld")
+		)
+		.texture("layer0", "item/dagger");
+
+		withExistingParent(
 			WetlandWhimsyItems.BLEMISH_SPAWN_EGG.getId().getPath(), 
 			mcLoc("item/template_spawn_egg")
 		);
