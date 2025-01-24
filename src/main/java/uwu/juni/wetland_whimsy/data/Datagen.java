@@ -11,6 +11,7 @@ import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyEntityLoot;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLoot;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTags;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTags;
+import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyEntityTags;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTags;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -67,6 +68,7 @@ public class Datagen {
 		);
 
 		datagen.addProvider(event.includeServer(), new WetlandWhimsyBiomeTags(output, lookupProvider, fileHelper));
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyEntityTags(output, lookupProvider, fileHelper));
 
 		// Loot tables
 		datagen.addProvider(

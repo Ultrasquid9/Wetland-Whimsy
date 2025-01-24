@@ -14,7 +14,6 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,6 +26,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class BloodcapMushroomBlock extends BushBlock implements BonemealableBlock {
 	private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 12.0, 12.0);
@@ -99,7 +99,7 @@ public class BloodcapMushroomBlock extends BushBlock implements BonemealableBloc
 		@Nonnull BlockPos pos, 
 		@Nonnull Entity entity
 	) {
-		if (entity.getType() == EntityType.MOOSHROOM) 
+		if (entity.getType().is(WetlandWhimsyTags.Entities.BLOODCAP_IMMUNE)) 
 			return;
 
 		if (level.isClientSide || level.getDifficulty() == Difficulty.PEACEFUL)
