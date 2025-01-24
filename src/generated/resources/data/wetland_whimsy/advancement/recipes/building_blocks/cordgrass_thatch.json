@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cordgrass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "wetland_whimsy:cordgrass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "wetland_whimsy:cordgrass_thatch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cordgrass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "wetland_whimsy:cordgrass_thatch"
+    ]
+  }
+}

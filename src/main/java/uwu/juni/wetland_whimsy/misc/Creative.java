@@ -70,6 +70,11 @@ public class Creative {
 				WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.asItem(), 
 				event
 			);
+			insertItem(
+				Items.HAY_BLOCK,
+				WetlandWhimsyBlocks.CORDGRASS_THATCH.asItem(), 
+				event
+			);
 
 			insertItems(
 				event, 

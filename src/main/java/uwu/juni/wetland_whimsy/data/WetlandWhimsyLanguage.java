@@ -48,6 +48,8 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL, "Limestone Brick Wall");
 		addBlock(WetlandWhimsyBlocks.LIMESTONE_PILLAR, "Limestone Pillar");
 
+		addBlock(WetlandWhimsyBlocks.CORDGRASS_THATCH, "Cordgrass Thatch");
+
 		addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
 		addBlock(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, "Bloodcap Mushroom");

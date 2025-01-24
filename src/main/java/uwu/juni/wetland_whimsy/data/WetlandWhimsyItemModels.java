@@ -42,6 +42,7 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get());
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
 
+		simpleBlockItem(WetlandWhimsyBlocks.CORDGRASS_THATCH.get());
 		simpleBlockItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get());
 
 		simpleBlockItem(WetlandWhimsyBlocks.ANCIENT_POT.get());

@@ -54,6 +54,8 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get());
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
 
+		this.dropSelf(WetlandWhimsyBlocks.CORDGRASS_THATCH.get());
+
 		this.dropSelf(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get());
 		this.dropSelf(WetlandWhimsyBlocks.ARIA_MUSHROOM.get());
 		this.dropSelf(WetlandWhimsyBlocks.ARIA_SPORES.get());

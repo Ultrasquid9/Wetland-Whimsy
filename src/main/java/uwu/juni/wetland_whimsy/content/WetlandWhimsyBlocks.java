@@ -358,6 +358,14 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
+	// Cordgrass Thatch
+	public static final DeferredBlock<Block> CORDGRASS_THATCH = registerBlockAndItem(
+		"cordgrass_thatch", 
+		() -> new Block(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK)
+		)
+	);
+
 	// Plants
 	public static final DeferredBlock<CordgrassBlock> CORDGRASS = registerBlockAndItem(
 		"cordgrass",

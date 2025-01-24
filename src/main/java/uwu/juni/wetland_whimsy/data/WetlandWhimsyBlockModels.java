@@ -152,6 +152,8 @@ public class WetlandWhimsyBlockModels extends BlockStateProvider {
 			modLoc("block/limestone_pillar_top")
 		);
 
+		this.simpleBlock(WetlandWhimsyBlocks.CORDGRASS_THATCH.get());
+
 		// Plants
 		this.simpleBlock(
 			WetlandWhimsyBlocks.CORDGRASS.get(),

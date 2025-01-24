@@ -223,6 +223,13 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.requires(WetlandWhimsyBlocks.ARIA_MUSHROOM)
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.ARIA_MUSHROOM), has(WetlandWhimsyBlocks.ARIA_MUSHROOM))
 			.save(recipeOutput);
+
+		twoByTwo(
+			recipeOutput, 
+			WetlandWhimsyBlocks.CORDGRASS, 
+			WetlandWhimsyBlocks.CORDGRASS_THATCH, 
+			1
+		);
 	}
 
 	private void twoByTwo(RecipeOutput recipeOutput, ItemLike input, ItemLike output, int count) {
