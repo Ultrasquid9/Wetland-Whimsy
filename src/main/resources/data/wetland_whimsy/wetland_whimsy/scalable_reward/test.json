@@ -1,7 +1,10 @@
 {
-	"input": "minecraft:diamond",
+	"input": "wetland_whimsy:ancient_coin",
 	"rewards": {
-		"minecraft:iron_ingot": 12,
-		"minecraft:gold_ingot": 2
+		"minecraft:lapis_lazuli": 5,
+		"minecraft:emerald": 4,
+		"minecraft:iron_ingot": 3,
+		"minecraft:gold_ingot": 2,
+		"minecraft:diamond": 1
 	}
 }
