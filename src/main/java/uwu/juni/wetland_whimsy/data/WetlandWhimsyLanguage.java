@@ -64,6 +64,10 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
 
 		addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
+
+		addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT, "Bald Cypress Boat");
+		addItem(WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT, "Bald Cypress Chest Boat");
+
 		addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
 		addItem(WetlandWhimsyItems.DISC, "Music Disc");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");

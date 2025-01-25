@@ -231,12 +231,24 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			1
 		);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyItems.DAGGER.get(), 1)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyItems.DAGGER, 1)
 			.define('D', WetlandWhimsyItems.RUSTED_ARTIFACT)
 			.define('B', WetlandWhimsyItems.BLEMISH_ROD)
 			.pattern(" D")
 			.pattern("B ")
-			.unlockedBy(getHasName(WetlandWhimsyItems.RUSTED_ARTIFACT.get()), has(WetlandWhimsyItems.RUSTED_ARTIFACT.get()))
+			.unlockedBy(getHasName(WetlandWhimsyItems.RUSTED_ARTIFACT), has(WetlandWhimsyItems.RUSTED_ARTIFACT))
+			.save(recipeOutput);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyItems.BALD_CYPRESS_BOAT, 1)
+			.define('P', WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS)
+			.pattern("P P")
+			.pattern("PPP")
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS))
+			.save(recipeOutput);
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT)
+			.requires(WetlandWhimsyItems.BALD_CYPRESS_BOAT)
+			.requires(Items.CHEST)
+			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS))
 			.save(recipeOutput);
 	}
 

@@ -117,6 +117,8 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 
 		// Items
 		basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
+		basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.get());
+		basicItem(WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT.get());
 		basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
 		basicItem(WetlandWhimsyItems.DISC.get());
 		basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());

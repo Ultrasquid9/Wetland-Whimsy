@@ -132,6 +132,11 @@ public class Creative {
 
 		if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			insertItems(
+				Items.CHERRY_CHEST_BOAT, 
+				WetlandWhimsyItems.BALD_CYPRESS_BOAT,
+				WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT
+			);
+			insertItems(
 				Items.MUSIC_DISC_RELIC, 
 				WetlandWhimsyItems.DISC
 			);

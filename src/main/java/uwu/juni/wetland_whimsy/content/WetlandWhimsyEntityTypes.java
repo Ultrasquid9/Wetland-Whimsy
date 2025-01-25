@@ -14,6 +14,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
 import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
+import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
+import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BlemishEntity;
 
 public class WetlandWhimsyEntityTypes {
@@ -49,6 +51,25 @@ public class WetlandWhimsyEntityTypes {
 		)
 		.sized(1.5F, 1.2F)
 		.build("swamp_spider")
+	);
+
+	public static final Supplier<EntityType<BaldCypressBoatEntity>> BALD_CYPRESS_BOAT = ENTITIES.register(
+		"bald_cypress_boat", 
+		() -> EntityType.Builder.<BaldCypressBoatEntity>of(
+			BaldCypressBoatEntity::new, 
+			MobCategory.MISC
+		)
+		.sized(1.375F, 0.5625F)
+		.build("bald_cypress_boat")
+	);
+	public static final Supplier<EntityType<BaldCypressChestBoatEntity>> BALD_CYPRESS_CHEST_BOAT = ENTITIES.register(
+		"bald_cypress_chest_boat", 
+		() -> EntityType.Builder.<BaldCypressChestBoatEntity>of(
+			BaldCypressChestBoatEntity::new, 
+			MobCategory.MISC
+		)
+		.sized(1.375F, 0.5625F)
+		.build("bald_cypress_chest_boat")
 	);
 
 	public static void registerAttributes(EntityAttributeCreationEvent event) {

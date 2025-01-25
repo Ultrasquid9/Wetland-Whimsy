@@ -1,6 +1,8 @@
 package uwu.juni.wetland_whimsy.content;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
+import uwu.juni.wetland_whimsy.content.items.BaldCypressBoatItem;
 import uwu.juni.wetland_whimsy.content.items.DaggerItem;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyJukebox;
 import net.minecraft.core.component.DataComponents;
@@ -28,6 +30,23 @@ public class WetlandWhimsyItems {
 					.build()
 			)
 			.stacksTo(1)
+	);
+
+	public static final DeferredItem<BaldCypressBoatItem> BALD_CYPRESS_BOAT = ITEMS.register(
+		"bald_cypress_boat",
+		() -> new BaldCypressBoatItem(
+			false, 
+			BaldCypressBoatEntity.Type.BALD_CYPRESS, 
+			new Item.Properties()
+		)
+	);
+	public static final DeferredItem<BaldCypressBoatItem> BALD_CYPRESS_CHEST_BOAT = ITEMS.register(
+		"bald_cypress_chest_boat",
+		() -> new BaldCypressBoatItem(
+			true, 
+			BaldCypressBoatEntity.Type.BALD_CYPRESS, 
+			new Item.Properties()
+		)
 	);
 
 	public static final DeferredItem<Item> DOTS_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register(
