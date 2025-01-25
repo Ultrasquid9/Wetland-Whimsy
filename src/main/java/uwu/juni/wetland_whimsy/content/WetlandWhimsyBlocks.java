@@ -1,5 +1,6 @@
 package uwu.juni.wetland_whimsy.content;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
@@ -12,6 +13,7 @@ import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.content.blocks.StrippableLogBlock;
 import uwu.juni.wetland_whimsy.content.blocks.SussyMudBlock;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import net.minecraft.core.BlockPos;
@@ -49,6 +51,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyBlocks {
@@ -276,6 +280,13 @@ public class WetlandWhimsyBlocks {
 				.lootFrom(BALD_CYPRESS_HANGING_SIGN)
 		)
 	);
+
+	public static Optional<DeferredBlock<?>> BALD_CYPRESS_CABINET = Compat.FARMERS_DELIGHT 
+		? Optional.of(registerBlockAndItem(
+			"bald_cypress_cabinet",
+			() -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(ModBlocks.OAK_CABINET.get()))
+		))
+		: Optional.empty();
 
 	// Limestone 
 	public static final DeferredBlock<Block> LIMESTONE = registerBlockAndItem(

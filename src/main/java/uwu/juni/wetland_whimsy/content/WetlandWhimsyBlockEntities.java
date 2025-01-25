@@ -8,6 +8,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
 public class WetlandWhimsyBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = WetlandWhimsy.registry(
@@ -49,5 +51,11 @@ public class WetlandWhimsyBlockEntities {
 			BlockEntityType.BRUSHABLE_BLOCK,
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
 		);
+
+		if (Compat.FARMERS_DELIGHT)
+			event.modify(
+				ModBlockEntityTypes.CABINET.get(), 
+				WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get()
+			);
 	}
 }

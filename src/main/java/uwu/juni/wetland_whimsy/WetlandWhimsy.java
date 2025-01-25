@@ -30,7 +30,6 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import eu.midnightdust.lib.config.MidnightConfig;
 
@@ -68,6 +67,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyWoodTypes.registerWoodTypes();
 
 		bussin(modEventBus);
+		Compat.compat(modEventBus);
 
 		if (dist == Dist.CLIENT)
 			WetlandWhimsyClient.clientBussin(modEventBus);
@@ -76,17 +76,12 @@ public class WetlandWhimsy {
 	}
 
 	private void bussin(IEventBus bussin) {
-		bussin.addListener(this::commonSetup);
 		bussin.addListener(Datagen::datagen);
 		bussin.addListener(Creative::new);
 
 		bussin.addListener(WetlandWhimsyEntityTypes::registerAttributes);
 		bussin.addListener(WetlandWhimsyEntityTypes::registerSpawnPlacements);
 		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
-	}
-
-	private void commonSetup(FMLCommonSetupEvent event) {
-		Compat.compat();
 	}
 
 	private void marshification() {

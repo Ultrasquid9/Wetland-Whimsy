@@ -137,30 +137,33 @@ dependencies {
 	compileOnly "maven.modrinth:supplementaries:neoforge_1.21-3.0.33-beta"
 	runtimeOnly "maven.modrinth:supplementaries:neoforge_1.21-3.0.33-beta"
 	runtimeOnly "maven.modrinth:moonlight:neoforge_1.21-2.17.18"
+
+	compileOnly "maven.modrinth:farmers-delight:1.21.1-1.2.6"
+	runtimeOnly "maven.modrinth:farmers-delight:1.21.1-1.2.6"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
-    var replaceProperties = [
-            minecraft_version      : minecraft_version,
-            minecraft_version_range: minecraft_version_range,
-            neo_version            : neo_version,
-            neo_version_range      : neo_version_range,
-            loader_version_range   : loader_version_range,
-			biolith_version        : biolith_version,
-			midnightlib_version    : midnightlib_version,
-            mod_id                 : mod_id,
-            mod_name               : mod_name,
-            mod_license            : mod_license,
-            mod_version            : mod_version,
-            mod_authors            : mod_authors,
-            mod_description        : mod_description
-    ]
-    inputs.properties replaceProperties
-    expand replaceProperties
-    from "src/main/templates"
-    into "build/generated/sources/modMetadata"
+	var replaceProperties = [
+		minecraft_version      : minecraft_version,
+		minecraft_version_range: minecraft_version_range,
+		neo_version            : neo_version,
+		neo_version_range      : neo_version_range,
+		loader_version_range   : loader_version_range,
+		biolith_version        : biolith_version,
+		midnightlib_version    : midnightlib_version,
+		mod_id                 : mod_id,
+		mod_name               : mod_name,
+		mod_license            : mod_license,
+		mod_version            : mod_version,
+		mod_authors            : mod_authors,
+		mod_description        : mod_description
+	]
+	inputs.properties replaceProperties
+	expand replaceProperties
+	from "src/main/templates"
+	into "build/generated/sources/modMetadata"
 }
 // Include the output of "generateModMetadata" as an input directory for the build
 // this works with both building through Gradle and the IDE.

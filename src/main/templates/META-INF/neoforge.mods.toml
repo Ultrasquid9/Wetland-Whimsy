@@ -43,3 +43,10 @@ file="META-INF/accesstransformer.cfg"
 	versionRange="(1,)"
 	ordering="AFTER"
 	side="BOTH"
+
+[[dependencies.wetland_whimsy]]
+	modId="farmersdelight"
+	type="optional"
+	versionRange="(1,)"
+	ordering="AFTER"
+	side="BOTH"
