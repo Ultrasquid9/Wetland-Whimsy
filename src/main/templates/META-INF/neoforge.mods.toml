@@ -36,3 +36,10 @@ file="META-INF/accesstransformer.cfg"
 	versionRange="${minecraft_version_range}"
 	ordering="NONE"
 	side="BOTH"
+
+[[dependencies.wetland_whimsy]]
+	modId="supplementaries"
+	type="optional"
+	versionRange="(1,)"
+	ordering="AFTER"
+	side="BOTH"

@@ -25,17 +25,17 @@ public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 	@Override
 	protected void addTags(Provider provider) {
 		// Mining tags 
-		this.tag(BlockTags.MINEABLE_WITH_AXE).add(
+		tag(BlockTags.MINEABLE_WITH_AXE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(),
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()
 		);
-		this.tag(BlockTags.MINEABLE_WITH_HOE).add(
+		tag(BlockTags.MINEABLE_WITH_HOE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
-		this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
 			WetlandWhimsyBlocks.LIMESTONE.get(),
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE.get(),
 			WetlandWhimsyBlocks.LIMESTONE_BRICKS.get(),
@@ -51,29 +51,32 @@ public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 			WetlandWhimsyBlocks.LIMESTONE_PILLAR.get(),
 			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()
 			);
-		this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+		tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
 		);
 
 		// Wood and leaves and stuff
-		this.tag(BlockTags.LEAVES).add(
+		tag(BlockTags.LEAVES).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
 		);
-		this.tag(BlockTags.LOGS_THAT_BURN).add(
+		tag(BlockTags.SAPLINGS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get()
+		);
+		tag(BlockTags.LOGS_THAT_BURN).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
 		);
-		this.tag(BlockTags.LOGS).add(
+		tag(BlockTags.LOGS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()
 		);
-		this.tag(BlockTags.PLANKS).add(
+		tag(BlockTags.PLANKS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()
 		);
 
 		// Woodset tags
-		this.tag(BlockTags.WOODEN_FENCES).add(
+		tag(BlockTags.WOODEN_FENCES).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get()
 		);
-		this.tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(
+		tag(WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(),
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get(),
@@ -81,27 +84,27 @@ public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 		);
 
 		// Sign tags
-		this.tag(BlockTags.SIGNS).add(
+		tag(BlockTags.SIGNS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
 		);
-		this.tag(BlockTags.WALL_SIGNS).add(
+		tag(BlockTags.WALL_SIGNS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
 		);
-		this.tag(BlockTags.CEILING_HANGING_SIGNS).add(
+		tag(BlockTags.CEILING_HANGING_SIGNS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get()
 		);
-		this.tag(BlockTags.WALL_HANGING_SIGNS).add(
+		tag(BlockTags.WALL_HANGING_SIGNS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get()
 		);
 
 		// Limestone tags
-		this.tag(BlockTags.WALLS).add(
+		tag(BlockTags.WALLS).add(
 			WetlandWhimsyBlocks.LIMESTONE_WALL.get(),
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(),
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get()
 		);
-		this.tag(BlockTags.LUSH_GROUND_REPLACEABLE).add(
+		tag(BlockTags.LUSH_GROUND_REPLACEABLE).add(
 			WetlandWhimsyBlocks.LIMESTONE.get()
 		);
 	}

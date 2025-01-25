@@ -14,6 +14,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.misc.Config;
 import uwu.juni.wetland_whimsy.misc.Creative;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
@@ -29,6 +30,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import eu.midnightdust.lib.config.MidnightConfig;
 
@@ -74,12 +76,17 @@ public class WetlandWhimsy {
 	}
 
 	private void bussin(IEventBus bussin) {
+		bussin.addListener(this::commonSetup);
 		bussin.addListener(Datagen::datagen);
 		bussin.addListener(Creative::new);
 
 		bussin.addListener(WetlandWhimsyEntityTypes::registerAttributes);
 		bussin.addListener(WetlandWhimsyEntityTypes::registerSpawnPlacements);
 		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
+	}
+
+	private void commonSetup(FMLCommonSetupEvent event) {
+		Compat.compat();
 	}
 
 	private void marshification() {

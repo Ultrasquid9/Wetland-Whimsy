@@ -132,6 +132,11 @@ dependencies {
 	// having to be downloaded independently. 
 	jarJar("com.terraformersmc:biolith-neoforge:${rootProject.biolith_version}")
 	jarJar("maven.modrinth:midnightlib:${project.midnightlib_version}")
+
+	// Compat
+	compileOnly "maven.modrinth:supplementaries:neoforge_1.21-3.0.33-beta"
+	runtimeOnly "maven.modrinth:supplementaries:neoforge_1.21-3.0.33-beta"
+	runtimeOnly "maven.modrinth:moonlight:neoforge_1.21-2.17.18"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

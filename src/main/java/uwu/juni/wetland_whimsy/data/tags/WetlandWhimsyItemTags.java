@@ -5,7 +5,9 @@ import java.util.concurrent.CompletableFuture;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
+import net.mehvahdjukaar.supplementaries.reg.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -28,21 +30,35 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 
 	@Override
 	protected void addTags(Provider provider) {
-		this.copy(
+		copy(
 			WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS, 
 			WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS
 		);
 
-		this.tag(ItemTags.PLANKS).add(
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.asItem()	
+		tag(ItemTags.PLANKS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.asItem()
+		);
+		tag(ItemTags.BOATS).add(
+			WetlandWhimsyItems.BALD_CYPRESS_BOAT.asItem(),
+			WetlandWhimsyItems.BALD_CYPRESS_BOAT.asItem()
+		);
+		tag(ItemTags.CHEST_BOATS).add(
+			WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT.asItem()
 		);
 
-		this.tag(ItemTags.TRIM_TEMPLATES).add(
+		tag(ItemTags.TRIM_TEMPLATES).add(
 			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get()	
 		);
 
-		this.tag(Tags.Items.MUSIC_DISCS).add(
+		tag(Tags.Items.MUSIC_DISCS).add(
 			WetlandWhimsyItems.DISC.get()	
 		);
+
+		if (Compat.SUPPLEMENTARIES)
+			tag(ModTags.FLOWER_BOX_PLANTABLE).add(
+				WetlandWhimsyBlocks.CORDGRASS.asItem(),
+				WetlandWhimsyBlocks.PENNYWORT.asItem(),
+				WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem()
+			);
 	}
 }
