@@ -31,6 +31,17 @@ public class WetlandWhimsyEntityTags extends EntityTypeTagsProvider {
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get()
 		);
 
+		tag(WetlandWhimsyTags.Entities.SPAWNS_FROM_ANCIENT_BRAZIER).add(
+			EntityType.ZOMBIE,
+			EntityType.SKELETON,
+			EntityType.SPIDER,
+			EntityType.CAVE_SPIDER,
+			EntityType.DROWNED,
+			EntityType.BOGGED,
+			WetlandWhimsyEntityTypes.BLEMISH.get(),
+			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get()
+		);
+
 		tag(EntityTypeTags.ARTHROPOD).add(
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get()
 		);

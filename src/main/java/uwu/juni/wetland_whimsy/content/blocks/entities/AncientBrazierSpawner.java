@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -35,13 +35,13 @@ import net.neoforged.neoforge.event.EventHooks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLoot;
-import uwu.juni.wetland_whimsy.misc.Config;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-public class AncientBrazier extends BaseSpawner {
+public class AncientBrazierSpawner extends BaseSpawner {
 	private int spawnedEntityCount;
 	private SimpleWeightedRandomList<ResourceKey<LootTable>> lootTablesToEject;
 
-	public AncientBrazier() {
+	public AncientBrazierSpawner() {
 		this.spawnedEntityCount = 0;
 
 		this.lootTablesToEject = new SimpleWeightedRandomList.Builder<ResourceKey<LootTable>>()
@@ -111,9 +111,14 @@ public class AncientBrazier extends BaseSpawner {
 
 	private void setRandomEntity(ServerLevel level, BlockPos pos) {
 		var random = level.getRandom();
-		var entity = Config.ancientBrazierEntities.get(random.nextInt(0, Config.ancientBrazierEntities.size()));
+		var entity = level.registryAccess()
+			.lookupOrThrow(Registries.ENTITY_TYPE)
+			.getOrThrow(WetlandWhimsyTags.Entities.SPAWNS_FROM_ANCIENT_BRAZIER)
+			.getRandomElement(random)
+			.get()
+			.value();
 
-		this.setEntityId(BuiltInRegistries.ENTITY_TYPE.get(entity), level, random, pos);
+		this.setEntityId(entity, level, random, pos);
 	}
 
 	// Copied from Vanilla's TrialSpawner class

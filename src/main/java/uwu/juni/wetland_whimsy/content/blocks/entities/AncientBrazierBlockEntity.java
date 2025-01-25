@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 
 public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
-	private AncientBrazier spawner = new AncientBrazier() {
+	private AncientBrazierSpawner spawner = new AncientBrazierSpawner() {
 		public Either<BlockEntity,Entity> getOwner() {
 			return Either.left(AncientBrazierBlockEntity.this);
 		};

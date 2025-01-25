@@ -27,5 +27,10 @@ public class WetlandWhimsyTags {
 			Registries.ENTITY_TYPE, 
 			WetlandWhimsy.rLoc("bloodcap_immune")
 		);
+
+		public static final TagKey<EntityType<?>> SPAWNS_FROM_ANCIENT_BRAZIER = TagKey.create(
+			Registries.ENTITY_TYPE, 
+			WetlandWhimsy.rLoc("spawns_from_ancient_brazier")
+		);
 	}
 }
