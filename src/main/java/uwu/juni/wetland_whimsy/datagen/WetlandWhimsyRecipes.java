@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data;
+package uwu.juni.wetland_whimsy.datagen;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

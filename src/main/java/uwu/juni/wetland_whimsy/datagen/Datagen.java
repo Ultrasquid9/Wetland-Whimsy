@@ -1,18 +1,18 @@
-package uwu.juni.wetland_whimsy.data;
+package uwu.juni.wetland_whimsy.datagen;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.data.registries.*;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLoot;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyEntityLoot;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLoot;
-import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTags;
-import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTags;
-import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyEntityTags;
-import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyItemTags;
+import uwu.juni.wetland_whimsy.datagen.registries.*;
+import uwu.juni.wetland_whimsy.datagen.sub_providers.WetlandWhimsyBlockLoot;
+import uwu.juni.wetland_whimsy.datagen.sub_providers.WetlandWhimsyEntityLoot;
+import uwu.juni.wetland_whimsy.datagen.sub_providers.WetlandWhimsyStructureLoot;
+import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyBiomeTags;
+import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyBlockTags;
+import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyEntityTags;
+import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyItemTags;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;

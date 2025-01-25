@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.registries;
+package uwu.juni.wetland_whimsy.datagen.registries;
 
 import java.util.List;
 import java.util.Map;

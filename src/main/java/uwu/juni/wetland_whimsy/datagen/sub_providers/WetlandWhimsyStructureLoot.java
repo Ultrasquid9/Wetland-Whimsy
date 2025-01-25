@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.sub_providers;
+package uwu.juni.wetland_whimsy.datagen.sub_providers;
 
 import java.util.function.BiConsumer;
 

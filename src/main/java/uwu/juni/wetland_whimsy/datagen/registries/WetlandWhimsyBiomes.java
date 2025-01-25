@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.registries;
+package uwu.juni.wetland_whimsy.datagen.registries;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import net.minecraft.core.HolderGetter;

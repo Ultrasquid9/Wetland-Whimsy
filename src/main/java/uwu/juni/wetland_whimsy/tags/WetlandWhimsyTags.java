@@ -20,6 +20,11 @@ public class WetlandWhimsyTags {
 			Registries.ITEM, 
 			WetlandWhimsy.rLoc("bald_cypress_logs")
 		);
+
+		public static final TagKey<Item> ANCIENT_POT_KEY = TagKey.create(
+			Registries.ITEM, 
+			WetlandWhimsy.rLoc("scalable_reward_inputs")
+		);
 	}
 
 	public static class Entities {

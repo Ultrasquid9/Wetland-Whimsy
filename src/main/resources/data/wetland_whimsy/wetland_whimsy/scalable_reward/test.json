@@ -1,0 +1,7 @@
+{
+	"input": "minecraft:diamond",
+	"rewards": {
+		"minecraft:iron_ingot": 12,
+		"minecraft:gold_ingot": 2
+	}
+}

@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.registries;
+package uwu.juni.wetland_whimsy.datagen.registries;
 
 import net.minecraft.Util;
 import net.minecraft.core.registries.Registries;

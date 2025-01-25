@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data;
+package uwu.juni.wetland_whimsy.datagen;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;

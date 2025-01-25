@@ -4,7 +4,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.items.BaldCypressBoatItem;
 import uwu.juni.wetland_whimsy.content.items.DaggerItem;
-import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyJukebox;
+import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyJukebox;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;

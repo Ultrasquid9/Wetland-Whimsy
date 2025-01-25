@@ -12,8 +12,10 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
-import uwu.juni.wetland_whimsy.data.Datagen;
-import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.datagen.Datagen;
+import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.datapacks.Datapacks;
+import uwu.juni.wetland_whimsy.datapacks.ScalableReward;
 import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.misc.Config;
 import uwu.juni.wetland_whimsy.misc.Creative;
@@ -28,8 +30,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import eu.midnightdust.lib.config.MidnightConfig;
 
@@ -76,6 +81,7 @@ public class WetlandWhimsy {
 	}
 
 	private void bussin(IEventBus bussin) {
+		bussin.addListener(Datapacks::datapackRegistry);
 		bussin.addListener(Datagen::datagen);
 		bussin.addListener(Creative::new);
 
@@ -93,6 +99,20 @@ public class WetlandWhimsy {
 			WetlandWhimsyBiomes.MARSH, 
 			CriterionBuilder.deviationMax(BiomeParameterTargets.CONTINENTALNESS, -0.44f)
 		);
+	}
+
+	@EventBusSubscriber(modid = MODID)
+	public static class ServerModEvents {
+		@SubscribeEvent
+		public static void datapacks(ServerAboutToStartEvent event) {
+			var scalable_reward = event.getServer().registryAccess().registryOrThrow(Datapacks.SCALABLE_REWARD).entrySet();
+
+			ScalableReward.Manager.add(scalable_reward);
+
+			LOGGER.info("registered Scalable Rewards: " + scalable_reward.size());
+			for (var entry : scalable_reward)
+				LOGGER.info(entry.getValue().toString());
+		}
 	}
 
 	/// Create a ResourceLocation with the "wetland_whimsy" namespace

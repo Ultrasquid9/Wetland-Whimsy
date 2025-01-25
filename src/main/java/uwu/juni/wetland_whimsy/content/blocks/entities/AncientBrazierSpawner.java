@@ -34,7 +34,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.neoforge.event.EventHooks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
-import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLoot;
+import uwu.juni.wetland_whimsy.datagen.sub_providers.WetlandWhimsyStructureLoot;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class AncientBrazierSpawner extends BaseSpawner {

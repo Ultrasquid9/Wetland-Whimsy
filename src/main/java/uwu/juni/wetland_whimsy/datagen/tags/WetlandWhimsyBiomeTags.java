@@ -1,11 +1,11 @@
-package uwu.juni.wetland_whimsy.data.tags;
+package uwu.juni.wetland_whimsy.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.Nonnull;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;

@@ -3,7 +3,7 @@ package uwu.juni.wetland_whimsy.worldgen;
 import java.util.Optional;
 
 import net.minecraft.world.level.block.grower.TreeGrower;
-import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyConfiguredFeatures;
+import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyConfiguredFeatures;
 
 public class WetlandWhimsyTreeGrowers {
 	public static final TreeGrower BALD_CYPRESS = new TreeGrower(

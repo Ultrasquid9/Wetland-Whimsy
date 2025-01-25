@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.data.tags;
+package uwu.juni.wetland_whimsy.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -13,6 +13,7 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -33,6 +34,10 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 		copy(
 			WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS, 
 			WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS
+		);
+
+		tag(WetlandWhimsyTags.Items.ANCIENT_POT_KEY).add(
+			Items.DIRT
 		);
 
 		tag(ItemTags.PLANKS).add(
