@@ -3,6 +3,7 @@ package uwu.juni.wetland_whimsy.data.sub_providers;
 import java.util.Set;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -39,6 +40,9 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.get());
 		this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get());
+
+		if (Compat.FARMERS_DELIGHT)
+			this.dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get());
 
 		this.dropSelf(WetlandWhimsyBlocks.LIMESTONE.get());
 		this.dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get());

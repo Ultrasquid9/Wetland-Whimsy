@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -250,6 +251,16 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.requires(Items.CHEST)
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS))
 			.save(recipeOutput);
+
+		if (Compat.FARMERS_DELIGHT)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), 1)
+				.define('T', WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR)
+				.define('S', WetlandWhimsyBlocks.BALD_CYPRESS_SLAB)
+				.pattern("SSS")
+				.pattern("T T")
+				.pattern("SSS")
+				.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR), has(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR))
+				.save(recipeOutput);
 	}
 
 	private void twoByTwo(RecipeOutput recipeOutput, ItemLike input, ItemLike output, int count) {
@@ -260,6 +271,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
+
 	private void stairsAndSlab(RecipeOutput recipeOutput, ItemLike input, ItemLike stairs, ItemLike slab) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairs, 4)
 			.define('S', input)
@@ -274,6 +286,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
+
 	private void wall(RecipeOutput recipeOutput, ItemLike input, ItemLike wall) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, wall, 6)
 			.define('P', input)
@@ -282,6 +295,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
+
 	private void doorAndTrapdoor(RecipeOutput recipeOutput, ItemLike input, ItemLike door, ItemLike trapdoor) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, door, 3)
 			.define('P', input)
@@ -297,6 +311,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);
 	}
+
 	private void buttonAndPressurePlate(RecipeOutput recipeOutput, ItemLike input, ItemLike button, ItemLike pressurePlate) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, button, 1)
 			.define('P', input)
@@ -310,6 +325,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			input
 		);
 	}
+
 	private void fenceAndFenceGate(RecipeOutput recipeOutput, ItemLike input, ItemLike fence, ItemLike gate) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, fence, 3)
 			.define('P', input)

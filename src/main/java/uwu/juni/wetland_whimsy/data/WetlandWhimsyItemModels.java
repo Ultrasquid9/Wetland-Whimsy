@@ -3,6 +3,7 @@ package uwu.juni.wetland_whimsy.data;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -30,6 +31,9 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE.get());
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get());
+
+		if (Compat.FARMERS_DELIGHT)
+			simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get());
 
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE.get());
 		simpleBlockItem(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get());

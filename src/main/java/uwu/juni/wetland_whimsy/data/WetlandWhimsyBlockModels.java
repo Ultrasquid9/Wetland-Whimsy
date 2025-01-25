@@ -6,6 +6,9 @@ import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -234,6 +237,9 @@ public class WetlandWhimsyBlockModels extends BlockStateProvider {
 				.withExistingParent("aria_spores", this.modLoc("block/aria_spores_base"))
 				.renderType("minecraft:cutout")
 		);
+
+		if (Compat.FARMERS_DELIGHT)
+			cabinetBlock(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get(), "bald_cypress");
 	}
 
 	private void pennywort(Block pennywort) {
@@ -282,6 +288,19 @@ public class WetlandWhimsyBlockModels extends BlockStateProvider {
 			return ConfiguredModel.builder()
 				.modelFile(model)
 				.build();
+		});
+	}
+
+	// Modified version of the Farmer's Delight cabinet datagen
+	public void cabinetBlock(Block block, String woodType) {
+		this.horizontalBlock(block, state -> {
+			var prefix = "block/compat/farmersdelight/";
+			var suffix = state.getValue(CabinetBlock.OPEN) ? "_open" : "";
+
+			return models().orientable(BuiltInRegistries.BLOCK.getKey(block).getPath() + suffix,
+				WetlandWhimsy.rLoc(prefix + woodType + "_cabinet_side"),
+				WetlandWhimsy.rLoc(prefix + woodType + "_cabinet_front" + suffix),
+				WetlandWhimsy.rLoc(prefix + woodType + "_cabinet_top"));
 		});
 	}
 }

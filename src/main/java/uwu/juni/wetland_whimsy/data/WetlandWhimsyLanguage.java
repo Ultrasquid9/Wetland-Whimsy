@@ -4,6 +4,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -33,6 +34,9 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN, "Bald Cypress Sign");
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN, "Bald Cypress Hanging Sign");
+
+		if (Compat.FARMERS_DELIGHT)
+			addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), "Bald Cypress Cabinet");
 
 		addBlock(WetlandWhimsyBlocks.LIMESTONE, "Limestone");
 		addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE, "Polished Limestone");

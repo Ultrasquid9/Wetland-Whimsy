@@ -8,6 +8,8 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
+import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 
 public class Creative {
 	private final BuildCreativeModeTabContentsEvent event;
@@ -182,6 +184,14 @@ public class Creative {
 				WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG
 			);
 		}
+
+		if (Compat.FARMERS_DELIGHT)
+			if (event.getTab() == ModCreativeTabs.TAB_FARMERS_DELIGHT.get()) {
+				insertItems(
+					ModBlocks.CHERRY_CABINET.get(), 
+					WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get()
+				);
+			}
 	}
 
 	private void insertItems(ItemLike start, ItemLike... items) {
