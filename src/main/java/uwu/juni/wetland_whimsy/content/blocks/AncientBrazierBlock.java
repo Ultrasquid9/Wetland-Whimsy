@@ -132,7 +132,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 			}
 		}
 
-		if (!canBeLit(state))
+		if (!canBeLit(state, pos, level))
 			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
 		if (stack.is(WetlandWhimsyTags.Items.FLAMMABLE)) {
@@ -194,7 +194,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 			!level.isClientSide
 			&& projectile.isOnFire()
 			&& projectile.mayInteract(level, blockpos)
-			&& canBeLit(state)
+			&& canBeLit(state, blockpos, level)
 		) {
 			level.setBlock(blockpos, state.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
 		}
@@ -225,7 +225,8 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		return !state.getValue(FLAME).isLit();
 	}
 
-	private boolean canBeLit(BlockState state) {
-		return !state.getValue(FLAME).isLit();
+	private boolean canBeLit(BlockState state, BlockPos pos, Level level) {
+		boolean hasIncense = level.getBlockEntity(pos) instanceof AncientBrazierBlockEntity ab && ab.hasIncense();
+		return !state.getValue(FLAME).isLit() || hasIncense;
 	}
 }

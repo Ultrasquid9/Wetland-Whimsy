@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.content.blocks.entities;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,6 +10,7 @@ import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
@@ -110,13 +112,25 @@ public class AncientBrazierSpawner extends BaseSpawner {
 	}
 
 	private void setRandomEntity(ServerLevel level, BlockPos pos) {
+		var be = level.getBlockEntity(pos);
 		var random = level.getRandom();
-		var entity = level.registryAccess()
-			.lookupOrThrow(Registries.ENTITY_TYPE)
-			.getOrThrow(WetlandWhimsyTags.Entities.SPAWNS_FROM_ANCIENT_BRAZIER)
-			.getRandomElement(random)
-			.get()
-			.value();
+
+		EntityType<?> entity;
+
+		Function<AncientBrazierBlockEntity, EntityType<?>> getEntity = ab -> {
+			var entities = ab.getIncense(level).entities();
+			var rloc = entities.get(random.nextInt(0, entities.size()));
+			return BuiltInRegistries.ENTITY_TYPE.get(rloc);
+		};
+
+		entity = (be != null && be instanceof AncientBrazierBlockEntity ab && ab.hasIncense())
+			? getEntity.apply(ab)
+			: level.registryAccess()
+				.lookupOrThrow(Registries.ENTITY_TYPE)
+				.getOrThrow(WetlandWhimsyTags.Entities.SPAWNS_FROM_ANCIENT_BRAZIER)
+				.getRandomElement(random)
+				.get()
+				.value();
 
 		this.setEntityId(entity, level, random, pos);
 	}
@@ -214,9 +228,16 @@ public class AncientBrazierSpawner extends BaseSpawner {
 		var x = lootTablesToEject.getRandom(random);
 		if (x.isEmpty()) return;
 
-		var params = new LootParams.Builder(level).create(LootContextParamSets.EMPTY);
-		var table = level.getServer().reloadableRegistries().getLootTable(x.get().data());
+		var be = level.getBlockEntity(pos);
+		var table = level.getServer()
+			.reloadableRegistries()
+			.getLootTable(
+				(be != null && be instanceof AncientBrazierBlockEntity ab && ab.hasIncense())
+					? ab.getIncense(level).getLootKey()
+					: x.get().data()	
+			);
 
+		var params = new LootParams.Builder(level).create(LootContextParamSets.EMPTY);
 		var loot = table.getRandomItems(params);
 		if (loot.isEmpty()) return;
 

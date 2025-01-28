@@ -22,12 +22,16 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Spawner;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
+import uwu.juni.wetland_whimsy.datapacks.Datapacks;
+import uwu.juni.wetland_whimsy.datapacks.Incense;
 
 public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 	private AncientBrazierSpawner spawner = new AncientBrazierSpawner() {
@@ -113,4 +117,24 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 		currentIncense = Optional.of(item.asItem());
 		return true;
 	}
+
+	public boolean hasIncense() {
+		return currentIncense.isPresent();
+	}
+
+	public Incense getIncense(ServerLevel level) {
+		var registries = level.getServer()
+			.registryAccess()
+			.registryOrThrow(Datapacks.INCENSE)
+			.entrySet();
+		
+		for (var registry : registries) {
+			var incense = registry.getValue();
+
+			if (incense.item() == currentIncense.get())
+				return incense;
+		}
+
+		return new Incense(Items.DIRT, WetlandWhimsy.rLoc(""), List.of(WetlandWhimsy.rLoc("silly")));
+	} 
 }
