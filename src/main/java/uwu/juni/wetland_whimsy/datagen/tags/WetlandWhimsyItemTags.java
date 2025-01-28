@@ -36,8 +36,9 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS
 		);
 
-		tag(WetlandWhimsyTags.Items.ANCIENT_POT_KEY).add(
-			Items.DIRT
+		tag(WetlandWhimsyTags.Items.FLAMMABLE).add(
+			Items.FLINT_AND_STEEL,
+			Items.FIRE_CHARGE
 		);
 
 		tag(ItemTags.PLANKS).add(

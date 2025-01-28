@@ -16,7 +16,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -36,6 +35,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class AncientBrazierBlock extends BaseEntityBlock {
 	public enum Flame implements StringRepresentable {
@@ -121,7 +121,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		if (state.getValue(FLAME).isLit())
 			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
-		if (stack.is(Items.FLINT_AND_STEEL) || stack.is(Items.FIRE_CHARGE)) {
+		if (stack.is(WetlandWhimsyTags.Items.FLAMMABLE)) {
 			level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			level.setBlock(pos, state.setValue(FLAME, Flame.LIT), 3);
 

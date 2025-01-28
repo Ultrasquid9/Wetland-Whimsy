@@ -1,11 +1,11 @@
 package uwu.juni.wetland_whimsy.tags;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public class WetlandWhimsyTags {
 	public static class Blocks {
@@ -21,9 +21,9 @@ public class WetlandWhimsyTags {
 			WetlandWhimsy.rLoc("bald_cypress_logs")
 		);
 
-		public static final TagKey<Item> ANCIENT_POT_KEY = TagKey.create(
+		public static final TagKey<Item> FLAMMABLE = TagKey.create(
 			Registries.ITEM, 
-			WetlandWhimsy.rLoc("scalable_reward_inputs")
+			WetlandWhimsy.rLoc("flammable")
 		);
 	}
 
