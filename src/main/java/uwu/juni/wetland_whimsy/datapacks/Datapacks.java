@@ -9,8 +9,12 @@ public class Datapacks {
 	public static final ResourceKey<Registry<ScalableReward>> SCALABLE_REWARD = ResourceKey.createRegistryKey(
 		WetlandWhimsy.rLoc("scalable_reward")
 	);
+	public static final ResourceKey<Registry<Incense>> INCENSE = ResourceKey.createRegistryKey(
+		WetlandWhimsy.rLoc("incense")
+	);
 
 	public static void datapackRegistry(DataPackRegistryEvent.NewRegistry event) {
 		event.dataPackRegistry(SCALABLE_REWARD, ScalableReward.CODEC);
+		event.dataPackRegistry(INCENSE, Incense.CODEC);
 	}
 }

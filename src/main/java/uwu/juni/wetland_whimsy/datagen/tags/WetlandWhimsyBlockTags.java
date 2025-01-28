@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.Nonnull;
+
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
@@ -12,7 +14,6 @@ import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-@SuppressWarnings("null")
 public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 	public WetlandWhimsyBlockTags(
 		PackOutput output, 
@@ -23,7 +24,7 @@ public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 	}
 
 	@Override
-	protected void addTags(Provider provider) {
+	protected void addTags(@Nonnull Provider provider) {
 		// Mining tags 
 		tag(BlockTags.MINEABLE_WITH_AXE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(),

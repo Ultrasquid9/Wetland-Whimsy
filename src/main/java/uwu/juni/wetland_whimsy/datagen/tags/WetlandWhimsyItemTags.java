@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.Nonnull;
+
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
@@ -18,7 +20,6 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-@SuppressWarnings("null")
 public class WetlandWhimsyItemTags extends ItemTagsProvider {
 	public WetlandWhimsyItemTags(
 		PackOutput output, 
@@ -30,7 +31,7 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
     }
 
 	@Override
-	protected void addTags(Provider provider) {
+	protected void addTags(@Nonnull Provider provider) {
 		copy(
 			WetlandWhimsyTags.Blocks.BALD_CYPRESS_LOGS, 
 			WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS
@@ -39,6 +40,13 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 		tag(WetlandWhimsyTags.Items.FLAMMABLE).add(
 			Items.FLINT_AND_STEEL,
 			Items.FIRE_CHARGE
+		);
+
+		tag(WetlandWhimsyTags.Items.INCENSE).add(
+			Items.DIRT,
+			Items.GRANITE,
+			Items.ANDESITE,
+			Items.DIORITE
 		);
 
 		tag(ItemTags.PLANKS).add(

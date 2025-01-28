@@ -25,6 +25,11 @@ public class WetlandWhimsyTags {
 			Registries.ITEM, 
 			WetlandWhimsy.rLoc("flammable")
 		);
+
+		public static final TagKey<Item> INCENSE = TagKey.create(
+			Registries.ITEM, 
+			WetlandWhimsy.rLoc("incense")
+		);
 	}
 
 	public static class Entities {

@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.datagen.tags;
 
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.Nonnull;
+
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
@@ -13,7 +15,6 @@ import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-@SuppressWarnings("null")
 public class WetlandWhimsyEntityTags extends EntityTypeTagsProvider {
 	public WetlandWhimsyEntityTags(
 		PackOutput output, 
@@ -24,7 +25,7 @@ public class WetlandWhimsyEntityTags extends EntityTypeTagsProvider {
     }
 
 	@Override
-	protected void addTags(Provider provider) {
+	protected void addTags(@Nonnull Provider provider) {
 		tag(WetlandWhimsyTags.Entities.BLOODCAP_IMMUNE).add(
 			EntityType.MOOSHROOM,
 			WetlandWhimsyEntityTypes.BLEMISH.get(),

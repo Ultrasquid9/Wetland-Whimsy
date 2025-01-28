@@ -90,9 +90,8 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		return CODEC;
 	}
 
-	@SuppressWarnings("null")
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+	public BlockEntity newBlockEntity(@Nonnull BlockPos pos, @Nonnull BlockState state) {
 		return new AncientBrazierBlockEntity(pos, state);
 	}
 
@@ -107,18 +106,33 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		return SHAPE;
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	protected ItemInteractionResult useItemOn(
-		ItemStack stack, 
-		BlockState state, 
-		Level level, 
-		BlockPos pos,
-		Player player, 
-		InteractionHand hand,
-		BlockHitResult hitResult
+		@Nonnull ItemStack stack, 
+		@Nonnull BlockState state, 
+		@Nonnull Level level, 
+		@Nonnull BlockPos pos,
+		@Nonnull Player player, 
+		@Nonnull InteractionHand hand,
+		@Nonnull BlockHitResult hitResult
 	) {
-		if (state.getValue(FLAME).isLit())
+		if (stack.is(WetlandWhimsyTags.Items.INCENSE)) {
+			var entity = level.getBlockEntity(pos);
+
+			if (entity != null && entity instanceof AncientBrazierBlockEntity brazier) {
+				var bool = brazier.trySetIncense(stack.getItem());
+
+				if (!bool) 
+					return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+				
+				if (!player.isCreative())
+					stack.shrink(1);
+
+				return ItemInteractionResult.SUCCESS;
+			}
+		}
+
+		if (!canBeLit(state))
 			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
 		if (stack.is(WetlandWhimsyTags.Items.FLAMMABLE)) {
@@ -131,9 +145,13 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	@SuppressWarnings("null")
 	@Override
-	public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+	public void stepOn(
+		@Nonnull Level level, 
+		@Nonnull BlockPos pos, 
+		@Nonnull BlockState state, 
+		@Nonnull Entity entity
+	) {
 		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity)
 			if (state.getValue(FLAME).isLit())
 				entity.hurt(level.damageSources().hotFloor(), 1.0F);
@@ -163,24 +181,31 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		}
 	}
 
-	@SuppressWarnings("null")
 	@Override
-	protected void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) {
+	protected void onProjectileHit(
+		@Nonnull Level level, 
+		@Nonnull BlockState state, 
+		@Nonnull BlockHitResult hit, 
+		@Nonnull Projectile projectile
+	) {
 		BlockPos blockpos = hit.getBlockPos();
 
 		if (
 			!level.isClientSide
 			&& projectile.isOnFire()
 			&& projectile.mayInteract(level, blockpos)
-			&& !state.getValue(FLAME).isLit()
+			&& canBeLit(state)
 		) {
 			level.setBlock(blockpos, state.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
 		}
 	}
 
-	@SuppressWarnings("null")
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
+		@Nonnull Level level, 
+		@Nonnull BlockState state, 
+		@Nonnull BlockEntityType<T> blockEntityType
+	) {
 		return createTickerHelper(
 			blockEntityType, 
 			WetlandWhimsyBlockEntities.ANCIENT_BRAZIER.get(), 
@@ -197,6 +222,10 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 	@Override
 	protected boolean isPathfindable(@Nonnull BlockState state, @Nonnull PathComputationType path) {
+		return !state.getValue(FLAME).isLit();
+	}
+
+	private boolean canBeLit(BlockState state) {
 		return !state.getValue(FLAME).isLit();
 	}
 }

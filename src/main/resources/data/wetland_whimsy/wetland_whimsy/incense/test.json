@@ -1,0 +1,8 @@
+{
+	"item": "minecraft:dirt",
+	"loot_table": "minecraft:archaeology/desert_pyramid",
+	"entities": [
+		"minecraft:creeper",
+		"minecraft:husk"
+	]
+}

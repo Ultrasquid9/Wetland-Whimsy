@@ -4,7 +4,23 @@ import org.slf4j.Logger;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.logging.LogUtils;
+import com.terraformersmc.biolith.api.biome.BiomePlacement;
+import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
+import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 
+import eu.midnightdust.lib.config.MidnightConfig;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biomes;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.client.WetlandWhimsyClient;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
@@ -24,23 +40,6 @@ import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeDecorators;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTrunkPlacers;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biomes;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import eu.midnightdust.lib.config.MidnightConfig;
-
-import com.terraformersmc.biolith.api.biome.BiomePlacement;
-import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
-import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 
 @Mod(WetlandWhimsy.MODID)
 public class WetlandWhimsy {
@@ -111,6 +110,12 @@ public class WetlandWhimsy {
 
 			LOGGER.info("registered Scalable Rewards: " + scalable_reward.entrySet().size());
 			for (var entry : scalable_reward.entrySet())
+				LOGGER.info(entry.getValue().toString());
+
+			var incense = event.getServer().registryAccess().registryOrThrow(Datapacks.INCENSE);
+
+			LOGGER.info("registered Incense: " + incense.entrySet().size());
+			for (var entry : incense.entrySet())
 				LOGGER.info(entry.getValue().toString());
 		}
 	}
