@@ -105,12 +105,12 @@ public class WetlandWhimsy {
 	public static class ServerModEvents {
 		@SubscribeEvent
 		public static void datapacks(ServerAboutToStartEvent event) {
-			var scalable_reward = event.getServer().registryAccess().registryOrThrow(Datapacks.SCALABLE_REWARD).entrySet();
+			var scalable_reward = event.getServer().registryAccess().registryOrThrow(Datapacks.SCALABLE_REWARD);
 
 			ScalableReward.Manager.add(scalable_reward);
 
-			LOGGER.info("registered Scalable Rewards: " + scalable_reward.size());
-			for (var entry : scalable_reward)
+			LOGGER.info("registered Scalable Rewards: " + scalable_reward.entrySet().size());
+			for (var entry : scalable_reward.entrySet())
 				LOGGER.info(entry.getValue().toString());
 		}
 	}

@@ -4,19 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.Map.Entry;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.item.ItemStack;
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public record ScalableReward(String input, Map<String, Integer> rewards) {
 	public static final Codec<ScalableReward> CODEC = RecordCodecBuilder.create(
@@ -28,32 +25,22 @@ public record ScalableReward(String input, Map<String, Integer> rewards) {
 	);
 
 	public class Manager {
-		private static List<ScalableReward> SCALABLE_REWARDS = new ArrayList<>();
+		private static Registry<ScalableReward> SCALABLE_REWARDS = null;
 
-		public static void add(Set<Entry<ResourceKey<ScalableReward>, ScalableReward>> rewards) {
-			for (var entry : rewards)
-				SCALABLE_REWARDS.add(entry.getValue());
-
-			for (var entry : SCALABLE_REWARDS)
-				WetlandWhimsy.LOGGER.info(entry.input());
+		public static void add(Registry<ScalableReward> rewards) {
+			SCALABLE_REWARDS = rewards;
 		}
 
 		public static List<ItemStack> getLoot(
 			RandomSource random, 
-			String key, 
+			ResourceLocation key, 
 			int quality
 		) {
-			HashMap<String, Integer> table = null;
+			var scalable_reward = SCALABLE_REWARDS.get(key);
+			if (scalable_reward == null)
+				return List.of(); 
 
-			for (var i : SCALABLE_REWARDS) {
-				if (i.input().contains(key)) {
-					table = new HashMap<String, Integer>(i.rewards());
-					break;
-				}
-			}
-
-			if (table == null)
-				return List.of();
+			var table = new HashMap<String, Integer>(scalable_reward.rewards());
 
 			List<Integer> weights = new ArrayList<>();
 			for (var i : table.values())

@@ -9,6 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.datapacks.ScalableReward;
 
@@ -40,7 +41,7 @@ public class AncientPotBlockEntity extends BlockEntity {
 
 		var loot = ScalableReward.Manager.getLoot(
 			level.getRandom(), 
-			"ancient_coin", 
+			WetlandWhimsy.rLoc("ancient_pot"),
 			lootQuality
 		);
 
