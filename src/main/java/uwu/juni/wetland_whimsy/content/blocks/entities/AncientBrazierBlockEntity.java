@@ -103,18 +103,14 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 	}
 
 	public boolean trySetIncense(ItemLike item) {
-		setChanged();
-
-		if (currentIncense.isPresent())
-			if (item.asItem().equals(currentIncense.get()))
-				return false;
-			else 
-				usedIncenses.add(currentIncense.get());
-
-		if (usedIncenses.contains(item.asItem()))
+		if (currentIncense.isPresent() || usedIncenses.contains(item.asItem()))
 			return false;
 		
+		setChanged();
 		currentIncense = Optional.of(item.asItem());
+		if (level instanceof ServerLevel sLevel)
+			spawner.setRandomEntity(sLevel, worldPosition);
+
 		return true;
 	}
 
@@ -122,6 +118,27 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 		return currentIncense.isPresent();
 	}
 
+
+	private static String ERROR_MESSAGE = """
+		\n-- What is this wierd creature in my world? --\n
+
+		What you are seeing is `wetland_whimsy:silly`, an entity 
+		that was initially created for testing purposes. However, 
+		this entity has since then been reused as a default for 
+		Incense data files, as it should be pretty clear that when 
+		you're seeing it, something has gone wrong.\n
+
+		If you are seeing this message, the most likely cause would
+		be that an item was tagged with `wetland_whimsy:incense` 
+		without having an incense data file to go along with it. 
+		If that json file does exist, it may be invalid - please 
+		check it to see if its syntax is correct or if it is in a 
+		valid location. \n
+
+		If you are playing a modpack, please report this to the 
+		modpack's developer BEFORE reporting it to the Wetland 
+		Whimsy team. 
+		""";
 	public Incense getIncense(ServerLevel level) {
 		var registries = level.getServer()
 			.registryAccess()
@@ -135,6 +152,17 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 				return incense;
 		}
 
+		if (ERROR_MESSAGE != null)
+			WetlandWhimsy.LOGGER.warn(ERROR_MESSAGE);
+		ERROR_MESSAGE = null;
+
 		return new Incense(Items.DIRT, WetlandWhimsy.rLoc(""), List.of(WetlandWhimsy.rLoc("silly")));
-	} 
+	}
+
+	public void killIncense() {
+		if (currentIncense.isPresent())
+			usedIncenses.add(currentIncense.get());
+
+		currentIncense = Optional.empty();
+	}
 }

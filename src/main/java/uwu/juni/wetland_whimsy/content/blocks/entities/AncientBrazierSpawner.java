@@ -107,11 +107,16 @@ public class AncientBrazierSpawner extends BaseSpawner {
 				2
 			);
 			ejectLoot(serverLevel, pos, serverLevel.getRandom());
+
+			var be = serverLevel.getBlockEntity(pos);
+			if (be instanceof AncientBrazierBlockEntity ab)
+				ab.killIncense();
+
 			return;
 		}
 	}
 
-	private void setRandomEntity(ServerLevel level, BlockPos pos) {
+	public void setRandomEntity(ServerLevel level, BlockPos pos) {
 		var be = level.getBlockEntity(pos);
 		var random = level.getRandom();
 
