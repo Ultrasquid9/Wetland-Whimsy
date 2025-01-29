@@ -10,12 +10,13 @@ import javax.annotation.Nonnull;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
@@ -29,22 +30,30 @@ public record ScalableReward(ResourceLocation input, Map<ResourceLocation, Integ
 	);
 
 	public class Manager {
-		private static Registry<ScalableReward> SCALABLE_REWARDS = null;
-
-		public static void add(Registry<ScalableReward> rewards) {
-			SCALABLE_REWARDS = rewards;
-		}
-
 		public static List<ItemStack> getLoot(
-			RandomSource random, 
-			ResourceLocation key, 
+			ServerLevel level, 
+			ItemLike key, 
 			int quality
 		) {
-			var scalable_reward = SCALABLE_REWARDS.get(key);
-			if (scalable_reward == null)
+			var random = level.getRandom();
+			var registries = level.getServer().registryAccess().lookupOrThrow(Datapacks.SCALABLE_REWARD);
+
+			// Java doesn't let you modify variables directly within Lambdas, you need to use a wrapper
+			// This is because variables are cloned when passed to lambdas, whereas the wrapper is a pointer to the variable
+			var wrapper = new Object() { ScalableReward scalableReward = null; };
+			registries.listElements().forEach(registry -> {
+				var b = registry.value();
+
+				WetlandWhimsy.LOGGER.info("" + b.input());
+
+				if (b.input().toString().equals(key.asItem().toString()))
+					wrapper.scalableReward = b;
+			});
+
+			if (wrapper.scalableReward == null)
 				return List.of(); 
 
-			var table = new HashMap<ResourceLocation, Integer>(scalable_reward.rewards());
+			var table = new HashMap<ResourceLocation, Integer>(wrapper.scalableReward.rewards());
 			var list = new ArrayList<ItemStack>();
 
 			var maxWeight = 0;

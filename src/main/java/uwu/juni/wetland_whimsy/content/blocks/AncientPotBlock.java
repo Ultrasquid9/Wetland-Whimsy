@@ -162,8 +162,8 @@ public class AncientPotBlock extends BaseEntityBlock {
 
 	private void dropLoot(Level level, BlockPos pos) {
 		if (level instanceof ServerLevel serverLevel) {
-			var blockEntity = level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
-			blockEntity.dropLoot(level, pos);
+			var blockEntity = serverLevel.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
+			blockEntity.dropLoot(serverLevel, pos);
 
 			serverLevel.sendParticles(
 				ParticleTypes.DUST_PLUME,

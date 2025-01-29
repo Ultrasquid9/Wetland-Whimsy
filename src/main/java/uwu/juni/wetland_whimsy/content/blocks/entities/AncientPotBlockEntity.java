@@ -5,12 +5,13 @@ import javax.annotation.Nonnull;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.datapacks.ScalableReward;
 
 public class AncientPotBlockEntity extends BlockEntity {
@@ -37,15 +38,16 @@ public class AncientPotBlockEntity extends BlockEntity {
 	public int lootQuality() { return lootQuality; }
 
 	/// Gambling
-	public void dropLoot(Level level, BlockPos pos) {
+	public void dropLoot(ServerLevel level, BlockPos pos) {
+		// In case the pot was from a version where lootQuality started at 0
 		if (lootQuality < 1) {
 			WetlandWhimsy.LOGGER.warn("lootQuality is " + lootQuality + "... increasing to 1");
 			lootQuality = 1;
 		}
 
 		var loot = ScalableReward.Manager.getLoot(
-			level.getRandom(), 
-			WetlandWhimsy.rLoc("ancient_pot"),
+			level,
+			WetlandWhimsyItems.ANCIENT_COIN.get(),
 			lootQuality
 		);
 

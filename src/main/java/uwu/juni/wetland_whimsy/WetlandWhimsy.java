@@ -15,11 +15,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.client.WetlandWhimsyClient;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
@@ -31,7 +28,6 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.datagen.Datagen;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
 import uwu.juni.wetland_whimsy.datapacks.Datapacks;
-import uwu.juni.wetland_whimsy.datapacks.ScalableReward;
 import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.misc.Config;
 import uwu.juni.wetland_whimsy.misc.Creative;
@@ -98,26 +94,6 @@ public class WetlandWhimsy {
 			WetlandWhimsyBiomes.MARSH, 
 			CriterionBuilder.deviationMax(BiomeParameterTargets.CONTINENTALNESS, -0.44f)
 		);
-	}
-
-	@EventBusSubscriber(modid = MODID)
-	public static class ServerModEvents {
-		@SubscribeEvent
-		public static void datapacks(ServerAboutToStartEvent event) {
-			var scalable_reward = event.getServer().registryAccess().registryOrThrow(Datapacks.SCALABLE_REWARD);
-
-			ScalableReward.Manager.add(scalable_reward);
-
-			LOGGER.info("registered Scalable Rewards: " + scalable_reward.entrySet().size());
-			for (var entry : scalable_reward.entrySet())
-				LOGGER.info(entry.getValue().toString());
-
-			var incense = event.getServer().registryAccess().registryOrThrow(Datapacks.INCENSE);
-
-			LOGGER.info("registered Incense: " + incense.entrySet().size());
-			for (var entry : incense.entrySet())
-				LOGGER.info(entry.getValue().toString());
-		}
 	}
 
 	/// Create a ResourceLocation with the "wetland_whimsy" namespace
