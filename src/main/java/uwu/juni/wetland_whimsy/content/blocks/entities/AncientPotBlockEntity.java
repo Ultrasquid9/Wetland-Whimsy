@@ -18,6 +18,7 @@ public class AncientPotBlockEntity extends BlockEntity {
 
 	public AncientPotBlockEntity(BlockPos pos, BlockState state) {
 		super(WetlandWhimsyBlockEntities.ANCIENT_POT.get(), pos, state);
+		lootQuality = 1;
 	}
 
 	@Override
@@ -37,7 +38,10 @@ public class AncientPotBlockEntity extends BlockEntity {
 
 	/// Gambling
 	public void dropLoot(Level level, BlockPos pos) {
-		lootQuality += 2; // Ensuring that it is not zero
+		if (lootQuality < 1) {
+			WetlandWhimsy.LOGGER.warn("lootQuality is " + lootQuality + "... increasing to 1");
+			lootQuality = 1;
+		}
 
 		var loot = ScalableReward.Manager.getLoot(
 			level.getRandom(), 

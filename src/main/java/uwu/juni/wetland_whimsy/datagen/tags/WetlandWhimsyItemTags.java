@@ -42,6 +42,12 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			Items.FIRE_CHARGE
 		);
 
+		tag(WetlandWhimsyTags.Items.SCALABLE_DO_NOT_GROW).add(
+			WetlandWhimsyItems.RUSTED_ARTIFACT.get(),
+			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(),
+			WetlandWhimsyItems.DISC.get()
+		);
+
 		tag(WetlandWhimsyTags.Items.INCENSE).add(
 			Items.DIRT,
 			Items.GRANITE,
