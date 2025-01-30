@@ -25,6 +25,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyPredicates;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.datagen.Datagen;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
@@ -50,6 +51,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyEntityTypes.ENTITIES,
 		WetlandWhimsyItems.ITEMS,
 		WetlandWhimsyParticleTypes.PARTICLE_TYPES,
+		WetlandWhimsyPredicates.PREDICATES,
 		WetlandWhimsySounds.SOUNDS,
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS,
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS,

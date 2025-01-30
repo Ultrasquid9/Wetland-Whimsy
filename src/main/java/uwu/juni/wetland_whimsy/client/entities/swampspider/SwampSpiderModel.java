@@ -9,7 +9,6 @@ import javax.annotation.Nonnull;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -30,6 +29,7 @@ public class SwampSpiderModel<T extends SwampSpiderEntity> extends HierarchicalM
 	private final ModelPart model_base;
 	private final ModelPart head;
 	private final ModelPart tail;
+	private final ModelPart mushrooms;
 	private final ModelPart left_legs;
 	private final ModelPart front;
 	private final ModelPart center;
@@ -43,6 +43,7 @@ public class SwampSpiderModel<T extends SwampSpiderEntity> extends HierarchicalM
 		this.model_base = root.getChild("model_base");
 		this.head = this.model_base.getChild("head");
 		this.tail = this.model_base.getChild("tail");
+		this.mushrooms = this.tail.getChild("mushrooms");
 		this.left_legs = this.model_base.getChild("left_legs");
 		this.front = this.left_legs.getChild("front");
 		this.center = this.left_legs.getChild("center");
@@ -62,13 +63,19 @@ public class SwampSpiderModel<T extends SwampSpiderEntity> extends HierarchicalM
 		PartDefinition head = model_base.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 64).addBox(-4.0F, -7.0F, -17.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.3F))
 		.texOffs(56, 50).addBox(-4.0F, -7.0F, -17.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition tail = model_base.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -14.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 32).addBox(-14.0F, -14.0F, 3.0F, 28.0F, 16.0F, 0.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 48).addBox(-14.0F, -14.0F, 13.0F, 28.0F, 16.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3491F, 0.0F, 0.0F));
+		PartDefinition tail = model_base.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -14.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3491F, 0.0F, 0.0F));
 
-		PartDefinition shroom_cross_2_r1 = tail.addOrReplaceChild("shroom_cross_2_r1", CubeListBuilder.create().texOffs(32, 64).addBox(-5.0F, -10.0F, 0.0F, 10.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -14.0F, 11.0F, 0.0F, 0.7854F, 0.0F));
+		PartDefinition mushrooms = tail.addOrReplaceChild(
+			"mushrooms", 
+			CubeListBuilder.create()
+				.texOffs(0, 32).addBox(-14.0F, -14.0F, 3.0F, 28.0F, 16.0F, 0.0F, new CubeDeformation(0.0F))
+				.texOffs(0, 48).addBox(-14.0F, -14.0F, 13.0F, 28.0F, 16.0F, 0.0F, new CubeDeformation(0.0F)), 
+			PartPose.offsetAndRotation(0, 0, 0, 0, 0, 0)
+		);
 
-		PartDefinition shroom_cross_1_r1 = tail.addOrReplaceChild("shroom_cross_1_r1", CubeListBuilder.create().texOffs(32, 64).addBox(-5.0F, -10.0F, 0.0F, 10.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -14.0F, 11.0F, 0.0F, -0.7854F, 0.0F));
+		PartDefinition shroom_cross_2_r1 = mushrooms.addOrReplaceChild("shroom_cross_2_r1", CubeListBuilder.create().texOffs(32, 64).addBox(-5.0F, -10.0F, 0.0F, 10.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -14.0F, 11.0F, 0.0F, 0.7854F, 0.0F));
+
+		PartDefinition shroom_cross_1_r1 = mushrooms.addOrReplaceChild("shroom_cross_1_r1", CubeListBuilder.create().texOffs(32, 64).addBox(-5.0F, -10.0F, 0.0F, 10.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -14.0F, 11.0F, 0.0F, -0.7854F, 0.0F));
 
 		PartDefinition left_legs = model_base.addOrReplaceChild("left_legs", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -138,5 +145,15 @@ public class SwampSpiderModel<T extends SwampSpiderEntity> extends HierarchicalM
 
 	public ModelPart root() {
 		return model_base;
+	}
+
+	@Override
+	public void prepareMobModel(
+		@Nonnull SwampSpiderEntity entity, 
+		float limbSwing, 
+		float limbSwingAmount, 
+		float partialTick
+	) {
+		this.mushrooms.visible = !entity.isSheared();
 	}
 }

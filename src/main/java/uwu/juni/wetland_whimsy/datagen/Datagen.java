@@ -14,7 +14,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyBlockLoot;
 import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyEntityLoot;
-import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyStructureLoot;
+import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyMiscLoot;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyArmorTrims;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyConfiguredFeatures;
@@ -91,7 +91,7 @@ public class Datagen {
 						LootContextParamSets.BLOCK
 					),
 					new SubProviderEntry(
-						WetlandWhimsyStructureLoot::new,
+						WetlandWhimsyMiscLoot::new,
 						LootContextParamSets.CHEST
 					),
 					new SubProviderEntry(
