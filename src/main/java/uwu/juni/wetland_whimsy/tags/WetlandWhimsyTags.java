@@ -5,6 +5,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public class WetlandWhimsyTags {
@@ -46,6 +47,13 @@ public class WetlandWhimsyTags {
 		public static final TagKey<EntityType<?>> SPAWNS_FROM_ANCIENT_BRAZIER = TagKey.create(
 			Registries.ENTITY_TYPE, 
 			WetlandWhimsy.rLoc("spawns_from_ancient_brazier")
+		);
+	}
+
+	public static class Structures {
+		public static final TagKey<Structure> WETLAND_RUINS = TagKey.create(
+			Registries.STRUCTURE,
+			WetlandWhimsy.rLoc("wetland_ruins")
 		);
 	}
 }

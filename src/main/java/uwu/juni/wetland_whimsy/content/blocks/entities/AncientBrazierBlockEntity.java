@@ -22,6 +22,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -32,6 +33,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.datapacks.Datapacks;
 import uwu.juni.wetland_whimsy.datapacks.Incense;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 	private AncientBrazierSpawner spawner = new AncientBrazierSpawner() {
@@ -62,7 +64,11 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 			for (var str : list)
 				usedIncenses.add(strToItem.apply(str.getAsString()));
 
-		currentIncense = Optional.ofNullable(strToItem.apply(tag.getString("current_incense")));
+		var item = strToItem.apply(tag.getString("current_incense"));
+		if (item != null && new ItemStack(item).is(WetlandWhimsyTags.Items.INCENSE))
+			currentIncense = Optional.of(item);
+		else
+			currentIncense = Optional.empty();
 	}
 
 	@Override

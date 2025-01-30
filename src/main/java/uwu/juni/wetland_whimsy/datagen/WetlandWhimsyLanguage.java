@@ -1,12 +1,12 @@
 package uwu.juni.wetland_whimsy.datagen;
 
+import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.misc.Compat;
-import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class WetlandWhimsyLanguage extends LanguageProvider {
 	public WetlandWhimsyLanguage(PackOutput output) {
@@ -90,5 +90,18 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 
 		add(WetlandWhimsy.MODID + ".midnightconfig.category.biomes", "Biomes");
 		add(WetlandWhimsy.MODID + ".midnightconfig.category.swamp_dungeon", "Swamp Dungeon");
+
+		addAdvancement("wetland_ruins", "Old-School", "Find Wetland Ruins in a swampy biome");
+		addAdvancement("swamp_dungeon", "Attacking Vertical", "Locate and enter a Swamp Dungeon");
+		addAdvancement("ancient_brazier", "🔥🔥🔥", "Light an Ancient Brazier");
+		addAdvancement("incense", "Smell Ya Later", "Use any incense on an Ancient Brazier");
+		addAdvancement("ancient_pot", "Getting Better", "Use an Ancient Coin on an Ancient Pot");
+	}
+
+	private void addAdvancement(String key, String title, String desc) {
+		var str = "advancements." + WetlandWhimsy.MODID + '.' + key;
+
+		add(str + ".title", title);
+		add(str + ".desc", desc);
 	}
 }

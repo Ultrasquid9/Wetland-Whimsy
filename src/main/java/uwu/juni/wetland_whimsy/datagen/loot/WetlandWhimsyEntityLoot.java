@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.datagen.sub_providers;
+package uwu.juni.wetland_whimsy.datagen.loot;
 
 import java.util.stream.Stream;
 
