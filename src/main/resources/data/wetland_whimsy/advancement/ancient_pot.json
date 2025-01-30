@@ -34,9 +34,5 @@
 			"trigger": "minecraft:item_used_on_block"
 		}
 	},
-	"requirements": [
-		[
-			"ancient_pot"
-		]
-	]
+	"requirements": [[ "ancient_pot" ]]
 }

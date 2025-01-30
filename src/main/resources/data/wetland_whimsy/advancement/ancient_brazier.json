@@ -34,9 +34,5 @@
 			"trigger": "minecraft:item_used_on_block"
 		}
 	},
-	"requirements": [
-		[
-			"ancient_brazier"
-		]
-	]
+	"requirements": [[ "ancient_brazier" ]]
 }

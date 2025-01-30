@@ -28,9 +28,5 @@
 			}
 		}
 	},
-	"requirements": [
-		[
-			"swamp_dungeon"
-		]
-	]
+	"requirements": [[ "swamp_dungeon" ]]
 }

@@ -19,6 +19,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.client.WetlandWhimsyClient;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyAdvancementTriggers;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
@@ -43,6 +44,7 @@ public class WetlandWhimsy {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	private static final ImmutableList<DeferredRegister<?>> REGISTRIES = ImmutableList.of(
+		WetlandWhimsyAdvancementTriggers.TRIGGERS,
 		WetlandWhimsyBlocks.BLOCKS,
 		WetlandWhimsyBlockEntities.BLOCK_ENTITY_TYPES,
 		WetlandWhimsyEntityTypes.ENTITIES,

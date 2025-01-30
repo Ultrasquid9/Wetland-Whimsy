@@ -8,7 +8,8 @@
 		},
 		"description": {
 			"translate": "advancements.wetland_whimsy.incense.desc"
-		}
+		},
+		"frame": "goal"
 	},
 	"parent": "wetland_whimsy:ancient_brazier",
 	"criteria": {
@@ -34,9 +35,5 @@
 			"trigger": "minecraft:item_used_on_block"
 		}
 	},
-	"requirements": [
-		[
-			"incense"
-		]
-	]
+	"requirements": [[ "incense" ]]
 }

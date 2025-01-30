@@ -1,0 +1,28 @@
+{
+	"display": {
+		"icon": {
+			"id": "wetland_whimsy:dagger"
+		},
+		"title": {
+			"translate": "advancements.wetland_whimsy.dagger.title"
+		},
+		"description": {
+			"translate": "advancements.wetland_whimsy.dagger.desc"
+		},
+		"frame": "goal"
+	},
+	"parent": "wetland_whimsy:ancient_brazier",
+	"criteria": {
+		"dagger": {
+			"conditions": {
+				"items": [
+					{
+						"items": "wetland_whimsy:dagger"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		}
+	},
+	"requirements": [[ "dagger" ]]
+}

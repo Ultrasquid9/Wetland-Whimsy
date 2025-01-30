@@ -101,7 +101,7 @@ public class WetlandWhimsyItems {
 				.rarity(Rarity.EPIC)
 				.durability(560)
 				.component(DataComponents.TOOL, DaggerItem.createToolProperties())
-				.attributes(DaggerItem.createAttributes(5F, -3.2F))
+				.attributes(DaggerItem.createAttributes(2F, -3.2F))
 		)
 	);
 }

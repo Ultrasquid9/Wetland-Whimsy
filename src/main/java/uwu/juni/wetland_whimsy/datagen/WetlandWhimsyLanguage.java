@@ -94,8 +94,10 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addAdvancement("wetland_ruins", "Old-School", "Find Wetland Ruins in a swampy biome");
 		addAdvancement("swamp_dungeon", "Attacking Vertical", "Locate and enter a Swamp Dungeon");
 		addAdvancement("ancient_brazier", "🔥🔥🔥", "Light an Ancient Brazier");
+		addAdvancement("dagger", "Stabby Stabby", "Craft a Dagger, which deals damage based on proximity");
 		addAdvancement("incense", "Smell Ya Later", "Use any incense on an Ancient Brazier");
-		addAdvancement("ancient_pot", "Getting Better", "Use an Ancient Coin on an Ancient Pot");
+		addAdvancement("ancient_pot", "Minimum Wage", "Insert an Ancient Coin into an Ancient Pot");
+		addAdvancement("high_quality", "High Quality", "Break an Ancient Pot with 20 or more Ancient Coins inside");
 	}
 
 	private void addAdvancement(String key, String title, String desc) {

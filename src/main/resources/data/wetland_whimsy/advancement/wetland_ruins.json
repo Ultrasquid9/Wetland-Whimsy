@@ -29,9 +29,5 @@
 			"trigger": "minecraft:location"
 		}
 	},
-	"requirements": [
-		[
-			"wetland_ruins"
-		]
-	]
+	"requirements": [[ "wetland_ruins" ]]
 }
