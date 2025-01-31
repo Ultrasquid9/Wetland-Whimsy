@@ -1,12 +1,14 @@
 package uwu.juni.wetland_whimsy.datagen;
 
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredItem;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.misc.Compat;
-import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class WetlandWhimsyItemModels extends ItemModelProvider {
 	public WetlandWhimsyItemModels(PackOutput output, ExistingFileHelper fileHelper) {
@@ -130,6 +132,24 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.RUSTED_ARTIFACT.get());
 		basicItem(WetlandWhimsyItems.DAGGER.get());
 
+		basicItemWithTexture(
+			WetlandWhimsyItems.BOILING_INCENSE, 
+			modLoc("item/incense/boiling_incense")
+		);
+		basicItemWithTexture(
+			WetlandWhimsyItems.BRINE_INCENSE, 
+			modLoc("item/incense/brine_incense")
+		);
+		basicItemWithTexture(
+			WetlandWhimsyItems.ROT_INCENSE, 
+			modLoc("item/incense/rot_incense")
+		);
+		basicItemWithTexture(
+			WetlandWhimsyItems.WEBBED_INCENSE, 
+			modLoc("item/incense/webbed_incense")
+		);
+
+
 		withExistingParent(
 			WetlandWhimsyItems.DAGGER.getId().getPath(), 
 			mcLoc("item/handheld")
@@ -144,5 +164,13 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 			WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG.getId().getPath(), 
 			mcLoc("item/template_spawn_egg")
 		);
+	}
+
+	private void basicItemWithTexture(DeferredItem<?> item, ResourceLocation texture) {
+		withExistingParent(
+			item.getId().toString(), 
+			mcLoc("item/generated")
+		)
+		.texture("layer0", texture);
 	}
 }

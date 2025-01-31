@@ -1,9 +1,9 @@
 package uwu.juni.wetland_whimsy.misc;
 
+import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
@@ -149,6 +149,13 @@ public class Creative {
 				Items.MACE, 
 				WetlandWhimsyItems.DAGGER
 			);
+			insertItems(
+				Items.TOTEM_OF_UNDYING, 
+				WetlandWhimsyItems.BOILING_INCENSE,
+				WetlandWhimsyItems.BRINE_INCENSE,
+				WetlandWhimsyItems.ROT_INCENSE,
+				WetlandWhimsyItems.WEBBED_INCENSE
+			);
 		}
 
 		if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
@@ -158,7 +165,11 @@ public class Creative {
 			);
 			insertItems(
 				Items.HEAVY_CORE, 
-				WetlandWhimsyItems.RUSTED_ARTIFACT
+				WetlandWhimsyItems.RUSTED_ARTIFACT,
+				WetlandWhimsyItems.BOILING_INCENSE,
+				WetlandWhimsyItems.BRINE_INCENSE,
+				WetlandWhimsyItems.ROT_INCENSE,
+				WetlandWhimsyItems.WEBBED_INCENSE
 			);
 			insertItems(
 				Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 

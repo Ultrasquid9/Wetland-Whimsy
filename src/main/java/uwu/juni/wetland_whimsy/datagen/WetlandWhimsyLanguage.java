@@ -79,6 +79,11 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addItem(WetlandWhimsyItems.RUSTED_ARTIFACT, "Rusted Artifact");
 		addItem(WetlandWhimsyItems.DAGGER, "Dagger");
 
+		addItem(WetlandWhimsyItems.BOILING_INCENSE, "Boiling Incense");
+		addItem(WetlandWhimsyItems.BRINE_INCENSE, "Brine Incense");
+		addItem(WetlandWhimsyItems.ROT_INCENSE, "Rot Incense");
+		addItem(WetlandWhimsyItems.WEBBED_INCENSE, "Webbed Incense");
+
 		addEntityType(WetlandWhimsyEntityTypes.BLEMISH, "Blemish");
 		addItem(WetlandWhimsyItems.BLEMISH_SPAWN_EGG, "Blemish Spawn Egg");
 

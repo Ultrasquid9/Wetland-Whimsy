@@ -1,10 +1,5 @@
 package uwu.juni.wetland_whimsy.content;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
-import uwu.juni.wetland_whimsy.content.items.BaldCypressBoatItem;
-import uwu.juni.wetland_whimsy.content.items.DaggerItem;
-import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyJukebox;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -14,6 +9,11 @@ import net.minecraft.world.item.SmithingTemplateItem;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
+import uwu.juni.wetland_whimsy.content.items.BaldCypressBoatItem;
+import uwu.juni.wetland_whimsy.content.items.DaggerItem;
+import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyJukebox;
 
 public class WetlandWhimsyItems {
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(WetlandWhimsy.MODID);
@@ -103,5 +103,18 @@ public class WetlandWhimsyItems {
 				.component(DataComponents.TOOL, DaggerItem.createToolProperties())
 				.attributes(DaggerItem.createAttributes(2F, -3.2F))
 		)
+	);
+
+	public static final DeferredItem<Item> BOILING_INCENSE = ITEMS.registerSimpleItem(
+		"boiling_incense"
+	);
+	public static final DeferredItem<Item> BRINE_INCENSE = ITEMS.registerSimpleItem(
+		"brine_incense"
+	);
+	public static final DeferredItem<Item> ROT_INCENSE = ITEMS.registerSimpleItem(
+		"rot_incense"
+	);
+	public static final DeferredItem<Item> WEBBED_INCENSE = ITEMS.registerSimpleItem(
+		"webbed_incense"
 	);
 }
