@@ -7,6 +7,8 @@ import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 
+import org.joml.Vector3f;
+
 import com.mojang.datafixers.util.Either;
 
 import net.minecraft.core.BlockPos;
@@ -162,7 +164,12 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 			WetlandWhimsy.LOGGER.warn(ERROR_MESSAGE);
 		ERROR_MESSAGE = null;
 
-		return new Incense(Items.DIRT, WetlandWhimsy.rLoc(""), List.of(WetlandWhimsy.rLoc("silly")));
+		return new Incense(
+			Items.DIRT, 
+			WetlandWhimsy.rLoc(""),
+			new Vector3f(0, 0, 0), 
+			List.of(WetlandWhimsy.rLoc("silly"))
+		);
 	}
 
 	public void killIncense() {

@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.client.particles;
+package uwu.juni.wetland_whimsy.client.particles.bloodcapspores;
 
 import javax.annotation.Nonnull;
 
@@ -8,10 +8,10 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public class AncientSoulsProvider implements ParticleProvider<SimpleParticleType> {
+public class BloodcapSporesProvider implements ParticleProvider<SimpleParticleType> {
 	private final SpriteSet sprites;
 
-	public AncientSoulsProvider(SpriteSet sprites) {
+	public BloodcapSporesProvider(SpriteSet sprites) {
 		this.sprites = sprites;
 	}
 
@@ -26,6 +26,6 @@ public class AncientSoulsProvider implements ParticleProvider<SimpleParticleType
 		double ySpeed, 
 		double zSpeed
 	) {
-		return new AncientSoulsParticle(level, x, y, z, sprites);
+		return new BloodcapSporesParticle(level, x, y, z, sprites);
 	}
 }

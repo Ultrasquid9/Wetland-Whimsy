@@ -1,4 +1,4 @@
-package uwu.juni.wetland_whimsy.client.particles;
+package uwu.juni.wetland_whimsy.client.particles.ancientsouls;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleRenderType;
