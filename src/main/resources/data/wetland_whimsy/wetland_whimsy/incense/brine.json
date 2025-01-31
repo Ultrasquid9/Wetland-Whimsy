@@ -1,7 +1,7 @@
 {
 	"item": "wetland_whimsy:brine_incense",
 	"loot_table": "minecraft:archaeology/desert_pyramid",
-	"color": [0.0, 0.0, 0.0],
+	"color": [0.3, 0.5, 0.9],
 	"entities": [
 		"minecraft:breeze",
 		"minecraft:drowned",

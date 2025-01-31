@@ -1,7 +1,7 @@
 {
 	"item": "wetland_whimsy:rot_incense",
 	"loot_table": "minecraft:archaeology/desert_pyramid",
-	"color": [0.0, 0.0, 0.0],
+	"color": [0.4, 0.6, 0.25],
 	"entities": [
 		"wetland_whimsy:blemish",
 		"minecraft:bogged",

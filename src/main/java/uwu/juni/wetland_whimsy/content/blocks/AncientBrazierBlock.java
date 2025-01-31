@@ -5,6 +5,8 @@ import javax.annotation.Nonnull;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -116,6 +118,9 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		@Nonnull InteractionHand hand,
 		@Nonnull BlockHitResult hitResult
 	) {
+		var fail = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		var success = ItemInteractionResult.SUCCESS;
+
 		if (stack.is(WetlandWhimsyTags.Items.INCENSE)) {
 			var entity = level.getBlockEntity(pos);
 
@@ -123,26 +128,53 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 				var bool = brazier.trySetIncense(stack.getItem());
 
 				if (!bool) 
-					return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+					return fail;
 				
 				if (!player.isCreative())
 					stack.shrink(1);
 
-				return ItemInteractionResult.SUCCESS;
+				if (level instanceof ServerLevel sLevel)
+					createParticles(sLevel, pos);
+
+				level.setBlock(pos, state.setValue(FLAME, Flame.UNLIT), 2);
+
+				return success;
 			}
 		}
 
 		if (!canBeLit(state, pos, level))
-			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+			return fail;
 
 		if (stack.is(WetlandWhimsyTags.Items.FLAMMABLE)) {
 			level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			level.setBlock(pos, state.setValue(FLAME, Flame.LIT), 3);
 
-			return ItemInteractionResult.SUCCESS;
+			return success;
 		}
 
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		return fail;
+	}
+
+	private void createParticles(ServerLevel level, BlockPos pos) {
+		var random = level.getRandom();
+		var be = level.getBlockEntity(pos);
+
+		if (be instanceof AncientBrazierBlockEntity ab) {
+			var color = ab.getIncense(level).color();
+
+			for (var i = 0; i < random.nextInt(8, 12); i++)
+				level.sendParticles(
+					new DustParticleOptions(color, 1), 
+					pos.getX() + ((float)random.nextInt(2, 8)) / 10, 
+					pos.getY() + .5, 
+					pos.getZ() + ((float)random.nextInt(2, 8)) / 10, 
+					1, 
+					0, 
+					0, 
+					0, 
+					.5
+				);
+		}
 	}
 
 	@Override

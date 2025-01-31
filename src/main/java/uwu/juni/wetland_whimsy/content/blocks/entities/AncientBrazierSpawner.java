@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.content.blocks.entities;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import javax.annotation.Nonnull;
@@ -15,6 +16,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.entity.Entity;
@@ -34,9 +37,11 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.neoforge.event.EventHooks;
+import uwu.juni.wetland_whimsy.client.particles.coloredfire.ColoredFireParticleOptions;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyMiscLoot;
+import uwu.juni.wetland_whimsy.datapacks.Incense;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class AncientBrazierSpawner extends BaseSpawner {
@@ -208,12 +213,48 @@ public class AncientBrazierSpawner extends BaseSpawner {
 		if (!level.tryAddFreshEntityWithPassengers(entity))
 			return Optional.empty();
 
-		level.levelEvent(3011, pos, 1);
-		level.levelEvent(3012, blockpos, 1); 
-
+		effects(pos, blockpos, level);
 		level.gameEvent(entity, GameEvent.ENTITY_PLACE, blockpos);
 
 		return Optional.of(entity.getUUID());
+	}
+
+	private void effects(BlockPos pos, BlockPos mobSpawnPos, ServerLevel level) {
+		var ab = (AncientBrazierBlockEntity)level.getBlockEntity(pos);
+		var random = level.getRandom();
+
+		BiConsumer<BlockPos, Incense> spawnParticles = (blockpos, incense) -> {
+			for (var i = 0; i < random.nextInt(8, 10); i++) {
+				level.sendParticles(
+					new ColoredFireParticleOptions(incense.color(), (float)random.nextInt(18, 24) / 10),
+					blockpos.getX() + ((float)random.nextInt(-2, 12)) / 10, 
+					blockpos.getY() + ((float)random.nextInt(-2, 12)) / 10, 
+					blockpos.getZ() + ((float)random.nextInt(-2, 12)) / 10, 
+					1, 
+					0, 
+					0, 
+					0, 
+					0
+				);
+			}
+		};
+
+		if (ab != null && ab.hasIncense()) {
+			var incense = ab.getIncense(level);
+
+			spawnParticles.accept(pos, incense);
+			spawnParticles.accept(mobSpawnPos, incense);
+
+			level.playSound(
+				null, 
+				mobSpawnPos, 
+				SoundEvents.TRIAL_SPAWNER_SPAWN_MOB, 
+				SoundSource.BLOCKS
+			);
+		} else {
+			level.levelEvent(3011, pos, 1);
+			level.levelEvent(3012, mobSpawnPos, 1); 
+		}
 	}
 
 	private static boolean inLineOfSight(Level level, Vec3 spawnerPos, Vec3 mobPos) {
