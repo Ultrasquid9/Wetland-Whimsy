@@ -3,7 +3,7 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "wetland_whimsy:brine_incense"
+      "item": "wetland_whimsy:basic_incense"
     },
     {
       "item": "minecraft:lapis_lazuli"
@@ -16,10 +16,22 @@
     },
     {
       "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "item": "minecraft:breeze_rod"
+    },
+    {
+      "item": "minecraft:breeze_rod"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
     }
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "wetland_whimsy:brine_incense"
   }
 }

@@ -151,6 +151,7 @@ public class Creative {
 			);
 			insertItems(
 				Items.TOTEM_OF_UNDYING, 
+				WetlandWhimsyItems.BASIC_INCENSE,
 				WetlandWhimsyItems.BOILING_INCENSE,
 				WetlandWhimsyItems.BRINE_INCENSE,
 				WetlandWhimsyItems.ROT_INCENSE,
@@ -166,6 +167,7 @@ public class Creative {
 			insertItems(
 				Items.HEAVY_CORE, 
 				WetlandWhimsyItems.RUSTED_ARTIFACT,
+				WetlandWhimsyItems.BASIC_INCENSE,
 				WetlandWhimsyItems.BOILING_INCENSE,
 				WetlandWhimsyItems.BRINE_INCENSE,
 				WetlandWhimsyItems.ROT_INCENSE,

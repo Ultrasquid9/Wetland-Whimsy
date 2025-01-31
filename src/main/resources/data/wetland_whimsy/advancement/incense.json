@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"id": "wetland_whimsy:rot_incense"
+			"id": "wetland_whimsy:basic_incense"
 		},
 		"title": {
 			"translate": "advancements.wetland_whimsy.incense.title"

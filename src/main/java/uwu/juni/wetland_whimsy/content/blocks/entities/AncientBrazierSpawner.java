@@ -52,8 +52,9 @@ public class AncientBrazierSpawner extends BaseSpawner {
 		this.spawnedEntityCount = 0;
 
 		this.lootTablesToEject = new SimpleWeightedRandomList.Builder<ResourceKey<LootTable>>()
-			.add(WetlandWhimsyMiscLoot.INTERMEDIATE_LOOT)
-			.add(WetlandWhimsyMiscLoot.ANCIENT_COIN)
+			.add(WetlandWhimsyMiscLoot.INTERMEDIATE_LOOT, 1)
+			.add(WetlandWhimsyMiscLoot.EPIC_LOOT, 1)
+			.add(WetlandWhimsyMiscLoot.ANCIENT_COIN, 2)
 			.build();
 	}
 

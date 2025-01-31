@@ -47,10 +47,7 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(),
 			WetlandWhimsyItems.DISC.get(),
 
-			WetlandWhimsyItems.BOILING_INCENSE.get(),
-			WetlandWhimsyItems.BRINE_INCENSE.get(),
-			WetlandWhimsyItems.ROT_INCENSE.get(),
-			WetlandWhimsyItems.WEBBED_INCENSE.get()
+			WetlandWhimsyItems.BASIC_INCENSE.get()
 		);
 
 		tag(WetlandWhimsyTags.Items.INCENSE).add(

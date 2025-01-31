@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rot_incense": {
+    "has_basic_incense": {
       "conditions": {
         "items": [
           {
-            "items": "wetland_whimsy:rot_incense"
+            "items": "wetland_whimsy:basic_incense"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rot_incense"
+      "has_basic_incense"
     ]
   ],
   "rewards": {

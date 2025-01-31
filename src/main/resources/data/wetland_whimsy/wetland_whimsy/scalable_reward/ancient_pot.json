@@ -10,14 +10,10 @@
 		"minecraft:raw_gold": 6,
 		"minecraft:raw_iron": 6,
 
-		"wetland_whimsy:boiling_incense": 3,
-		"wetland_whimsy:brine_incense": 3,
-		"wetland_whimsy:rot_incense": 3,
-		"wetland_whimsy:webbed_incense": 3,
-
 		"wetland_whimsy:disc": 5,
 		"wetland_whimsy:dots_armor_trim_smithing_template": 5,
 		"wetland_whimsy:rusted_artifact": 5,
+		"wetland_whimsy:basic_incense": 5,
 
 		"minecraft:diamond_helmet": 1,
 		"minecraft:diamond_chestplate": 1,

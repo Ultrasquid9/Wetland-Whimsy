@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "wetland_whimsy:boiling_incense"
+        "recipe": "wetland_whimsy:basic_incense"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "wetland_whimsy:boiling_incense"
+      "wetland_whimsy:basic_incense"
     ]
   }
 }

@@ -133,6 +133,10 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.DAGGER.get());
 
 		basicItemWithTexture(
+			WetlandWhimsyItems.BASIC_INCENSE, 
+			modLoc("item/incense/basic_incense")
+		);
+		basicItemWithTexture(
 			WetlandWhimsyItems.BOILING_INCENSE, 
 			modLoc("item/incense/boiling_incense")
 		);

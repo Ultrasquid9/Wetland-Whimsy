@@ -21,12 +21,15 @@ import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyRecipes extends RecipeProvider {
+	private RecipeOutput recipeOutput;
+
 	protected WetlandWhimsyRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
 		super(output, provider);
 	}
 
 	@Override
 	protected void buildRecipes(RecipeOutput recipeOutput) {
+		this.recipeOutput = recipeOutput;
 
 		// Bald Cypress
 		planksFromLog(
@@ -35,38 +38,32 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS, 
 			4
 		);
-		twoByTwo(
-			recipeOutput, 
+		twoByTwo( 
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD, 
 			3
 		);
 		twoByTwo(
-			recipeOutput, 
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG, 
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD, 
 			3
 		);
 		stairsAndSlab(
-			recipeOutput, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS,
 			WetlandWhimsyBlocks.BALD_CYPRESS_SLAB
 		);
 		doorAndTrapdoor(
-			recipeOutput, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR,
 			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR
 		);
 		buttonAndPressurePlate(
-			recipeOutput, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON,
 			WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE
 		);
 		fenceAndFenceGate(
-			recipeOutput, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS,
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE,
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE
@@ -88,48 +85,40 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 
 		// Limestone
 		twoByTwo(
-			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
 			4
 		);
 		twoByTwo(
-			recipeOutput, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
 			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
 			4
 		);
 
 		stairsAndSlab(
-			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE, 
 			WetlandWhimsyBlocks.LIMESTONE_STAIRS, 
 			WetlandWhimsyBlocks.LIMESTONE_SLAB
 		);
 		stairsAndSlab(
-			recipeOutput, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB
 		);
 		stairsAndSlab(
-			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS, 
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB
 		);
 		wall(
-			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE, 
 			WetlandWhimsyBlocks.LIMESTONE_WALL
 		);
 		wall(
-			recipeOutput, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL
 		);
 		wall(
-			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL
 		);
@@ -143,7 +132,6 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 
 		stonecutterList(
-			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE, 
 			List.of(
 				WetlandWhimsyBlocks.LIMESTONE_STAIRS,
@@ -161,7 +149,6 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			)
 		);
 		stonecutterList(
-			recipeOutput, 
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE, 
 			List.of(
 				WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS,
@@ -175,7 +162,6 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			)
 		);
 		stonecutterList(
-			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE_BRICKS, 
 			List.of(
 				WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS,
@@ -226,7 +212,6 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 
 		twoByTwo(
-			recipeOutput, 
 			WetlandWhimsyBlocks.CORDGRASS, 
 			WetlandWhimsyBlocks.CORDGRASS_THATCH, 
 			1
@@ -252,10 +237,33 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS))
 			.save(recipeOutput);
 
-		dupeIncense(recipeOutput, WetlandWhimsyItems.BOILING_INCENSE);
-		dupeIncense(recipeOutput, WetlandWhimsyItems.BRINE_INCENSE);
-		dupeIncense(recipeOutput, WetlandWhimsyItems.ROT_INCENSE);
-		dupeIncense(recipeOutput, WetlandWhimsyItems.WEBBED_INCENSE);
+		// Incense
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, WetlandWhimsyItems.BASIC_INCENSE, 2)
+			.requires(WetlandWhimsyItems.BASIC_INCENSE)
+			.requires(WetlandWhimsyItems.BLEMISH_ROD, 3)
+			.unlockedBy(getHasName(WetlandWhimsyItems.BASIC_INCENSE), has(WetlandWhimsyItems.BASIC_INCENSE))
+			.save(recipeOutput);
+		incense(
+			WetlandWhimsyItems.BOILING_INCENSE, 
+			Items.BLAZE_ROD, 
+			Items.MAGMA_CREAM
+		);
+		incense(
+			WetlandWhimsyItems.BRINE_INCENSE,
+			Items.BREEZE_ROD,
+			Items.PRISMARINE_CRYSTALS
+		);
+		incense(
+			WetlandWhimsyItems.ROT_INCENSE,
+			WetlandWhimsyItems.BLEMISH_ROD,
+			Items.ROTTEN_FLESH
+		);
+		incense(
+			WetlandWhimsyItems.WEBBED_INCENSE,
+			Items.STRING,
+			Items.FERMENTED_SPIDER_EYE
+		);
 
 		if (Compat.FARMERS_DELIGHT)
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), 1)
@@ -268,7 +276,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 				.save(recipeOutput);
 	}
 
-	private void twoByTwo(RecipeOutput recipeOutput, ItemLike input, ItemLike output, int count) {
+	private void twoByTwo(ItemLike input, ItemLike output, int count) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, output, count)
 			.define('I', input)
 			.pattern("II")
@@ -277,7 +285,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 	}
 
-	private void stairsAndSlab(RecipeOutput recipeOutput, ItemLike input, ItemLike stairs, ItemLike slab) {
+	private void stairsAndSlab(ItemLike input, ItemLike stairs, ItemLike slab) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairs, 4)
 			.define('S', input)
 			.pattern("  S")
@@ -292,7 +300,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 	}
 
-	private void wall(RecipeOutput recipeOutput, ItemLike input, ItemLike wall) {
+	private void wall(ItemLike input, ItemLike wall) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, wall, 6)
 			.define('P', input)
 			.pattern("PPP")
@@ -301,7 +309,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 	}
 
-	private void doorAndTrapdoor(RecipeOutput recipeOutput, ItemLike input, ItemLike door, ItemLike trapdoor) {
+	private void doorAndTrapdoor(ItemLike input, ItemLike door, ItemLike trapdoor) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, door, 3)
 			.define('P', input)
 			.pattern("PP")
@@ -317,7 +325,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 	}
 
-	private void buttonAndPressurePlate(RecipeOutput recipeOutput, ItemLike input, ItemLike button, ItemLike pressurePlate) {
+	private void buttonAndPressurePlate(ItemLike input, ItemLike button, ItemLike pressurePlate) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, button, 1)
 			.define('P', input)
 			.pattern("P")
@@ -331,7 +339,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 		);
 	}
 
-	private void fenceAndFenceGate(RecipeOutput recipeOutput, ItemLike input, ItemLike fence, ItemLike gate) {
+	private void fenceAndFenceGate(ItemLike input, ItemLike fence, ItemLike gate) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, fence, 3)
 			.define('P', input)
 			.define('/', Tags.Items.RODS_WOODEN)
@@ -348,15 +356,21 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 	}
 
-	private void dupeIncense(RecipeOutput recipeOutput, ItemLike incense) {
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, incense, 2)
-			.requires(incense)
+	private void incense(
+		ItemLike incense, 
+		ItemLike ingredient1, 
+		ItemLike ingredient2
+	) {
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, incense)
+			.requires(WetlandWhimsyItems.BASIC_INCENSE)
 			.requires(Items.LAPIS_LAZULI, 4)
-			.unlockedBy(getHasName(incense), has(incense))
+			.requires(ingredient1, 2)
+			.requires(ingredient2, 2)
+			.unlockedBy(getHasName(WetlandWhimsyItems.BASIC_INCENSE), has(WetlandWhimsyItems.BASIC_INCENSE))
 			.save(recipeOutput);
 	}
 
-	private void stonecutterList(RecipeOutput recipeOutput, ItemLike input, List<ItemLike> outputs) {
+	private void stonecutterList(ItemLike input, List<ItemLike> outputs) {
 		for (ItemLike output : outputs) {
 			var count = 1;
 			

@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.misc.Config;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public record ScalableReward(ResourceLocation input, Map<ResourceLocation, Integer> rewards) {
@@ -61,7 +62,7 @@ public record ScalableReward(ResourceLocation input, Map<ResourceLocation, Integ
 				maxWeight += i.getValue();
 
 			quality++;
-			for (var i = 0; i < Math.min(random.nextInt(random.nextInt(1, quality), quality), 10); i++)
+			for (var i = 0; i < Math.min(random.nextInt(random.nextInt(1, quality), quality), Config.ancientPotMaxDropCount); i++)
 				list.add(getStack(table, random, quality, maxWeight));
 
 			return list;

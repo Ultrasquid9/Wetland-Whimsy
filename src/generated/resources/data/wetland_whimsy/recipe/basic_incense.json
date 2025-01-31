@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "wetland_whimsy:basic_incense"
+    },
+    {
+      "item": "wetland_whimsy:blemish_rod"
+    },
+    {
+      "item": "wetland_whimsy:blemish_rod"
+    },
+    {
+      "item": "wetland_whimsy:blemish_rod"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "wetland_whimsy:basic_incense"
+  }
+}

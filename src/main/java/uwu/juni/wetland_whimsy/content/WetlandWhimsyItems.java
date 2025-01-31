@@ -105,6 +105,9 @@ public class WetlandWhimsyItems {
 		)
 	);
 
+	public static final DeferredItem<Item> BASIC_INCENSE = ITEMS.registerSimpleItem(
+		"basic_incense"
+	);
 	public static final DeferredItem<Item> BOILING_INCENSE = ITEMS.registerSimpleItem(
 		"boiling_incense"
 	);
