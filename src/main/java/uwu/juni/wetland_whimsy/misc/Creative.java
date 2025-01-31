@@ -176,11 +176,11 @@ public class Creative {
 				WetlandWhimsyBlocks.ANCIENT_BRAZIER
 			);
 			insertItems(
-				Items.BOGGED_SPAWN_EGG, 
+				Items.BLAZE_SPAWN_EGG, 
 				WetlandWhimsyItems.BLEMISH_SPAWN_EGG
 			);
 			insertItems(
-				Items.CAVE_SPIDER_SPAWN_EGG, 
+				Items.STRIDER_SPAWN_EGG, 
 				WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG
 			);
 		}

@@ -74,6 +74,10 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			WetlandWhimsyItems.DISC.get()	
 		);
 
+		tag(ItemTags.SWORD_ENCHANTABLE).add(
+			WetlandWhimsyItems.DAGGER.get()
+		);
+
 		if (Compat.SUPPLEMENTARIES)
 			tag(ModTags.FLOWER_BOX_PLANTABLE).add(
 				WetlandWhimsyBlocks.CORDGRASS.asItem(),
