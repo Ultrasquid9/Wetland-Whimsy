@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_boiling_incense": {
+      "conditions": {
+        "items": [
+          {
+            "items": "wetland_whimsy:boiling_incense"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "wetland_whimsy:boiling_incense"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_boiling_incense"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "wetland_whimsy:boiling_incense"
+    ]
+  }
+}

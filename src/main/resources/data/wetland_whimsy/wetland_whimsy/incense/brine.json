@@ -1,0 +1,10 @@
+{
+	"item": "wetland_whimsy:brine_incense",
+	"loot_table": "minecraft:archaeology/desert_pyramid",
+	"entities": [
+		"minecraft:breeze",
+		"minecraft:drowned",
+		"minecraft:phantom",
+		"minecraft:witch"
+	]
+}

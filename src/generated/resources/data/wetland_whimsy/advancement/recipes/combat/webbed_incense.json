@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "wetland_whimsy:webbed_incense"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_webbed_incense": {
+      "conditions": {
+        "items": [
+          {
+            "items": "wetland_whimsy:webbed_incense"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_webbed_incense"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "wetland_whimsy:webbed_incense"
+    ]
+  }
+}

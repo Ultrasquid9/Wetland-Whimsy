@@ -3,10 +3,6 @@ package uwu.juni.wetland_whimsy.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.misc.Compat;
-import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -18,6 +14,10 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyRecipes extends RecipeProvider {
@@ -252,6 +252,11 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS))
 			.save(recipeOutput);
 
+		dupeIncense(recipeOutput, WetlandWhimsyItems.BOILING_INCENSE);
+		dupeIncense(recipeOutput, WetlandWhimsyItems.BRINE_INCENSE);
+		dupeIncense(recipeOutput, WetlandWhimsyItems.ROT_INCENSE);
+		dupeIncense(recipeOutput, WetlandWhimsyItems.WEBBED_INCENSE);
+
 		if (Compat.FARMERS_DELIGHT)
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), 1)
 				.define('T', WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR)
@@ -340,6 +345,14 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.pattern("/P/")
 			.pattern("/P/")
 			.unlockedBy(getHasName(input), has(input))
+			.save(recipeOutput);
+	}
+
+	private void dupeIncense(RecipeOutput recipeOutput, ItemLike incense) {
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, incense, 2)
+			.requires(incense)
+			.requires(Items.LAPIS_LAZULI, 4)
+			.unlockedBy(getHasName(incense), has(incense))
 			.save(recipeOutput);
 	}
 

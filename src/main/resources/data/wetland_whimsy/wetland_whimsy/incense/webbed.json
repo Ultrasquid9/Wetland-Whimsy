@@ -1,0 +1,10 @@
+{
+	"item": "wetland_whimsy:webbed_incense",
+	"loot_table": "minecraft:archaeology/desert_pyramid",
+	"entities": [
+		"wetland_whimsy:swamp_spider",
+		"minecraft:spider",
+		"minecraft:cave_spider",
+		"minecraft:silverfish"
+	]
+}

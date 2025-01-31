@@ -1,0 +1,10 @@
+{
+	"item": "wetland_whimsy:rot_incense",
+	"loot_table": "minecraft:archaeology/desert_pyramid",
+	"entities": [
+		"wetland_whimsy:blemish",
+		"minecraft:bogged",
+		"minecraft:stray",
+		"minecraft:slime"
+	]
+}

@@ -4,11 +4,6 @@ import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.Nonnull;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.misc.Compat;
-import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 import net.mehvahdjukaar.supplementaries.reg.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -19,6 +14,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class WetlandWhimsyItemTags extends ItemTagsProvider {
 	public WetlandWhimsyItemTags(
@@ -45,14 +45,19 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 		tag(WetlandWhimsyTags.Items.SCALABLE_DO_NOT_GROW).add(
 			WetlandWhimsyItems.RUSTED_ARTIFACT.get(),
 			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(),
-			WetlandWhimsyItems.DISC.get()
+			WetlandWhimsyItems.DISC.get(),
+
+			WetlandWhimsyItems.BOILING_INCENSE.get(),
+			WetlandWhimsyItems.BRINE_INCENSE.get(),
+			WetlandWhimsyItems.ROT_INCENSE.get(),
+			WetlandWhimsyItems.WEBBED_INCENSE.get()
 		);
 
 		tag(WetlandWhimsyTags.Items.INCENSE).add(
-			Items.DIRT,
-			Items.GRANITE,
-			Items.ANDESITE,
-			Items.DIORITE
+			WetlandWhimsyItems.BOILING_INCENSE.get(),
+			WetlandWhimsyItems.BRINE_INCENSE.get(),
+			WetlandWhimsyItems.ROT_INCENSE.get(),
+			WetlandWhimsyItems.WEBBED_INCENSE.get()
 		);
 
 		tag(ItemTags.PLANKS).add(

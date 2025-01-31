@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brine_incense": {
+      "conditions": {
+        "items": [
+          {
+            "items": "wetland_whimsy:brine_incense"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "wetland_whimsy:brine_incense"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_brine_incense"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "wetland_whimsy:brine_incense"
+    ]
+  }
+}
