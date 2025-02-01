@@ -142,6 +142,10 @@ public class Creative {
 				Items.MUSIC_DISC_RELIC, 
 				WetlandWhimsyItems.DISC
 			);
+			insertItems(
+				Items.WIND_CHARGE, 
+				WetlandWhimsyItems.SLUDGE_CHARGE
+			);
 		}
 
 		if (event.getTabKey() == CreativeModeTabs.COMBAT) {

@@ -13,6 +13,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.items.BaldCypressBoatItem;
 import uwu.juni.wetland_whimsy.content.items.DaggerItem;
+import uwu.juni.wetland_whimsy.content.items.SludgeChargeItem;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyJukebox;
 
 public class WetlandWhimsyItems {
@@ -69,6 +70,10 @@ public class WetlandWhimsyItems {
 	);
 	public static final DeferredItem<Item> BLEMISH_ROD = ITEMS.registerSimpleItem(
 		"blemish_rod"
+	);
+	public static final DeferredItem<Item> SLUDGE_CHARGE = ITEMS.register(
+		"sludge_charge",
+		() -> new SludgeChargeItem(new Item.Properties())
 	);
 	public static final DeferredItem<Item> RUSTED_ARTIFACT = ITEMS.registerSimpleItem(
 		"rusted_artifact",

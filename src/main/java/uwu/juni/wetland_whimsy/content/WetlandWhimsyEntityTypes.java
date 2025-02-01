@@ -12,11 +12,12 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
-import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BlemishEntity;
+import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
+import uwu.juni.wetland_whimsy.content.entities.SludgeChargeEntity;
+import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
 
 public class WetlandWhimsyEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = WetlandWhimsy.registry(
@@ -70,6 +71,16 @@ public class WetlandWhimsyEntityTypes {
 		)
 		.sized(1.375F, 0.5625F)
 		.build("bald_cypress_chest_boat")
+	);
+
+	public static final Supplier<EntityType<SludgeChargeEntity>> SLUDGE_CHARGE = ENTITIES.register(
+		"sludge_charge", 
+		() -> EntityType.Builder.<SludgeChargeEntity>of(
+			SludgeChargeEntity::new, 
+			MobCategory.MISC
+		)
+		.sized(.4F, .4F)
+		.build("sludge_charge")
 	);
 
 	public static void registerAttributes(EntityAttributeCreationEvent event) {

@@ -129,6 +129,7 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.DISC.get());
 		basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());
 		basicItem(WetlandWhimsyItems.BLEMISH_ROD.get());
+		basicItem(WetlandWhimsyItems.SLUDGE_CHARGE.get());
 		basicItem(WetlandWhimsyItems.RUSTED_ARTIFACT.get());
 		basicItem(WetlandWhimsyItems.DAGGER.get());
 

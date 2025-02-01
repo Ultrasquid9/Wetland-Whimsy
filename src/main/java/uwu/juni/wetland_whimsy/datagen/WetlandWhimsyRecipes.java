@@ -237,6 +237,13 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS), has(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS))
 			.save(recipeOutput);
 
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WetlandWhimsyItems.SLUDGE_CHARGE)
+			.requires(WetlandWhimsyItems.BLEMISH_ROD, 2)
+			.requires(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM)
+			.requires(Items.MUD)
+			.unlockedBy(getHasName(WetlandWhimsyItems.BLEMISH_ROD), has(WetlandWhimsyItems.BLEMISH_ROD))
+			.save(recipeOutput);
+
 		// Incense
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, WetlandWhimsyItems.BASIC_INCENSE, 2)

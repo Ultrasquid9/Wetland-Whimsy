@@ -8,14 +8,16 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import uwu.juni.wetland_whimsy.client.entities.silly.SillyModel;
-import uwu.juni.wetland_whimsy.client.entities.silly.SillyRenderer;
-import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderModel;
-import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderRenderer;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishModel;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishRenderer;
 import uwu.juni.wetland_whimsy.client.entities.boat.BaldCypressBoatRenderer;
+import uwu.juni.wetland_whimsy.client.entities.silly.SillyModel;
+import uwu.juni.wetland_whimsy.client.entities.silly.SillyRenderer;
+import uwu.juni.wetland_whimsy.client.entities.sludgecharge.SludgeChargeModel;
+import uwu.juni.wetland_whimsy.client.entities.sludgecharge.SludgeChargeRenderer;
+import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderModel;
+import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderRenderer;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 
 @OnlyIn(Dist.CLIENT)
@@ -32,6 +34,11 @@ public class WetlandWhimsyEntityClientSetup {
 		event.registerLayerDefinition(
 			SwampSpiderModel.LAYER_LOCATION, 
 			SwampSpiderModel::createBodyLayer
+		);
+
+		event.registerLayerDefinition(
+			SludgeChargeModel.LAYER_LOCATION, 
+			SludgeChargeModel::createBodyLayer
 		);
 
 		event.registerLayerDefinition(
@@ -56,6 +63,11 @@ public class WetlandWhimsyEntityClientSetup {
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
 			SwampSpiderRenderer::new
+		);
+
+		EntityRenderers.register(
+			WetlandWhimsyEntityTypes.SLUDGE_CHARGE.get(), 
+			SludgeChargeRenderer::new
 		);
 
 		EntityRenderers.register(

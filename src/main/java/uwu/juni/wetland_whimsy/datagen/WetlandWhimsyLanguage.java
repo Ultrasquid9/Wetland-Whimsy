@@ -76,6 +76,7 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addItem(WetlandWhimsyItems.DISC, "Music Disc");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
 		addItem(WetlandWhimsyItems.BLEMISH_ROD, "Blemish Rod");
+		addItem(WetlandWhimsyItems.SLUDGE_CHARGE, "Sludge Charge");
 		addItem(WetlandWhimsyItems.RUSTED_ARTIFACT, "Rusted Artifact");
 		addItem(WetlandWhimsyItems.DAGGER, "Dagger");
 
