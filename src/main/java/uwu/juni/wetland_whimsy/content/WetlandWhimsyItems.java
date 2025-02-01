@@ -71,7 +71,7 @@ public class WetlandWhimsyItems {
 	public static final DeferredItem<Item> BLEMISH_ROD = ITEMS.registerSimpleItem(
 		"blemish_rod"
 	);
-	public static final DeferredItem<Item> SLUDGE_CHARGE = ITEMS.register(
+	public static final DeferredItem<SludgeChargeItem> SLUDGE_CHARGE = ITEMS.register(
 		"sludge_charge",
 		() -> new SludgeChargeItem(new Item.Properties())
 	);

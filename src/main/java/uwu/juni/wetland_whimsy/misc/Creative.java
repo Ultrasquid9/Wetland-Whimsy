@@ -161,6 +161,10 @@ public class Creative {
 				WetlandWhimsyItems.ROT_INCENSE,
 				WetlandWhimsyItems.WEBBED_INCENSE
 			);
+			insertItems(
+				Items.WIND_CHARGE, 
+				WetlandWhimsyItems.SLUDGE_CHARGE
+			);
 		}
 
 		if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {

@@ -15,11 +15,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.phys.Vec3;
 import uwu.juni.wetland_whimsy.content.entities.SludgeChargeEntity;
 
 public class SludgeChargeItem extends Item implements ProjectileItem {
 	public SludgeChargeItem(Item.Properties properties) {
 		super(properties);
+
+		DispenserBlock.registerProjectileBehavior(this);
 	}
 
 	@Override
@@ -41,11 +45,8 @@ public class SludgeChargeItem extends Item implements ProjectileItem {
 		);
 		if (!level.isClientSide) {
 			var sludgeCharge = new SludgeChargeEntity(
-				level, 
-				player, 
-				player.position().x, 
-				player.getEyePosition().y, 
-				player.position().z
+				player,
+				level
 			);
 
 			sludgeCharge.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
@@ -65,6 +66,9 @@ public class SludgeChargeItem extends Item implements ProjectileItem {
 		@Nonnull ItemStack stack, 
 		@Nonnull Direction direction
 	) {
-		return new SludgeChargeEntity(level, pos.x(), pos.y(), pos.z());
+		var sludgeCharge = new SludgeChargeEntity(level, pos.x(), pos.y(), pos.z());
+		sludgeCharge.addDeltaMovement(new Vec3(direction.getStepX(), direction.getStepY(), direction.getStepZ()));
+
+		return sludgeCharge;
 	}
 }
