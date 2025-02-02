@@ -1,6 +1,6 @@
 {
 	"item": "wetland_whimsy:webbed_incense",
-	"loot_table": "minecraft:archaeology/desert_pyramid",
+	"loot_table": "wetland_whimsy:incense/webbed",
 	"color": [0.8, 0.9, 1.0],
 	"entities": [
 		"wetland_whimsy:swamp_spider",

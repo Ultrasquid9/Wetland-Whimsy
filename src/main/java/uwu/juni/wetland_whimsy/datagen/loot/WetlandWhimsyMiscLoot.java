@@ -24,6 +24,11 @@ public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 
 	public static final ResourceKey<LootTable> ANCIENT_COIN = createKey("vault/ancient_coin");
 
+	public static final ResourceKey<LootTable> BOILING_INCENSE = createKey("incense/boiling");
+	public static final ResourceKey<LootTable> BRINE_INCENSE = createKey("incense/brine");
+	public static final ResourceKey<LootTable> ROT_INCENSE = createKey("incense/rot");
+	public static final ResourceKey<LootTable> WEBBED_INCENSE = createKey("incense/webbed");
+
 	public static final ResourceKey<LootTable> SWAMP_SPIDER_SHEAR = createKey("entities/swamp_spider_shear");
 
 	private static ResourceKey<LootTable> createKey(String name) {
@@ -54,6 +59,23 @@ public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 		output.accept(
 			EPIC_LOOT,
 			WetlandWhimsyLoot.createEpicLootTable()
+		);
+
+		output.accept(
+			BOILING_INCENSE,
+			WetlandWhimsyLoot.createBoilingLootTable()
+		);
+		output.accept(
+			BRINE_INCENSE,
+			WetlandWhimsyLoot.createBrineLootTable()
+		);
+		output.accept(
+			ROT_INCENSE,
+			WetlandWhimsyLoot.createRotLootTable()
+		);
+		output.accept(
+			WEBBED_INCENSE,
+			WetlandWhimsyLoot.createWebbedLootTable()
 		);
 
 		output.accept(

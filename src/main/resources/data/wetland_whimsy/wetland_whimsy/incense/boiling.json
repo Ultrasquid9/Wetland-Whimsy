@@ -1,6 +1,6 @@
 {
 	"item": "wetland_whimsy:boiling_incense",
-	"loot_table": "minecraft:archaeology/desert_pyramid",
+	"loot_table": "wetland_whimsy:incense/boiling",
 	"color": [0.9, 0.475, 0.3],
 	"entities": [
 		"minecraft:blaze",

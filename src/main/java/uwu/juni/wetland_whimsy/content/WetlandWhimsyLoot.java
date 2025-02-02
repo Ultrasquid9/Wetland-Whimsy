@@ -19,9 +19,9 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 public class WetlandWhimsyLoot {
 	public static LootTable.Builder createBasicLootTable() {
 		return LootTable.lootTable()
-
 			.withPool(LootPool.lootPool()
 				.setRolls(UniformGenerator.between(1.F, 1.F))
+
 				.add(lootEntry(WetlandWhimsyBlocks.PENNYWORT, 4.F, 8.F))
 				.add(lootEntry(WetlandWhimsyBlocks.CORDGRASS, 4.F, 8.F))
 				.add(lootEntry(Blocks.BLUE_ORCHID, 4.F, 8.F))
@@ -81,9 +81,9 @@ public class WetlandWhimsyLoot {
 
 	public static LootTable.Builder createIntermediateLootTable() {
 		return LootTable.lootTable()
-
 			.withPool(LootPool.lootPool()
 				.setRolls(UniformGenerator.between(1.F, 1.F))
+
 				.add(lootEntry(Items.BREAD, 8.F, 16.F))
 
 				.add(lootEntry(WetlandWhimsyBlocks.BALD_CYPRESS_LOG, 4.F, 12.F))
@@ -127,7 +127,6 @@ public class WetlandWhimsyLoot {
 
 	public static LootTable.Builder createEpicLootTable() {
 		return LootTable.lootTable()
-
 			.withPool(LootPool.lootPool()
 				.setRolls(UniformGenerator.between(1.F, 1.F))
 
@@ -149,6 +148,72 @@ public class WetlandWhimsyLoot {
 				.add(lootEntry(Items.MUSHROOM_STEW))
 				.add(lootEntry(WetlandWhimsyItems.DISC)) 
 				.add(lootEntry(WetlandWhimsyItems.RUSTED_ARTIFACT)) 
+			);
+	}
+
+	public static LootTable.Builder createBoilingLootTable() {
+		return LootTable.lootTable()
+			.withPool(LootPool.lootPool()
+				.setRolls(UniformGenerator.between(1.F, 1.F))
+
+				.add(lootEntry(Items.BLAZE_ROD, 6, 10))
+				.add(lootEntry(Items.FIRE_CHARGE, 6, 10))
+				.add(lootEntry(Items.GOLD_BLOCK, 1, 2))
+				.add(lootEntry(Items.GOLD_INGOT, 6, 16))
+				.add(lootEntry(Items.GOLDEN_APPLE, 1, 3))
+				.add(lootEntry(Items.ENCHANTED_GOLDEN_APPLE))
+
+				.add(lootEntry(WetlandWhimsyItems.ANCIENT_COIN))
+			);
+	}
+	public static LootTable.Builder createBrineLootTable() {
+		return LootTable.lootTable()
+			.withPool(LootPool.lootPool()
+				.setRolls(UniformGenerator.between(1.F, 1.F))
+
+				.add(lootEntry(Items.BREEZE_ROD, 6, 10))
+				.add(lootEntry(Items.WIND_CHARGE, 6, 10))
+				.add(lootEntry(Items.SEA_LANTERN, 2, 4))
+				.add(lootEntry(Items.PRISMARINE_SHARD, 6, 16))
+				.add(lootEntry(Items.PRISMARINE_CRYSTALS, 4, 13))
+				.add(lootEntry(Items.SPONGE))
+				.add(lootEntry(Items.POTION).apply(potion("water_breathing")))
+
+				.add(lootEntry(WetlandWhimsyItems.ANCIENT_COIN))
+			);
+	}
+	public static LootTable.Builder createRotLootTable() {
+		return LootTable.lootTable()
+			.withPool(LootPool.lootPool()
+				.setRolls(UniformGenerator.between(1.F, 1.F))
+
+				.add(lootEntry(WetlandWhimsyItems.BLEMISH_ROD, 6, 10))
+				.add(lootEntry(WetlandWhimsyItems.SLUDGE_CHARGE, 6, 10))
+				.add(lootEntry(Items.CHAIN, 12, 14))
+				.add(lootEntry(Items.IRON_BLOCK, 1, 2))
+				.add(lootEntry(Items.IRON_INGOT, 6, 16))
+				.add(lootEntry(Items.GOLDEN_CARROT, 2, 3))
+				.add(lootEntry(Items.SPLASH_POTION).apply(potion("poison")))
+
+				.add(lootEntry(WetlandWhimsyItems.ANCIENT_COIN))
+			);
+	}
+	public static LootTable.Builder createWebbedLootTable() {
+		return LootTable.lootTable()
+			.withPool(LootPool.lootPool()
+				.setRolls(UniformGenerator.between(1.F, 1.F))
+
+				.add(lootEntry(Items.COBWEB, 9, 18))
+				.add(lootEntry(Items.STRING, 16, 22))
+				.add(lootEntry(Items.ENDER_PEARL, 6, 8))
+				.add(lootEntry(Items.EMERALD_BLOCK, 1, 2))
+				.add(lootEntry(Items.COPPER_BLOCK, 1, 2))
+				.add(lootEntry(Items.DIAMOND_BLOCK))
+				.add(lootEntry(Items.DIAMOND, 3, 5))
+				.add(lootEntry(Items.CROSSBOW))
+				.add(lootEntry(Items.SUSPICIOUS_STEW).apply(stew()))
+
+				.add(lootEntry(WetlandWhimsyItems.ANCIENT_COIN))
 			);
 	}
 
