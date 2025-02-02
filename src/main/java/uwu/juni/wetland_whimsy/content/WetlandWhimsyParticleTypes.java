@@ -22,6 +22,11 @@ public class WetlandWhimsyParticleTypes {
 		"bloodcap_spores",
 		() -> new SimpleParticleType(false)
 	);
+	public static final Supplier<SimpleParticleType> MUD_DRIP = PARTICLE_TYPES.register(
+		"mud_drip",
+		() -> new SimpleParticleType(false)
+	);
+
 	public static final Supplier<ColoredFireParticleType> COLORED_FIRE = PARTICLE_TYPES.register(
 		"colored_fire",
 		() -> new ColoredFireParticleType(false)

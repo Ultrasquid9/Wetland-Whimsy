@@ -2,8 +2,9 @@ package uwu.juni.wetland_whimsy.content.entities;
 
 import javax.annotation.Nonnull;
 
+import com.google.common.collect.ImmutableList;
+
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -18,6 +19,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 
 public class SludgeChargeEntity extends AbstractArrow {
@@ -83,6 +85,29 @@ public class SludgeChargeEntity extends AbstractArrow {
 
 	@Override
 	protected void onHitEntity(@Nonnull EntityHitResult result) {
+		var entity = result.getEntity();
+
+		entity.hurt(this.damageSources().thrown(this, getOwner()), 5);
+
+		if (entity instanceof LivingEntity le) {
+			var effects = ImmutableList.of(
+				MobEffects.MOVEMENT_SLOWDOWN,
+				MobEffects.BLINDNESS,
+				MobEffects.POISON
+			);
+
+			for (var effect : effects)
+				le.addEffect(
+					new MobEffectInstance(
+						effect, 
+						30, 
+						1, 
+						false, 
+						false
+					)
+				);
+		}
+
 		doHit(result.getLocation());
 		discard();
 	}
@@ -104,11 +129,11 @@ public class SludgeChargeEntity extends AbstractArrow {
 		);
 
 		var cloud = new AreaEffectCloud(level, getX(), getY(), getZ());
-		cloud.setParticle(ParticleTypes.DRAGON_BREATH);
+		cloud.setParticle(WetlandWhimsyParticleTypes.MUD_DRIP.get());
 		cloud.setRadius(Mth.PI);
 		cloud.setDuration(300);
 		cloud.setRadiusPerTick(-.01F);
-		cloud.addEffect(new MobEffectInstance(MobEffects.HARM, 1, 1));
+		cloud.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 2));
 
 		var entity = getOwner();
 		if (entity != null && entity instanceof LivingEntity le)
