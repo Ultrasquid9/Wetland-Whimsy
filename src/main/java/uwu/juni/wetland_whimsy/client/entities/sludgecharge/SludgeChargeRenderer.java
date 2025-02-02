@@ -3,6 +3,7 @@ package uwu.juni.wetland_whimsy.client.entities.sludgecharge;
 import javax.annotation.Nonnull;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -40,6 +41,10 @@ public class SludgeChargeRenderer extends EntityRenderer<SludgeChargeEntity> {
 	) {
 		if (entity.tickCount >= 2 || !(entityRenderDispatcher.camera.getEntity().distanceToSqr(entity) < MIN_CAMERA_DISTANCE_SQUARED)) {
 			var vcon = bufferSource.getBuffer(RenderType.entityCutout(RLOC));
+
+			var rot = Mth.lerp(partialTick, entity.getOldVRot(), entity.getVRot());
+			poseStack.mulPose(Axis.XP.rotationDegrees(rot));
+			poseStack.mulPose(Axis.YP.rotationDegrees(rot));
 
 			model.renderToBuffer(poseStack, vcon, packedLight, OverlayTexture.NO_OVERLAY);
 			super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);

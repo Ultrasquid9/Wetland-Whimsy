@@ -32,6 +32,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.Tags;
 import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyMiscLoot;
 
 public class SwampSpiderEntity extends Spider {
@@ -124,10 +125,10 @@ public class SwampSpiderEntity extends Spider {
 		@Nonnull Player player, 
 		@Nonnull InteractionHand hand
 	) {
-		if (isSheared() || !isAlive())
+		var itemstack = player.getItemInHand(hand);
+
+		if (isSheared() || !isAlive() || !itemstack.is(Tags.Items.TOOLS_SHEAR))
 			return super.mobInteract(player, hand);
-		
-		ItemStack itemstack = player.getItemInHand(hand);
 
 		level().playSound(player, player.blockPosition(), SoundEvents.BOGGED_SHEAR, SoundSource.PLAYERS);
 		setSheared(true);

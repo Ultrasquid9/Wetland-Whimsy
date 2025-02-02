@@ -2,7 +2,9 @@ package uwu.juni.wetland_whimsy.content.entities;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
@@ -16,9 +18,11 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 
 public class SludgeChargeEntity extends AbstractArrow {
-	private float rotation;
+	private float oldvRot = 0;
+	private float vRot = 0;
 
 	public SludgeChargeEntity(EntityType<? extends AbstractArrow> entityType, Level level) {
 		super(entityType, level);
@@ -66,12 +70,11 @@ public class SludgeChargeEntity extends AbstractArrow {
 		return ItemStack.EMPTY;
 	}
 
-	public float getRenderingRotation() {
-		rotation += 2.5f;
-		if (rotation >= 360) {
-			rotation = 0;
-		}
-		return rotation;
+	public float getVRot() {
+		return vRot;
+	}
+	public float getOldVRot() {
+		return oldvRot;
 	}
 
 	public boolean isGrounded() {
@@ -80,16 +83,13 @@ public class SludgeChargeEntity extends AbstractArrow {
 
 	@Override
 	protected void onHitEntity(@Nonnull EntityHitResult result) {
-		super.onHitEntity(result);
 		doHit(result.getLocation());
-
 		discard();
 	}
 
 	@Override
 	protected void onHitBlock(@Nonnull BlockHitResult result) {
 		doHit(result.getBlockPos().getCenter());
-
 		discard();
 	}
 
@@ -97,9 +97,15 @@ public class SludgeChargeEntity extends AbstractArrow {
 		var level = level();
 		if (level.isClientSide) return;
 
+		this.playSound(
+			WetlandWhimsySounds.SLUDGE_CHARGE_HIT.get(), 
+			1, 
+			(float)level.getRandom().nextInt(7, 13) / 10
+		);
+
 		var cloud = new AreaEffectCloud(level, getX(), getY(), getZ());
 		cloud.setParticle(ParticleTypes.DRAGON_BREATH);
-		cloud.setRadius(3.141F);
+		cloud.setRadius(Mth.PI);
 		cloud.setDuration(300);
 		cloud.setRadiusPerTick(-.01F);
 		cloud.addEffect(new MobEffectInstance(MobEffects.HARM, 1, 1));
@@ -112,7 +118,12 @@ public class SludgeChargeEntity extends AbstractArrow {
 	}
 
 	@Override
-	public void tick() {		
+	public void tick() {
+		if (level() instanceof ClientLevel) {
+			oldvRot = vRot;
+			vRot += 10;
+		}
+
 		if (inGround)
 			discard();
 

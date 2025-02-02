@@ -63,5 +63,11 @@
 		"sounds": [
 			"wetland_whimsy:blemish_death_1"
 		]
+	},
+
+	"sludge_charge_hit": {
+		"sounds": [
+			"wetland_whimsy:sludge_charge_hit"
+		]
 	}
 }
