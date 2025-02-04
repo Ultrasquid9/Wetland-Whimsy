@@ -21,5 +21,5 @@ public interface BaseSpawnerAccessor {
 	public void setSpawnDelay(int baseDelay);
 	
 	@Invoker("getOrCreateNextSpawnData")
-	public SpawnData invokeGetOrCreateNextSpawnData(@Nullable Level p_254503_, RandomSource p_253892_, BlockPos p_254487_);
+	public SpawnData invokeGetOrCreateNextSpawnData(@Nullable Level level, RandomSource random, BlockPos pos);
 } 

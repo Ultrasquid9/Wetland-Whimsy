@@ -38,22 +38,25 @@ public class AriaMushroomTreeDecorator extends TreeDecorator {
 
 			int i = list.get(0).getY();
 			list.stream()
-				.filter(p_69980_ -> p_69980_.getY() - i <= 2)
+				.filter(pos -> pos.getY() - i <= 2)
 				.forEach(
-					p_226026_ -> {
+					pos -> {
 						for (var direction : Direction.Plane.HORIZONTAL) {
-							if (randomsource.nextFloat() <= 0.5F) {
-								Direction direction1 = direction.getOpposite();
-								BlockPos blockpos = p_226026_.offset(direction1.getStepX(), 0, direction1.getStepZ());
-								if (context.isAir(blockpos)) {
-									context.setBlock(
-										blockpos,
-										WetlandWhimsyBlocks.ARIA_MUSHROOM.get()
-											.defaultBlockState()
-											.setValue(AriaMushroomBlock.FACING, direction)
-									);
-								}
-							}
+							if (randomsource.nextFloat() > 0.5F) 
+								continue;
+
+							var direction1 = direction.getOpposite();
+							var blockpos = pos.offset(direction1.getStepX(), 0, direction1.getStepZ());
+
+							if (!context.isAir(blockpos))
+								continue;
+
+							context.setBlock(
+								blockpos,
+								WetlandWhimsyBlocks.ARIA_MUSHROOM.get()
+									.defaultBlockState()
+									.setValue(AriaMushroomBlock.FACING, direction)
+							);
 						}
 					}
 				);

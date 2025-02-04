@@ -64,7 +64,9 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 			return state.setValue(PENNYWORT_COUNT, Integer.valueOf(count != 4 ? count + 1 : 4));
 		}
 
-		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection());
+		return super.getStateForPlacement(context)
+			.setValue(FACING, context.getHorizontalDirection())
+			.setValue(PENNYWORT_COUNT, 1);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -77,10 +79,10 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 
 	@Override
 	public boolean isValidBonemealTarget(
-		LevelReader p_256559_, 
-		BlockPos p_50898_, 
-		BlockState p_50899_,
-		boolean p_50900_
+		LevelReader a, 
+		BlockPos b, 
+		BlockState c,
+		boolean d
 	) {
 		return true;
 	}

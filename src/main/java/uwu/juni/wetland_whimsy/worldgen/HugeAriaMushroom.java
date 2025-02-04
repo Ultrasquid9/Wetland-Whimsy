@@ -12,7 +12,7 @@ import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyConfiguredFeatures;
 public class HugeAriaMushroom extends AbstractTreeGrower {
 	@Override
 	@Nullable
-	protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(@Nonnull RandomSource p_222910_, boolean p_222911_) {
+	protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(@Nonnull RandomSource random, boolean bool) {
 		return WetlandWhimsyConfiguredFeatures.HUGE_ARIA_MUSHROOM;
 	}
 }
