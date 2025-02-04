@@ -143,19 +143,20 @@ public class WetlandWhimsyStructurePools {
 
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_2", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_3", context), 1),
 					
 					Pair.of(dungeon_pool("swamp_dungeon/room/digsite_1", context), 1),
 
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_1", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_2", context), 2),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_3", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_3", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_4", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_5", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_6", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_7", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_8", context), 2),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_9", context), 2),
-					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_10", context), 2),
+					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_10", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/hallway_11", context), 2)
 				),
 				StructureTemplatePool.Projection.RIGID

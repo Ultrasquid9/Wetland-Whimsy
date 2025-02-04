@@ -111,6 +111,15 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "wetland_whimsy:swamp_dungeon/room/dead_end_3",
+        "processors": "wetland_whimsy:dungeon",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "wetland_whimsy:swamp_dungeon/room/digsite_1",
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
@@ -142,7 +151,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 2
+      "weight": 1
     },
     {
       "element": {
@@ -205,7 +214,7 @@
         "processors": "wetland_whimsy:dungeon",
         "projection": "rigid"
       },
-      "weight": 2
+      "weight": 1
     },
     {
       "element": {
