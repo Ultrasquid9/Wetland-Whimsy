@@ -6,6 +6,9 @@
     "wetland_whimsy:aria_mushroom_block": {
       "chance": 0.85
     },
+    "wetland_whimsy:aria_spores": {
+      "chance": 0.2
+    },
     "wetland_whimsy:bald_cypress_leaves": {
       "chance": 0.3
     },

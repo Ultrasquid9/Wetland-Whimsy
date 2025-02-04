@@ -29,6 +29,7 @@ public class WetlandWhimsyDatamaps extends DataMapProvider {
 			.add(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.asItem().builtInRegistryHolder(), new Compostable(.65F), false)
 			.add(WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem().builtInRegistryHolder(), new Compostable(.65F), false)
 			.add(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.asItem().builtInRegistryHolder(), new Compostable(.85F), false)
+			.add(WetlandWhimsyBlocks.ARIA_SPORES.asItem().builtInRegistryHolder(), new Compostable(.2F), false)
 			.add(WetlandWhimsyBlocks.CORDGRASS_THATCH.asItem().builtInRegistryHolder(), new Compostable(.9F), false)
 			.build();
 
