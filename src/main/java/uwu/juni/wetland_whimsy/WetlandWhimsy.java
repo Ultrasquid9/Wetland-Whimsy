@@ -98,7 +98,7 @@ public class WetlandWhimsy {
 		);
 		ComposterBlock.COMPOSTABLES.put(
 			WetlandWhimsyBlocks.CORDGRASS.get().asItem(), 
-			.6F
+			.4F
 		);
 		ComposterBlock.COMPOSTABLES.put(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get().asItem(), 
@@ -107,6 +107,22 @@ public class WetlandWhimsy {
 		ComposterBlock.COMPOSTABLES.put(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get().asItem(), 
 			.3F
+		);
+		ComposterBlock.COMPOSTABLES.put(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get().asItem(), 
+			.65F
+		);
+		ComposterBlock.COMPOSTABLES.put(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM.get().asItem(), 
+			.65F
+		);
+		ComposterBlock.COMPOSTABLES.put(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get().asItem(), 
+			.85F
+		);
+		ComposterBlock.COMPOSTABLES.put(
+			WetlandWhimsyBlocks.ARIA_SPORES.get().asItem(), 
+			.2F
 		);
 	}
 
