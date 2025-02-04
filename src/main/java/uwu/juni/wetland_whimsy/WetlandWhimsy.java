@@ -149,4 +149,8 @@ public class WetlandWhimsy {
 			);
 		}
 	}
+
+	public static ResourceLocation rLoc(String resource) {
+		return new ResourceLocation(MODID, resource);
+	}
 }

@@ -1,7 +1,5 @@
 package uwu.juni.wetland_whimsy.content;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 
@@ -9,9 +7,11 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public class WetlandWhimsyItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, WetlandWhimsy.MODID);
@@ -33,7 +33,7 @@ public class WetlandWhimsyItems {
 
 	public static final RegistryObject<Item> DOTS_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register(
 		"dots_armor_trim_smithing_template",
-		() -> new Item(new Item.Properties())
+		() -> SmithingTemplateItem.createArmorTrimTemplate(WetlandWhimsy.rLoc("dots"))
 	);
 
 	public static final RegistryObject<Item> NUKE_THE_SWAMPS_MUSIC_DISC = ITEMS.register(
