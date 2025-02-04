@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -66,7 +67,16 @@ public class WetlandWhimsy {
 		modEventBus.addListener(Datagen::datagen);
 		modEventBus.addListener(Creative::addCreative);
 		modEventBus.addListener(WetlandWhimsyBlockEntities::blockEntityRendering);
-		modEventBus.addListener(WetlandWhimsyParticles::registerParticleProviders);
+
+		// What the fuck
+		DistExecutor.unsafeRunForDist(
+			() -> () -> { 
+				modEventBus.addListener(WetlandWhimsyParticles::registerParticleProviders);
+
+				return new Object();
+			}, 
+			() -> () -> new Object()
+		);
 
 		REGISTRY_HELPER.register(modEventBus);
 		for (var registry : REGISTRIES)
