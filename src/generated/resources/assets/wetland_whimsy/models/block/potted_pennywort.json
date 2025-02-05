@@ -1,0 +1,4 @@
+{
+  "parent": "wetland_whimsy:block/potted_pennywort_base",
+  "render_type": "minecraft:cutout"
+}

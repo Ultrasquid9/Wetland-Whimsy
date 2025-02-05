@@ -3,19 +3,6 @@ package uwu.juni.wetland_whimsy.content;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
-import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
-import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
-import uwu.juni.wetland_whimsy.content.blocks.BloodcapMushroomBlock;
-import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
-import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
-import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
-import uwu.juni.wetland_whimsy.content.blocks.StrippableLogBlock;
-import uwu.juni.wetland_whimsy.content.blocks.SussyMudBlock;
-import uwu.juni.wetland_whimsy.misc.Compat;
-import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
-import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -24,33 +11,20 @@ import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.HalfTransparentBlock;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.PressurePlateBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.WallBlock;
-import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.WallSignBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.blocks.*;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
+import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
@@ -483,6 +457,28 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
+	// Flower Pots
+	public static final DeferredBlock<FlowerPotBlock> POTTED_BALD_CYPRESS_SAPLING = flowerPot(
+		"potted_bald_cypress_sapling",
+		BALD_CYPRESS_SAPLING
+	);
+	public static final DeferredBlock<FlowerPotBlock> POTTED_PENNYWORT = flowerPot(
+		"potted_pennywort",
+		PENNYWORT
+	);
+	public static final DeferredBlock<FlowerPotBlock> POTTED_CORDGRASS = flowerPot(
+		"potted_cordgrass",
+		CORDGRASS
+	);
+	public static final DeferredBlock<FlowerPotBlock> POTTED_BLOODCAP_MUSHROOM = flowerPot(
+		"potted_bloodcap_mushroom",
+		BLOODCAP_MUSHROOM
+	);
+	public static final DeferredBlock<FlowerPotBlock> POTTED_ARIA_MUSHROOM = flowerPot(
+		"potted_aria_mushroom",
+		ARIA_MUSHROOM
+	);
+
 	/// There was indeed a way to automate this 
 	public static <T extends Block> DeferredBlock<T> registerBlockAndItem(String name, Supplier<T> block) {
 		var register = BLOCKS.register(name, block);
@@ -513,5 +509,29 @@ public class WetlandWhimsyBlocks {
 				new Item.Properties().stacksTo(16)
 			)
 		);
+	}
+
+	private static DeferredBlock<FlowerPotBlock> flowerPot(String name, DeferredBlock<?> plant) {
+		var flowerPot = BLOCKS.register(
+			name,
+			() -> new FlowerPotBlock(
+				() -> (FlowerPotBlock)Blocks.FLOWER_POT,
+				plant,
+				BlockBehaviour.Properties.of()
+					.instabreak()
+					.noOcclusion()
+					.pushReaction(PushReaction.DESTROY)
+					.lightLevel(a -> {
+						return plant.getId() == ARIA_MUSHROOM.getId() ? 9 : 0;
+					})
+			)
+		);
+
+		((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(
+			plant.getId(),
+			flowerPot
+		);
+
+		return flowerPot;
 	}
 }

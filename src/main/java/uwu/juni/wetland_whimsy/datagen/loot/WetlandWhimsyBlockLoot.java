@@ -1,9 +1,7 @@
 package uwu.juni.wetland_whimsy.datagen.loot;
 
 import java.util.Set;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
-import uwu.juni.wetland_whimsy.misc.Compat;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -11,6 +9,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
+import uwu.juni.wetland_whimsy.misc.Compat;
 
 public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 	public WetlandWhimsyBlockLoot(HolderLookup.Provider lookupProvider) {
@@ -140,6 +141,27 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 		add(
 			WetlandWhimsyBlocks.ANCIENT_POT.get(), 
 			noDrop()
+		);
+
+		add(
+			WetlandWhimsyBlocks.POTTED_BALD_CYPRESS_SAPLING.get(), 
+			this.createPotFlowerItemTable(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.asItem())
+		);
+		add(
+			WetlandWhimsyBlocks.POTTED_PENNYWORT.get(), 
+			this.createPotFlowerItemTable(WetlandWhimsyBlocks.PENNYWORT.asItem())
+		);
+		add(
+			WetlandWhimsyBlocks.POTTED_CORDGRASS.get(), 
+			this.createPotFlowerItemTable(WetlandWhimsyBlocks.CORDGRASS.asItem())
+		);
+		add(
+			WetlandWhimsyBlocks.POTTED_BLOODCAP_MUSHROOM.get(), 
+			this.createPotFlowerItemTable(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.asItem())
+		);
+		add(
+			WetlandWhimsyBlocks.POTTED_ARIA_MUSHROOM.get(), 
+			this.createPotFlowerItemTable(WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem())
 		);
 	}
 }
