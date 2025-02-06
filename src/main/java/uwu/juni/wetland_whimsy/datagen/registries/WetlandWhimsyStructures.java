@@ -171,7 +171,7 @@ public class WetlandWhimsyStructures {
 					)
 				), 
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
-				TerrainAdjustment.NONE
+				TerrainAdjustment.BEARD_THIN
 			)
 		);
 	}

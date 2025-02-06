@@ -9,6 +9,7 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.StructureTagsProvider;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.StructureTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -34,6 +35,11 @@ public class WetlandWhimsyStructureTags extends StructureTagsProvider {
 			WetlandWhimsyStructures.PILLAR,
 			WetlandWhimsyStructures.SWAMP_DUNGEON,
 			WetlandWhimsyStructures.WALL
+		);
+
+		addOptional(
+			StructureTags.CATS_SPAWN_AS_BLACK, 
+			WetlandWhimsyStructures.WITCH_HUT
 		);
 	}
 

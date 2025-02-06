@@ -50,8 +50,8 @@ public class WetlandWhimsyStructureSets {
 					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.WITCH_HUT), 1)
 				),
 				new RandomSpreadStructurePlacement(
-					22, 
-					10, 
+					28, 
+					8, 
 					RandomSpreadType.LINEAR, 
 					292827262
 				)

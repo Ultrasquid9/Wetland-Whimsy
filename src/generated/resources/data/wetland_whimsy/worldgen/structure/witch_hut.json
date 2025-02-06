@@ -34,5 +34,6 @@
   },
   "start_pool": "wetland_whimsy:witch_hut/witch_hut",
   "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
   "use_expansion_hack": false
 }
