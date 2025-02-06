@@ -3,10 +3,10 @@ package uwu.juni.wetland_whimsy.datapacks;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Nonnull;
 
+import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -21,14 +21,35 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.misc.Config;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-public record ScalableReward(ResourceLocation input, Map<ResourceLocation, Integer> rewards) {
+public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 	public static final Codec<ScalableReward> CODEC = RecordCodecBuilder.create(
 		instance -> instance.group(
 			ResourceLocation.CODEC.fieldOf("input").forGetter(ScalableReward::input),
-			Codec.unboundedMap(ResourceLocation.CODEC, Codec.INT).fieldOf("rewards").forGetter(ScalableReward::rewards)
+			Loot.CODEC.listOf().fieldOf("rewards").forGetter(ScalableReward::rewards)
 		)
 		.apply(instance, ScalableReward::new)	
 	);
+
+	public record Loot(Integer weight, Either<ResourceLocation, List<ResourceLocation>> items) {
+		public static final Codec<ScalableReward.Loot> CODEC = RecordCodecBuilder.create(
+			instance -> instance.group(
+				Codec.INT.fieldOf("weight").forGetter(Loot::weight),
+				Codec.either(
+					ResourceLocation.CODEC, 
+					ResourceLocation.CODEC.listOf()
+				).fieldOf("items").forGetter(Loot::items)
+			)
+			.apply(instance, Loot::new)
+		);
+
+		public ResourceLocation getRLoc(RandomSource random) {
+			if (items().left().isPresent())
+				return items().left().get();
+
+			var list = items().right().get();
+			return list.get(random.nextInt(0, list.size()));
+		}
+	}
 
 	public class Manager {
 		public static List<ItemStack> getLoot(
@@ -39,8 +60,9 @@ public record ScalableReward(ResourceLocation input, Map<ResourceLocation, Integ
 			var random = level.getRandom();
 			var registries = level.getServer().registryAccess().lookupOrThrow(Datapacks.SCALABLE_REWARD);
 
-			// Java doesn't let you modify variables directly within Lambdas, you need to use a wrapper
-			// This is because variables are cloned when passed to lambdas, whereas the wrapper is a pointer to the variable
+			// Java doesn't let you modify variables directly within Lambdas, you need to use a wrapper.
+			// This is because variables are cloned when passed to lambdas.
+			// The wrapper acts as a pointer to the variable, so it gets cloned but the variable inside does not.
 			var wrapper = new Object() { ScalableReward scalableReward = null; };
 			registries.listElements().forEach(registry -> {
 				var b = registry.value();
@@ -54,22 +76,22 @@ public record ScalableReward(ResourceLocation input, Map<ResourceLocation, Integ
 			if (wrapper.scalableReward == null)
 				return List.of(); 
 
-			var table = new HashMap<ResourceLocation, Integer>(wrapper.scalableReward.rewards());
+			var rewards = new ArrayList<>(wrapper.scalableReward.rewards);
 			var list = new ArrayList<ItemStack>();
 
 			var maxWeight = 0;
-			for (var i : table.entrySet())
-				maxWeight += i.getValue();
+			for (var reward : rewards)
+				maxWeight += reward.weight();
 
 			quality++;
 			for (var i = 0; i < Math.min(random.nextInt(random.nextInt(1, quality), quality), Config.ancientPotMaxDropCount); i++)
-				list.add(getStack(table, random, quality, maxWeight));
+				list.add(getStack(rewards, random, quality, maxWeight));
 
 			return list;
 		}
 
 		private static ItemStack getStack(
-			HashMap<ResourceLocation, Integer> table, 
+			List<Loot> rewards, 
 			RandomSource random, 
 			int quality, 
 			int maxWeight
@@ -81,11 +103,11 @@ public record ScalableReward(ResourceLocation input, Map<ResourceLocation, Integ
 				var rand = random.nextInt(0, maxWeight);
 				var cursor = 0;
 
-				for (var choice : table.entrySet()) {
-					cursor += choice.getValue();
+				for (var choice : rewards) {
+					cursor += choice.weight();
 
 					if (cursor >= rand) {
-						choices.put(choice.getKey(), choice.getValue());
+						choices.put(choice.getRLoc(random), choice.weight());
 						break;
 					}
 				}
