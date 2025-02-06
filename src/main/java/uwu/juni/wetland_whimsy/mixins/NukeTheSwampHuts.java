@@ -20,7 +20,7 @@ public class NukeTheSwampHuts {
     private Optional<Structure.GenerationStub> WetlandWhimsy_YouWillNotFindAGenerationPoint(
 		Optional<Structure.GenerationStub> dontCare
 	) {
-		if (!Config.CURRENTLY_IRRELEVANT_VALUE) return dontCare;
+		if (!Config.disableVanillaSwampHuts) return dontCare;
 
 		return Optional.empty();
 	}

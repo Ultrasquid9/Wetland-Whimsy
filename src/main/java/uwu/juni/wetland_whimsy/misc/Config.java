@@ -3,10 +3,8 @@ package uwu.juni.wetland_whimsy.misc;
 import eu.midnightdust.lib.config.MidnightConfig;
 
 public class Config extends MidnightConfig {
-	public static final String BIOMES = "biomes";
+	public static final String WORLDGEN = "worldgen";
 	public static final String SWAMP_DUNGEON = "swamp_dungeon";
-
-	public static final boolean CURRENTLY_IRRELEVANT_VALUE = false;
 
 	/* -- Swamp Dungeon -- */
 
@@ -28,17 +26,23 @@ public class Config extends MidnightConfig {
 	)
 	public static int ancientPotMaxDropCount = 10;
 
-	/* -- Biomes -- */
+	/* -- World Generation -- */
 
 	@Entry(
-		category = BIOMES,
+		category = WORLDGEN,
 		name = "Generate Marsh"
 	)
 	public static boolean generateMarsh = true;
 
 	@Entry(
-		category = BIOMES,
+		category = WORLDGEN,
 		name = "Change Swamp"
 	)
 	public static boolean changeSwamp = true;
+
+	@Entry(
+		category = WORLDGEN,
+		name = "Disable Vanilla Swamp Huts"
+	)
+	public static boolean disableVanillaSwampHuts = true;
 }

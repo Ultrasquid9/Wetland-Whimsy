@@ -12,6 +12,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public class WetlandWhimsyStructureSets {
 	public static final ResourceKey<StructureSet> WETLAND_RUINS = createKey("wetland_ruins");
+	public static final ResourceKey<StructureSet> WITCH_HUT = createKey("witch_hut");
 
 	private static ResourceKey<StructureSet> createKey(String name) {
 		return ResourceKey.create(
@@ -38,6 +39,21 @@ public class WetlandWhimsyStructureSets {
 					5, 
 					RandomSpreadType.LINEAR, 
 					1918171615
+				)
+			)
+		);
+
+		context.register(
+			WITCH_HUT, 
+			new StructureSet(
+				ImmutableList.of(
+					StructureSet.entry(structures.getOrThrow(WetlandWhimsyStructures.WITCH_HUT), 1)
+				),
+				new RandomSpreadStructurePlacement(
+					22, 
+					10, 
+					RandomSpreadType.LINEAR, 
+					292827262
 				)
 			)
 		);

@@ -13,6 +13,7 @@ import net.minecraft.commands.arguments.ResourceOrTagKeyArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.commands.LocateCommand;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.misc.Config;
 
 @Mixin(LocateCommand.class)
@@ -26,10 +27,10 @@ public class IKilledItAndAmNotSorry {
 		ResourceOrTagKeyArgument.Result<Structure> structure,
 		CallbackInfoReturnable<Integer> irrelevant
 	) throws CommandSyntaxException {
-		if (!Config.CURRENTLY_IRRELEVANT_VALUE) return;
+		if (!Config.disableVanillaSwampHuts) return;
 
 		var opt = structure.unwrap().left();
 		if (opt.isPresent() && opt.get().location().toString().contains("swamp_hut"))
-			throw new SimpleCommandExceptionType(Component.translatable("I killed it :skull:")).create();
+			throw new SimpleCommandExceptionType(Component.translatable(WetlandWhimsy.MODID + ".swamp_hut_disabled")).create();
 	}
 }

@@ -7,19 +7,19 @@ import java.util.Optional;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
-import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.Structure.StructureSettings;
+import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride.BoundingBoxType;
+import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.pools.DimensionPadding;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
@@ -35,6 +35,8 @@ public class WetlandWhimsyStructures {
 	public static final ResourceKey<Structure> ARENA = createKey("arena");
 	public static final ResourceKey<Structure> SWAMP_DUNGEON = createKey("swamp_dungeon");
 
+	public static final ResourceKey<Structure> WITCH_HUT = createKey("witch_hut");
+
 	private static ResourceKey<Structure> createKey(String name) {
 		return ResourceKey.create(
 			Registries.STRUCTURE, 
@@ -43,25 +45,25 @@ public class WetlandWhimsyStructures {
 	}
 
 	public static void bootstap(BootstrapContext<Structure> context) {
-		registerSurfaceRuins(
+		registerSurfaceStructure(
 			context, 
 			ARCH, 
 			WetlandWhimsyStructurePools.ARCH
 		);
 
-		registerSurfaceRuins(
+		registerSurfaceStructure(
 			context, 
 			PILLAR, 
 			WetlandWhimsyStructurePools.PILLAR
 		);
 
-		registerSurfaceRuins(
+		registerSurfaceStructure(
 			context, 
 			WALL, 
 			WetlandWhimsyStructurePools.WALL
 		);
 
-		registerSurfaceRuins(
+		registerSurfaceStructure(
 			context, 
 			ARENA, 
 			WetlandWhimsyStructurePools.ARENA
@@ -69,7 +71,7 @@ public class WetlandWhimsyStructures {
 
 		// Me when the nesting 
 		var biomes = context.lookup(Registries.BIOME);
-		registerSurfaceRuins(
+		registerSurfaceStructure(
 			context, 
 			SWAMP_DUNGEON, 
 			WetlandWhimsyStructurePools.SWAMP_DUNGEON_ENTRANCE,
@@ -135,16 +137,53 @@ public class WetlandWhimsyStructures {
 				TerrainAdjustment.NONE
 			)
 		);
+
+		registerSurfaceStructure(
+			context, 
+			WITCH_HUT, 
+			WetlandWhimsyStructurePools.WITCH_HUT,
+			new StructureSettings(
+				biomes.getOrThrow(BiomeTags.HAS_SWAMP_HUT), 
+				Map.of(
+					MobCategory.CREATURE,
+					new StructureSpawnOverride(
+						BoundingBoxType.PIECE, 
+						WeightedRandomList.create(
+							new MobSpawnSettings.SpawnerData(
+								EntityType.CAT, 
+								1, 
+								1, 
+								1
+							)
+						)
+					),
+					MobCategory.MONSTER,
+					new StructureSpawnOverride(
+						BoundingBoxType.PIECE, 
+						WeightedRandomList.create(
+							new MobSpawnSettings.SpawnerData(
+								EntityType.WITCH, 
+								1, 
+								1, 
+								1
+							)
+						)
+					)
+				), 
+				GenerationStep.Decoration.SURFACE_STRUCTURES, 
+				TerrainAdjustment.NONE
+			)
+		);
 	}
 
-	public static void registerSurfaceRuins(
+	public static void registerSurfaceStructure(
 		BootstrapContext<Structure> context, 
 		ResourceKey<Structure> structure, 
 		ResourceKey<StructureTemplatePool> pool
 	) { 
 		var biomes = context.lookup(Registries.BIOME);
 
-		registerSurfaceRuins(
+		registerSurfaceStructure(
 			context, 
 			structure, 
 			pool,
@@ -157,7 +196,7 @@ public class WetlandWhimsyStructures {
 		);
 	}
 
-	public static void registerSurfaceRuins(
+	public static void registerSurfaceStructure(
 		BootstrapContext<Structure> context, 
 		ResourceKey<Structure> structure, 
 		ResourceKey<StructureTemplatePool> pool,
@@ -172,7 +211,7 @@ public class WetlandWhimsyStructures {
 				templatePools.getOrThrow(pool), 
 				Optional.empty(), 
 				16, 
-				ConstantHeight.of(VerticalAnchor.absolute(0)), 
+				ConstantHeight.ZERO, 
 				false, 
 				Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 
 				100, 

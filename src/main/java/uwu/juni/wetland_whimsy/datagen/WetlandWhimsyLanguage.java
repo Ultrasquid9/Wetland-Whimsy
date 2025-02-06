@@ -95,8 +95,17 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");
 
-		add(WetlandWhimsy.MODID + ".midnightconfig.category.biomes", "Biomes");
+		add(WetlandWhimsy.MODID + ".midnightconfig.category.worldgen", "World Generation");
 		add(WetlandWhimsy.MODID + ".midnightconfig.category.swamp_dungeon", "Swamp Dungeon");
+
+		add(
+			WetlandWhimsy.MODID + ".swamp_hut_disabled", 
+			""" 
+			The Vanilla Swamp Hut has been disabled by Wetland Whimsy.
+			Search for "wetland_whimsy:witch_hut" instead,
+			or re-enable vanilla witch huts in the config. 
+			"""
+		);
 
 		addAdvancement("wetland_ruins", "Old-School", "Find Wetland Ruins in a swampy biome");
 		addAdvancement("swamp_dungeon", "Attacking Vertical", "Locate and enter a Swamp Dungeon");
