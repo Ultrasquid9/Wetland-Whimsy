@@ -32,6 +32,7 @@ public class WetlandWhimsyStructurePools {
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_ROOM_LOWER = createKey("swamp_dungeon/room_lower");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_SPAWNER = createKey("swamp_dungeon/spawner");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_LOOT = createKey("swamp_dungeon/loot");
+	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_DEAD_END = createKey("swamp_dungeon/dead_end");
 
 	public static final ResourceKey<StructureTemplatePool> WITCH_HUT = createKey("witch_hut/witch_hut");
 	public static final ResourceKey<StructureTemplatePool> WITCH = createKey("witch_hut/witch");
@@ -101,9 +102,26 @@ public class WetlandWhimsyStructurePools {
 		);
 
 		context.register(
-			SWAMP_DUNGEON_ENTRANCE, 
+			SWAMP_DUNGEON_DEAD_END, 
 			new StructureTemplatePool(
 				fallback, 
+				ImmutableList.of(
+					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_1", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_2", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_3", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_4", context), 1),
+
+					Pair.of(dungeon_pool("swamp_dungeon/hole/hole_dead_end", context), 1)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
+		var fallbackSwampDungeon = context.lookup(Registries.TEMPLATE_POOL).getOrThrow(SWAMP_DUNGEON_DEAD_END);
+
+		context.register(
+			SWAMP_DUNGEON_ENTRANCE, 
+			new StructureTemplatePool(
+				fallbackSwampDungeon, 
 				ImmutableList.of(
 					Pair.of(pool("swamp_dungeon/entrance/entrance", context), 1)
 				),
@@ -113,9 +131,10 @@ public class WetlandWhimsyStructurePools {
 		context.register(
 			SWAMP_DUNGEON_HOLE, 
 			new StructureTemplatePool(
-				fallback, 
+				fallbackSwampDungeon, 
 				ImmutableList.of(
-					Pair.of(dungeon_pool("swamp_dungeon/hole/hole", context), 1)
+					Pair.of(dungeon_pool("swamp_dungeon/hole/hole", context), 6),
+					Pair.of(dungeon_pool("swamp_dungeon/hole/hole_dead_end", context), 1)
 				),
 				StructureTemplatePool.Projection.RIGID
 			)
@@ -123,7 +142,7 @@ public class WetlandWhimsyStructurePools {
 		context.register(
 			SWAMP_DUNGEON_ATRIUM, 
 			new StructureTemplatePool(
-				fallback, 
+				fallbackSwampDungeon, 
 				ImmutableList.of(
 					Pair.of(dungeon_pool("swamp_dungeon/atrium/atrium_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/atrium/atrium_2", context), 1),
@@ -135,7 +154,7 @@ public class WetlandWhimsyStructurePools {
 		context.register(
 			SWAMP_DUNGEON_ROOM, 
 			new StructureTemplatePool(
-				fallback, 
+				fallbackSwampDungeon,
 				ImmutableList.of(
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/combat_room_2", context), 1),
@@ -151,6 +170,7 @@ public class WetlandWhimsyStructurePools {
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_2", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_3", context), 1),
+					Pair.of(dungeon_pool("swamp_dungeon/room/dead_end_4", context), 1),
 					
 					Pair.of(dungeon_pool("swamp_dungeon/room/digsite_1", context), 1),
 
@@ -172,7 +192,7 @@ public class WetlandWhimsyStructurePools {
 		context.register(
 			SWAMP_DUNGEON_ROOM_LOWER, 
 			new StructureTemplatePool(
-				fallback, 
+				fallbackSwampDungeon, 
 				ImmutableList.of(
 					Pair.of(dungeon_pool("swamp_dungeon/room_lower/lower_room_1", context), 1),
 					Pair.of(dungeon_pool("swamp_dungeon/room_lower/lower_room_2", context), 1),

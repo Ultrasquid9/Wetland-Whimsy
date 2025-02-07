@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -11,6 +12,7 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -37,6 +39,91 @@ public class WetlandWhimsyStructures {
 
 	public static final ResourceKey<Structure> WITCH_HUT = createKey("witch_hut");
 
+	private static final Map<MobCategory, StructureSpawnOverride> SWAMP_DUNGEON_SPAWNS = Map.of(
+		MobCategory.MONSTER,
+		new StructureSpawnOverride(
+			BoundingBoxType.PIECE, 
+			WeightedRandomList.create(
+				new MobSpawnSettings.SpawnerData(
+					WetlandWhimsyEntityTypes.BLEMISH.get(), 
+					2, 
+					1, 
+					3
+				),
+				new MobSpawnSettings.SpawnerData(
+					WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
+					1, 
+					1, 
+					1
+				),
+				new MobSpawnSettings.SpawnerData(
+					EntityType.BOGGED, 
+					3, 
+					1, 
+					3
+				),
+				new MobSpawnSettings.SpawnerData(
+					EntityType.CAVE_SPIDER, 
+					3, 
+					1, 
+					3
+				),
+				new MobSpawnSettings.SpawnerData(
+					EntityType.DROWNED, 
+					3, 
+					1, 
+					3
+				),
+				new MobSpawnSettings.SpawnerData(
+					EntityType.ZOMBIE, 
+					4, 
+					1, 
+					3
+				),
+				new MobSpawnSettings.SpawnerData(
+					EntityType.SKELETON, 
+					4, 
+					1, 
+					3
+				),
+				new MobSpawnSettings.SpawnerData(
+					EntityType.SPIDER, 
+					3, 
+					1, 
+					2
+				)
+			)
+		)
+	);
+	private static final Map<MobCategory, StructureSpawnOverride> WITCH_HUT_SPAWNS = Map.of(
+		MobCategory.CREATURE,
+		new StructureSpawnOverride(
+			BoundingBoxType.PIECE, 
+			WeightedRandomList.create(
+				new MobSpawnSettings.SpawnerData(
+					EntityType.CAT, 
+					1, 
+					1, 
+					1
+				)
+			)
+		),
+		MobCategory.MONSTER,
+		new StructureSpawnOverride(
+			BoundingBoxType.PIECE, 
+			WeightedRandomList.create(
+				new MobSpawnSettings.SpawnerData(
+					EntityType.WITCH, 
+					1, 
+					1, 
+					1
+				)
+			)
+		)
+	);
+
+	private static HolderGetter<Biome> BIOMES = null;
+
 	private static ResourceKey<Structure> createKey(String name) {
 		return ResourceKey.create(
 			Registries.STRUCTURE, 
@@ -45,6 +132,8 @@ public class WetlandWhimsyStructures {
 	}
 
 	public static void bootstap(BootstrapContext<Structure> context) {
+		BIOMES = context.lookup(Registries.BIOME);
+
 		registerSurfaceStructure(
 			context, 
 			ARCH, 
@@ -69,70 +158,13 @@ public class WetlandWhimsyStructures {
 			WetlandWhimsyStructurePools.ARENA
 		);
 
-		// Me when the nesting 
-		var biomes = context.lookup(Registries.BIOME);
 		registerSurfaceStructure(
 			context, 
 			SWAMP_DUNGEON, 
 			WetlandWhimsyStructurePools.SWAMP_DUNGEON_ENTRANCE,
 			new StructureSettings(
-				biomes.getOrThrow(Tags.Biomes.IS_SWAMP), 
-				Map.of(
-					MobCategory.MONSTER,
-					new StructureSpawnOverride(
-						BoundingBoxType.PIECE, 
-						WeightedRandomList.create(
-							new MobSpawnSettings.SpawnerData(
-								WetlandWhimsyEntityTypes.BLEMISH.get(), 
-								2, 
-								1, 
-								3
-							),
-							new MobSpawnSettings.SpawnerData(
-								WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
-								1, 
-								1, 
-								1
-							),
-							new MobSpawnSettings.SpawnerData(
-								EntityType.BOGGED, 
-								3, 
-								1, 
-								3
-							),
-							new MobSpawnSettings.SpawnerData(
-								EntityType.CAVE_SPIDER, 
-								3, 
-								1, 
-								3
-							),
-							new MobSpawnSettings.SpawnerData(
-								EntityType.DROWNED, 
-								3, 
-								1, 
-								3
-							),
-							new MobSpawnSettings.SpawnerData(
-								EntityType.ZOMBIE, 
-								4, 
-								1, 
-								3
-							),
-							new MobSpawnSettings.SpawnerData(
-								EntityType.SKELETON, 
-								4, 
-								1, 
-								3
-							),
-							new MobSpawnSettings.SpawnerData(
-								EntityType.SPIDER, 
-								3, 
-								1, 
-								2
-							)
-						)
-					)
-				), 
+				BIOMES.getOrThrow(Tags.Biomes.IS_SWAMP), 
+				SWAMP_DUNGEON_SPAWNS,
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
 				TerrainAdjustment.NONE
 			)
@@ -143,33 +175,8 @@ public class WetlandWhimsyStructures {
 			WITCH_HUT, 
 			WetlandWhimsyStructurePools.WITCH_HUT,
 			new StructureSettings(
-				biomes.getOrThrow(BiomeTags.HAS_SWAMP_HUT), 
-				Map.of(
-					MobCategory.CREATURE,
-					new StructureSpawnOverride(
-						BoundingBoxType.PIECE, 
-						WeightedRandomList.create(
-							new MobSpawnSettings.SpawnerData(
-								EntityType.CAT, 
-								1, 
-								1, 
-								1
-							)
-						)
-					),
-					MobCategory.MONSTER,
-					new StructureSpawnOverride(
-						BoundingBoxType.PIECE, 
-						WeightedRandomList.create(
-							new MobSpawnSettings.SpawnerData(
-								EntityType.WITCH, 
-								1, 
-								1, 
-								1
-							)
-						)
-					)
-				), 
+				BIOMES.getOrThrow(BiomeTags.HAS_SWAMP_HUT), 
+				WITCH_HUT_SPAWNS,
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
 				TerrainAdjustment.BEARD_THIN
 			)
@@ -180,15 +187,13 @@ public class WetlandWhimsyStructures {
 		BootstrapContext<Structure> context, 
 		ResourceKey<Structure> structure, 
 		ResourceKey<StructureTemplatePool> pool
-	) { 
-		var biomes = context.lookup(Registries.BIOME);
-
+	) {
 		registerSurfaceStructure(
 			context, 
 			structure, 
 			pool,
 			new StructureSettings(
-				biomes.getOrThrow(Tags.Biomes.IS_SWAMP), 
+				BIOMES.getOrThrow(Tags.Biomes.IS_SWAMP), 
 				Map.of(), 
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
 				TerrainAdjustment.BEARD_THIN
