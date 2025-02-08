@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
@@ -49,6 +50,13 @@ public class WetlandWhimsyTags {
 		public static final TagKey<Structure> WETLAND_RUINS = TagKey.create(
 			Registries.STRUCTURE,
 			WetlandWhimsy.rLoc("wetland_ruins")
+		);
+	}
+
+	public static class Biomes {
+		public static final TagKey<Biome> BLOODCAP_SURFACE = TagKey.create(
+			Registries.BIOME, 
+			WetlandWhimsy.rLoc("bloodcap_surface")
 		);
 	}
 }

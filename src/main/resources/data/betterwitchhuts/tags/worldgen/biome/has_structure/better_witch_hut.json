@@ -3,7 +3,7 @@
 	"values": [
 		{
 			"id": "wetland_whimsy:marsh",
-			"required": "false"
+			"required": false
 		}
 	]
 }

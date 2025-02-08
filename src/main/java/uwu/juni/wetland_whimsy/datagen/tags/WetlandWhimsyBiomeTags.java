@@ -4,8 +4,6 @@ import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.Nonnull;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -16,6 +14,9 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 @SuppressWarnings("unchecked")
 public class WetlandWhimsyBiomeTags extends BiomeTagsProvider {
@@ -45,6 +46,14 @@ public class WetlandWhimsyBiomeTags extends BiomeTagsProvider {
 			BiomeTags.HAS_TRAIL_RUINS, 
 			Biomes.SWAMP,
 			WetlandWhimsyBiomes.MARSH
+		);
+
+		addOptionalTagToList(
+			WetlandWhimsyTags.Biomes.BLOODCAP_SURFACE, 
+			WetlandWhimsyBiomes.MARSH,
+			Biomes.DARK_FOREST,
+			Biomes.MUSHROOM_FIELDS,
+			Biomes.SWAMP
 		);
 	}
 
