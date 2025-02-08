@@ -31,11 +31,6 @@ public class WetlandWhimsyTags {
 			Registries.ITEM, 
 			WetlandWhimsy.rLoc("incense")
 		);
-
-		public static final TagKey<Item> SCALABLE_DO_NOT_GROW = TagKey.create(
-			Registries.ITEM, 
-			WetlandWhimsy.rLoc("scalable_do_not_grow")
-		);
 	}
 
 	public static class Entities {

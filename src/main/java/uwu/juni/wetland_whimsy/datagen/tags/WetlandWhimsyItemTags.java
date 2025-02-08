@@ -42,19 +42,6 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			Items.FIRE_CHARGE
 		);
 
-		tag(WetlandWhimsyTags.Items.SCALABLE_DO_NOT_GROW).add(
-			WetlandWhimsyItems.RUSTED_ARTIFACT.get(),
-			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(),
-			WetlandWhimsyItems.DISC.get(),
-
-			WetlandWhimsyItems.BASIC_INCENSE.get(),
-
-			WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get(),
-			WetlandWhimsyItems.SEALED_POTTERY_SHERD.get(),
-			Items.SKULL_POTTERY_SHERD,
-			Items.BREWER_POTTERY_SHERD
-		);
-
 		tag(WetlandWhimsyTags.Items.INCENSE).add(
 			WetlandWhimsyItems.BOILING_INCENSE.get(),
 			WetlandWhimsyItems.BRINE_INCENSE.get(),

@@ -1,7 +1,6 @@
 package uwu.juni.wetland_whimsy.datapacks;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -19,7 +18,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.misc.Config;
-import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 	public static final Codec<ScalableReward> CODEC = RecordCodecBuilder.create(
@@ -30,10 +28,15 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 		.apply(instance, ScalableReward::new)	
 	);
 
-	public record Loot(Integer weight, Either<ResourceLocation, List<ResourceLocation>> items) {
+	public record Loot(
+		Integer weight, 
+		Integer maxStackSize,
+		Either<ResourceLocation, List<ResourceLocation>> items
+	) {
 		public static final Codec<ScalableReward.Loot> CODEC = RecordCodecBuilder.create(
 			instance -> instance.group(
 				Codec.INT.fieldOf("weight").forGetter(Loot::weight),
+				Codec.INT.optionalFieldOf("max_stack_size", 64).forGetter(Loot::maxStackSize),
 				Codec.either(
 					ResourceLocation.CODEC, 
 					ResourceLocation.CODEC.listOf()
@@ -42,12 +45,39 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 			.apply(instance, Loot::new)
 		);
 
-		public ResourceLocation getRLoc(RandomSource random) {
-			if (items().left().isPresent())
-				return items().left().get();
+		public ItemStack getItem(RandomSource random, int quality) {
+			ResourceLocation rLoc;
 
-			var list = items().right().get();
-			return list.get(random.nextInt(0, list.size()));
+			if (items().left().isPresent()) {
+				rLoc = items().left().get();
+			} else {
+				var list = items().right().get();
+				rLoc = list.get(random.nextInt(0, list.size()));
+			}
+
+			var item = BuiltInRegistries.ITEM.getOptional(rLoc);
+
+			if (item.isEmpty())
+				return new ItemStack(Items.RED_WOOL);
+
+			var stack = new ItemStack(item.get());
+			growStack(random, stack, quality);
+			return stack;
+		}
+
+		private void growStack(RandomSource random, @Nonnull ItemStack stack, int quality) {
+			var size = Integer.min(
+				maxStackSize, 
+				Integer.min(
+					stack.getMaxStackSize(), 
+					random.nextInt(1, quality)
+				)
+			);
+
+			stack.grow(size - 1);
+	
+			if (stack.isDamageableItem())
+				stack.setDamageValue(random.nextInt(1, stack.getMaxDamage() - 1));
 		}
 	}
 
@@ -96,8 +126,7 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 			int quality, 
 			int maxWeight
 		) {
-			ItemStack item = new ItemStack(Items.RED_WOOL);
-			var choices = new HashMap<ResourceLocation, Integer>();
+			var choices = new ArrayList<Loot>();
 
 			for (var i = 0; i < quality - 1; i++) {
 				var rand = random.nextInt(0, maxWeight);
@@ -107,7 +136,7 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 					cursor += choice.weight();
 
 					if (cursor >= rand) {
-						choices.put(choice.getRLoc(random), choice.weight());
+						choices.add(choice);
 						break;
 					}
 				}
@@ -118,29 +147,20 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 			WetlandWhimsy.LOGGER.debug(choices.toString());
 
 			var choiceWeight = Integer.MAX_VALUE;
-			for (var choice : choices.entrySet()) {
-				if (choice.getValue() <= choiceWeight) {
-					choiceWeight = choice.getValue();
+			Loot toReturn = null;
 
-					var i2 = BuiltInRegistries.ITEM.getOptional(choice.getKey());
-					if (i2.isEmpty())
-						WetlandWhimsy.LOGGER.error("item " + choice.getKey() + " not found!");
-					else
-						item = new ItemStack(i2.get());
-				}
+			for (var choice : choices) {
+				if (choice.weight() > choiceWeight)
+					continue;
+				
+				choiceWeight = choice.weight();
+				toReturn = choice;
 			}
 
-			growStack(random, item, quality);
-			return item;
-		}
-
-		private static void growStack(RandomSource random, @Nonnull ItemStack stack, int quality) {
-			if (stack.is(WetlandWhimsyTags.Items.SCALABLE_DO_NOT_GROW)) return;
-
-			stack.grow(Integer.min(stack.getMaxStackSize(), random.nextInt(1, quality)) - 1);
-	
-			if (stack.isDamageableItem())
-				stack.setDamageValue(random.nextInt(1, stack.getMaxDamage() - 1));
+			rewards.remove(toReturn);
+			return toReturn == null
+				? new ItemStack(Items.RED_WOOL)
+				: toReturn.getItem(random, quality);
 		}
 	}
 }

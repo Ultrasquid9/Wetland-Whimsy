@@ -76,7 +76,9 @@ public class WetlandWhimsyItems {
 	);
 	public static final DeferredItem<Item> RUSTED_ARTIFACT = ITEMS.registerSimpleItem(
 		"rusted_artifact",
-		new Item.Properties().rarity(Rarity.RARE)
+		new Item.Properties()
+			.stacksTo(1)
+			.rarity(Rarity.RARE)
 	);
 
 	public static final DeferredItem<Item> BLEMISH_SPAWN_EGG = ITEMS.register(

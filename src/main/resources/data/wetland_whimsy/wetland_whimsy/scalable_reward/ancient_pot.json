@@ -11,14 +11,37 @@
 		{ "weight": 6, "items": "minecraft:raw_iron" },
 
 		{ "weight": 5, "items": "wetland_whimsy:disc" },
-		{ "weight": 5, "items": "wetland_whimsy:dots_armor_trim_smithing_template" },
 		{ "weight": 5, "items": "wetland_whimsy:rusted_artifact" },
-		{ "weight": 5, "items": "wetland_whimsy:basic_incense" },
-
-		{ "weight": 4, "items": "wetland_whimsy:growth_pottery_sherd" },
-		{ "weight": 2, "items": "wetland_whimsy:sealed_pottery_sherd" },
-		{ "weight": 3, "items": "minecraft:skull_pottery_sherd" },
-		{ "weight": 3, "items": "minecraft:brewer_pottery_sherd" },
+		{ 
+			"weight": 5, 
+			"max_stack_size": 1,
+			"items": "wetland_whimsy:dots_armor_trim_smithing_template"
+		},
+		{ 
+			"weight": 5,
+			"max_stack_size": 1,
+			"items": "wetland_whimsy:basic_incense" 
+		},
+		{ 
+			"weight": 4, 
+			"max_stack_size": 1,
+			"items": "wetland_whimsy:growth_pottery_sherd" 
+		},
+		{ 
+			"weight": 2,
+			"max_stack_size": 1, 
+			"items": "wetland_whimsy:sealed_pottery_sherd" 
+		},
+		{ 
+			"weight": 3,
+			"max_stack_size": 1,
+			"items": "minecraft:skull_pottery_sherd"
+		},
+		{ 
+			"weight": 3, 
+			"max_stack_size": 1,
+			"items": "minecraft:brewer_pottery_sherd"
+		},
 
 		{ "weight": 1, "items": [
 			"minecraft:diamond_helmet",
