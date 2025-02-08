@@ -42,6 +42,7 @@ public class BlemishEntity extends Monster {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
+			.add(Attributes.KNOCKBACK_RESISTANCE, 0.45)
 			.add(Attributes.MOVEMENT_SPEED, 0.4)
 			.add(Attributes.ATTACK_DAMAGE, 8)
 			.add(Attributes.MAX_HEALTH, 33.0);

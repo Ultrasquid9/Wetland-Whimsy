@@ -60,8 +60,8 @@ public class SwampSpiderModel<T extends SwampSpiderEntity> extends HierarchicalM
 
 		PartDefinition model_base = partdefinition.addOrReplaceChild("model_base", CubeListBuilder.create().texOffs(56, 32).addBox(-3.0F, -5.0F, -9.0F, 6.0F, 6.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 19.0F, 5.0F));
 
-		PartDefinition head = model_base.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 64).addBox(-4.0F, -7.0F, -17.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.3F))
-		.texOffs(56, 50).addBox(-4.0F, -7.0F, -17.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition head = model_base.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 64).addBox(-4.0F, -7.0F, -9.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.3F))
+		.texOffs(56, 50).addBox(-4.0F, -7.0F, -9.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, -8.0F));
 
 		PartDefinition tail = model_base.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -14.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3491F, 0.0F, 0.0F));
 
