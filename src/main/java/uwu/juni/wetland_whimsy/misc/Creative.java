@@ -182,6 +182,11 @@ public class Creative {
 				WetlandWhimsyItems.WEBBED_INCENSE
 			);
 			insertItems(
+				Items.SNORT_POTTERY_SHERD, 
+				WetlandWhimsyItems.GROWTH_POTTERY_SHERD,
+				WetlandWhimsyItems.SEALED_POTTERY_SHERD
+			);
+			insertItems(
 				Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, 
 				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE
 			);

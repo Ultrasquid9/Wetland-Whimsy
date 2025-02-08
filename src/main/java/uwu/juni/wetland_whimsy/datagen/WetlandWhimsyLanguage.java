@@ -74,6 +74,8 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 
 		addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
 		addItem(WetlandWhimsyItems.DISC, "Music Disc");
+		addItem(WetlandWhimsyItems.GROWTH_POTTERY_SHERD, "Growth Pottery Sherd");
+		addItem(WetlandWhimsyItems.SEALED_POTTERY_SHERD, "Sealed Pottery Sherd");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
 		addItem(WetlandWhimsyItems.BLEMISH_ROD, "Blemish Rod");
 		addItem(WetlandWhimsyItems.SLUDGE_CHARGE, "Sludge Charge");

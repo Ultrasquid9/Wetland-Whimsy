@@ -65,12 +65,11 @@ public class WetlandWhimsyItems {
 			.jukeboxPlayable(WetlandWhimsyJukebox.NUKE_THE_SWAMPS)
 	);
 
-	public static final DeferredItem<Item> ANCIENT_COIN = ITEMS.registerSimpleItem(
-		"ancient_coin"
-	);
-	public static final DeferredItem<Item> BLEMISH_ROD = ITEMS.registerSimpleItem(
-		"blemish_rod"
-	);
+	public static final DeferredItem<Item> GROWTH_POTTERY_SHERD = item("growth_pottery_sherd");
+	public static final DeferredItem<Item> SEALED_POTTERY_SHERD = item("sealed_pottery_sherd");
+
+	public static final DeferredItem<Item> ANCIENT_COIN = item("ancient_coin");
+	public static final DeferredItem<Item> BLEMISH_ROD = item("blemish_rod");
 	public static final DeferredItem<SludgeChargeItem> SLUDGE_CHARGE = ITEMS.register(
 		"sludge_charge",
 		() -> new SludgeChargeItem(new Item.Properties())
@@ -110,19 +109,13 @@ public class WetlandWhimsyItems {
 		)
 	);
 
-	public static final DeferredItem<Item> BASIC_INCENSE = ITEMS.registerSimpleItem(
-		"basic_incense"
-	);
-	public static final DeferredItem<Item> BOILING_INCENSE = ITEMS.registerSimpleItem(
-		"boiling_incense"
-	);
-	public static final DeferredItem<Item> BRINE_INCENSE = ITEMS.registerSimpleItem(
-		"brine_incense"
-	);
-	public static final DeferredItem<Item> ROT_INCENSE = ITEMS.registerSimpleItem(
-		"rot_incense"
-	);
-	public static final DeferredItem<Item> WEBBED_INCENSE = ITEMS.registerSimpleItem(
-		"webbed_incense"
-	);
+	public static final DeferredItem<Item> BASIC_INCENSE = item("basic_incense");
+	public static final DeferredItem<Item> BOILING_INCENSE = item("boiling_incense");
+	public static final DeferredItem<Item> BRINE_INCENSE = item("brine_incense");
+	public static final DeferredItem<Item> ROT_INCENSE = item("rot_incense");
+	public static final DeferredItem<Item> WEBBED_INCENSE = item("webbed_incense");
+
+	public static DeferredItem<Item> item(String name) {
+		return ITEMS.registerSimpleItem(name);
+	}
 }

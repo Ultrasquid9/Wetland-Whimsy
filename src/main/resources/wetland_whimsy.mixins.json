@@ -5,6 +5,7 @@
 	"refmap": "wetland_whimsy.refmap.json",
 	"mixins": [
 		"IKilledItAndAmNotSorry",
+		"NewPotPatterns",
 		"NukeTheSwampHuts",
 		"WitchSetPersistance"
 	]

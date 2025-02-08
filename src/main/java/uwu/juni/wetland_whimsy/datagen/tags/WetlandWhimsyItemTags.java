@@ -47,7 +47,12 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get(),
 			WetlandWhimsyItems.DISC.get(),
 
-			WetlandWhimsyItems.BASIC_INCENSE.get()
+			WetlandWhimsyItems.BASIC_INCENSE.get(),
+
+			WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get(),
+			WetlandWhimsyItems.SEALED_POTTERY_SHERD.get(),
+			Items.SKULL_POTTERY_SHERD,
+			Items.BREWER_POTTERY_SHERD
 		);
 
 		tag(WetlandWhimsyTags.Items.INCENSE).add(
@@ -78,6 +83,16 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 
 		tag(ItemTags.SWORD_ENCHANTABLE).add(
 			WetlandWhimsyItems.DAGGER.get()
+		);
+
+		tag(ItemTags.DECORATED_POT_SHERDS).add(
+			WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get(),
+			WetlandWhimsyItems.SEALED_POTTERY_SHERD.get()
+		);
+
+		tag(ItemTags.DECORATED_POT_INGREDIENTS).add(
+			WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get(),
+			WetlandWhimsyItems.SEALED_POTTERY_SHERD.get()
 		);
 
 		if (Compat.SUPPLEMENTARIES)

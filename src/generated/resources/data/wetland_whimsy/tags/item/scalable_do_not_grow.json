@@ -3,6 +3,10 @@
     "wetland_whimsy:rusted_artifact",
     "wetland_whimsy:dots_armor_trim_smithing_template",
     "wetland_whimsy:disc",
-    "wetland_whimsy:basic_incense"
+    "wetland_whimsy:basic_incense",
+    "wetland_whimsy:growth_pottery_sherd",
+    "wetland_whimsy:sealed_pottery_sherd",
+    "minecraft:skull_pottery_sherd",
+    "minecraft:brewer_pottery_sherd"
   ]
 }

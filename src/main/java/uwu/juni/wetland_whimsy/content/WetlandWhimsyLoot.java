@@ -49,6 +49,8 @@ public class WetlandWhimsyLoot {
 				.add(lootEntry(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS, 1.F, 10.F))
 				.add(lootEntry(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS, 1.F, 10.F))
 
+				.add(lootEntry(WetlandWhimsyItems.GROWTH_POTTERY_SHERD))
+
 				.add(lootEntry(Items.RAW_GOLD, 1.F, 6.F))
 				.add(lootEntry(Items.RAW_IRON, 1.F, 6.F))
 				.add(lootEntry(Items.RAW_COPPER, 1.F, 6.F))
@@ -91,9 +93,9 @@ public class WetlandWhimsyLoot {
 				.add(lootEntry(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG, 4.F, 12.F))
 				.add(lootEntry(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD, 4.F, 12.F))
 
+				.add(lootEntry(WetlandWhimsyItems.GROWTH_POTTERY_SHERD))
+				.add(lootEntry(WetlandWhimsyItems.SEALED_POTTERY_SHERD))
 				.add(lootEntry(Items.SKULL_POTTERY_SHERD))
-				.add(lootEntry(Items.BREWER_POTTERY_SHERD))
-				.add(lootEntry(Items.ANGLER_POTTERY_SHERD))
 				.add(lootEntry(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE))
 
 				.add(lootEntry(Items.RAW_GOLD, 3.F, 10.F))
@@ -132,9 +134,10 @@ public class WetlandWhimsyLoot {
 
 				.add(lootEntry(Items.GOLDEN_CARROT, 6, 14))
 
+				.add(lootEntry(WetlandWhimsyItems.GROWTH_POTTERY_SHERD))
+				.add(lootEntry(WetlandWhimsyItems.SEALED_POTTERY_SHERD))
 				.add(lootEntry(Items.SKULL_POTTERY_SHERD))
 				.add(lootEntry(Items.BREWER_POTTERY_SHERD))
-				.add(lootEntry(Items.ANGLER_POTTERY_SHERD))
 				.add(lootEntry(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE))
 
 				.add(lootEntry(Items.GOLD_INGOT, 7, 14))

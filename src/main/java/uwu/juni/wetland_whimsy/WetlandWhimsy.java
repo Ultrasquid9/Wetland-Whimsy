@@ -17,6 +17,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.client.WetlandWhimsyClient;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyAdvancementTriggers;
@@ -25,6 +26,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyPotPatterns;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyPredicates;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.datagen.Datagen;
@@ -51,6 +53,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyEntityTypes.ENTITIES,
 		WetlandWhimsyItems.ITEMS,
 		WetlandWhimsyParticleTypes.PARTICLE_TYPES,
+		WetlandWhimsyPotPatterns.PATTERNS,
 		WetlandWhimsyPredicates.PREDICATES,
 		WetlandWhimsySounds.SOUNDS,
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS,
@@ -84,9 +87,15 @@ public class WetlandWhimsy {
 		bussin.addListener(Datagen::datagen);
 		bussin.addListener(Creative::new);
 
+		bussin.addListener(WetlandWhimsy::commonSetup);
+
 		bussin.addListener(WetlandWhimsyEntityTypes::registerAttributes);
 		bussin.addListener(WetlandWhimsyEntityTypes::registerSpawnPlacements);
 		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
+	}
+
+	private static void commonSetup(FMLCommonSetupEvent event) {
+		WetlandWhimsyPotPatterns.initPotPatterns();
 	}
 
 	private void marshification() {

@@ -21,15 +21,19 @@
         },
         {
           "type": "minecraft:item",
+          "name": "wetland_whimsy:growth_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "wetland_whimsy:sealed_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:skull_pottery_sherd"
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:brewer_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:angler_pottery_sherd"
         },
         {
           "type": "minecraft:item",
