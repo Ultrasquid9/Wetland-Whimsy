@@ -41,8 +41,6 @@ public abstract class WitchSetPersistance extends PatrollingMonster {
 				StructureTags.CATS_SPAWN_AS_BLACK
 			)
 			.isValid()
-		) {
-			this.setPersistenceRequired();
-		}
+		) this.setPersistenceRequired();
 	}
 }

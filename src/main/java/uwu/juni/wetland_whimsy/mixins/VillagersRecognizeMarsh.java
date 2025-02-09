@@ -13,7 +13,7 @@ import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
 @Mixin(VillagerType.class)
 public class VillagersRecognizeMarsh {
 	@WrapMethod(method = "byBiome")
-	private static VillagerType WetlandWhimsy_NewPotPatterns(
+	private static VillagerType WetlandWhimsy_VillagersRecognizeMarsh(
 		Holder<Biome> biome,
 		Operation<VillagerType> og
 	) {
