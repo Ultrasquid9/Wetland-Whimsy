@@ -14,7 +14,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyPotPatterns;
 @Mixin(DecoratedPotPatterns.class)
 public class NewPotPatterns {
 	@WrapMethod(method = "getPatternFromItem")
-    private static ResourceKey<DecoratedPotPattern> WetlandWhimsy_NewPotPatterns(
+	private static ResourceKey<DecoratedPotPattern> WetlandWhimsy_NewPotPatterns(
 		Item item,
 		Operation<ResourceKey<DecoratedPotPattern>> og
 	) {

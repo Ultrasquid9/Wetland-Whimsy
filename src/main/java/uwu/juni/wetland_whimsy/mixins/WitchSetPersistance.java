@@ -26,7 +26,7 @@ public abstract class WitchSetPersistance extends PatrollingMonster {
 		method = "finalizeSpawn",
 		at = @At("HEAD")
 	)
-    private void WetlandWhimsy_WitchSetPersistance(
+	private void WetlandWhimsy_WitchSetPersistance(
  		ServerLevelAccessor level, 
 		DifficultyInstance difficulty, 
 		MobSpawnType spawnType, 

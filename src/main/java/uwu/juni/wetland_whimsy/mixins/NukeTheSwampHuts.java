@@ -17,7 +17,7 @@ public class NukeTheSwampHuts {
 		method = "findGenerationPoint",
 		at = @At("RETURN")
 	)
-    private Optional<Structure.GenerationStub> WetlandWhimsy_YouWillNotFindAGenerationPoint(
+	private Optional<Structure.GenerationStub> WetlandWhimsy_YouWillNotFindAGenerationPoint(
 		Optional<Structure.GenerationStub> dontCare
 	) {
 		if (!Config.disableVanillaSwampHuts) return dontCare;

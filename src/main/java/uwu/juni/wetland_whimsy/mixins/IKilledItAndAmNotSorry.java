@@ -1,10 +1,9 @@
 package uwu.juni.wetland_whimsy.mixins;
 
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 
@@ -18,19 +17,24 @@ import uwu.juni.wetland_whimsy.misc.Config;
 
 @Mixin(LocateCommand.class)
 public class IKilledItAndAmNotSorry {
-	@Inject(
-		method = "locateStructure",
-		at= @At(value = "HEAD")
-	)
-	private static void WetlandWhimsy_IKilledItAndAmNotSorry(
+	private static final CommandSyntaxException ERR = new SimpleCommandExceptionType(
+		Component.translatable(WetlandWhimsy.MODID + ".swamp_hut_disabled")
+	).create();
+
+	@WrapMethod(method = "locateStructure")
+	private static int WetlandWhimsy_IKilledItAndAmNotSorry(
 		CommandSourceStack source, 
 		ResourceOrTagKeyArgument.Result<Structure> structure,
-		CallbackInfoReturnable<Integer> irrelevant
+		Operation<Integer> og
 	) throws CommandSyntaxException {
-		if (!Config.disableVanillaSwampHuts) return;
-
 		var opt = structure.unwrap().left();
-		if (opt.isPresent() && opt.get().location().toString().contains("swamp_hut"))
-			throw new SimpleCommandExceptionType(Component.translatable(WetlandWhimsy.MODID + ".swamp_hut_disabled")).create();
+
+		if (
+			Config.disableVanillaSwampHuts
+			&& opt.isPresent()
+			&& opt.get().location().toString().contains("minecraft:swamp_hut")
+		) throw ERR;
+
+		return og.call(source, structure);
 	}
 }
