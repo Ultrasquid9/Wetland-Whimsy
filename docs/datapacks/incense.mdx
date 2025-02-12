@@ -1,0 +1,49 @@
+---
+title: Incense
+---
+
+If you are a mod or modpack developer, you can add custom Incense using a datapack. Custom incense files go in the `data/my_mod/wetland_whimsy/incense` folder.
+
+Here is an example Incense file:
+
+```json
+{
+	"item": "my_mod:my_item",
+	"loot_table": "my_mod:incense/my_loot_table",
+	"color": [0.5, 0.5, 0.5],
+	"entities": [
+		"minecraft:creeper",
+		"my_mod:my_entity"
+	]
+}
+```
+
+The fields are as follows:
+
+### Item
+`item`
+
+This contains the resource location of any item. Some examples would be `minecraft:dirt`, `aether:zanite_pickaxe`, or `wetland_whimsy:ancient_coin`.
+
+<Callout variant="warning">
+	The item must be tagged with `wetland_whimsy:incense`, otherwise it will not be recognized
+</Callout>
+
+### Loot Table
+`loot_table`
+
+This contains the resource location of any loot table. It is recommended to place incense loot tables inside of an `incense` subfolder, but this is completely optional and the loot table may be placed in whatever subfolder you desire (or none at all).
+
+### Color
+`color`
+
+This contains an array of floats, representing RGB values. Each one goes from `0` to `1`.
+
+<Callout>
+	I have no clue what happens if you set it higher than 1.
+</Callout>
+
+### Entities
+`entities`
+
+This contains an array of resource locations for entities. It may include as few or as many as you wish. I personally recommend around 4.

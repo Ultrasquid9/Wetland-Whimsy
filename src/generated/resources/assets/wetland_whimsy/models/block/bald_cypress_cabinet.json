@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "wetland_whimsy:block/compat/farmersdelight/bald_cypress_cabinet_front",
-    "side": "wetland_whimsy:block/compat/farmersdelight/bald_cypress_cabinet_side",
-    "top": "wetland_whimsy:block/compat/farmersdelight/bald_cypress_cabinet_top"
-  }
-}

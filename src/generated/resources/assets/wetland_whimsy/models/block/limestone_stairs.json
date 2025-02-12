@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "wetland_whimsy:block/limestone",
-    "side": "wetland_whimsy:block/limestone",
-    "top": "wetland_whimsy:block/limestone"
-  }
-}

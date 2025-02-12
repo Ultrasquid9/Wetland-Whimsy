@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "wetland_whimsy:block/bald_cypress_planks",
-    "side": "wetland_whimsy:block/bald_cypress_planks",
-    "top": "wetland_whimsy:block/bald_cypress_planks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-	"parent": "supplementaries:block/plants/simple/bush_with_vines",
-	"ambientocclusion": false,
-	"textures": {
-		"flower": "wetland_whimsy:block/compat/supplementaries/aria_mushroom_box",
-		"vines": "wetland_whimsy:block/compat/supplementaries/aria_mushroom_box_vine"
-	}
-}

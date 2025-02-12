@@ -1,7 +1,0 @@
-{
-	"parent": "supplementaries:block/plants/simple/bush",
-	"ambientocclusion": false,
-	"textures": {
-		"flower": "wetland_whimsy:block/compat/cordgrass_box"
-	}
-}
