@@ -47,6 +47,7 @@ public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
 						.setRolls(UniformGenerator.between(1.F, 2.F))
 
 						.add(WetlandWhimsyLoot.lootEntry(Items.FERMENTED_SPIDER_EYE, 0, 1))
+						.add(WetlandWhimsyLoot.lootEntry(Items.STRING, 0, 2))
 				) 
 				.withPool(
 					LootPool.lootPool()
