@@ -10,11 +10,13 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.ItemLike;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.misc.Config;
@@ -31,7 +33,8 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 	public record Loot(
 		Integer weight, 
 		Integer maxStackSize,
-		Either<ResourceLocation, List<ResourceLocation>> items
+		Either<ResourceLocation, List<ResourceLocation>> items,
+		List<ResourceKey<Enchantment>> enchantments
 	) {
 		public static final Codec<ScalableReward.Loot> CODEC = RecordCodecBuilder.create(
 			instance -> instance.group(
@@ -40,19 +43,20 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 				Codec.either(
 					ResourceLocation.CODEC, 
 					ResourceLocation.CODEC.listOf()
-				).fieldOf("items").forGetter(Loot::items)
+				).fieldOf("items").forGetter(Loot::items),
+				Codec.list(ResourceKey.codec(Registries.ENCHANTMENT)).optionalFieldOf("enchantments", List.of()).forGetter(Loot::enchantments)
 			)
 			.apply(instance, Loot::new)
 		);
 
-		public ItemStack getItem(RandomSource random, int quality) {
+		public ItemStack getItem(ServerLevel level, int quality) {
 			ResourceLocation rLoc;
 
 			if (items().left().isPresent()) {
 				rLoc = items().left().get();
 			} else {
 				var list = items().right().get();
-				rLoc = list.get(random.nextInt(0, list.size()));
+				rLoc = list.get(level.getRandom().nextInt(0, list.size()));
 			}
 
 			var item = BuiltInRegistries.ITEM.getOptional(rLoc);
@@ -61,11 +65,12 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 				return new ItemStack(Items.RED_WOOL);
 
 			var stack = new ItemStack(item.get());
-			growStack(random, stack, quality);
+			growStack(level, stack, quality);
 			return stack;
 		}
 
-		private void growStack(RandomSource random, @Nonnull ItemStack stack, int quality) {
+		private void growStack(ServerLevel level, @Nonnull ItemStack stack, int quality) {
+			var random = level.getRandom();
 			var size = Integer.min(
 				maxStackSize, 
 				Integer.min(
@@ -78,6 +83,34 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 	
 			if (stack.isDamageableItem())
 				stack.setDamageValue(random.nextInt(1, stack.getMaxDamage() - 1));
+
+			if (!stack.isEnchantable() || random.nextBoolean())
+				return;
+
+			var getter = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+			outer: for (var e : enchantments) {
+				if (random.nextBoolean())
+					continue;
+
+				var enchantment = getter.getOrThrow(e);
+
+				// Ensuring enchantment is valid for this item
+				if (!stack.supportsEnchantment(enchantment))
+					continue;
+
+				for (var idk : stack.getAllEnchantments(getter).entrySet())
+					if (!Enchantment.areCompatible(idk.getKey(), enchantment))
+						continue outer;
+
+				var maxLevel = enchantment.value().getMaxLevel();
+				WetlandWhimsy.LOGGER.info("" + maxLevel);
+				stack.enchant(
+					enchantment, 
+					maxLevel == 1 // It complains if forced to choose a random number between 1 and 1
+						? maxLevel
+						: random.nextInt(1, maxLevel)
+				);
+			}
 		}
 	}
 
@@ -115,21 +148,21 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 
 			quality++;
 			for (var i = 0; i < Math.min(random.nextInt(random.nextInt(1, quality), quality), Config.ancientPotMaxDropCount); i++)
-				list.add(getStack(rewards, random, quality, maxWeight));
+				list.add(getStack(level, rewards, quality, maxWeight));
 
 			return list;
 		}
 
 		private static ItemStack getStack(
+			ServerLevel level,
 			List<Loot> rewards, 
-			RandomSource random, 
 			int quality, 
 			int maxWeight
 		) {
 			var choices = new ArrayList<Loot>();
 
 			for (var i = 0; i < quality - 1; i++) {
-				var rand = random.nextInt(0, maxWeight);
+				var rand = level.getRandom().nextInt(0, maxWeight);
 				var cursor = 0;
 
 				for (var choice : rewards) {
@@ -141,10 +174,6 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 					}
 				}
 			}
-
-			WetlandWhimsy.LOGGER.debug("maxWeight: " + maxWeight);
-			WetlandWhimsy.LOGGER.debug("quality: " + quality);
-			WetlandWhimsy.LOGGER.debug(choices.toString());
 
 			var choiceWeight = Integer.MAX_VALUE;
 			Loot toReturn = null;
@@ -160,7 +189,7 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 			rewards.remove(toReturn);
 			return toReturn == null
 				? new ItemStack(Items.RED_WOOL)
-				: toReturn.getItem(random, quality);
+				: toReturn.getItem(level, quality);
 		}
 	}
 }

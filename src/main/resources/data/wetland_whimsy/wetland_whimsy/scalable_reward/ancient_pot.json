@@ -43,39 +43,84 @@
 			"items": "minecraft:brewer_pottery_sherd"
 		},
 
-		{ "weight": 1, "items": [
-			"minecraft:diamond_helmet",
-			"minecraft:diamond_chestplate",
-			"minecraft:diamond_leggings",
-			"minecraft:diamond_boots",
-			"minecraft:diamond_pickaxe",
-			"minecraft:diamond_axe",
-			"minecraft:diamond_sword",
-			"minecraft:diamond_shovel",
-			"minecraft:diamond_hoe"	
-		]},
-		{ "weight": 2, "items": [
-			"minecraft:iron_helmet",
-			"minecraft:iron_chestplate",
-			"minecraft:iron_leggings",
-			"minecraft:iron_boots",
-			"minecraft:iron_pickaxe",
-			"minecraft:iron_axe",
-			"minecraft:iron_sword",
-			"minecraft:iron_shovel",
-			"minecraft:iron_hoe"	
-		]},
-		{ "weight": 3, "items": [
-			"minecraft:golden_helmet",
-			"minecraft:golden_chestplate",
-			"minecraft:golden_leggings",
-			"minecraft:golden_boots",
-			"minecraft:golden_pickaxe",
-			"minecraft:golden_axe",
-			"minecraft:golden_sword",
-			"minecraft:golden_shovel",
-			"minecraft:golden_hoe"	
-		]},
+		{
+			"weight": 1, 
+			"items": [
+				"minecraft:diamond_helmet",
+				"minecraft:diamond_chestplate",
+				"minecraft:diamond_leggings",
+				"minecraft:diamond_boots",
+				"minecraft:diamond_pickaxe",
+				"minecraft:diamond_axe",
+				"minecraft:diamond_sword",
+				"minecraft:diamond_shovel",
+				"minecraft:diamond_hoe"	
+			],
+			"enchantments": [
+				"minecraft:bane_of_arthropods",
+				"minecraft:smite",
+				"minecraft:blast_protection",
+				"minecraft:fire_protection",
+				"minecraft:thorns",
+				"minecraft:fortune",
+				"minecraft:looting",
+				"minecraft:efficiency",
+				"minecraft:unbreaking",
+				"minecraft:mending"
+			]
+		},
+		{ 
+			"weight": 2, 
+			"items": [
+				"minecraft:iron_helmet",
+				"minecraft:iron_chestplate",
+				"minecraft:iron_leggings",
+				"minecraft:iron_boots",
+				"minecraft:iron_pickaxe",
+				"minecraft:iron_axe",
+				"minecraft:iron_sword",
+				"minecraft:iron_shovel",
+				"minecraft:iron_hoe"	
+			],
+			"enchantments": [
+				"minecraft:bane_of_arthropods",
+				"minecraft:smite",
+				"minecraft:blast_protection",
+				"minecraft:fire_protection",
+				"minecraft:thorns",
+				"minecraft:fortune",
+				"minecraft:looting",
+				"minecraft:efficiency",
+				"minecraft:unbreaking",
+				"minecraft:mending"
+			]
+		},
+		{
+			"weight": 3,
+			"items": [
+				"minecraft:golden_helmet",
+				"minecraft:golden_chestplate",
+				"minecraft:golden_leggings",
+				"minecraft:golden_boots",
+				"minecraft:golden_pickaxe",
+				"minecraft:golden_axe",
+				"minecraft:golden_sword",
+				"minecraft:golden_shovel",
+				"minecraft:golden_hoe"	
+			],
+			"enchantments": [
+				"minecraft:bane_of_arthropods",
+				"minecraft:smite",
+				"minecraft:blast_protection",
+				"minecraft:fire_protection",
+				"minecraft:thorns",
+				"minecraft:fortune",
+				"minecraft:looting",
+				"minecraft:efficiency",
+				"minecraft:unbreaking",
+				"minecraft:mending"
+			]
+		},
 
 		{ "weight": 9, "items": "wetland_whimsy:bald_cypress_log" },
 		{ "weight": 9, "items": "wetland_whimsy:bald_cypress_sapling" },
