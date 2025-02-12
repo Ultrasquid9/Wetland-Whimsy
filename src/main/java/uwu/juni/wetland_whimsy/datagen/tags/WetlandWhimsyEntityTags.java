@@ -47,6 +47,10 @@ public class WetlandWhimsyEntityTags extends EntityTypeTagsProvider {
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get()
 		);
 
+		tag(EntityTypeTags.SENSITIVE_TO_BANE_OF_ARTHROPODS).add(
+			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get()
+		);
+
 		tag(EntityTypeTags.UNDEAD).add(
 			WetlandWhimsyEntityTypes.BLEMISH.get()
 		);
