@@ -85,8 +85,8 @@ public class WetlandWhimsyItems {
 		"blemish_spawn_egg",
 		() -> new DeferredSpawnEggItem(
 			WetlandWhimsyEntityTypes.BLEMISH, 
-			0x4c6559, 
-			0xbbc9b3, 
+			0x565E3D, 
+			0xBECB8F, 
 			new Item.Properties()
 		)
 	);
