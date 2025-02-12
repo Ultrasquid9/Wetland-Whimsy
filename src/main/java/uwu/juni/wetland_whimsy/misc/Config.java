@@ -36,12 +36,6 @@ public class Config extends MidnightConfig {
 
 	@Entry(
 		category = WORLDGEN,
-		name = "Change Swamp"
-	)
-	public static boolean changeSwamp = true;
-
-	@Entry(
-		category = WORLDGEN,
 		name = "Disable Vanilla Swamp Huts"
 	)
 	public static boolean disableVanillaSwampHuts = true;

@@ -1,5 +1,5 @@
 {
-	"type": "wetland_whimsy:configurable_removals",
+	"type": "neoforge:remove_features",
 	"biomes": "minecraft:swamp",
 	"features": "minecraft:trees_swamp"
 }

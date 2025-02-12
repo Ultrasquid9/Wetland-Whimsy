@@ -1,5 +1,5 @@
 {
-	"type": "wetland_whimsy:configurable_additions",
+	"type": "neoforge:add_features",
 	"biomes": "minecraft:swamp",
 	"features": [
 		"wetland_whimsy:trees_bog",

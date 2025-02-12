@@ -1,8 +1,9 @@
 package uwu.juni.wetland_whimsy.worldgen;
 
+import java.util.function.Supplier;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
@@ -12,7 +13,7 @@ public class WetlandWhimsyTreeDecorators {
 		Registries.TREE_DECORATOR_TYPE
 	);
 
-	public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<AriaMushroomTreeDecorator>> ARIA_MUSHROOMS = TREE_DECORATORS.register(
+	public static final Supplier<TreeDecoratorType<AriaMushroomTreeDecorator>> ARIA_MUSHROOMS = TREE_DECORATORS.register(
 		"aria_mushrooms", 
 		() -> new TreeDecoratorType<>(AriaMushroomTreeDecorator.CODEC)
 	);

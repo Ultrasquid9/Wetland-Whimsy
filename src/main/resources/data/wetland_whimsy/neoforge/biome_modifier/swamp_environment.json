@@ -1,0 +1,10 @@
+{
+	"type": "wetland_whimsy:environment_modifier",
+	"biomes": "minecraft:swamp",
+
+	"new_foliage_color_override": 6254389,
+	"new_grass_color_override": 5406272,
+	"new_water_color": 5006681,
+	"new_water_fog_color": 5006681,
+	"new_grass_color_modifier": "none"
+}
