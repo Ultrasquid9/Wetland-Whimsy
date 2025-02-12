@@ -69,5 +69,10 @@
 		"sounds": [
 			"wetland_whimsy:sludge_charge_hit"
 		]
+	},
+	"aria_mushroom_jump": {
+		"sounds": [
+			"wetland_whimsy:aria_mushroom_jump"
+		]
 	}
 }
