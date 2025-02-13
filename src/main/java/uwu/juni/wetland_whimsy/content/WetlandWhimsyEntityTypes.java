@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
@@ -112,6 +113,20 @@ public class WetlandWhimsyEntityTypes {
 			SpawnPlacementTypes.ON_GROUND,
 			Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 			Mob::checkMobSpawnRules,
+			RegisterSpawnPlacementsEvent.Operation.OR
+		);
+		event.register(
+			BLEMISH.get(), 
+			SpawnPlacementTypes.ON_GROUND,
+			Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+			Mob::checkMobSpawnRules,
+			RegisterSpawnPlacementsEvent.Operation.OR
+		);
+		event.register(
+			CRANE.get(), 
+			SpawnPlacementTypes.ON_GROUND,
+			Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+			Animal::checkAnimalSpawnRules,
 			RegisterSpawnPlacementsEvent.Operation.OR
 		);
 	}

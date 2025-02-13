@@ -1,6 +1,5 @@
 package uwu.juni.wetland_whimsy.datagen.registries;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
@@ -22,6 +21,8 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 
 public class WetlandWhimsyBiomes {
 	public static final ResourceKey<Biome> MARSH = createKey("marsh");
@@ -74,6 +75,7 @@ public class WetlandWhimsyBiomes {
 				mobs
 					.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8))
 					.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FROG, 10, 2, 5))
+					.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(WetlandWhimsyEntityTypes.CRANE.get(), 20, 2, 4))
 					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 30, 4, 4))
 					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4))
 					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 30, 3, 3))
