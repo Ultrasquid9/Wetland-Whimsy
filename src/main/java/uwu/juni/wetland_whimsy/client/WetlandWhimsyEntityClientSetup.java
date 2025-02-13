@@ -12,6 +12,8 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishModel;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishRenderer;
 import uwu.juni.wetland_whimsy.client.entities.boat.BaldCypressBoatRenderer;
+import uwu.juni.wetland_whimsy.client.entities.crane.CraneModel;
+import uwu.juni.wetland_whimsy.client.entities.crane.CraneRenderer;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyModel;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyRenderer;
 import uwu.juni.wetland_whimsy.client.entities.sludgecharge.SludgeChargeModel;
@@ -26,6 +28,10 @@ public class WetlandWhimsyEntityClientSetup {
 		event.registerLayerDefinition(
 			SillyModel.LAYER_LOCATION, 
 			SillyModel::createBodyLayer
+		);
+		event.registerLayerDefinition(
+			CraneModel.LAYER_LOCATION, 
+			CraneModel::createBodyLayer
 		);
 		event.registerLayerDefinition(
 			BlemishModel.LAYER_LOCATION, 
@@ -55,6 +61,10 @@ public class WetlandWhimsyEntityClientSetup {
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.SILLY_ENTITY.get(), 
 			SillyRenderer::new
+		);
+		EntityRenderers.register(
+			WetlandWhimsyEntityTypes.CRANE.get(), 
+			CraneRenderer::new
 		);
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.BLEMISH.get(), 

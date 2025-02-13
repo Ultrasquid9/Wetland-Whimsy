@@ -91,6 +91,9 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addEntityType(WetlandWhimsyEntityTypes.BLEMISH, "Blemish");
 		addItem(WetlandWhimsyItems.BLEMISH_SPAWN_EGG, "Blemish Spawn Egg");
 
+		addEntityType(WetlandWhimsyEntityTypes.CRANE, "Crane");
+		addItem(WetlandWhimsyItems.CRANE_SPAWN_EGG, "Crane Spawn Egg");
+
 		addEntityType(WetlandWhimsyEntityTypes.SWAMP_SPIDER, "Swamp Spider");
 		addItem(WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG, "Swamp Spider Spawn Egg");
 

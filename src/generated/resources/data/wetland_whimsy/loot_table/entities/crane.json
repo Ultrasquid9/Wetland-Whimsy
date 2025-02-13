@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:feather"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 0.0
+      }
+    }
+  ],
+  "random_sequence": "wetland_whimsy:entities/crane"
+}

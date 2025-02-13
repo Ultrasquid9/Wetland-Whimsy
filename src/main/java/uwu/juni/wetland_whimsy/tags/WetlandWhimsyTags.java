@@ -32,6 +32,11 @@ public class WetlandWhimsyTags {
 			Registries.ITEM, 
 			WetlandWhimsy.rLoc("incense")
 		);
+
+		public static final TagKey<Item> CRANE_FOOD = TagKey.create(
+			Registries.ITEM, 
+			WetlandWhimsy.rLoc("crane_food")
+		);
 	}
 
 	public static class Entities {

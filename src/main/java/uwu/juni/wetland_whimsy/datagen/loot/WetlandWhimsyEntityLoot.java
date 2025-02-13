@@ -40,6 +40,16 @@ public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
 		);
 
 		add(
+			WetlandWhimsyEntityTypes.CRANE.get(), 
+			LootTable.lootTable()
+				.withPool(
+					LootPool.lootPool()
+						.setRolls(UniformGenerator.between(0, 2))
+						.add(WetlandWhimsyLoot.lootEntry(Items.FEATHER))
+				)
+		);
+
+		add(
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
 			LootTable.lootTable()
 				.withPool(

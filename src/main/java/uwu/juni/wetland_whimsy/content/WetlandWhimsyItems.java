@@ -81,6 +81,15 @@ public class WetlandWhimsyItems {
 			.rarity(Rarity.RARE)
 	);
 
+	public static final DeferredItem<Item> CRANE_SPAWN_EGG = ITEMS.register(
+		"crane_spawn_egg",
+		() -> new DeferredSpawnEggItem(
+			WetlandWhimsyEntityTypes.CRANE, 
+			0xECEBE5, 
+			0xB72D18, 
+			new Item.Properties()
+		)
+	);
 	public static final DeferredItem<Item> BLEMISH_SPAWN_EGG = ITEMS.register(
 		"blemish_spawn_egg",
 		() -> new DeferredSpawnEggItem(

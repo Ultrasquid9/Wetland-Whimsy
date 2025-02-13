@@ -163,14 +163,9 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		)
 		.texture("layer0", "item/dagger");
 
-		withExistingParent(
-			WetlandWhimsyItems.BLEMISH_SPAWN_EGG.getId().getPath(), 
-			mcLoc("item/template_spawn_egg")
-		);
-		withExistingParent(
-			WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG.getId().getPath(), 
-			mcLoc("item/template_spawn_egg")
-		);
+		spawnEgg(WetlandWhimsyItems.BLEMISH_SPAWN_EGG);
+		spawnEgg(WetlandWhimsyItems.CRANE_SPAWN_EGG);
+		spawnEgg(WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG);
 	}
 
 	private void basicItemWithTexture(DeferredItem<?> item, ResourceLocation texture) {
@@ -179,5 +174,12 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 			mcLoc("item/generated")
 		)
 		.texture("layer0", texture);
+	}
+
+	private void spawnEgg(DeferredItem<?> item) {
+		withExistingParent(
+			item.getId().getPath(), 
+			mcLoc("item/template_spawn_egg")
+		);
 	}
 }
