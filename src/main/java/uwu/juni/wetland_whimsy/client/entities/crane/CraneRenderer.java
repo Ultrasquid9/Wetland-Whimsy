@@ -17,7 +17,7 @@ public class CraneRenderer extends MobRenderer<CraneEntity, CraneModel> {
 		super(
 			context, 
 			new CraneModel(context.bakeLayer(CraneModel.LAYER_LOCATION)), 
-			.45F
+			.4F
 		);
 	}
 	
@@ -36,7 +36,7 @@ public class CraneRenderer extends MobRenderer<CraneEntity, CraneModel> {
 		int packedLight
 	) {
 		if (entity.isBaby()) 
-			poseStack.scale(1.2F, 0.5F, 1.2F);
+			poseStack.scale(0.5F, 0.5F, 0.5F);
 
 		super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
 	}

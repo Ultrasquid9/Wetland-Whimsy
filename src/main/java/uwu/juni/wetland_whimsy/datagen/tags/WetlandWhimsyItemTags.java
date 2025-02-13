@@ -49,6 +49,10 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			WetlandWhimsyItems.WEBBED_INCENSE.get()
 		);
 
+		tag(WetlandWhimsyTags.Items.CRANE_FOOD).add(
+			WetlandWhimsyBlocks.CORDGRASS.asItem()
+		);
+
 		tag(ItemTags.PLANKS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.asItem()
 		);

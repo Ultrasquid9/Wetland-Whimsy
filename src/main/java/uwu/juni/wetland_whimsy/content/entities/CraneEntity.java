@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.content.entities;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import com.google.common.collect.ImmutableList;
+
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
@@ -34,19 +36,29 @@ public class CraneEntity extends Animal {
 
 	@Override
     protected void registerGoals() {
-        goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(1, new PanicGoal(this, 1.4));
-        goalSelector.addGoal(2, new BreedGoal(this, 1.0));
-        goalSelector.addGoal(3, new TemptGoal(this, 1.0, item -> isFood(item), false));
-        goalSelector.addGoal(4, new FollowParentGoal(this, 1.1));
-        goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0));
-        goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+		var goals = ImmutableList.of(
+			new FloatGoal(this),
+			new PanicGoal(this, 1.2),
+			new BreedGoal(this, 1.0),
+			new TemptGoal(this, 1.0, item -> isFood(item), false),
+			new FollowParentGoal(this, 1.1),
+			new RandomStrollGoal(this, 1.0),
+			new LookAtPlayerGoal(this, Player.class, 6.0F),
+			new RandomLookAroundGoal(this)
+		);
+	
+		var priority = 0;
+
+		for (var goal : goals) {
+			goalSelector.addGoal(priority, goal);
+			priority++;
+		}
     }
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Animal.createLivingAttributes()
-			.add(Attributes.MOVEMENT_SPEED, 0.3)
+			.add(Attributes.FALL_DAMAGE_MULTIPLIER, 0.25)
+			.add(Attributes.MOVEMENT_SPEED, 0.285)
 			.add(Attributes.MAX_HEALTH, 30.0)
 			.add(Attributes.FOLLOW_RANGE, 6);
 	}
