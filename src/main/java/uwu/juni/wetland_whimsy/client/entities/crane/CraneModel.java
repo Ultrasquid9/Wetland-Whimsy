@@ -99,16 +99,17 @@ public class CraneModel extends HierarchicalModel<CraneEntity> {
 		crane.getAllParts().forEach(ModelPart::resetPose);
 		applyHeadRotation(netHeadYaw, headPitch);
 
-		animateWalk(CraneAnimations.CRANE_WALK, limbSwing, limbSwingAmount, 1f, 1f);
-		animate(entity.idleAnimationState, CraneAnimations.CRANE_IDLE, ageInTicks, 1f);
+		animateWalk(CraneAnimations.WALK, limbSwing, limbSwingAmount, 1f, 1f);
+		animate(entity.idleAnimationState, CraneAnimations.IDLE, ageInTicks, 1f);
+		animate(entity.flyAnimationState, CraneAnimations.FLY, ageInTicks, 1f);
 	}
 
 	private void applyHeadRotation(float headYaw, float headPitch) {
-		headYaw = Mth.clamp(headYaw, -30f, 30f);
-		headPitch = Mth.clamp(headPitch, -25f, 45);
+		headYaw = Mth.clamp(headYaw, -30, 30);
+		headPitch = Mth.clamp(headPitch, -25, 45);
 
-		this.head.yRot = headYaw * ((float)Math.PI / 180f);
-		this.head.xRot = headPitch * ((float)Math.PI / 180f);
+		head.yRot = headYaw * ((float)Math.PI / 180);
+		head.xRot = headPitch * ((float)Math.PI / 180);
 	}
 
 	@Override

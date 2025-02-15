@@ -31,6 +31,9 @@ public class CraneEntity extends Animal {
 	public final AnimationState idleAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
+	public final AnimationState flyAnimationState = new AnimationState();
+	private int flyAnimationTimeout = 0;
+
 	public CraneEntity(EntityType<? extends CraneEntity> entityType, Level level) {
 		super(entityType, level);
 	}
@@ -66,10 +69,23 @@ public class CraneEntity extends Animal {
 	}
 
 	private void setupAnimationStates() {
-		if (this.idleAnimationTimeout <= 0) {
-			this.idleAnimationTimeout = 30;
-			this.idleAnimationState.start(tickCount);
-		} else idleAnimationTimeout--;
+		if (!onGround() && !isInWater()) {
+			idleAnimationState.stop();
+			flyAnimationState.startIfStopped(tickCount);
+
+			if (flyAnimationTimeout <= 0) {
+				flyAnimationTimeout = 15;
+				flyAnimationState.start(tickCount);
+			} else flyAnimationTimeout--;
+		} else {
+			flyAnimationState.stop();
+			idleAnimationState.startIfStopped(tickCount);
+
+			if (idleAnimationTimeout <= 0) {
+				idleAnimationTimeout = 30;
+				idleAnimationState.start(tickCount);
+			} else idleAnimationTimeout--;
+		}
 	}
 
 	@Override
