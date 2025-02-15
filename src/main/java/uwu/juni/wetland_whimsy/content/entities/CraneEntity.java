@@ -23,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
+import uwu.juni.wetland_whimsy.content.entities.goals.CraneFlyGoal;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 @ParametersAreNonnullByDefault
@@ -43,6 +44,7 @@ public class CraneEntity extends Animal {
 			new TemptGoal(this, 1.0, item -> isFood(item), false),
 			new FollowParentGoal(this, 1.1),
 			new RandomStrollGoal(this, 1.0),
+			new CraneFlyGoal(this),
 			new LookAtPlayerGoal(this, Player.class, 6.0F),
 			new RandomLookAroundGoal(this)
 		);
