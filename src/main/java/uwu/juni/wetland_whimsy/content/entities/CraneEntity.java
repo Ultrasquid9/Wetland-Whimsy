@@ -5,6 +5,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -94,6 +95,15 @@ public class CraneEntity extends Animal {
 
 		if (this.level().isClientSide) 
 			setupAnimationStates();
+	}
+
+	@Override
+	public void aiStep() {
+		super.aiStep();
+
+		var vec3 = this.getDeltaMovement();
+		if (!onGround() && vec3.y < 0.0 && !hasEffect(MobEffects.SLOW_FALLING))
+			setDeltaMovement(vec3.multiply(1.0, 0.8, 1.0));
 	}
 
 	@Override

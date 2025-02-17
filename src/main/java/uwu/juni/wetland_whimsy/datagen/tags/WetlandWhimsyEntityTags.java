@@ -54,5 +54,9 @@ public class WetlandWhimsyEntityTags extends EntityTypeTagsProvider {
 		tag(EntityTypeTags.UNDEAD).add(
 			WetlandWhimsyEntityTypes.BLEMISH.get()
 		);
+
+		tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(
+			WetlandWhimsyEntityTypes.CRANE.get()
+		);
 	}
 }
