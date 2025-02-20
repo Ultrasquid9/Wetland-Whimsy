@@ -67,9 +67,6 @@
     [],
     [],
     [
-      "wetland_whimsy:trees_marsh",
-      "wetland_whimsy:super_thick_cordgrass_patch",
-      "wetland_whimsy:mud_disk",
       "minecraft:patch_large_fern",
       "minecraft:patch_grass_badlands",
       "minecraft:flower_swamp",
@@ -78,7 +75,10 @@
       "minecraft:patch_pumpkin",
       "minecraft:seagrass_swamp",
       "wetland_whimsy:limestone_disk_marsh",
-      "wetland_whimsy:mud_pool_marsh"
+      "wetland_whimsy:mud_pool_marsh",
+      "wetland_whimsy:trees_marsh",
+      "wetland_whimsy:super_thick_cordgrass_patch",
+      "wetland_whimsy:mud_disk"
     ]
   ],
   "has_precipitation": true,
@@ -140,7 +140,7 @@
         "type": "wetland_whimsy:crane",
         "maxCount": 4,
         "minCount": 2,
-        "weight": 20
+        "weight": 30
       }
     ],
     "misc": [],

@@ -10,7 +10,6 @@ import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -58,7 +57,6 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void bootstap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -76,7 +74,7 @@ public class WetlandWhimsyConfiguredFeatures {
 
 		context.register(
 			BALD_CYPRESS_TREE, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.TREE, 
 				new TreeConfiguration.TreeConfigurationBuilder(
 					BlockStateProvider.simple(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get()), 
@@ -97,7 +95,7 @@ public class WetlandWhimsyConfiguredFeatures {
 
 		context.register(
 			HUGE_ARIA_MUSHROOM, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.TREE, 
 				new TreeConfiguration.TreeConfigurationBuilder(
 
@@ -124,7 +122,7 @@ public class WetlandWhimsyConfiguredFeatures {
 
 		context.register(
 			BLOODCAP_PATCH,
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.RANDOM_PATCH, 
 				new RandomPatchConfiguration(
 					8, 
@@ -139,7 +137,7 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 		context.register(
 			CORDGRASS_PATCH, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.FLOWER, 
 				new RandomPatchConfiguration(
 					64, 
@@ -154,7 +152,7 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 		context.register(
 			PENNYWORT_PATCH, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.FLOWER, 
 				new RandomPatchConfiguration(
 					64, 
@@ -169,7 +167,7 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 		context.register(
 			PENNYWORT_PATCH_SMALL,
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.FLOWER, 
 				new RandomPatchConfiguration(
 					4, 
@@ -185,7 +183,7 @@ public class WetlandWhimsyConfiguredFeatures {
 
 		context.register(
 			LIMESTONE_DISK, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.DISK, 
 				new DiskConfiguration(
 					RuleBasedBlockStateProvider.simple(WetlandWhimsyBlocks.LIMESTONE.get()), 
@@ -204,7 +202,7 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 		context.register(
 			MUD_DISK, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.DISK, 
 				new DiskConfiguration(
 					RuleBasedBlockStateProvider.simple(Blocks.MUD), 
@@ -216,7 +214,7 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 		context.register(
 			MUD_POOL, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.WATERLOGGED_VEGETATION_PATCH, 
 				new VegetationPatchConfiguration(
 					BlockTags.LUSH_GROUND_REPLACEABLE, 
@@ -233,14 +231,14 @@ public class WetlandWhimsyConfiguredFeatures {
 			)
 		);
 
-		final Holder<ConfiguredFeature<?, ?>> HUGE_RED_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM);
-		final Holder<ConfiguredFeature<?, ?>> HUGE_BROWN_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM);
-		final Holder<ConfiguredFeature<?, ?>> BIRCH = configuredFeatures.getOrThrow(TreeFeatures.BIRCH);
-		final Holder<ConfiguredFeature<?, ?>> SPRUCE = configuredFeatures.getOrThrow(TreeFeatures.SPRUCE);
+		final var HUGE_RED_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM);
+		final var HUGE_BROWN_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM);
+		final var BIRCH = configuredFeatures.getOrThrow(TreeFeatures.BIRCH);
+		final var SPRUCE = configuredFeatures.getOrThrow(TreeFeatures.SPRUCE);
 
 		context.register(
 			TREES_BOG, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.RANDOM_SELECTOR, 
 				new RandomFeatureConfiguration(
 					List.of(
@@ -283,7 +281,7 @@ public class WetlandWhimsyConfiguredFeatures {
 
 		context.register(
 			TREES_MARSH, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.RANDOM_SELECTOR, 
 				new RandomFeatureConfiguration(
 					List.of(

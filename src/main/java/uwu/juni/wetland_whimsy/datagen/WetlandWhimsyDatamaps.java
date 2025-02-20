@@ -22,7 +22,7 @@ public class WetlandWhimsyDatamaps extends DataMapProvider {
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void gather() {
-		this.builder(NeoForgeDataMaps.COMPOSTABLES)
+		builder(NeoForgeDataMaps.COMPOSTABLES)
 			.add(WetlandWhimsyBlocks.PENNYWORT.asItem().builtInRegistryHolder(), new Compostable(.15F), false)
 			.add(WetlandWhimsyBlocks.CORDGRASS.asItem().builtInRegistryHolder(), new Compostable(.4F), false)
 			.add(WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.asItem().builtInRegistryHolder(), new Compostable(.3F), false)
@@ -33,7 +33,7 @@ public class WetlandWhimsyDatamaps extends DataMapProvider {
 			.add(WetlandWhimsyBlocks.CORDGRASS_THATCH.asItem().builtInRegistryHolder(), new Compostable(.9F), false)
 			.build();
 
-		this.builder(NeoForgeDataMaps.FURNACE_FUELS)
+		builder(NeoForgeDataMaps.FURNACE_FUELS)
 			.add(WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS, new FurnaceFuel(300), false)
 			.add(ResourceKey.create(Registries.ITEM, WetlandWhimsy.rLoc("cordgrass_thatch")), new FurnaceFuel(420), false)
 			.build();

@@ -41,10 +41,10 @@ public class BaldCypressBoatEntity extends Boat {
 		double z
 	) {
 		this(WetlandWhimsyEntityTypes.BALD_CYPRESS_BOAT.get(), level);
-		this.setPos(x, y, z);
-		this.xo = x;
-		this.yo = y;
-		this.zo = z;
+		setPos(x, y, z);
+		xo = x;
+		yo = y;
+		zo = z;
 	}
 
 	@Override
@@ -83,35 +83,34 @@ public class BaldCypressBoatEntity extends Boat {
 	public static enum Type implements StringRepresentable {
 		BALD_CYPRESS(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(), "bald_cypress");
 
-		@SuppressWarnings("deprecation")
-		public static final StringRepresentable.EnumCodec<BaldCypressBoatEntity.Type> CODEC = StringRepresentable.fromEnum(
+		public static final StringRepresentable.StringRepresentableCodec<BaldCypressBoatEntity.Type> CODEC = StringRepresentable.fromEnum(
 			BaldCypressBoatEntity.Type::values
 		);
-		private static final IntFunction<BaldCypressBoatEntity.Type> BY_ID = ByIdMap.continuous(
+		static final IntFunction<BaldCypressBoatEntity.Type> BY_ID = ByIdMap.continuous(
 			Enum::ordinal, 
 			values(), 
 			ByIdMap.OutOfBoundsStrategy.ZERO
 		);
 
-		private final String name;
-		private final Block planks;
+		final String name;
+		final Block planks;
 
-		private Type(Block planks, String name) {
+		Type(Block planks, String name) {
 			this.name = name;
 			this.planks = planks;
 		}
 
 		@Override
 		public String getSerializedName() {
-			return this.name;
+			return name;
 		}
 
 		public String getName() {
-			return this.name;
+			return name;
 		}
 
 		public Block getPlanks() {
-			return this.planks;
+			return planks;
 		}
 
 		public Item getSticks() {
@@ -120,15 +119,18 @@ public class BaldCypressBoatEntity extends Boat {
 
 		@Override
 		public String toString() {
-			return this.name;
+			return name;
 		}
 
-		@SuppressWarnings("deprecation")
-		public static BaldCypressBoatEntity.Type byName(String str) {
-			return CODEC.byName(str);
+		public static Type byName(String str) {
+			for (var val : values())
+				if (val.name() == str)
+					return val;
+
+			return null;
 		}
 
-		public static BaldCypressBoatEntity.Type byId(int id) {
+		public static Type byId(int id) {
 			return BY_ID.apply(id);
 		}
 	}

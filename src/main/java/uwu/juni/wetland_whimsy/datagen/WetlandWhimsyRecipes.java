@@ -3,6 +3,8 @@ package uwu.juni.wetland_whimsy.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -19,7 +21,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class WetlandWhimsyRecipes extends RecipeProvider {
 	private RecipeOutput recipeOutput;
 

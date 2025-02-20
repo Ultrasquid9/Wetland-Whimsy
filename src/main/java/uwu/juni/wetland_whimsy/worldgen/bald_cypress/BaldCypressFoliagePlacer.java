@@ -1,5 +1,7 @@
 package uwu.juni.wetland_whimsy.worldgen.bald_cypress;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -12,11 +14,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class BaldCypressFoliagePlacer extends FoliagePlacer {
-
     public static final MapCodec<BaldCypressFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
-		(parts) -> foliagePlacerParts(parts).apply(parts, BaldCypressFoliagePlacer::new)
+		parts -> foliagePlacerParts(parts).apply(parts, BaldCypressFoliagePlacer::new)
 	);
 
 	public BaldCypressFoliagePlacer(IntProvider radius, IntProvider offset) {
@@ -45,7 +46,7 @@ public class BaldCypressFoliagePlacer extends FoliagePlacer {
 		var leafHeight = foliageHeight - random.nextInt(2, 4);
 
 		for (int i = 0; i < foliageHeight; i++) {
-			this.placeLeavesRow(level, blockSetter, random, config, pos, offset, i - leafHeight, false);
+			placeLeavesRow(level, blockSetter, random, config, pos, offset, i - leafHeight, false);
 		}
 	}
 

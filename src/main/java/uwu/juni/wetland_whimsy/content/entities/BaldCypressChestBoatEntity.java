@@ -34,25 +34,25 @@ public class BaldCypressChestBoatEntity extends ChestBoat {
 		double z
 	) {
 		this(WetlandWhimsyEntityTypes.BALD_CYPRESS_CHEST_BOAT.get(), level);
-		this.setPos(x, y, z);
-		this.xo = x;
-		this.yo = y;
-		this.zo = z;
+		setPos(x, y, z);
+		xo = x;
+		yo = y;
+		zo = z;
 	}
 
 	@Override
 	public Item getDropItem() {
 		return switch (getVariant2()) {
-			case BaldCypressBoatEntity.Type.BALD_CYPRESS -> WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT.get();
+			case BALD_CYPRESS -> WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT.get();
 		};
 	}
 
 	public void setVariant(BaldCypressBoatEntity.Type variant) {
-		this.entityData.set(DATA_ID_TYPE, variant.ordinal());
+		entityData.set(DATA_ID_TYPE, variant.ordinal());
 	}
 
 	public BaldCypressBoatEntity.Type getVariant2() {
-		return BaldCypressBoatEntity.Type.byId((this.entityData.get(DATA_ID_TYPE)));
+		return BaldCypressBoatEntity.Type.byId((entityData.get(DATA_ID_TYPE)));
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.joml.Vector3f;
 
@@ -37,15 +37,16 @@ import uwu.juni.wetland_whimsy.datapacks.Datapacks;
 import uwu.juni.wetland_whimsy.datapacks.Incense;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
+@ParametersAreNonnullByDefault
 public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
-	private AncientBrazierSpawner spawner = new AncientBrazierSpawner() {
+	AncientBrazierSpawner spawner = new AncientBrazierSpawner() {
 		public Either<BlockEntity,Entity> getOwner() {
 			return Either.left(AncientBrazierBlockEntity.this);
 		};
 	};
 
-	private Optional<Item> currentIncense;
-	private List<Item> usedIncenses;
+	Optional<Item> currentIncense;
+	List<Item> usedIncenses;
 
 	public AncientBrazierBlockEntity(BlockPos pos, BlockState state) {
 		super(WetlandWhimsyBlockEntities.ANCIENT_BRAZIER.get(), pos, state);
@@ -55,9 +56,9 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 	}
 
 	@Override
-	protected void loadAdditional(@Nonnull CompoundTag tag, @Nonnull Provider registries) {
+	protected void loadAdditional(CompoundTag tag, Provider registries) {
 		super.loadAdditional(tag, registries);
-		this.spawner.load(this.level, this.worldPosition, tag);
+		spawner.load(level, worldPosition, tag);
 
 		Function<String, Item> strToItem = str -> BuiltInRegistries.ITEM.get(ResourceLocation.parse(str));
 
@@ -74,9 +75,9 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 	}
 
 	@Override
-	protected void saveAdditional(@Nonnull CompoundTag tag, @Nonnull Provider registries) {
+	protected void saveAdditional(CompoundTag tag, Provider registries) {
 		super.saveAdditional(tag, registries);
-		this.spawner.save(tag);
+		spawner.save(tag);
 
 		var list = new ListTag();
 		for (var item : usedIncenses) 
@@ -90,17 +91,18 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 	}
 
 	@Override
-	public void setEntityId(@Nonnull EntityType<?> type, @Nonnull RandomSource random) {
-		this.spawner.setEntityId(type, this.level, random, this.worldPosition);
-		this.setChanged();
+	public void setEntityId(EntityType<?> type, RandomSource random) {
+		spawner.setEntityId(type, level, random, worldPosition);
+		setChanged();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public boolean triggerEvent(int id, int type) {
-		return this.spawner.onEventTriggered(this.level, id) 
-			? true 
-			: super.triggerEvent(id, type);
+		return level == null 
+			? false
+			: spawner.onEventTriggered(level, id) 
+				? true 
+				: super.triggerEvent(id, type);
 	}
 
 	public static void clientTick(Level level, BlockPos pos, BlockState state, AncientBrazierBlockEntity blockEntity) {

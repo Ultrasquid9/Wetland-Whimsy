@@ -43,13 +43,10 @@ import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 @ParametersAreNonnullByDefault
 public class CraneEntity extends Animal {
 	public boolean befriended = false;
-	private static final String befriendedId = "befriended";
+	static final String befriendedId = "befriended";
 
 	public final AnimationState idleAnimationState = new AnimationState();
-	private int idleAnimationTimeout = 0;
-
 	public final AnimationState flyAnimationState = new AnimationState();
-	private int flyAnimationTimeout = 0;
 
 	public CraneEntity(EntityType<? extends CraneEntity> entityType, Level level) {
 		super(entityType, level);
@@ -82,7 +79,7 @@ public class CraneEntity extends Animal {
 			new NearestAttackableTargetGoal<>(
 				this, 
 				Monster.class, 
-				blocksBuilding, 
+				true, 
 				e -> befriended
 			)
 		);
@@ -110,23 +107,13 @@ public class CraneEntity extends Animal {
 			befriended = compound.getBoolean(befriendedId);
 	}
 
-	private void setupAnimationStates() {
+	void setupAnimationStates() {
 		if (!onGround() && !isInWater()) {
 			idleAnimationState.stop();
 			flyAnimationState.startIfStopped(tickCount);
-
-			if (flyAnimationTimeout <= 0) {
-				flyAnimationTimeout = 15;
-				flyAnimationState.start(tickCount);
-			} else flyAnimationTimeout--;
 		} else {
 			flyAnimationState.stop();
 			idleAnimationState.startIfStopped(tickCount);
-
-			if (idleAnimationTimeout <= 0) {
-				idleAnimationTimeout = 30;
-				idleAnimationState.start(tickCount);
-			} else idleAnimationTimeout--;
 		}
 	}
 
@@ -134,7 +121,7 @@ public class CraneEntity extends Animal {
 	public void tick() {
 		super.tick();
 
-		if (this.level().isClientSide) 
+		if (level().isClientSide) 
 			setupAnimationStates();
 	}
 
@@ -142,7 +129,7 @@ public class CraneEntity extends Animal {
 	public void aiStep() {
 		super.aiStep();
 
-		var vec3 = this.getDeltaMovement();
+		var vec3 = getDeltaMovement();
 		if (!onGround() && vec3.y < 0.0 && !hasEffect(MobEffects.SLOW_FALLING))
 			setDeltaMovement(vec3.multiply(1.0, 0.8, 1.0));
 	}
@@ -173,30 +160,35 @@ public class CraneEntity extends Animal {
 		return fn.apply(player, hand);
 	}
 
-	private InteractionResult heal(Player player, InteractionHand hand) {
-		var item = player.getItemInHand(hand);
-		var props = item.getFoodProperties(this); // Parameter does not seem to be used
+	InteractionResult heal(Player player, InteractionHand hand) {
+		var props = player
+			.getItemInHand(hand)
+			.getFoodProperties(this); // Parameter does not seem to be used
 		
 		heal(props == null ? 4 : props.nutrition() * 2);
-		usePlayerItem(player, hand, item);
-		gameEvent(GameEvent.EAT);
+		feed(player, hand);
 
 		return InteractionResult.SUCCESS;
 	}
 
-	private InteractionResult befriend(Player player, InteractionHand hand) {
+	InteractionResult befriend(Player player, InteractionHand hand) {
 		befriended = true;
-		usePlayerItem(player, hand, player.getItemInHand(hand));
+		feed(player, hand);
 		sendParticles(ParticleTypes.HAPPY_VILLAGER, 10);
 
 		return InteractionResult.SUCCESS;
+	}
+
+	void feed(Player player, InteractionHand hand) {
+		usePlayerItem(player, hand, player.getItemInHand(hand));
+		gameEvent(GameEvent.EAT);
 	}
 
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
 		if (source.getEntity() instanceof Player) {
 			if (befriended)
-				sendParticles(ParticleTypes.ANGRY_VILLAGER, 4);
+				sendParticles(ParticleTypes.ANGRY_VILLAGER, 3);
 
 			befriended = false;
 		}
@@ -204,21 +196,22 @@ public class CraneEntity extends Animal {
 		return super.hurt(source, amount);
 	}
 
-	private <T extends ParticleOptions> void sendParticles(T type, int amount) {
-		if (level() instanceof ServerLevel sLevel) {
-			var pos = position();
+	<T extends ParticleOptions> void sendParticles(T type, int amount) {
+		if (!(level() instanceof ServerLevel sLevel))
+			return;
 
-			sLevel.sendParticles(
-				type, 
-				pos.x, 
-				pos.y, 
-				pos.z, 
-				amount, 
-				0.5, 
-				1, 
-				0, 
-				0
-			);
-		}
+		var pos = position();
+
+		sLevel.sendParticles(
+			type, 
+			pos.x, 
+			pos.y, 
+			pos.z, 
+			amount, 
+			0.5, 
+			1, 
+			0, 
+			0
+		);
 	}
 }

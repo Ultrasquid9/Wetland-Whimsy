@@ -24,11 +24,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.LootParams;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
@@ -40,10 +38,9 @@ public class SwampSpiderEntity extends Spider {
 		SwampSpiderEntity.class, 
 		EntityDataSerializers.BOOLEAN
 	);
-	public static final String SHEARED_TAG_NAME = "sheared";
+	static final String SHEARED_ID = "sheared";
 
 	public final AnimationState idleAnimationState = new AnimationState();
-	private int idleAnimationTimeout = 0;
 
 	public SwampSpiderEntity(EntityType<? extends SwampSpiderEntity> entityType, Level level) {
 		super(entityType, level);
@@ -58,13 +55,15 @@ public class SwampSpiderEntity extends Spider {
 	@Override
 	public void addAdditionalSaveData(@Nonnull CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
-		compound.putBoolean("sheared", this.isSheared());
+
+		compound.putBoolean(SHEARED_ID, isSheared());
 	}
 
 	@Override
 	public void readAdditionalSaveData(@Nonnull CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
-		this.setSheared(compound.getBoolean("sheared"));
+
+		setSheared(compound.getBoolean(SHEARED_ID));
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -74,18 +73,15 @@ public class SwampSpiderEntity extends Spider {
 			.add(Attributes.MAX_HEALTH, 20.0);
 	}
 
-	private void setupAnimationStates() {
-		if (this.idleAnimationTimeout <= 0) {
-			this.idleAnimationTimeout = 20;
-			this.idleAnimationState.start(tickCount);
-		} else idleAnimationTimeout--;
+	void setupAnimationStates() {
+		idleAnimationState.startIfStopped(tickCount);
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
 
-		if (this.level().isClientSide) 
+		if (level().isClientSide) 
 			setupAnimationStates();
 	}
 
@@ -96,7 +92,7 @@ public class SwampSpiderEntity extends Spider {
 			return false;
 
 		if (entity instanceof LivingEntity lEntity) {
-			int i = switch(this.level().getDifficulty()) {
+			var i = switch(level().getDifficulty()) {
 				case Difficulty.NORMAL -> 3;
 				case Difficulty.HARD -> 5;
 
@@ -116,8 +112,9 @@ public class SwampSpiderEntity extends Spider {
 		@Nonnull EntityDimensions dimensions, 
 		float partialTick
 	) {
-		var vec = super.getPassengerAttachmentPoint(entity, dimensions, partialTick);
-		return new Vec3(vec.x, vec.y / 2, vec.z);
+		return super
+			.getPassengerAttachmentPoint(entity, dimensions, partialTick)
+			.multiply(1, .5, 1);
 	}
 
 	@Override
@@ -145,24 +142,25 @@ public class SwampSpiderEntity extends Spider {
 		return entityData.get(DATA_SHEARED);
 	}
 
-	private void setSheared(boolean sheared) {
+	public void setSheared(boolean sheared) {
 		entityData.set(DATA_SHEARED, sheared);
 	}
 
-	private void spawnShearedMushrooms() {
-		if (this.level() instanceof ServerLevel serverlevel) {
-			LootTable loottable = serverlevel.getServer()
-				.reloadableRegistries()
-				.getLootTable(WetlandWhimsyMiscLoot.SWAMP_SPIDER_SHEAR);
+	void spawnShearedMushrooms() {
+		if (!(level() instanceof ServerLevel sLevel))
+			return;
 
-			LootParams lootparams = new LootParams.Builder(serverlevel)
-				.withParameter(LootContextParams.ORIGIN, position())
-				.withParameter(LootContextParams.THIS_ENTITY, this)
-				.create(LootContextParamSets.SHEARING);
+		var table = sLevel.getServer()
+			.reloadableRegistries()
+			.getLootTable(WetlandWhimsyMiscLoot.SWAMP_SPIDER_SHEAR);
 
-			for (ItemStack itemstack : loottable.getRandomItems(lootparams)) {
-				spawnAtLocation(itemstack, this.getBbHeight());
-			}
+		var params = new LootParams.Builder(sLevel)
+			.withParameter(LootContextParams.ORIGIN, position())
+			.withParameter(LootContextParams.THIS_ENTITY, this)
+			.create(LootContextParamSets.SHEARING);
+
+		for (var item : table.getRandomItems(params)) {
+			spawnAtLocation(item, getBbHeight());
 		}
 	}
 }

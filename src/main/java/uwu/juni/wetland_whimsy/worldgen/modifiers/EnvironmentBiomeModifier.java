@@ -3,6 +3,8 @@ package uwu.juni.wetland_whimsy.worldgen.modifiers;
 
 import java.util.Optional;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -16,6 +18,7 @@ import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
+@ParametersAreNonnullByDefault
 public record EnvironmentBiomeModifier(
 	HolderSet<Biome> biomes,
 	Optional<Integer> newFogColor,
@@ -55,14 +58,13 @@ public record EnvironmentBiomeModifier(
 		.apply(instance, EnvironmentBiomeModifier::new)
 	);
 
-	@SuppressWarnings("null")
 	@Override
 	public void modify(Holder<Biome> biome, Phase phase, Builder builder) {
 		if (!biomes.contains(biome) || !phase.equals(Phase.BEFORE_EVERYTHING)) 
 			return;
 
-		WetlandWhimsy.LOGGER.debug(""
-			+ "\nnewFogColor: " + newFogColor 
+		WetlandWhimsy.LOGGER.debug(
+			  "\nnewFogColor: " + newFogColor 
 			+ "\nnewSkyColor: " + newSkyColor
 			+ "\nnewWaterColor: " + newWaterColor
 			+ "\nnewWaterFogColor: " + newWaterFogColor
@@ -74,15 +76,16 @@ public record EnvironmentBiomeModifier(
 		var environment = builder.getSpecialEffects();
 
 		environment
-			.fogColor(newFogColor.isEmpty() ? environment.getFogColor() : newFogColor.get())
-			.skyColor(newSkyColor.isEmpty() ? environment.getSkyColor() : newSkyColor.get())
-			.waterColor(newWaterColor.isEmpty() ? environment.waterColor() : newWaterColor.get())
-			.waterFogColor(newWaterFogColor.isEmpty() ? environment.getWaterFogColor() : newWaterFogColor.get())
-			.grassColorModifier(newGrassModifier.isEmpty() ? environment.getGrassColorModifier() : newGrassModifier.get());
+			.fogColor(newFogColor.orElse(environment.getFogColor()))
+			.skyColor(newSkyColor.orElse(environment.getSkyColor()))
+			.waterColor(newWaterColor.orElse(environment.waterColor()))
+			.waterFogColor(newWaterFogColor.orElse(environment.getWaterFogColor()))
+			.grassColorModifier(newGrassModifier.orElse(environment.getGrassColorModifier()));
 
 		// These getters for these two return optionals, adding them to the chain could cause a panic
 		if (newGrassColorOverride.isPresent())
 			environment.grassColorOverride(newGrassColorOverride.get());
+
 		if (newFoliageColorOverride.isPresent())
 			environment.foliageColorOverride(newFoliageColorOverride.get());
 	}

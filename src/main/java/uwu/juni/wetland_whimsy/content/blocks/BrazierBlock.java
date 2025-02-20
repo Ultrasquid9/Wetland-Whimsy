@@ -1,6 +1,7 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -33,8 +34,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+@ParametersAreNonnullByDefault
 public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
-	private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0);
+	static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0);
 
 	public static final BooleanProperty LIT = BlockStateProperties.LIT;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -63,20 +65,18 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 			.setValue(LIT, Boolean.valueOf(!water));
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	protected VoxelShape getShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return SHAPE;
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
 		if (state.getValue(BlockStateProperties.WATERLOGGED)) 
 			return false;
 
 		if (state.getValue(LIT) && !level.isClientSide())
-				level.playSound(null, pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
+			level.playSound(null, pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
 
 		level.setBlock(pos, state.setValue(WATERLOGGED, Boolean.valueOf(true)).setValue(LIT, Boolean.valueOf(false)), 3);
 		level.scheduleTick(pos, fluidState.getType(), fluidState.getType().getTickDelay(level));
@@ -84,13 +84,12 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 	}
 
 	@Override
-	protected FluidState getFluidState(@Nonnull BlockState state) {
+	protected FluidState getFluidState(BlockState state) {
 		return state.getValue(WATERLOGGED) 
 			? Fluids.WATER.getSource(false) 
 			: super.getFluidState(state);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	protected ItemInteractionResult useItemOn(
 		ItemStack stack, 
@@ -121,7 +120,6 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
 		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity && state.getValue(LIT))
@@ -130,7 +128,6 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 		super.stepOn(level, pos, state, entity);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
 		if (!state.getValue(LIT))
@@ -138,9 +135,9 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 
 		if (random.nextInt(10) == 0) {
 			level.playLocalSound(
-				(double)pos.getX() + 0.5,
-				(double)pos.getY() + 0.5,
-				(double)pos.getZ() + 0.5,
+				pos.getX() + 0.5,
+				pos.getY() + 0.5,
+				pos.getZ() + 0.5,
 				SoundEvents.CAMPFIRE_CRACKLE,
 				SoundSource.BLOCKS,
 				0.5F + random.nextFloat(),
@@ -150,10 +147,9 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 		}
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	protected void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) {
-		BlockPos blockpos = hit.getBlockPos();
+		var blockpos = hit.getBlockPos();
 
 		if (
 			!level.isClientSide
@@ -171,20 +167,18 @@ public class BrazierBlock extends Block implements SimpleWaterloggedBlock {
 		return true;
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 		return state.getValue(LIT) ? 15 : 0;
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	protected int getDirectSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 		return direction != Direction.DOWN ? state.getSignal(level, pos, direction) : 0;
 	}
 
 	@Override
-	protected boolean isPathfindable(@Nonnull BlockState state, @Nonnull PathComputationType path) {
+	protected boolean isPathfindable(BlockState state, PathComputationType path) {
 		return !state.getValue(LIT);
 	}
 }

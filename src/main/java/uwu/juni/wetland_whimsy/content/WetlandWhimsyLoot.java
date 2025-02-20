@@ -220,14 +220,12 @@ public class WetlandWhimsyLoot {
 			);
 	}
 
-	@SuppressWarnings("rawtypes")
-	public static LootItemConditionalFunction.Builder lootCount(float a, float b) {
+	public static LootItemConditionalFunction.Builder<?> lootCount(float a, float b) {
 		return SetItemCountFunction.setCount(UniformGenerator.between(a, b));
 	}
 
 
-	@SuppressWarnings("rawtypes")
-	private static LootItemConditionalFunction.Builder stew() {
+	private static LootItemConditionalFunction.Builder<?> stew() {
 		return SetStewEffectFunction.stewEffect()
 			.withEffect(MobEffects.POISON, UniformGenerator.between(3, 7))
 			.withEffect(MobEffects.SATURATION, UniformGenerator.between(3, 7))
@@ -238,8 +236,7 @@ public class WetlandWhimsyLoot {
 			.withEffect(MobEffects.DARKNESS, UniformGenerator.between(3, 7));
 	}
 
-	@SuppressWarnings("rawtypes")
-	private static LootItemConditionalFunction.Builder potion(String effect) {
+	private static LootItemConditionalFunction.Builder<?> potion(String effect) {
 		var potion = BuiltInRegistries.POTION.getHolder(ResourceLocation.withDefaultNamespace(effect));
 
 		return SetPotionFunction.setPotion(potion.get());

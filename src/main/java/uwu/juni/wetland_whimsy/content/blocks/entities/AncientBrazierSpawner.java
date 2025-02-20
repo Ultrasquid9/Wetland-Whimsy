@@ -7,6 +7,7 @@ import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -44,29 +45,28 @@ import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyMiscLoot;
 import uwu.juni.wetland_whimsy.datapacks.Incense;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
+@ParametersAreNonnullByDefault
 public class AncientBrazierSpawner extends BaseSpawner {
 	private int spawnedEntityCount;
 	private SimpleWeightedRandomList<ResourceKey<LootTable>> lootTablesToEject;
 
 	public AncientBrazierSpawner() {
-		this.spawnedEntityCount = 0;
+		spawnedEntityCount = 0;
 
-		this.lootTablesToEject = new SimpleWeightedRandomList.Builder<ResourceKey<LootTable>>()
+		lootTablesToEject = new SimpleWeightedRandomList.Builder<ResourceKey<LootTable>>()
 			.add(WetlandWhimsyMiscLoot.INTERMEDIATE_LOOT, 1)
 			.add(WetlandWhimsyMiscLoot.EPIC_LOOT, 1)
 			.add(WetlandWhimsyMiscLoot.ANCIENT_COIN, 2)
 			.build();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void broadcastEvent(Level level, BlockPos pos, int id) {
 		level.blockEvent(pos, WetlandWhimsyBlocks.ANCIENT_BRAZIER.get(), id, 0);
 	}
 
-	@SuppressWarnings("null")
 	@Override
-	public void setNextSpawnData(Level level, BlockPos pos, SpawnData data) {
+	public void setNextSpawnData(@Nullable Level level, BlockPos pos, SpawnData data) {
 		super.setNextSpawnData(level, pos, data);
 
 		if (level != null) {
@@ -76,43 +76,49 @@ public class AncientBrazierSpawner extends BaseSpawner {
 	}
 
 	@Override
-	public void serverTick(@Nonnull ServerLevel serverLevel, @Nonnull BlockPos pos) {
+	public void serverTick(ServerLevel serverLevel, BlockPos pos) {
 		if (!serverLevel.getBlockState(pos).getValue(AncientBrazierBlock.FLAME).equals(AncientBrazierBlock.Flame.LIT))
 			return;
-		
-		if (this.spawnDelay > 3) 
-			this.spawnDelay -= 3;
-		else if (this.spawnDelay > 0)
-			this.spawnDelay -= 1;
 
-		if (this.spawnDelay == 1) {
-			this.spawnedEntityCount++;
+		var random = serverLevel.getRandom();
+		
+		if (spawnDelay > 3) 
+			spawnDelay -= 3;
+		else if (spawnDelay > 0)
+			spawnDelay -= 1;
+
+		if (spawnDelay == 1) {
+			spawnedEntityCount++;
 			
 			var entity = serverLevel.getBlockEntity(pos);
 			if (entity != null)
 				entity.setChanged();
 
-			this.setRandomEntity(serverLevel, pos);;
+			setRandomEntity(serverLevel, pos);
 		}
 
-		var uuid = spawnDelay <= 0 ? spawnMob(serverLevel, pos) : Optional.empty();
+		var uuid = spawnDelay <= 0 
+			? spawnMob(serverLevel, pos) 
+			: Optional.empty();
 
 		if (uuid.isPresent()) {
-			this.spawnDelay = serverLevel.getRandom().nextInt(200, 400);
 
-			for (int i = 0; i < serverLevel.getRandom().nextInt(2, 4); i++)
+			spawnDelay = random.nextInt(200, 400);
+
+			for (var i = 0; i < random.nextInt(2, 4); i++)
 				spawnMob(serverLevel, pos);
 		}
 
-		if (this.spawnedEntityCount >= 8) {
-			this.spawnedEntityCount = 0;
+		if (spawnedEntityCount >= 8) {
+			spawnedEntityCount = 0;
 			serverLevel.setBlock(
 				pos, 
-				serverLevel.getBlockState(pos)
+				serverLevel
+					.getBlockState(pos)
 					.setValue(AncientBrazierBlock.FLAME, AncientBrazierBlock.Flame.SMOLDERING), 
 				2
 			);
-			ejectLoot(serverLevel, pos, serverLevel.getRandom());
+			ejectLoot(serverLevel, pos, random);
 
 			var be = serverLevel.getBlockEntity(pos);
 			if (be instanceof AncientBrazierBlockEntity ab)
@@ -134,23 +140,24 @@ public class AncientBrazierSpawner extends BaseSpawner {
 			return BuiltInRegistries.ENTITY_TYPE.get(rloc);
 		};
 
-		entity = (be != null && be instanceof AncientBrazierBlockEntity ab && ab.hasIncense())
+		entity = (be instanceof AncientBrazierBlockEntity ab && ab.hasIncense())
 			? getEntity.apply(ab)
-			: level.registryAccess()
+			: level
+				.registryAccess()
 				.lookupOrThrow(Registries.ENTITY_TYPE)
 				.getOrThrow(WetlandWhimsyTags.Entities.SPAWNS_FROM_ANCIENT_BRAZIER)
 				.getRandomElement(random)
 				.get()
 				.value();
 
-		this.setEntityId(entity, level, random, pos);
+		setEntityId(entity, level, random, pos);
 	}
 
 	// Copied from Vanilla's TrialSpawner class
 	@SuppressWarnings("null")
 	public Optional<UUID> spawnMob(ServerLevel level, BlockPos pos) {
 		var randomsource = level.getRandom();
-		var spawndata = this.getOrCreateNextSpawnData(level, level.getRandom(), pos);
+		var spawndata = getOrCreateNextSpawnData(level, level.getRandom(), pos);
 		var compoundtag = spawndata.entityToSpawn();
 		var listtag = compoundtag.getList("Pos", 6);
 		var optional = EntityType.by(compoundtag);

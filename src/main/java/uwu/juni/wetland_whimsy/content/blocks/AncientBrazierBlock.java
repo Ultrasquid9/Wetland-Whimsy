@@ -1,6 +1,7 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.mojang.serialization.MapCodec;
 
@@ -39,6 +40,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
+@ParametersAreNonnullByDefault
 public class AncientBrazierBlock extends BaseEntityBlock {
 	public enum Flame implements StringRepresentable {
 		LIT,
@@ -93,16 +95,15 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(@Nonnull BlockPos pos, @Nonnull BlockState state) {
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new AncientBrazierBlockEntity(pos, state);
 	}
 
 	@Override
-	public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		return defaultBlockState().setValue(FLAME, Flame.UNLIT);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	protected VoxelShape getShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return SHAPE;
@@ -110,13 +111,13 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 	@Override
 	protected ItemInteractionResult useItemOn(
-		@Nonnull ItemStack stack, 
-		@Nonnull BlockState state, 
-		@Nonnull Level level, 
-		@Nonnull BlockPos pos,
-		@Nonnull Player player, 
-		@Nonnull InteractionHand hand,
-		@Nonnull BlockHitResult hitResult
+		ItemStack stack, 
+		BlockState state, 
+		Level level, 
+		BlockPos pos,
+		Player player, 
+		InteractionHand hand,
+		BlockHitResult hitResult
 	) {
 		var fail = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		var success = ItemInteractionResult.SUCCESS;
@@ -179,10 +180,10 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 	@Override
 	public void stepOn(
-		@Nonnull Level level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull BlockState state, 
-		@Nonnull Entity entity
+		Level level, 
+		BlockPos pos, 
+		BlockState state, 
+		Entity entity
 	) {
 		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity)
 			if (state.getValue(FLAME).isLit())
@@ -191,7 +192,6 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		super.stepOn(level, pos, state, entity);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {	
 		super.animateTick(state, level, pos, random);
@@ -201,9 +201,9 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 		if (random.nextInt(10) == 0) {
 			level.playLocalSound(
-				(double)pos.getX() + 0.5,
-				(double)pos.getY() + 0.5,
-				(double)pos.getZ() + 0.5,
+				pos.getX() + 0.5,
+				pos.getY() + 0.5,
+				pos.getZ() + 0.5,
 				SoundEvents.CAMPFIRE_CRACKLE,
 				SoundSource.BLOCKS,
 				0.5F + random.nextFloat(),
@@ -215,12 +215,12 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 	@Override
 	protected void onProjectileHit(
-		@Nonnull Level level, 
-		@Nonnull BlockState state, 
-		@Nonnull BlockHitResult hit, 
-		@Nonnull Projectile projectile
+		Level level, 
+		BlockState state, 
+		BlockHitResult hit, 
+		Projectile projectile
 	) {
-		BlockPos blockpos = hit.getBlockPos();
+		var blockpos = hit.getBlockPos();
 
 		if (
 			!level.isClientSide
@@ -234,9 +234,9 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
-		@Nonnull Level level, 
-		@Nonnull BlockState state, 
-		@Nonnull BlockEntityType<T> blockEntityType
+		Level level, 
+		BlockState state, 
+		BlockEntityType<T> blockEntityType
 	) {
 		return createTickerHelper(
 			blockEntityType, 
@@ -248,12 +248,12 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	protected RenderShape getRenderShape(@Nonnull BlockState state) {
+	protected RenderShape getRenderShape(BlockState state) {
 		return RenderShape.MODEL;
 	}
 
 	@Override
-	protected boolean isPathfindable(@Nonnull BlockState state, @Nonnull PathComputationType path) {
+	protected boolean isPathfindable(BlockState state, PathComputationType path) {
 		return !state.getValue(FLAME).isLit();
 	}
 

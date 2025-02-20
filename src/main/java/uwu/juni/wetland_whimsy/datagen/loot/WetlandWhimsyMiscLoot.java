@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.datagen.loot;
 
 import java.util.function.BiConsumer;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -15,7 +17,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 
 	public static final ResourceKey<LootTable> BASIC_LOOT = createKey("basic_loot");
@@ -38,13 +40,7 @@ public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 		);
 	}
 
-
-	@SuppressWarnings("unused") // Why did they want me to store this thing 
-	private HolderLookup.Provider thing;
-
-	public WetlandWhimsyMiscLoot(HolderLookup.Provider lookupProvider) {
-		thing = lookupProvider;
-	}
+	public WetlandWhimsyMiscLoot(HolderLookup.Provider lookupProvider) {}
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, Builder> output) {			

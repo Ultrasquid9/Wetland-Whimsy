@@ -1,5 +1,7 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
@@ -17,18 +19,18 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class CordgrassBlock extends BushBlock implements BonemealableBlock {
 	protected static final MapCodec<CordgrassBlock> CODEC = simpleCodec(CordgrassBlock::new);
 	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 24.0, 15.0);
 
 	public CordgrassBlock(BlockBehaviour.Properties properties) {
 		super(properties);
-		this.registerDefaultState(this.defaultBlockState());
+		registerDefaultState(this.defaultBlockState());
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	protected VoxelShape getShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return SHAPE;
 	}
 
@@ -38,12 +40,12 @@ public class CordgrassBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+	public boolean isValidBonemealTarget(LevelReader a, BlockPos b, BlockState c) {
 		return true;
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(Level a, RandomSource b, BlockPos c, BlockState d) {
 		return true;
 	}
 

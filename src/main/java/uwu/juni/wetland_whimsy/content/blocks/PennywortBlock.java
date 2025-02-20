@@ -1,6 +1,7 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -25,7 +26,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 	public static final int MAX_PENNYWORTS = 4;
 	public static final IntegerProperty PENNYWORT_COUNT = BlockStateProperties.FLOWER_AMOUNT;
@@ -44,7 +45,7 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	protected VoxelShape getShape(BlockState a, BlockGetter b, BlockPos c, CollisionContext d) {
 		return SHAPE;
 	}
 
@@ -54,8 +55,7 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 	}
 
 	@Override
-	@Nullable
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
+	public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
 		var state = context.getLevel().getBlockState(context.getClickedPos());
 
 		if (state.is(this)) {
@@ -64,7 +64,10 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 			return state.setValue(PENNYWORT_COUNT, Integer.valueOf(count != 4 ? count + 1 : 4));
 		}
 
-		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection());
+		var s = super.getStateForPlacement(context);
+		return s == null 
+			? s
+			: s.setValue(FACING, context.getHorizontalDirection());
 	}
 
 	@Override
@@ -75,12 +78,12 @@ public class PennywortBlock extends FlowerBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+	public boolean isValidBonemealTarget(LevelReader a, BlockPos b, BlockState c) {
 		return true;
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(Level a, RandomSource b, BlockPos c, BlockState d) {
 		return true;
 	}
 

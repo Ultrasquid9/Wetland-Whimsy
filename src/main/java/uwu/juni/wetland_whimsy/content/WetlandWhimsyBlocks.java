@@ -3,6 +3,8 @@ package uwu.juni.wetland_whimsy.content;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -30,7 +32,7 @@ import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class WetlandWhimsyBlocks {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(WetlandWhimsy.MODID);
 

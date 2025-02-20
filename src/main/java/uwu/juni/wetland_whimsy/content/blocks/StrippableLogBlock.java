@@ -1,6 +1,9 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.AxeItem;
@@ -11,24 +14,24 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbility;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class StrippableLogBlock extends RotatedPillarBlock {
 	public StrippableLogBlock(BlockBehaviour.Properties properties) {
 		super(properties);
 	}
 
 	@Override
-	public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+	public boolean isFlammable(BlockState a, BlockGetter b, BlockPos c, Direction d) {
 		return true;
 	}
 	
 	@Override
-	public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+	public int getFlammability(BlockState a, BlockGetter b, BlockPos c, Direction d) {
 		return 5;
 	}
 
 	@Override
-	public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+	public int getFireSpreadSpeed(BlockState a, BlockGetter b, BlockPos c, Direction d) {
 		return 5;
 	}
 

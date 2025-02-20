@@ -1,5 +1,7 @@
 package uwu.juni.wetland_whimsy.worldgen.aria_mushroom;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -12,11 +14,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class AriaMushroomFoliagePlacer extends FoliagePlacer {
-
     public static final MapCodec<AriaMushroomFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
-		(parts) -> foliagePlacerParts(parts).apply(parts, AriaMushroomFoliagePlacer::new)
+		parts -> foliagePlacerParts(parts).apply(parts, AriaMushroomFoliagePlacer::new)
 	);
 
 	public AriaMushroomFoliagePlacer(IntProvider radius, IntProvider offset) {
@@ -64,7 +65,9 @@ public class AriaMushroomFoliagePlacer extends FoliagePlacer {
 	private float funniTreeMath(int y) {
 		var val = Mth.sin(y * Mth.abs(y)) * 5;
 
-		return val > 2 ? 999 : val;
+		return val > 2 
+			? 999 
+			: val;
 	}
 
 	@Override

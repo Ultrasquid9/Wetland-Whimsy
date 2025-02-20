@@ -22,7 +22,6 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 
 public class BlemishEntity extends Monster {
 	public final AnimationState idleAnimationState = new AnimationState();
-	private int idleAnimationTimeout = 0;
 
 	public BlemishEntity(EntityType<? extends BlemishEntity> entityType, Level level) {
 		super(entityType, level);
@@ -69,10 +68,7 @@ public class BlemishEntity extends Monster {
 	}
 
 	private void setupAnimationStates() {
-		if (this.idleAnimationTimeout <= 0) {
-			this.idleAnimationTimeout = 40;
-			this.idleAnimationState.start(tickCount);
-		} else idleAnimationTimeout--;
+		idleAnimationState.startIfStopped(tickCount);
 	}
 
 	@Override

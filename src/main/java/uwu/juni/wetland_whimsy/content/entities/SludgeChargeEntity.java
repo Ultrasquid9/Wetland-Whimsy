@@ -23,8 +23,8 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 
 public class SludgeChargeEntity extends AbstractArrow {
-	private float oldvRot = 0;
-	private float vRot = 0;
+	float oldvRot = 0;
+	float vRot = 0;
 
 	public SludgeChargeEntity(EntityType<? extends AbstractArrow> entityType, Level level) {
 		super(entityType, level);
@@ -34,16 +34,6 @@ public class SludgeChargeEntity extends AbstractArrow {
 		super(
 			WetlandWhimsyEntityTypes.SLUDGE_CHARGE.get(), 
 			shooter, 
-			level, 
-			new ItemStack(WetlandWhimsyItems.SLUDGE_CHARGE.get()), 
-			null
-		);
-	}
-
-	public SludgeChargeEntity(Level level) {
-		super(
-			WetlandWhimsyEntityTypes.SLUDGE_CHARGE.get(), 
-			null, 
 			level, 
 			new ItemStack(WetlandWhimsyItems.SLUDGE_CHARGE.get()), 
 			null
@@ -75,6 +65,7 @@ public class SludgeChargeEntity extends AbstractArrow {
 	public float getVRot() {
 		return vRot;
 	}
+
 	public float getOldVRot() {
 		return oldvRot;
 	}
@@ -87,7 +78,7 @@ public class SludgeChargeEntity extends AbstractArrow {
 	protected void onHitEntity(@Nonnull EntityHitResult result) {
 		var entity = result.getEntity();
 
-		entity.hurt(this.damageSources().thrown(this, getOwner()), 5);
+		entity.hurt(damageSources().thrown(this, getOwner()), 5);
 
 		if (entity instanceof LivingEntity le) {
 			var effects = ImmutableList.of(
@@ -118,14 +109,15 @@ public class SludgeChargeEntity extends AbstractArrow {
 		discard();
 	}
 
-	private void doHit(Vec3 pos) {
+	void doHit(Vec3 pos) {
 		var level = level();
-		if (level.isClientSide) return;
+		if (level.isClientSide) 
+			return;
 
-		this.playSound(
+		playSound(
 			WetlandWhimsySounds.SLUDGE_CHARGE_HIT.get(), 
 			1, 
-			(float)level.getRandom().nextInt(7, 13) / 10
+			(float)getRandom().nextInt(7, 13) / 10
 		);
 
 		var cloud = new AreaEffectCloud(level, getX(), getY(), getZ());
@@ -135,8 +127,7 @@ public class SludgeChargeEntity extends AbstractArrow {
 		cloud.setRadiusPerTick(-.01F);
 		cloud.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 2));
 
-		var entity = getOwner();
-		if (entity != null && entity instanceof LivingEntity le)
+		if (getOwner() instanceof LivingEntity le)
 			cloud.setOwner(le);
 
 		level.addFreshEntity(cloud);
@@ -157,10 +148,10 @@ public class SludgeChargeEntity extends AbstractArrow {
 
 	@Override
 	public boolean shouldRenderAtSqrDistance(double distance) {
-		double d0 = this.getBoundingBox().getSize() * 4.0;
-		if (Double.isNaN(d0)) {
+		var d0 = this.getBoundingBox().getSize() * 4.0;
+
+		if (Double.isNaN(d0))
 			d0 = 4.0;
-		}
 
 		d0 *= 64.0;
 		return distance < d0 * d0;
