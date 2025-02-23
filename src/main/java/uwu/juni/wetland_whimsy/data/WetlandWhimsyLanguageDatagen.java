@@ -74,6 +74,7 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst(), "Bald Cypress Boat");
 		addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond(), "Bald Cypress Chest Boat");
 
+		add("biome.wetland_whimsy.marsh", "Marsh");
 		add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		add("item.wetland_whimsy.nuke_the_swamps_music_disc.desc", "Quizzly - Nuke The Swamps");
 
