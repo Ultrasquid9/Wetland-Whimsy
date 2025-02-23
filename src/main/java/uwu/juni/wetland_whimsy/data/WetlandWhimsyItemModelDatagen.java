@@ -1,13 +1,14 @@
 package uwu.juni.wetland_whimsy.data;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
 
 public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 	public WetlandWhimsyItemModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
@@ -57,7 +58,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.getId().toString(), 
 			modLoc("block/bald_cypress_planks")
 		);
-		this.withExistingParent(
+		withExistingParent(
 			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get().asItem().toString(), 
 			modLoc("block/bald_cypress_trapdoor_bottom")
 		);
@@ -75,63 +76,68 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 			modLoc("block/limestone_bricks")
 		);
 
-		this.withExistingParent(
+		withExistingParent(
 			WetlandWhimsyBlocks.SUSSY_MUD.get().asItem().toString(), 
 			modLoc("block/suspicious_mud_0")
 		);
 
 		// Block items that are 2d in the inventory and use a block texture
-		this.withExistingParent(
+		withExistingParent(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.getId().toString(), 
 			mcLoc("item/generated")
 		)
 		.texture("layer0", "block/bald_cypress_sapling");
 		
-		this.withExistingParent(
+		withExistingParent(
 			WetlandWhimsyBlocks.PENNYWORT.getId().toString(), 
 			mcLoc("item/generated")
 		)
 		.texture("layer0", "block/pennywort_leaves_bottom")
 		.texture("layer1", "block/pennywort_leaves_top");
 
-		this.withExistingParent(
+		withExistingParent(
 			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.getId().toString(), 
 			mcLoc("item/generated")
 		)
 		.texture("layer0", "block/bloodcap_mushroom");
 
-		this.withExistingParent(
+		withExistingParent(
 			WetlandWhimsyBlocks.ARIA_SPORES.getId().toString(), 
 			mcLoc("item/generated")
 		)
 		.texture("layer0", "block/aria_spores");
 
 		// Block items that are 2d in the inventory and use a unique texture
-		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get().asItem());
-		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
-		this.basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get().asItem());
-		this.basicItem(WetlandWhimsyBlocks.CORDGRASS.get().asItem());
-		this.basicItem(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get().asItem());
-		this.basicItem(WetlandWhimsyBlocks.SOUL_BRAZIER.get().asItem());
+		basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get().asItem());
+		basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
+		basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get().asItem());
+		basicItem(WetlandWhimsyBlocks.CORDGRASS.get().asItem());
+		basicItem(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get().asItem());
+		basicItem(WetlandWhimsyBlocks.SOUL_BRAZIER.get().asItem());
 
-		this.basicItem(WetlandWhimsyBlocks.ARIA_MUSHROOM.get().asItem());
+		if (Compat.ENDERGETIC)
+			basicItem(WetlandWhimsyBlocks.ENDER_BRAZIER.get().get().asItem());
+		if (Compat.BRAZIER)
+			basicItem(WetlandWhimsyBlocks.LIVING_BRAZIER.get().get().asItem());
 
-		this.basicItem(WetlandWhimsyBlocks.ANCIENT_BRAZIER.get().asItem());
+		basicItem(WetlandWhimsyBlocks.ARIA_MUSHROOM.get().asItem());
+
+		basicItem(WetlandWhimsyBlocks.ANCIENT_BRAZIER.get().asItem());
 
 		// Items
-		this.basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
-		this.basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
-		this.basicItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC.get());
-		this.basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());
+		basicItem(WetlandWhimsyItems.PENNYWORT_SALAD.get());
+		basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+		basicItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC.get());
+		basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());
 		
-		this.basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get());
-		this.basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond().get());
+		basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get());
+		basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond().get());
 	}
 
 	private void simpleBlockItem(Block block) {
 		var name = ForgeRegistries.BLOCKS.getKey(block).getPath();
 
-		this.withExistingParent(
+		withExistingParent(
 			name, 
 			this.modLoc("block/" + name)
 		);

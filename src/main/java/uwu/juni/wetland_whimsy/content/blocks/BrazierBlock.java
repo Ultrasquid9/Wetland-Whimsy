@@ -27,6 +27,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import uwu.juni.wetland_whimsy.misc.Compat;
 
 public class BrazierBlock extends Block {
 	private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0);
@@ -151,5 +152,14 @@ public class BrazierBlock extends Block {
 	@Override
 	public int getDirectSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
 		return direction != Direction.DOWN ? state.getSignal(level, pos, direction) : 0;
+	}
+
+	@Override
+	public String getDescriptionId() {
+		var str = super.getDescriptionId();
+
+		return Compat.BRAZIER
+			? str + ".compat"
+			: str;
 	}
 }

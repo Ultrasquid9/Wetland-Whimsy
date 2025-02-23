@@ -4,8 +4,8 @@
 	"render_type": "minecraft:cutout",
 	"textures": {
 		"1": "wetland_whimsy:block/polished_limestone",
-		"2": "wetland_whimsy:block/brazier/brazier_top",
-		"particle": "wetland_whimsy:block/brazier/brazier_top"
+		"2": "#top",
+		"particle": "#top"
 	},
 	"elements": [
 		{

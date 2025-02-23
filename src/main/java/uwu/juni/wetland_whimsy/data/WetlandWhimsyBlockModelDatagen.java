@@ -1,12 +1,7 @@
 package uwu.juni.wetland_whimsy.data;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
-import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
-import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
-import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
-import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import com.teamabnormals.endergetic.core.EndergeticExpansion;
+
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -15,9 +10,16 @@ import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
+import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
+import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import uwu.juni.wetland_whimsy.misc.Compat;
 
 public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 	public WetlandWhimsyBlockModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
@@ -28,160 +30,161 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 	protected void registerStatesAndModels() {
 
 		// Wood
-		this.axisBlock(
+		axisBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get(), 
 			modLoc("block/bald_cypress_log"), 
 			modLoc("block/bald_cypress_log_top")
 		);
-		this.axisBlock(
+		axisBlock(
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(), 
 			modLoc("block/stripped_bald_cypress_log"), 
 			modLoc("block/stripped_bald_cypress_log_top")
 		);
-		this.axisBlock(
+		axisBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get(), 
 			modLoc("block/bald_cypress_log"), 
 			modLoc("block/bald_cypress_log")
 		);
-		this.axisBlock(
+		axisBlock(
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get(), 
 			modLoc("block/stripped_bald_cypress_log"), 
 			modLoc("block/stripped_bald_cypress_log")
 		);
 
-		this.simpleBlock(
+		simpleBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get(),
-			this.models()
+			models()
 				.leaves("bald_cypress_leaves", modLoc("block/bald_cypress_leaves"))
 				.renderType("minecraft:cutout")
 		);
-		this.simpleBlock(
+		simpleBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get(),
-			this.models()
-				.withExistingParent("bald_cypress_sapling", this.mcLoc("block/cross"))
+			models()
+				.withExistingParent("bald_cypress_sapling", mcLoc("block/cross"))
 				.texture("cross", modLoc("block/bald_cypress_sapling"))
 				.renderType("minecraft:cutout")
 		);
 
-		this.simpleBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
-		this.slabBlock(
+		simpleBlock(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
+		slabBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get(), 
 			modLoc("block/bald_cypress_planks"), 
 			modLoc("block/bald_cypress_planks")
 		);
-		this.stairsBlock(
+		stairsBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS.get(), 
 			modLoc("block/bald_cypress_planks")
 		);
-		this.fenceBlock(
+		fenceBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get(),
 			modLoc("block/bald_cypress_planks")
 		);
-		this.fenceGateBlock(
+		fenceGateBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE.get(), 
 			modLoc("block/bald_cypress_planks")
 		);
-		this.buttonBlock(
+		buttonBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.get(), 
 			modLoc("block/bald_cypress_planks")
 		);
-		this.pressurePlateBlock(
+		pressurePlateBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get(), 
 			modLoc("block/bald_cypress_planks")
 		);
-		this.doorBlock(
+		doorBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(), 
 			modLoc("block/bald_cypress_door_bottom"), 
 			modLoc("block/bald_cypress_door_top")
 		);
-		this.trapdoorBlock(
+		trapdoorBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get(), 
 			modLoc("block/bald_cypress_trapdoor"), 
 			true
 		);
-		this.signBlock(
+		signBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(), 
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get(), 
 			modLoc("block/bald_cypress_planks")
 		);
-		this.hangingSignBlock(
+		hangingSignBlock(
 			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(), 
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get(), 
 			modLoc("block/bald_cypress_planks")
 		);
 
 		// Limestone
-		this.simpleBlock(WetlandWhimsyBlocks.LIMESTONE.get());
-		this.simpleBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get());
-		this.simpleBlock(WetlandWhimsyBlocks.LIMESTONE_BRICKS.get());
-		this.stairsBlock(
+		simpleBlock(WetlandWhimsyBlocks.LIMESTONE.get());
+		simpleBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get());
+		simpleBlock(WetlandWhimsyBlocks.LIMESTONE_BRICKS.get());
+		stairsBlock(
 			WetlandWhimsyBlocks.LIMESTONE_STAIRS.get(), 
 			modLoc("block/limestone")
 		);
-		this.stairsBlock(
+		stairsBlock(
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get(), 
 			modLoc("block/polished_limestone")
 		);
-		this.stairsBlock(
+		stairsBlock(
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get(), 
 			modLoc("block/limestone_bricks")
 		);
-		this.slabBlock(
+		slabBlock(
 			WetlandWhimsyBlocks.LIMESTONE_SLAB.get(), 
 			modLoc("block/limestone"),
 			modLoc("block/limestone")
 		);
-		this.slabBlock(
+		slabBlock(
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get(), 
 			modLoc("block/polished_limestone"),
 			modLoc("block/polished_limestone")
 		);
-		this.slabBlock(
+		slabBlock(
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get(), 
 			modLoc("block/limestone_bricks"),
 			modLoc("block/limestone_bricks")
 		);
-		this.wallBlock(
+		wallBlock(
 			WetlandWhimsyBlocks.LIMESTONE_WALL.get(), 
 			modLoc("block/limestone")
 		);
-		this.wallBlock(
+		wallBlock(
 			WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get(), 
 			modLoc("block/polished_limestone")
 		);
-		this.wallBlock(
+		wallBlock(
 			WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get(), 
 			modLoc("block/limestone_bricks")
 		);
-		this.axisBlock(
+		axisBlock(
 			WetlandWhimsyBlocks.LIMESTONE_PILLAR.get(), 
 			modLoc("block/limestone_pillar_side"), 
 			modLoc("block/limestone_pillar_top")
 		);
 
 		// Plants
-		this.simpleBlock(
+		simpleBlock(
 			WetlandWhimsyBlocks.CORDGRASS.get(),
-			this.models()
-				.withExistingParent("cordgrass", this.modLoc("block/cordgrass_base"))
+			models()
+				.withExistingParent("cordgrass", modLoc("block/cordgrass_base"))
 		);
 		pennywort(WetlandWhimsyBlocks.PENNYWORT.get());
-		this.simpleBlock(
+		simpleBlock(
 			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get(),
-			this.models()
-				.withExistingParent("bloodcap", this.mcLoc("block/cross"))
-				.texture("cross", this.modLoc("block/bloodcap_mushroom"))
+			models()
+				.withExistingParent("bloodcap", mcLoc("block/cross"))
+				.texture("cross", modLoc("block/bloodcap_mushroom"))
 				.renderType("minecraft:cutout")
 		);
 
-		this.getVariantBuilder(WetlandWhimsyBlocks.ARIA_MUSHROOM.get()).forAllStates((state) -> ConfiguredModel.builder() 
+		getVariantBuilder(WetlandWhimsyBlocks.ARIA_MUSHROOM.get()).forAllStates(state -> ConfiguredModel
+			.builder() 
 			.modelFile(
 				state.getValue(AriaMushroomBlock.FACING) == Direction.UP 
-					? this.models()
+					? models()
 						.withExistingParent("aria_ground", mcLoc("cross"))
 						.texture("cross", modLoc("block/compat/aria_mushroom_box"))
 						.renderType("minecraft:cutout")
-					: this.models()
+					: models()
 						.withExistingParent("aria", modLoc("block/aria_mushroom_base"))
 			)
 			.rotationY(
@@ -196,32 +199,20 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			.build()
 		);
 
-		this.simpleBlock(
+		simpleBlock(
 			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
-			this.models()
-				.withExistingParent("aria_mushroom_block", this.mcLoc("block/cube_all"))
+			models()
+				.withExistingParent("aria_mushroom_block", mcLoc("block/cube_all"))
 				.texture("all", modLoc("block/aria_mushroom_block"))
 				.renderType("minecraft:translucent")
 		);
-		this.simpleBlock(
+		simpleBlock(
 			WetlandWhimsyBlocks.ARIA_SPORES.get(),
-			this.models()
-				.withExistingParent("aria_spores", this.modLoc("block/aria_spores_base"))
+			models()
+				.withExistingParent("aria_spores", modLoc("block/aria_spores_base"))
 				.renderType("minecraft:cutout")
 		);
 
-		brazier(
-			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(),
-			"brazier",
-			"block/limestone_brazier_base",
-			"block/limestone_brazier_lit_base"
-		);
-		brazier(
-			WetlandWhimsyBlocks.SOUL_BRAZIER.get(),
-			"soul_brazier",
-			"block/limestone_brazier_base",
-			"block/soul_brazier_lit_base"
-		);
 		ancientBrazier(
 			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get(),
 			"ancient_brazier",
@@ -229,9 +220,39 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			"block/ancient_brazier_lit_base"
 		);
 
-		this.getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates((state) -> ConfiguredModel.builder() 
+		brazier(
+			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(),
+			"limestone_brazier",
+			modLoc("block/brazier/brazier_top_lit"),
+			mcLoc("block/campfire_fire")
+		);
+		brazier(
+			WetlandWhimsyBlocks.SOUL_BRAZIER.get(),
+			"soul_brazier",
+			modLoc("block/brazier/soul_brazier_top_lit"),
+			mcLoc("block/soul_campfire_fire")
+		);
+
+		if (Compat.ENDERGETIC)
+			brazier(
+				WetlandWhimsyBlocks.ENDER_BRAZIER.get().get(),
+				"ender_brazier",
+				modLoc("block/brazier/ender_brazier_top_lit"),
+				new ResourceLocation(EndergeticExpansion.MOD_ID, "block/ender_campfire_fire")
+			);
+
+		if (Compat.BRAZIER)
+			brazier(
+				WetlandWhimsyBlocks.LIVING_BRAZIER.get().get(),
+				"living_brazier",
+				modLoc("block/brazier/living_brazier_top_lit"),
+				modLoc("block/brazier/living_brazier_fire")
+			);
+
+		getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates(state -> ConfiguredModel
+			.builder() 
 			.modelFile(
-				this.models().withExistingParent("ancient_pot", this.modLoc("block/ancient_pot_base"))
+				models().withExistingParent("ancient_pot", modLoc("block/ancient_pot_base"))
 			)
 			.rotationY(
 				switch (state.getValue(AncientPotBlock.FACING)) {
@@ -247,13 +268,13 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 	}
 
 	private void pennywort(Block pennywort) {
-		this.getVariantBuilder(pennywort).forAllStates((state) -> ConfiguredModel.builder()
+		getVariantBuilder(pennywort).forAllStates((state) -> ConfiguredModel.builder()
 			.modelFile(
 				switch (state.getValue(PennywortBlock.PENNYWORT_COUNT)) {
-					case 1 -> models().withExistingParent("p_1", this.modLoc("block/pennywort/pennywort_one"));
-					case 2 -> models().withExistingParent("p_2", this.modLoc("block/pennywort/pennywort_two"));
-					case 3 -> models().withExistingParent("p_3", this.modLoc("block/pennywort/pennywort_three"));
-					default -> models().withExistingParent("p_4", this.modLoc("block/pennywort/pennywort_four"));
+					case 1 -> models().withExistingParent("p_1", modLoc("block/pennywort/pennywort_one"));
+					case 2 -> models().withExistingParent("p_2", modLoc("block/pennywort/pennywort_two"));
+					case 3 -> models().withExistingParent("p_3", modLoc("block/pennywort/pennywort_three"));
+					default -> models().withExistingParent("p_4", modLoc("block/pennywort/pennywort_four"));
 				}
 			)
 			.rotationY(
@@ -271,17 +292,26 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 
 	public void hangingSignBlock(CeilingHangingSignBlock signBlock, WallHangingSignBlock wallSignBlock, ResourceLocation texture) {
 		var name = ForgeRegistries.BLOCKS.getKey(signBlock).getPath();
-		ModelFile sign = models().sign(name, texture);
+		var sign = models().sign(name, texture);
 		
 		simpleBlock(signBlock, sign);
 		simpleBlock(wallSignBlock, sign);
 	}
 
-	private void brazier(Block brazier, String name, String unlitBase, String litBase) {
-		this.getVariantBuilder(brazier).forAllStates((state) -> {
+	private void brazier(Block brazier, String name, ResourceLocation topTexture, ResourceLocation flameTexture) {
+		final var UNLIT_BASE = modLoc("block/brazier_base");
+		final var LIT_BASE = modLoc("block/brazier_lit_base");
+		final var UNLIT_TOP_TEXTURE = modLoc("block/brazier/brazier_top");
+
+		getVariantBuilder(brazier).forAllStates(state -> {
 			var model = state.getValue(BrazierBlock.LIT)
-				? models().withExistingParent(name + "_lit", this.modLoc(litBase))
-				: models().withExistingParent(name, this.modLoc(unlitBase));
+				? models()
+					.withExistingParent(name + "_lit", LIT_BASE)
+					.texture("top", topTexture)
+					.texture("fire", flameTexture)
+				: models()
+					.withExistingParent(name, UNLIT_BASE)
+					.texture("top", UNLIT_TOP_TEXTURE);
 
 			return ConfiguredModel.builder()
 				.modelFile(model)
@@ -292,9 +322,9 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 	private void ancientBrazier(Block brazier, String name, String unlitBase, String litBase) {
 		this.getVariantBuilder(brazier).forAllStates((state) -> {
 			var model = switch (state.getValue(AncientBrazierBlock.FLAME)) {
-				case LIT -> models().withExistingParent(name + "_lit", this.modLoc(litBase));
-				case SMOLDERING -> models().withExistingParent(name + "_smoldering", this.modLoc(litBase.replace("lit", "smoldering")));
-				case UNLIT -> models().withExistingParent(name, this.modLoc(unlitBase));
+				case LIT -> models().withExistingParent(name + "_lit", modLoc(litBase));
+				case SMOLDERING -> models().withExistingParent(name + "_smoldering", modLoc(litBase.replace("lit", "smoldering")));
+				case UNLIT -> models().withExistingParent(name, modLoc(unlitBase));
 			};
 
 			return ConfiguredModel.builder()

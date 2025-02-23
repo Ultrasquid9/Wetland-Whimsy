@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import com.teamabnormals.endergetic.core.other.tags.EEItemTags;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -18,8 +19,12 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.Tags;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 	protected WetlandWhimsyRecipeDatagen(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
 		super(output);
@@ -27,7 +32,6 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 
 	@Override
 	protected void buildRecipes(Consumer<FinishedRecipe> recipeOutput) {
-
 		// Bald Cypress
 		planksFromLog(
 			recipeOutput, 
@@ -221,7 +225,6 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.pattern("LRL")
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()), has(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get()))
 			.save(recipeOutput);
-
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.SOUL_BRAZIER.get(), 1)
 			.define('C', ItemTags.SOUL_FIRE_BASE_BLOCKS)
 			.define('R', Items.REDSTONE)
@@ -230,6 +233,16 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			.pattern("LRL")
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.SOUL_BRAZIER.get()), has(WetlandWhimsyBlocks.SOUL_BRAZIER.get()))
 			.save(recipeOutput);
+
+		if (Compat.ENDERGETIC)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.ENDER_BRAZIER.get().get(), 1)
+				.define('C', EEItemTags.ENDER_FIRE_BASE_BLOCKS)
+				.define('R', Items.REDSTONE)
+				.define('L', WetlandWhimsyBlocks.POLISHED_LIMESTONE.get())
+				.pattern("LCL")
+				.pattern("LRL")
+				.unlockedBy(getHasName(WetlandWhimsyBlocks.ENDER_BRAZIER.get().get()), has(WetlandWhimsyBlocks.ENDER_BRAZIER.get().get()))
+				.save(recipeOutput);
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WetlandWhimsyBlocks.ARIA_SPORES.get(), 3)
 			.requires(WetlandWhimsyBlocks.ARIA_MUSHROOM.get())

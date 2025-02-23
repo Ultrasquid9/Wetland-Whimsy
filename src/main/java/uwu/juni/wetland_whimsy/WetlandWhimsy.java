@@ -138,9 +138,9 @@ public class WetlandWhimsy {
 
 	private void compat() {
 		if (Compat.SUPPLEMENTARIES) {
-			var cordgrass_rl = new ResourceLocation(MODID, "block/compat/cordgrass_box");
-			var pennywort_rl = new ResourceLocation(MODID, "block/compat/pennywort_box");
-			var aria_rl = new ResourceLocation(MODID, "block/compat/aria_box");
+			var cordgrass_rl = rLoc("block/compat/cordgrass_box");
+			var pennywort_rl = rLoc("block/compat/pennywort_box");
+			var aria_rl = rLoc("block/compat/aria_box");
 			
 			FlowerPotHandler.CUSTOM_MODELS.add(cordgrass_rl);
 			FlowerPotHandler.registerCustomSimpleFlower(

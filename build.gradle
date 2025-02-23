@@ -96,7 +96,10 @@ dependencies {
 	implementation fg.deobf("com.teamabnormals:blueprint:1.20.1-7.1.0")
 	implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_cfg_version}")
 
-	compileOnly "maven.modrinth:supplementaries:1.20-3.1.10"
+	compileOnly "maven.modrinth:supplementaries:1.20-3.1.16"
+
+	compileOnly "maven.modrinth:endergetic:5.0.1"
+	runtimeOnly fg.deobf("maven.modrinth:endergetic:5.0.1")
 }
 
 mixin {

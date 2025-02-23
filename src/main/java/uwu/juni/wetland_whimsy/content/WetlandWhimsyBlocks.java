@@ -1,5 +1,6 @@
 package uwu.juni.wetland_whimsy.content;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
@@ -26,6 +27,7 @@ import net.minecraftforge.registries.RegistryObject;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.*;
 import uwu.juni.wetland_whimsy.content.items.*;
+import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.BaldCypressTree;
 import uwu.juni.wetland_whimsy.worldgen.HugeAriaMushroom;
@@ -446,6 +448,19 @@ public class WetlandWhimsyBlocks {
 				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 10 : 0)
 		)
 	);
+
+	public static Optional<RegistryObject<BrazierBlock>> LIVING_BRAZIER = Compat.BRAZIER
+		? Optional.of(registerBlockAndItem(
+			"living_brazier", 
+			() -> new BrazierBlock(BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get()))
+		))
+		: Optional.empty();
+	public static Optional<RegistryObject<BrazierBlock>> ENDER_BRAZIER = Compat.ENDERGETIC
+		? Optional.of(registerBlockAndItem(
+			"ender_brazier", 
+			() -> new BrazierBlock(BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get()))
+		))
+		: Optional.empty();
 
 	public static final RegistryObject<AncientBrazierBlock> ANCIENT_BRAZIER = registerBlockAndItem(
 		"ancient_brazier",

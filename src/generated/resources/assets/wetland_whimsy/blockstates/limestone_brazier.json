@@ -1,10 +1,10 @@
 {
   "variants": {
     "lit=false": {
-      "model": "wetland_whimsy:block/brazier"
+      "model": "wetland_whimsy:block/limestone_brazier"
     },
     "lit=true": {
-      "model": "wetland_whimsy:block/brazier_lit"
+      "model": "wetland_whimsy:block/limestone_brazier_lit"
     }
   }
 }
