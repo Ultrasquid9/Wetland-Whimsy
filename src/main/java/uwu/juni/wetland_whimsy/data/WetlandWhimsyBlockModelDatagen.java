@@ -241,14 +241,6 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				new ResourceLocation(EndergeticExpansion.MOD_ID, "block/ender_campfire_fire")
 			);
 
-		if (Compat.BRAZIER)
-			brazier(
-				WetlandWhimsyBlocks.LIVING_BRAZIER.get().get(),
-				"living_brazier",
-				modLoc("block/brazier/living_brazier_top_lit"),
-				modLoc("block/brazier/living_brazier_fire")
-			);
-
 		getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates(state -> ConfiguredModel
 			.builder() 
 			.modelFile(

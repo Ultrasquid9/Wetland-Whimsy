@@ -117,8 +117,6 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 
 		if (Compat.ENDERGETIC)
 			basicItem(WetlandWhimsyBlocks.ENDER_BRAZIER.get().get().asItem());
-		if (Compat.BRAZIER)
-			basicItem(WetlandWhimsyBlocks.LIVING_BRAZIER.get().get().asItem());
 
 		basicItem(WetlandWhimsyBlocks.ARIA_MUSHROOM.get().asItem());
 

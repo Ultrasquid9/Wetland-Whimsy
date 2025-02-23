@@ -66,9 +66,6 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		if (Compat.ENDERGETIC)
 			dropSelf(WetlandWhimsyBlocks.ENDER_BRAZIER.get().get());
 		
-		if (Compat.BRAZIER)
-			dropSelf(WetlandWhimsyBlocks.LIVING_BRAZIER.get().get());
-
 		add(
 			WetlandWhimsyBlocks.PENNYWORT.get(), 
 			createPetalsDrops(WetlandWhimsyBlocks.PENNYWORT.get())

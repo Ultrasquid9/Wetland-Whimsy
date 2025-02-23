@@ -60,16 +60,11 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRAZIER, "Limestone Brazier");
 		addBlock(WetlandWhimsyBlocks.SOUL_BRAZIER, "Soul Brazier");
 		addBlock(WetlandWhimsyBlocks.ANCIENT_BRAZIER, "Ancient Brazier");
-
-		// Living Limestone Braziers only appear when Brazier is installed, which also enables the compat names.
-		// Therefore, a non-compat name is irrelelvant. 
 		add("block.wetland_whimsy.ender_brazier", "Ender Brazier");
 
 		add("block.wetland_whimsy.limestone_brazier.compat", "Limestone Brazier");
 		add("block.wetland_whimsy.soul_brazier.compat", "Limestone Soul Brazier");
-		add("block.wetland_whimsy.ancient_brazier.compat", "Limestone Ancient Brazier");
-		
-		add("block.wetland_whimsy.living_brazier.compat", "Limestone Living Brazier");
+		add("block.wetland_whimsy.ancient_brazier.compat", "Limestone Ancient Brazier");		
 		add("block.wetland_whimsy.ender_brazier.compat", "Limestone Ender Brazier");
 
 		addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");

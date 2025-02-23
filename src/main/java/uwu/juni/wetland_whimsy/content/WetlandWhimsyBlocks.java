@@ -449,12 +449,6 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
-	public static Optional<RegistryObject<BrazierBlock>> LIVING_BRAZIER = Compat.BRAZIER
-		? Optional.of(registerBlockAndItem(
-			"living_brazier", 
-			() -> new BrazierBlock(BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get()))
-		))
-		: Optional.empty();
 	public static Optional<RegistryObject<BrazierBlock>> ENDER_BRAZIER = Compat.ENDERGETIC
 		? Optional.of(registerBlockAndItem(
 			"ender_brazier", 
