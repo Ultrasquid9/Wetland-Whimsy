@@ -1,16 +1,21 @@
 package uwu.juni.wetland_whimsy.data;
 
+import java.util.function.Supplier;
+
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 	public WetlandWhimsyLanguageDatagen(PackOutput output) {
 		super(output, WetlandWhimsy.MODID, "en_us");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void addTranslations() {
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_LOG, "Bald Cypress Log");
@@ -56,6 +61,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 		addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 		addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
+
+		if (Compat.FARMERS_DELIGHT)
+			addBlock((Supplier<CabinetBlock>)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), "Bald Cypress Cabinet");
 
 		add("block.wetland_whimsy.limestone_brazier", "Limestone Brazier");
 		add("block.wetland_whimsy.soul_brazier", "Soul Brazier");

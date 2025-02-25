@@ -42,6 +42,9 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.get());
 		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get());
 
+		if (Compat.FARMERS_DELIGHT)
+			dropSelf((Block)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get());
+
 		dropSelf(WetlandWhimsyBlocks.LIMESTONE.get());
 		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get());
 		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICKS.get());

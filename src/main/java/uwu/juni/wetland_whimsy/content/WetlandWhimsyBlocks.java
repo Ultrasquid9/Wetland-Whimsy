@@ -63,6 +63,8 @@ import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.BaldCypressTree;
 import uwu.juni.wetland_whimsy.worldgen.HugeAriaMushroom;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 public class WetlandWhimsyBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, WetlandWhimsy.MODID);
@@ -307,6 +309,14 @@ public class WetlandWhimsyBlocks {
 			WetlandWhimsyWoodTypes.BALD_CYPRESS
 		)
 	);
+
+
+	public static Optional<RegistryObject<?>> BALD_CYPRESS_CABINET = Compat.FARMERS_DELIGHT 
+		? Optional.of(registerBlockAndItem(
+			"bald_cypress_cabinet",
+			() -> new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get()))
+		))
+		: Optional.empty();
 
 	// Limestone 
 	public static final RegistryObject<Block> LIMESTONE = registerBlockAndItem(

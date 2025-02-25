@@ -21,6 +21,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
@@ -242,6 +243,16 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 				CCItemTags.CUPRIC_FIRE_BASE_BLOCKS, 
 				WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().get()
 			);
+
+		if (Compat.FARMERS_DELIGHT)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, (Block)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get(), 1)
+				.define('T', WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get())
+				.define('S', WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get())
+				.pattern("SSS")
+				.pattern("T T")
+				.pattern("SSS")
+				.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()), has(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()))
+				.save(recipeOutput);
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WetlandWhimsyBlocks.ARIA_SPORES.get(), 3)
 			.requires(WetlandWhimsyBlocks.ARIA_MUSHROOM.get())

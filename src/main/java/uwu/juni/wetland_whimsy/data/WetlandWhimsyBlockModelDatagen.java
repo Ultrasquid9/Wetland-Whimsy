@@ -4,6 +4,7 @@ import com.teamabnormals.caverns_and_chasms.core.CavernsAndChasms;
 import com.teamabnormals.endergetic.core.EndergeticExpansion;
 
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -21,6 +22,7 @@ import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.misc.Compat;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 	public WetlandWhimsyBlockModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
@@ -249,6 +251,9 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				new ResourceLocation(CavernsAndChasms.MOD_ID, "block/cupric_campfire_fire")
 			);
 
+		if (Compat.FARMERS_DELIGHT)
+			cabinetBlock((Block)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get(), "bald_cypress");
+
 		getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates(state -> ConfiguredModel
 			.builder() 
 			.modelFile(
@@ -330,6 +335,20 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			return ConfiguredModel.builder()
 				.modelFile(model)
 				.build();
+		});
+	}
+
+	// Modified version of the Farmer's Delight cabinet datagen
+	@SuppressWarnings("deprecation")
+	public void cabinetBlock(Block block, String woodType) {
+		horizontalBlock(block, state -> {
+			var prefix = "block/compat/farmersdelight/";
+			var suffix = state.getValue(CabinetBlock.OPEN) ? "_open" : "";
+
+			return models().orientable(BuiltInRegistries.BLOCK.getKey(block).getPath() + suffix,
+				WetlandWhimsy.rLoc(prefix + woodType + "_cabinet_side"),
+				WetlandWhimsy.rLoc(prefix + woodType + "_cabinet_front" + suffix),
+				WetlandWhimsy.rLoc(prefix + woodType + "_cabinet_top"));
 		});
 	}
 }

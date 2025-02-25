@@ -103,6 +103,9 @@ dependencies {
 
 	compileOnly "maven.modrinth:caverns-and-chasms:2.0.0"
 	runtimeOnly fg.deobf("maven.modrinth:caverns-and-chasms:2.0.0")
+
+	compileOnly "maven.modrinth:farmers-delight:1.20.1-1.2.7"
+	runtimeOnly fg.deobf("maven.modrinth:farmers-delight:1.20.1-1.2.7")
 }
 
 mixin {
