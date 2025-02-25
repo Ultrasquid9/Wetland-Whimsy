@@ -116,6 +116,11 @@ public class Creative {
 				of(Items.MUSIC_DISC_RELIC), 
 				WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC
 			)
+			.addItemsAfter(
+				of(Items.CHERRY_CHEST_BOAT), 
+				WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst(),
+				WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond()
+			)
 
 			.tab(CreativeModeTabs.FOOD_AND_DRINKS)
 			.addItemsAfter(
