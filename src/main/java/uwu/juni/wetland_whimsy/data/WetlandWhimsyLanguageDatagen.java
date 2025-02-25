@@ -57,15 +57,17 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 		addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
 
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRAZIER, "Limestone Brazier");
-		addBlock(WetlandWhimsyBlocks.SOUL_BRAZIER, "Soul Brazier");
-		addBlock(WetlandWhimsyBlocks.ANCIENT_BRAZIER, "Ancient Brazier");
+		add("block.wetland_whimsy.limestone_brazier", "Limestone Brazier");
+		add("block.wetland_whimsy.soul_brazier", "Soul Brazier");
+		add("block.wetland_whimsy.ancient_brazier", "Ancient Brazier");
 		add("block.wetland_whimsy.ender_brazier", "Ender Brazier");
+		// Cupric Brazier only appears when C&C is loaded, which also enables the compat names.
 
 		add("block.wetland_whimsy.limestone_brazier.compat", "Limestone Brazier");
 		add("block.wetland_whimsy.soul_brazier.compat", "Limestone Soul Brazier");
 		add("block.wetland_whimsy.ancient_brazier.compat", "Limestone Ancient Brazier");		
 		add("block.wetland_whimsy.ender_brazier.compat", "Limestone Ender Brazier");
+		add("block.wetland_whimsy.cupric_brazier.compat", "Limestone Cupric Brazier");
 
 		addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		addItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC, "Music Disc");

@@ -1,5 +1,6 @@
 package uwu.juni.wetland_whimsy.data;
 
+import com.teamabnormals.caverns_and_chasms.core.CavernsAndChasms;
 import com.teamabnormals.endergetic.core.EndergeticExpansion;
 
 import net.minecraft.core.Direction;
@@ -239,6 +240,13 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				"ender_brazier",
 				modLoc("block/brazier/ender_brazier_top_lit"),
 				new ResourceLocation(EndergeticExpansion.MOD_ID, "block/ender_campfire_fire")
+			);
+		if (Compat.CNC)
+			brazier(
+				WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().get(),
+				"cupric_brazier",
+				modLoc("block/brazier/cupric_brazier_top_lit"),
+				new ResourceLocation(CavernsAndChasms.MOD_ID, "block/cupric_campfire_fire")
 			);
 
 		getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates(state -> ConfiguredModel

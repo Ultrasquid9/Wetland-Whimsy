@@ -1,5 +1,7 @@
 package uwu.juni.wetland_whimsy.misc;
 
+import static net.minecraft.world.item.crafting.Ingredient.of;
+
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 
 import net.minecraft.world.item.CreativeModeTabs;
@@ -8,8 +10,6 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-
-import static net.minecraft.world.item.crafting.Ingredient.of;
 
 public class Creative {
 	public static void addCreative(final BuildCreativeModeTabContentsEvent event) {
@@ -132,5 +132,20 @@ public class Creative {
 				of(Items.SNORT_POTTERY_SHERD), 
 				WetlandWhimsyItems.ANCIENT_COIN
 			);
+
+		if (Compat.ENDERGETIC)
+			CreativeModeTabContentsPopulator.mod(WetlandWhimsy.MODID)
+				.tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+				.addItemsAfter(
+					of(WetlandWhimsyBlocks.SOUL_BRAZIER.get()), 
+					WetlandWhimsyBlocks.ENDER_BRAZIER.get()
+				);
+		if (Compat.CNC)
+			CreativeModeTabContentsPopulator.mod(WetlandWhimsy.MODID)
+				.tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+				.addItemsAfter(
+					of(WetlandWhimsyBlocks.SOUL_BRAZIER.get()), 
+					WetlandWhimsyBlocks.CUPRIC_BRAZIER.get()
+				);
 	}
 }

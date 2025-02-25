@@ -2,15 +2,16 @@ package uwu.juni.wetland_whimsy.data.tags;
 
 import java.util.concurrent.CompletableFuture;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
@@ -52,6 +53,14 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get(),
 			WetlandWhimsyBlocks.SOUL_BRAZIER.get()
 		);
+
+		if (Compat.ENDERGETIC) tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+			WetlandWhimsyBlocks.ENDER_BRAZIER.get().get()
+		);
+		if (Compat.CNC) tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+			WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().get()
+		);
+
 		this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
 		);

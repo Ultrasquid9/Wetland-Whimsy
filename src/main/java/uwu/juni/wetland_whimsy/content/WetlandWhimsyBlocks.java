@@ -5,7 +5,10 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import com.teamabnormals.blueprint.common.block.sign.*;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintCeilingHangingSignBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintStandingSignBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlock;
+import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,8 +17,27 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.CeilingHangingSignBlock;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.HalfTransparentBlock;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.PressurePlateBlock.Sensitivity;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.WallHangingSignBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -25,8 +47,18 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.blocks.*;
-import uwu.juni.wetland_whimsy.content.items.*;
+import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
+import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
+import uwu.juni.wetland_whimsy.content.blocks.BloodcapMushroomBlock;
+import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
+import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
+import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import uwu.juni.wetland_whimsy.content.blocks.StrippableLogBlock;
+import uwu.juni.wetland_whimsy.content.blocks.SussyMudBlock;
+import uwu.juni.wetland_whimsy.content.items.FlammableBlockItem;
+import uwu.juni.wetland_whimsy.content.items.FlammableHangingSignItem;
+import uwu.juni.wetland_whimsy.content.items.FlammableSignItem;
 import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.BaldCypressTree;
@@ -452,6 +484,12 @@ public class WetlandWhimsyBlocks {
 	public static Optional<RegistryObject<BrazierBlock>> ENDER_BRAZIER = Compat.ENDERGETIC
 		? Optional.of(registerBlockAndItem(
 			"ender_brazier", 
+			() -> new BrazierBlock(BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get()))
+		))
+		: Optional.empty();
+	public static Optional<RegistryObject<BrazierBlock>> CUPRIC_BRAZIER = Compat.CNC
+		? Optional.of(registerBlockAndItem(
+			"cupric_brazier", 
 			() -> new BrazierBlock(BlockBehaviour.Properties.copy(LIMESTONE_BRAZIER.get()))
 		))
 		: Optional.empty();
