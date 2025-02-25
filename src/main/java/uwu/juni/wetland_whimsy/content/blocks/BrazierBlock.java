@@ -158,7 +158,7 @@ public class BrazierBlock extends Block {
 	public String getDescriptionId() {
 		var str = super.getDescriptionId();
 
-		return Compat.BRAZIER
+		return Compat.shouldChangeBrazierName()
 			? str + ".compat"
 			: str;
 	}

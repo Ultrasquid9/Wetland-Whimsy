@@ -100,6 +100,9 @@ dependencies {
 
 	compileOnly "maven.modrinth:endergetic:5.0.1"
 	runtimeOnly fg.deobf("maven.modrinth:endergetic:5.0.1")
+
+	compileOnly "maven.modrinth:caverns-and-chasms:2.0.0"
+	runtimeOnly fg.deobf("maven.modrinth:caverns-and-chasms:2.0.0")
 }
 
 mixin {

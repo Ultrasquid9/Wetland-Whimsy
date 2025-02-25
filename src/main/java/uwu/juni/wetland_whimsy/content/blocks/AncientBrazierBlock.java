@@ -200,7 +200,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	public String getDescriptionId() {
 		var str = super.getDescriptionId();
 
-		return Compat.BRAZIER
+		return Compat.shouldChangeBrazierName()
 			? str + ".compat"
 			: str;
 	}
