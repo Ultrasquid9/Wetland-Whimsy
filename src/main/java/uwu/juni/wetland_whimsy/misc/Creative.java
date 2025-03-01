@@ -159,7 +159,7 @@ public class Creative {
 					WetlandWhimsyBlocks.CUPRIC_BRAZIER.get()
 				);
 
-		if (Compat.FARMERS_DELIGHT)
+		if (Compat.isCabinetSafe())
 			CreativeModeTabContentsPopulator.mod(WetlandWhimsy.MODID)
 				.tab(ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey())
 				.addItemsAfter(

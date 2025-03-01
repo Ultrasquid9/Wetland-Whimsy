@@ -311,7 +311,7 @@ public class WetlandWhimsyBlocks {
 	);
 
 
-	public static Optional<RegistryObject<?>> BALD_CYPRESS_CABINET = Compat.FARMERS_DELIGHT 
+	public static Optional<RegistryObject<?>> BALD_CYPRESS_CABINET = Compat.isCabinetSafe()
 		? Optional.of(registerBlockAndItem(
 			"bald_cypress_cabinet",
 			() -> new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get()))
