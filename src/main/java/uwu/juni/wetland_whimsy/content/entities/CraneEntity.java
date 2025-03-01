@@ -2,6 +2,7 @@ package uwu.juni.wetland_whimsy.content.entities;
 
 import java.util.function.BiFunction;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.common.collect.ImmutableList;
@@ -10,6 +11,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -37,6 +39,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.entities.goals.CraneFlyGoal;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
@@ -213,5 +216,23 @@ public class CraneEntity extends Animal {
 			0, 
 			0
 		);
+	}
+
+	@Override
+	@Nullable
+	protected SoundEvent getAmbientSound() {
+		return WetlandWhimsySounds.CRANE_AMBIENT.get();
+	}
+	
+	@Override
+	@Nullable
+	protected SoundEvent getHurtSound(DamageSource damageSource) {
+		return WetlandWhimsySounds.CRANE_HIT.get();
+	}
+
+	@Override
+	@Nullable
+	protected SoundEvent getDeathSound() {
+		return WetlandWhimsySounds.CRANE_DEATH.get();
 	}
 }

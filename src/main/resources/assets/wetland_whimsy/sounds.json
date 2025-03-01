@@ -65,6 +65,29 @@
 		]
 	},
 
+	"crane_ambient": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:crane_ambient_1",
+				"volume": 1.5
+			},
+			{
+				"name": "wetland_whimsy:crane_ambient_2",
+				"volume": 1.5
+			}
+		]
+	},
+	"crane_hit": {
+		"sounds": [
+			"wetland_whimsy:crane_hit_1"
+		]
+	},
+	"crane_death": {
+		"sounds": [
+			"wetland_whimsy:crane_death_1"
+		]
+	},
+
 	"sludge_charge_hit": {
 		"sounds": [
 			"wetland_whimsy:sludge_charge_hit"
