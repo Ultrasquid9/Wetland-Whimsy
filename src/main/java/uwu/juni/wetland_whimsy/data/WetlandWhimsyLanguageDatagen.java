@@ -62,9 +62,6 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 		addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
 
-		if (Compat.FARMERS_DELIGHT)
-			addBlock((Supplier<CabinetBlock>)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), "Bald Cypress Cabinet");
-
 		add("block.wetland_whimsy.limestone_brazier", "Limestone Brazier");
 		add("block.wetland_whimsy.soul_brazier", "Soul Brazier");
 		add("block.wetland_whimsy.ancient_brazier", "Ancient Brazier");

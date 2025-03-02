@@ -158,13 +158,5 @@ public class Creative {
 					of(WetlandWhimsyBlocks.SOUL_BRAZIER.get()), 
 					WetlandWhimsyBlocks.CUPRIC_BRAZIER.get()
 				);
-
-		if (Compat.isCabinetSafe())
-			CreativeModeTabContentsPopulator.mod(WetlandWhimsy.MODID)
-				.tab(ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey())
-				.addItemsAfter(
-					of(ModBlocks.CHERRY_CABINET.get()), 
-					(Supplier<CabinetBlock>)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get()
-				);
 	}
 }

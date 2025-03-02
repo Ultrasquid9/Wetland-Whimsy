@@ -55,10 +55,6 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.SOUL_BRAZIER.get()
 		);
 
-		if (Compat.FARMERS_DELIGHT) tag(BlockTags.MINEABLE_WITH_AXE).add(
-			(Block)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get()
-		);
-
 		if (Compat.ENDERGETIC) tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
 			WetlandWhimsyBlocks.ENDER_BRAZIER.get().get()
 		);

@@ -244,16 +244,6 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 				WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().get()
 			);
 
-		if (Compat.FARMERS_DELIGHT)
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, (Block)WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get(), 1)
-				.define('T', WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get())
-				.define('S', WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get())
-				.pattern("SSS")
-				.pattern("T T")
-				.pattern("SSS")
-				.unlockedBy(getHasName(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()), has(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()))
-				.save(recipeOutput);
-
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WetlandWhimsyBlocks.ARIA_SPORES.get(), 3)
 			.requires(WetlandWhimsyBlocks.ARIA_MUSHROOM.get())
 			.unlockedBy(getHasName(WetlandWhimsyBlocks.ARIA_MUSHROOM.get()), has(WetlandWhimsyBlocks.ARIA_MUSHROOM.get()))

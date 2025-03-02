@@ -310,14 +310,6 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
-
-	public static Optional<RegistryObject<?>> BALD_CYPRESS_CABINET = Compat.isCabinetSafe()
-		? Optional.of(registerBlockAndItem(
-			"bald_cypress_cabinet",
-			() -> new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get()))
-		))
-		: Optional.empty();
-
 	// Limestone 
 	public static final RegistryObject<Block> LIMESTONE = registerBlockAndItem(
 		"limestone", 
