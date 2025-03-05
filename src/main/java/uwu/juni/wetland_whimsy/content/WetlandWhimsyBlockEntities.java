@@ -1,5 +1,7 @@
 package uwu.juni.wetland_whimsy.content;
 
+import com.mojang.datafixers.DSL;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
@@ -16,22 +18,20 @@ public class WetlandWhimsyBlockEntities {
 		Registries.BLOCK_ENTITY_TYPE
 	);
 
-	@SuppressWarnings("null")
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AncientBrazierBlockEntity>> ANCIENT_BRAZIER = BLOCK_ENTITY_TYPES.register(
 		"ancient_brazier",
 		() -> BlockEntityType.Builder.of(
 			AncientBrazierBlockEntity::new,
 			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get()
-		).build(null)
+		).build(DSL.emptyPartType())
 	);
 
-	@SuppressWarnings("null")
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AncientPotBlockEntity>> ANCIENT_POT = BLOCK_ENTITY_TYPES.register(
 		"ancient_pot",
 		() -> BlockEntityType.Builder.of(
 			AncientPotBlockEntity::new,
 			WetlandWhimsyBlocks.ANCIENT_POT.get()
-		).build(null)
+		).build(DSL.emptyPartType())
 	);
 
 	public static void handleBlockEntities(BlockEntityTypeAddBlocksEvent event) {

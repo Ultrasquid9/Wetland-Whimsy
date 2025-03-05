@@ -21,10 +21,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.ClipContext;
@@ -154,7 +154,6 @@ public class AncientBrazierSpawner extends BaseSpawner {
 	}
 
 	// Copied from Vanilla's TrialSpawner class
-	@SuppressWarnings("null")
 	public Optional<UUID> spawnMob(ServerLevel level, BlockPos pos) {
 		var randomsource = level.getRandom();
 		var spawndata = getOrCreateNextSpawnData(level, level.getRandom(), pos);
@@ -166,22 +165,22 @@ public class AncientBrazierSpawner extends BaseSpawner {
 			return Optional.empty();
 
 		int i = listtag.size();
-		double d0 = i >= 1
+		var d0 = i >= 1
 			? listtag.getDouble(0)
-			: (double)pos.getX() + (randomsource.nextDouble() - randomsource.nextDouble()) * 7 + 0.5;
-		double d1 = i >= 2 ? listtag.getDouble(1) : (double)(pos.getY() + randomsource.nextInt(3) - 1);
-		double d2 = i >= 3
+			: pos.getX() + (randomsource.nextDouble() - randomsource.nextDouble()) * 7 + 0.5;
+		var d1 = i >= 2 ? listtag.getDouble(1) : pos.getY() + randomsource.nextInt(3) - 1;
+		var d2 = i >= 3
 			? listtag.getDouble(2)
-			: (double)pos.getZ() + (randomsource.nextDouble() - randomsource.nextDouble()) * 7 + 0.5;
+			: pos.getZ() + (randomsource.nextDouble() - randomsource.nextDouble()) * 7 + 0.5;
 
 		if (!level.noCollision(optional.get().getSpawnAABB(d0, d1, d2))) 
 			return Optional.empty();
 
-		Vec3 vec3 = new Vec3(d0, d1, d2);
+		var vec3 = new Vec3(d0, d1, d2);
 		if (!inLineOfSight(level, pos.getCenter(), vec3))
 			return Optional.empty();
 
-		BlockPos blockpos = BlockPos.containing(vec3);
+		var blockpos = BlockPos.containing(vec3);
 		if (!SpawnPlacements.checkSpawnRules(optional.get(), level, MobSpawnType.TRIAL_SPAWNER, blockpos, level.getRandom()))
 			return Optional.empty();
 
@@ -192,10 +191,14 @@ public class AncientBrazierSpawner extends BaseSpawner {
 			}
 		}
 
-		Entity entity = EntityType.loadEntityRecursive(compoundtag, level, p_312375_ -> {
-			p_312375_.moveTo(d0, d1, d2, randomsource.nextFloat() * 360.0F, 0.0F);
-			return p_312375_;
-		});
+		var entity = EntityType.loadEntityRecursive(
+			compoundtag, 
+			level, 
+			e -> {
+				e.moveTo(d0, d1, d2, randomsource.nextFloat() * 360.0F, 0.0F);
+				return e;
+			}
+		);
 		if (entity == null)
 			return Optional.empty();
 
@@ -203,13 +206,15 @@ public class AncientBrazierSpawner extends BaseSpawner {
 			if (!mob.checkSpawnObstruction(level))
 				return Optional.empty();
 
-			boolean flag = spawndata.getEntityToSpawn().size() == 1 && spawndata.getEntityToSpawn().contains("id", 8);
+			var flag = spawndata.getEntityToSpawn().size() == 1 && spawndata.getEntityToSpawn().contains("id", 8);
 			EventHooks.finalizeMobSpawnSpawner(
 				mob, 
 				level, 
 				level.getCurrentDifficultyAt(mob.blockPosition()), 
 				MobSpawnType.TRIAL_SPAWNER, 
-				null, 
+				// SpawnGroupData is an interface that does nothing. Why? Who the fuck knows!
+				// Passing in null is safe, but it creates a warning anyways so I pass a garbage value instead.
+				new SpawnGroupData() {}, 
 				this, 
 				flag
 			);

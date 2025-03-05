@@ -18,7 +18,6 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-@SuppressWarnings("unchecked")
 public class WetlandWhimsyBiomeTags extends BiomeTagsProvider {
 	public WetlandWhimsyBiomeTags(
 		PackOutput output, 
@@ -57,15 +56,17 @@ public class WetlandWhimsyBiomeTags extends BiomeTagsProvider {
 		);
 	}
 
-	private void addOptionalTagToList(TagKey<Biome> tag, ResourceKey<Biome>... biomes) {
-		for (var biome : biomes) {
+	@SafeVarargs
+	final void addOptionalTagToList(TagKey<Biome> tag, ResourceKey<Biome>... biomes) {
+		for (var biome : biomes)
 			tag(tag).addOptional(biome.location());
-		}
 	}
 
-	private void addTagsToBiome(ResourceKey<Biome> biome, TagKey<Biome>... tags) {
-		for (var tag : tags) {
-			tag(tag).addOptional(biome.location());
-		}
+	@SafeVarargs
+	final void addTagsToBiome(ResourceKey<Biome> biome, TagKey<Biome>... tags) {
+		var loc = biome.location();
+
+		for (var tag : tags)
+			tag(tag).addOptional(loc);
 	}
 }
