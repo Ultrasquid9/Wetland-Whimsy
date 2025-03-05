@@ -37,6 +37,16 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			WetlandWhimsyTags.Items.BALD_CYPRESS_LOGS
 		);
 
+		tag(ItemTags.LOGS_THAT_BURN).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_LOG.asItem()
+		);
+		tag(ItemTags.LEAVES).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.asItem()
+		);
+		tag(ItemTags.SAPLINGS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.asItem()
+		);
+
 		tag(WetlandWhimsyTags.Items.FLAMMABLE).add(
 			Items.FLINT_AND_STEEL,
 			Items.FIRE_CHARGE
@@ -55,6 +65,12 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 
 		tag(ItemTags.PLANKS).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.asItem()
+		);
+		tag(ItemTags.BUTTONS).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.asItem()
+		);
+		tag(ItemTags.WOODEN_PRESSURE_PLATES).add(
+			WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.asItem()
 		);
 		tag(ItemTags.BOATS).add(
 			WetlandWhimsyItems.BALD_CYPRESS_BOAT.asItem(),

@@ -2,6 +2,9 @@
   "values": [
     "wetland_whimsy:limestone_wall",
     "wetland_whimsy:polished_limestone_wall",
+    "wetland_whimsy:limestone_brick_wall",
+    "wetland_whimsy:limestone_wall",
+    "wetland_whimsy:polished_limestone_wall",
     "wetland_whimsy:limestone_brick_wall"
   ]
 }
