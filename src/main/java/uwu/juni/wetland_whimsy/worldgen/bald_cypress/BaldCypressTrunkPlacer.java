@@ -32,6 +32,7 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 		super(height, heightRandA, heightRandB);
 	}
 
+	@Override
     protected TrunkPlacerType<?> type() {
         return WetlandWhimsyTrunkPlacers.BALD_CYPRESS_TRUNK_PLACER.get();
     }
@@ -64,7 +65,7 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 		);
 	}
 
-	public void branch(
+	void branch(
 		LevelSimulatedReader level, 
 		BiConsumer<BlockPos, BlockState> blockSetter,
 		RandomSource random, 
@@ -82,7 +83,7 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 		);
 	}
 
-	public void root(
+	void root(
 		LevelSimulatedReader level, 
 		BiConsumer<BlockPos, BlockState> blockSetter,
 		RandomSource random, 
@@ -94,8 +95,7 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 
 		setDirtAt(level, blockSetter, random, pos.offset(rootPosX, -1, rootPosZ), config);
 
-		for (int i = 0; i < 2; i++) {
-			this.placeLog(level, blockSetter, random, pos.offset(rootPosX, i, rootPosZ), config);
-		}
+		for (var i = 0; i < 2; i++)
+			placeLog(level, blockSetter, random, pos.offset(rootPosX, i, rootPosZ), config);
 	}
 }
