@@ -5,7 +5,9 @@ import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
@@ -22,8 +24,9 @@ import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderModel;
 import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderRenderer;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 
-@OnlyIn(Dist.CLIENT)
+@EventBusSubscriber(bus = Bus.MOD, value = Dist.CLIENT, modid = WetlandWhimsy.MODID)
 public class WetlandWhimsyEntityClientSetup {
+	@SubscribeEvent
 	public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(
 			SillyModel.LAYER_LOCATION, 
@@ -57,6 +60,7 @@ public class WetlandWhimsyEntityClientSetup {
 		);
 	}
 
+	@SubscribeEvent
 	public static void entityRenderer(FMLClientSetupEvent event) {
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.SILLY_ENTITY.get(), 

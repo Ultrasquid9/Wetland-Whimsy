@@ -5,16 +5,26 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 
+@EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
 public class Creative {
 	private final BuildCreativeModeTabContentsEvent event;
 	
-	public Creative(BuildCreativeModeTabContentsEvent event) {
+	@SubscribeEvent
+	public static void creativeTabs(BuildCreativeModeTabContentsEvent event) {
+		new Creative(event);
+	}
+
+	Creative(BuildCreativeModeTabContentsEvent event) {
 		this.event = event;
 
 		if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {

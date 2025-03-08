@@ -6,6 +6,9 @@ import com.mojang.datafixers.DSL;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
@@ -14,6 +17,7 @@ import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 import uwu.juni.wetland_whimsy.misc.Compat;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
+@EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
 public class WetlandWhimsyBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = WetlandWhimsy.registry(
 		Registries.BLOCK_ENTITY_TYPE
@@ -37,6 +41,7 @@ public class WetlandWhimsyBlockEntities {
 		.build(DSL.emptyPartType())
 	);
 
+	@SubscribeEvent
 	public static void handleBlockEntities(BlockEntityTypeAddBlocksEvent event) {
 		event.modify(
 			BlockEntityType.SIGN, 

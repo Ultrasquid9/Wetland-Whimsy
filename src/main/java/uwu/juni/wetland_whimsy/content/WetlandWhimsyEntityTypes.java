@@ -10,6 +10,9 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -22,6 +25,7 @@ import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
 import uwu.juni.wetland_whimsy.content.entities.SludgeChargeEntity;
 import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
 
+@EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
 public class WetlandWhimsyEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = WetlandWhimsy.registry(
 		Registries.ENTITY_TYPE
@@ -89,6 +93,7 @@ public class WetlandWhimsyEntityTypes {
 		.sized(.4F, .4F)
 	);
 
+	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(
 			SILLY_ENTITY.get(),
@@ -107,6 +112,8 @@ public class WetlandWhimsyEntityTypes {
 			SwampSpiderEntity.createAttributes().build()
 		);
 	}
+
+	@SubscribeEvent
 	public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
 		event.register(
 			SWAMP_SPIDER.get(), 

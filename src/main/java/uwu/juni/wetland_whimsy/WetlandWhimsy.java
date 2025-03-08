@@ -19,7 +19,6 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import uwu.juni.wetland_whimsy.client.WetlandWhimsyClient;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyAdvancementTriggers;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
@@ -29,12 +28,9 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyPotPatterns;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyPredicates;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
-import uwu.juni.wetland_whimsy.datagen.Datagen;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
-import uwu.juni.wetland_whimsy.datapacks.Datapacks;
 import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.misc.Config;
-import uwu.juni.wetland_whimsy.misc.Creative;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
@@ -62,40 +58,21 @@ public class WetlandWhimsy {
 		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS
 	);
 
-	public WetlandWhimsy(IEventBus modEventBus, ModContainer modContainer, Dist dist) {
+	public WetlandWhimsy(IEventBus bussin, ModContainer modContainer, Dist dist) {
 		LOGGER.info("Whimsical");
 
 		MidnightConfig.init(MODID, Config.class);
 
 		for (var registry : REGISTRIES) 
-			registry.register(modEventBus);
+			registry.register(bussin);
 
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
 		WetlandWhimsyWoodTypes.registerWoodTypes();
 
-		bussin(modEventBus);
-		Compat.compat(modEventBus);
-
-		if (dist == Dist.CLIENT)
-			WetlandWhimsyClient.clientBussin(modEventBus);
+		bussin.addListener((FMLCommonSetupEvent a) -> WetlandWhimsyPotPatterns.initPotPatterns());
+		Compat.compat(bussin);
 
 		marshification();
-	}
-
-	private void bussin(IEventBus bussin) {
-		bussin.addListener(Datapacks::datapackRegistry);
-		bussin.addListener(Datagen::datagen);
-		bussin.addListener(Creative::new);
-
-		bussin.addListener(WetlandWhimsy::commonSetup);
-
-		bussin.addListener(WetlandWhimsyEntityTypes::registerAttributes);
-		bussin.addListener(WetlandWhimsyEntityTypes::registerSpawnPlacements);
-		bussin.addListener(WetlandWhimsyBlockEntities::handleBlockEntities);
-	}
-
-	private static void commonSetup(FMLCommonSetupEvent event) {
-		WetlandWhimsyPotPatterns.initPotPatterns();
 	}
 
 	private void marshification() {
@@ -111,10 +88,7 @@ public class WetlandWhimsy {
 
 	/// Create a ResourceLocation with the "wetland_whimsy" namespace
 	public static ResourceLocation rLoc(String loc) {
-		return ResourceLocation.fromNamespaceAndPath(
-			MODID,
-			loc
-		);
+		return ResourceLocation.fromNamespaceAndPath(MODID, loc);
 	}
 
 	/// Create a DeferredRegister with the "wetland_whimsy" namespace
