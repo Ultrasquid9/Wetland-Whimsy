@@ -18,6 +18,7 @@ import uwu.juni.wetland_whimsy.client.entities.bullet.BulletModel;
 import uwu.juni.wetland_whimsy.client.entities.bullet.BulletRenderer;
 import uwu.juni.wetland_whimsy.client.entities.crane.CraneModel;
 import uwu.juni.wetland_whimsy.client.entities.crane.CraneRenderer;
+import uwu.juni.wetland_whimsy.client.entities.floridaman.FloridaManRenderer;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyModel;
 import uwu.juni.wetland_whimsy.client.entities.silly.SillyRenderer;
 import uwu.juni.wetland_whimsy.client.entities.sludgecharge.SludgeChargeModel;
@@ -83,6 +84,10 @@ public class WetlandWhimsyEntityClientSetup {
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
 			SwampSpiderRenderer::new
+		);
+		EntityRenderers.register(
+			WetlandWhimsyEntityTypes.FLORIDA_MAN.get(), 
+			FloridaManRenderer::new
 		);
 
 		EntityRenderers.register(

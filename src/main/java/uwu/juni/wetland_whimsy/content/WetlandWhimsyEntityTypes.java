@@ -22,6 +22,7 @@ import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BlemishEntity;
 import uwu.juni.wetland_whimsy.content.entities.BulletEntity;
 import uwu.juni.wetland_whimsy.content.entities.CraneEntity;
+import uwu.juni.wetland_whimsy.content.entities.FloridaMan;
 import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
 import uwu.juni.wetland_whimsy.content.entities.SludgeChargeEntity;
 import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
@@ -85,6 +86,15 @@ public class WetlandWhimsyEntityTypes {
 		.sized(1.375F, 0.5625F)
 	);
 
+	public static final Supplier<EntityType<FloridaMan>> FLORIDA_MAN = registerEntity(
+		"florida_man", 
+		EntityType.Builder.of(
+			FloridaMan::new, 
+			MobCategory.MONSTER
+		)
+		.sized(1, 2)
+	);
+
 	public static final Supplier<EntityType<SludgeChargeEntity>> SLUDGE_CHARGE = registerEntity(
 		"sludge_charge", 
 		EntityType.Builder.<SludgeChargeEntity>of(
@@ -120,12 +130,24 @@ public class WetlandWhimsyEntityTypes {
 			SWAMP_SPIDER.get(),
 			SwampSpiderEntity.createAttributes().build()
 		);
+
+		event.put(
+			FLORIDA_MAN.get(),
+			FloridaMan.createAttributes().build()
+		);
 	}
 
 	@SubscribeEvent
 	public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
 		event.register(
 			SWAMP_SPIDER.get(), 
+			SpawnPlacementTypes.ON_GROUND,
+			Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+			Mob::checkMobSpawnRules,
+			RegisterSpawnPlacementsEvent.Operation.OR
+		);
+		event.register(
+			FLORIDA_MAN.get(), 
 			SpawnPlacementTypes.ON_GROUND,
 			Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 			Mob::checkMobSpawnRules,
