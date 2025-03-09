@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
+import uwu.juni.wetland_whimsy.content.items.AK47Item;
 import uwu.juni.wetland_whimsy.content.items.BaldCypressBoatItem;
 import uwu.juni.wetland_whimsy.content.items.DaggerItem;
 import uwu.juni.wetland_whimsy.content.items.SludgeChargeItem;
@@ -117,6 +118,17 @@ public class WetlandWhimsyItems {
 				.durability(560)
 				.component(DataComponents.TOOL, DaggerItem.createToolProperties())
 				.attributes(DaggerItem.createAttributes(2F, -3.2F))
+		)
+	);
+
+	public static final DeferredItem<Item> BULLET = item("bullet");
+	public static final DeferredItem<Item> AK47 = ITEMS.register(
+		"ak47",
+		() -> new AK47Item(
+			new Item.Properties()
+				.rarity(Rarity.RARE)
+				.durability(1000)
+				.stacksTo(1)
 		)
 	);
 

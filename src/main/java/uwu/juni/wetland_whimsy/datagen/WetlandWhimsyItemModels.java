@@ -135,6 +135,9 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.RUSTED_ARTIFACT.get());
 		basicItem(WetlandWhimsyItems.DAGGER.get());
 
+		handheldItem(WetlandWhimsyItems.AK47.get());
+		basicItem(WetlandWhimsyItems.BULLET.get());
+
 		basicItemWithTexture(
 			WetlandWhimsyItems.BASIC_INCENSE, 
 			modLoc("item/incense/basic_incense")

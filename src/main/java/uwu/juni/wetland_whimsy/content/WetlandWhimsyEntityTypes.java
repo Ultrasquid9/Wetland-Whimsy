@@ -20,6 +20,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BlemishEntity;
+import uwu.juni.wetland_whimsy.content.entities.BulletEntity;
 import uwu.juni.wetland_whimsy.content.entities.CraneEntity;
 import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
 import uwu.juni.wetland_whimsy.content.entities.SludgeChargeEntity;
@@ -91,6 +92,14 @@ public class WetlandWhimsyEntityTypes {
 			MobCategory.MISC
 		)
 		.sized(.4F, .4F)
+	);
+	public static final Supplier<EntityType<BulletEntity>> BULLET = registerEntity(
+		"bullet", 
+		EntityType.Builder.<BulletEntity>of(
+			BulletEntity::new, 
+			MobCategory.MISC
+		)
+		.sized(.2F, .2F)
 	);
 
 	@SubscribeEvent

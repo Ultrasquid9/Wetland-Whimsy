@@ -173,7 +173,9 @@ public class Creative {
 			);
 			insertItems(
 				Items.WIND_CHARGE, 
-				WetlandWhimsyItems.SLUDGE_CHARGE
+				WetlandWhimsyItems.SLUDGE_CHARGE, 
+				WetlandWhimsyItems.AK47,
+				WetlandWhimsyItems.BULLET
 			);
 		}
 

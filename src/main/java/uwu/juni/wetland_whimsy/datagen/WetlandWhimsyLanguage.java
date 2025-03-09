@@ -82,6 +82,9 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addItem(WetlandWhimsyItems.RUSTED_ARTIFACT, "Rusted Artifact");
 		addItem(WetlandWhimsyItems.DAGGER, "Dagger");
 
+		addItem(WetlandWhimsyItems.AK47, "AK47");
+		addItem(WetlandWhimsyItems.BULLET, "Bullet");
+
 		addItem(WetlandWhimsyItems.BASIC_INCENSE, "Basic Incense");
 		addItem(WetlandWhimsyItems.BOILING_INCENSE, "Boiling Incense");
 		addItem(WetlandWhimsyItems.BRINE_INCENSE, "Brine Incense");

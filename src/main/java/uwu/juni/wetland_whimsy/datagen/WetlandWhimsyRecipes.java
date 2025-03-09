@@ -274,6 +274,21 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			Items.FERMENTED_SPIDER_EYE
 		);
 
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WetlandWhimsyItems.BULLET, 4)
+			.requires(Items.GUNPOWDER)
+			.requires(Items.REDSTONE)
+			.requires(Items.GOLD_INGOT)
+			.unlockedBy(getHasName(Items.GUNPOWDER), has(Items.GUNPOWDER))
+			.save(recipeOutput);
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyItems.AK47)
+			.define('W', ItemTags.LOGS)
+			.define('I', Items.IRON_INGOT)
+			.define('R', Items.REDSTONE)
+			.pattern("III")
+			.pattern("WR ")
+			.unlockedBy(getHasName(Items.GUNPOWDER), has(Items.GUNPOWDER))
+			.save(recipeOutput);
+
 		if (Compat.FARMERS_DELIGHT)
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), 1)
 				.define('T', WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR)
