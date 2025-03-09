@@ -62,7 +62,9 @@ public class BlemishModel<T extends BlemishEntity> extends HierarchicalModel<T> 
 
 		PartDefinition body_r1 = body.addOrReplaceChild("body_r1", CubeListBuilder.create().texOffs(2, 0).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 2.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -6.0F, 1.0F, -0.6981F, 0.0F, 0.0F));
 
-		PartDefinition head = model_base.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 17).addBox(-4.0F, -8.0F, -8.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -8.0F, 0.0F));
+		PartDefinition head = model_base.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 17).addBox(-4.0F, -8.0F, -8.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 33).addBox(-4.0F, -8.0F, -8.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.1F))
+		.texOffs(11, 33).addBox(-4.0F, -5.0F, -13.0F, 8.0F, 0.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -8.0F, 0.0F));
 
 		PartDefinition tail = model_base.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(12, 2).addBox(-1.0F, 0.0F, -2.0F, 2.0F, 0.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 13.0F));
 
