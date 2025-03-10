@@ -83,5 +83,19 @@ public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
 						.add(WetlandWhimsyLoot.lootEntry(WetlandWhimsyItems.BLEMISH_ROD, -3, 2))
 				)
 		);
+
+		add(
+			WetlandWhimsyEntityTypes.FLORIDA_MAN.get(), 
+			LootTable.lootTable()
+				.withPool(
+					LootPool.lootPool()
+						.setRolls(UniformGenerator.between(1.F, 1.F))
+
+						.when(LootItemKilledByPlayerCondition.killedByPlayer())
+
+						.add(WetlandWhimsyLoot.lootEntry(WetlandWhimsyItems.AK47))
+						.add(WetlandWhimsyLoot.lootEntry(WetlandWhimsyItems.BULLET, -1, 4))
+				)
+		);
 	}
 }

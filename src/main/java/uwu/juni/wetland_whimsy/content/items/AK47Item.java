@@ -18,6 +18,7 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.entities.BulletEntity;
@@ -55,6 +56,7 @@ public class AK47Item extends ProjectileWeaponItem {
 			}
 	
 			proj.shrink(1);
+			item.hurtAndBreak(1, player, player.getEquipmentSlotForItem(item));
 		}
 
 		if (!level.isClientSide) {
@@ -69,7 +71,8 @@ public class AK47Item extends ProjectileWeaponItem {
 
 		playSound.accept(SoundEvents.DISPENSER_LAUNCH);
 		player.getCooldowns().addCooldown(this, 1);
-		return InteractionResultHolder.sidedSuccess(item, level.isClientSide());
+		player.startUsingItem(hand);
+		return InteractionResultHolder.consume(item);
 	}
 
 	@Override
@@ -80,6 +83,11 @@ public class AK47Item extends ProjectileWeaponItem {
 	@Override
 	public Predicate<ItemStack> getAllSupportedProjectiles() {
 		return item -> item.is(WetlandWhimsyItems.BULLET.get());
+	}
+
+	@Override
+	public UseAnim getUseAnimation(ItemStack stack) {
+		return UseAnim.BOW;
 	}
 
 	@Override

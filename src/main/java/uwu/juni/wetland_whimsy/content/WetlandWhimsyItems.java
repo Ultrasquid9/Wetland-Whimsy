@@ -109,6 +109,15 @@ public class WetlandWhimsyItems {
 			new Item.Properties()
 		)
 	);
+	public static final DeferredItem<Item> FLORIDA_MAN_SPAWN_EGG = ITEMS.register(
+		"florida_man_spawn_egg",
+		() -> new DeferredSpawnEggItem(
+			WetlandWhimsyEntityTypes.FLORIDA_MAN, 
+			0x00FF00, 
+			0xFF00FF, 
+			new Item.Properties()
+		)
+	);
 
 	public static final DeferredItem<Item> DAGGER = ITEMS.register(
 		"dagger",

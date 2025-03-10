@@ -65,6 +65,33 @@
 		]
 	},
 
+	"florida_man_ambient": {
+		"sounds": [
+			"wetland_whimsy:floridaman/damnliberals",
+			"wetland_whimsy:floridaman/hamburgers",
+			"wetland_whimsy:floridaman/ilovebudlite",
+			"wetland_whimsy:floridaman/ilovetampa",
+			"wetland_whimsy:floridaman/murica",
+			"wetland_whimsy:floridaman/welp"
+		]
+	},
+	"florida_man_hit": {
+		"sounds": [
+			"wetland_whimsy:floridaman/hurt1",
+			"wetland_whimsy:floridaman/hurt2",
+			"wetland_whimsy:floridaman/hurt3",
+			"wetland_whimsy:floridaman/hurt4"
+		]
+	},
+	"florida_man_death": {
+		"sounds": [
+			"wetland_whimsy:floridaman/death1",
+			"wetland_whimsy:floridaman/death2",
+			"wetland_whimsy:floridaman/death3",
+			"wetland_whimsy:floridaman/death4"
+		]
+	},
+
 	"crane_ambient": {
 		"sounds": [
 			{

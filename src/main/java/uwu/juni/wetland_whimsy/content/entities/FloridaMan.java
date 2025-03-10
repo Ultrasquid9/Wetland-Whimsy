@@ -2,11 +2,13 @@ package uwu.juni.wetland_whimsy.content.entities;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,6 +24,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 
 @ParametersAreNonnullByDefault
 public class FloridaMan extends Zombie implements RangedAttackMob {
@@ -68,6 +71,21 @@ public class FloridaMan extends Zombie implements RangedAttackMob {
 	@Override
 	protected boolean convertsInWater() {
 		return false;
+	}
+
+	@Override
+	protected SoundEvent getAmbientSound() {
+		return WetlandWhimsySounds.FLORIDA_MAN_AMBIENT.get();
+	}
+
+	@Override
+	protected SoundEvent getHurtSound(DamageSource damageSource) {
+		return WetlandWhimsySounds.FLORIDA_MAN_HIT.get();
+	}
+
+	@Override
+	protected SoundEvent getDeathSound() {
+		return WetlandWhimsySounds.FLORIDA_MAN_DEATH.get();
 	}
 
 	static class FloridaMan2ndAmendmentGoal extends RangedAttackGoal {

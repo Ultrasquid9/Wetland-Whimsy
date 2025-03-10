@@ -222,6 +222,10 @@ public class Creative {
 				WetlandWhimsyItems.CRANE_SPAWN_EGG
 			);
 			insertItems(
+				Items.EVOKER_SPAWN_EGG, 
+				WetlandWhimsyItems.FLORIDA_MAN_SPAWN_EGG
+			);
+			insertItems(
 				Items.STRIDER_SPAWN_EGG, 
 				WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG
 			);

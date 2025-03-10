@@ -169,6 +169,7 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		spawnEgg(WetlandWhimsyItems.BLEMISH_SPAWN_EGG);
 		spawnEgg(WetlandWhimsyItems.CRANE_SPAWN_EGG);
 		spawnEgg(WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG);
+		spawnEgg(WetlandWhimsyItems.FLORIDA_MAN_SPAWN_EGG);
 	}
 
 	private void basicItemWithTexture(DeferredItem<?> item, ResourceLocation texture) {

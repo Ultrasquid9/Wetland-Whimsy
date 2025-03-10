@@ -20,6 +20,10 @@ public class WetlandWhimsySounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent> CRANE_HIT = createSound("crane_hit");
 	public static final DeferredHolder<SoundEvent, SoundEvent> CRANE_DEATH = createSound("crane_death");
 
+	public static final DeferredHolder<SoundEvent, SoundEvent> FLORIDA_MAN_AMBIENT = createSound("florida_man_ambient");
+	public static final DeferredHolder<SoundEvent, SoundEvent> FLORIDA_MAN_HIT = createSound("florida_man_hit");
+	public static final DeferredHolder<SoundEvent, SoundEvent> FLORIDA_MAN_DEATH = createSound("florida_man_death");
+
 	public static final DeferredHolder<SoundEvent, SoundEvent> ANCIENT_POT_BREAK = createSound("pot_break");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ANCIENT_POT_INSERT = createSound("pot_insert");
 
