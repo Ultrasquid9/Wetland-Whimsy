@@ -100,6 +100,9 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addEntityType(WetlandWhimsyEntityTypes.SWAMP_SPIDER, "Swamp Spider");
 		addItem(WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG, "Swamp Spider Spawn Egg");
 
+		addEntityType(WetlandWhimsyEntityTypes.FLORIDA_MAN, "Florida Man");
+		addItem(WetlandWhimsyItems.FLORIDA_MAN_SPAWN_EGG, "Florida Man Spawn Egg");
+
 		add("biome.wetland_whimsy.marsh", "Marsh");
 		add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");

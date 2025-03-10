@@ -67,28 +67,46 @@
 
 	"florida_man_ambient": {
 		"sounds": [
-			"wetland_whimsy:floridaman/damnliberals",
-			"wetland_whimsy:floridaman/hamburgers",
-			"wetland_whimsy:floridaman/ilovebudlite",
-			"wetland_whimsy:floridaman/ilovetampa",
-			"wetland_whimsy:floridaman/murica",
-			"wetland_whimsy:floridaman/welp"
+			{
+				"name": "wetland_whimsy:floridaman/damnliberals",
+				"volume": 2
+			},
+			{
+				"name": "wetland_whimsy:floridaman/hamburgers",
+				"volume": 2
+			},
+			{
+				"name": "wetland_whimsy:floridaman/ilovebudlite",
+				"volume": 2
+			},
+			{
+				"name": "wetland_whimsy:floridaman/ilovetampa",
+				"volume": 2
+			},
+			{
+				"name": "wetland_whimsy:floridaman/murica",
+				"volume": 2
+			},
+			{
+				"name": "wetland_whimsy:floridaman/welp",
+				"volume": 2
+			}
 		]
 	},
 	"florida_man_hit": {
 		"sounds": [
-			"wetland_whimsy:floridaman/hurt1",
-			"wetland_whimsy:floridaman/hurt2",
-			"wetland_whimsy:floridaman/hurt3",
-			"wetland_whimsy:floridaman/hurt4"
+			{"name":"wetland_whimsy:floridaman/hurt1","volume":2},
+			{"name":"wetland_whimsy:floridaman/hurt2","volume":2},
+			{"name":"wetland_whimsy:floridaman/hurt3","volume":2},
+			{"name":"wetland_whimsy:floridaman/hurt4","volume":2}
 		]
 	},
 	"florida_man_death": {
 		"sounds": [
-			"wetland_whimsy:floridaman/death1",
-			"wetland_whimsy:floridaman/death2",
-			"wetland_whimsy:floridaman/death3",
-			"wetland_whimsy:floridaman/death4"
+			{"name":"wetland_whimsy:floridaman/death1","volume":2},
+			{"name":"wetland_whimsy:floridaman/death2","volume":2},
+			{"name":"wetland_whimsy:floridaman/death3","volume":2},
+			{"name":"wetland_whimsy:floridaman/death4","volume":2}
 		]
 	},
 

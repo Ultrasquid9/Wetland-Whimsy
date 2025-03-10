@@ -113,7 +113,7 @@ public class WetlandWhimsyItems {
 		"florida_man_spawn_egg",
 		() -> new DeferredSpawnEggItem(
 			WetlandWhimsyEntityTypes.FLORIDA_MAN, 
-			0x00FF00, 
+			0xFF0000, 
 			0xFF00FF, 
 			new Item.Properties()
 		)
