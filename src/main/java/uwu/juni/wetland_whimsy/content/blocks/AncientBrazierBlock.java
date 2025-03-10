@@ -33,7 +33,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
-import uwu.juni.wetland_whimsy.misc.Compat;
 
 public class AncientBrazierBlock extends BaseEntityBlock {
 	public enum Flame implements StringRepresentable {
@@ -194,14 +193,5 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	@Override
 	public RenderShape getRenderShape(@Nonnull BlockState a) {
 		return RenderShape.MODEL;
-	}
-
-	@Override
-	public String getDescriptionId() {
-		var str = super.getDescriptionId();
-
-		return Compat.shouldChangeBrazierName()
-			? str + ".compat"
-			: str;
 	}
 }

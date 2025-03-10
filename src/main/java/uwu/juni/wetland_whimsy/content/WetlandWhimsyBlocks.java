@@ -53,6 +53,10 @@ import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BloodcapMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
+import uwu.juni.wetland_whimsy.content.blocks.LimestoneBlock;
+import uwu.juni.wetland_whimsy.content.blocks.LimestoneSlabBlock;
+import uwu.juni.wetland_whimsy.content.blocks.LimestoneStairBlock;
+import uwu.juni.wetland_whimsy.content.blocks.LimestoneWallBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.content.blocks.StrippableLogBlock;
 import uwu.juni.wetland_whimsy.content.blocks.SussyMudBlock;
@@ -63,8 +67,6 @@ import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.BaldCypressTree;
 import uwu.juni.wetland_whimsy.worldgen.HugeAriaMushroom;
-import vectorwing.farmersdelight.common.block.CabinetBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 public class WetlandWhimsyBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, WetlandWhimsy.MODID);
@@ -313,7 +315,7 @@ public class WetlandWhimsyBlocks {
 	// Limestone 
 	public static final RegistryObject<Block> LIMESTONE = registerBlockAndItem(
 		"limestone", 
-		() -> new Block(
+		() -> new LimestoneBlock(
 			BlockBehaviour.Properties
 				.copy(Blocks.STONE)
 				.sound(SoundType.CALCITE)
@@ -321,69 +323,66 @@ public class WetlandWhimsyBlocks {
 	);
 	public static final RegistryObject<Block> POLISHED_LIMESTONE = registerBlockAndItem(
 		"polished_limestone", 
-		() -> new Block(BlockBehaviour.Properties.copy(LIMESTONE.get()))
+		() -> new LimestoneBlock(BlockBehaviour.Properties.copy(LIMESTONE.get()))
 	);
 	public static final RegistryObject<Block> LIMESTONE_BRICKS = registerBlockAndItem(
 		"limestone_bricks", 
-		() -> new Block(BlockBehaviour.Properties.copy(LIMESTONE.get()))
+		() -> new LimestoneBlock(BlockBehaviour.Properties.copy(LIMESTONE.get()))
 	);
-	@SuppressWarnings("deprecation")
 	public static final RegistryObject<StairBlock> LIMESTONE_STAIRS = registerBlockAndItem(
 		"limestone_stairs", 
-		() -> new StairBlock(
+		() -> new LimestoneStairBlock(
 			LIMESTONE.get().defaultBlockState(),
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
-	@SuppressWarnings("deprecation")
 	public static final RegistryObject<StairBlock> POLISHED_LIMESTONE_STAIRS = registerBlockAndItem(
 		"polished_limestone_stairs", 
-		() -> new StairBlock(
+		() -> new LimestoneStairBlock(
 			POLISHED_LIMESTONE.get().defaultBlockState(),
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
-	@SuppressWarnings("deprecation")
 	public static final RegistryObject<StairBlock> LIMESTONE_BRICK_STAIRS = registerBlockAndItem(
 		"limestone_brick_stairs", 
-		() -> new StairBlock(
+		() -> new LimestoneStairBlock(
 			LIMESTONE_BRICKS.get().defaultBlockState(),
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
 	public static final RegistryObject<SlabBlock> LIMESTONE_SLAB = registerBlockAndItem(
 		"limestone_slab", 
-		() -> new SlabBlock(
+		() -> new LimestoneSlabBlock(
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
 	public static final RegistryObject<SlabBlock> POLISHED_LIMESTONE_SLAB = registerBlockAndItem(
 		"polished_limestone_slab", 
-		() -> new SlabBlock(
+		() -> new LimestoneSlabBlock(
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
 	public static final RegistryObject<SlabBlock> LIMESTONE_BRICK_SLAB = registerBlockAndItem(
 		"limestone_brick_slab", 
-		() -> new SlabBlock(
+		() -> new LimestoneSlabBlock(
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
 	public static final RegistryObject<WallBlock> LIMESTONE_WALL = registerBlockAndItem(
 		"limestone_wall", 
-		() -> new WallBlock(
+		() -> new LimestoneWallBlock(
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
 	public static final RegistryObject<WallBlock> POLISHED_LIMESTONE_WALL = registerBlockAndItem(
 		"polished_limestone_wall", 
-		() -> new WallBlock(
+		() -> new LimestoneWallBlock(
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
 	public static final RegistryObject<WallBlock> LIMESTONE_BRICK_WALL = registerBlockAndItem(
 		"limestone_brick_wall", 
-		() -> new WallBlock(
+		() -> new LimestoneWallBlock(
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
 		)
 	);
@@ -391,7 +390,16 @@ public class WetlandWhimsyBlocks {
 		"limestone_pillar", 
 		() -> new RotatedPillarBlock(
 			BlockBehaviour.Properties.copy(LIMESTONE.get())
-		)
+		) {
+			@Override
+			public String getDescriptionId() {
+				var str = super.getDescriptionId();
+
+				return Compat.shouldChangeLimestoneName()
+					? str + ".compat"
+					: str;
+			}
+		}
 	);
 
 	// Plants

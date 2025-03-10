@@ -1,21 +1,16 @@
 package uwu.juni.wetland_whimsy.data;
 
-import java.util.function.Supplier;
-
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.misc.Compat;
-import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 	public WetlandWhimsyLanguageDatagen(PackOutput output) {
 		super(output, WetlandWhimsy.MODID, "en_us");
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void addTranslations() {
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_LOG, "Bald Cypress Log");
@@ -38,19 +33,19 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN, "Bald Cypress Sign");
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN, "Bald Cypress Hanging Sign");
 
-		addBlock(WetlandWhimsyBlocks.LIMESTONE, "Limestone");
-		addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE, "Polished Limestone");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICKS, "Limestone Bricks");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_STAIRS, "Limestone Stairs");
-		addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS, "Polished Limestone Stairs");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS, "Limestone Brick Stairs");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_SLAB, "Limestone Slab");
-		addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB, "Polished Limestone Slab");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB, "Limestone Brick Slab");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_WALL, "Limestone Wall");
-		addBlock(WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL, "Polished Limestone Wall");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL, "Limestone Brick Wall");
-		addBlock(WetlandWhimsyBlocks.LIMESTONE_PILLAR, "Limestone Pillar");
+		addWithCompat("limestone", "Limestone", "Lemonstone");
+		addWithCompat("polished_limestone", "Polished Limestone", "Polished Lemonstone");
+		addWithCompat("limestone_bricks", "Limestone Bricks", "Lemonstone Bricks");
+		addWithCompat("limestone_stairs", "Limestone Stairs", "Lemonstone Stairs");
+		addWithCompat("polished_limestone_stairs", "Polished Limestone Stairs", "Polished Lemonstone Stairs");
+		addWithCompat("limestone_brick_stairs", "Limestone Brick Stairs", "Lemonstone Brick Stairs");
+		addWithCompat("limestone_slab", "Limestone Slab", "Lemonstone Slab");
+		addWithCompat("polished_limestone_slab", "Polished Limestone Slab", "Polished Lemonstone Slab");
+		addWithCompat("limestone_brick_slab", "Limestone Brick Slab", "Lemonstone Brick Slab");
+		addWithCompat("limestone_wall", "Limestone Wall", "Lemonstone Wall");
+		addWithCompat("polished_limestone_wall", "Polished Limestone Wall", "Polished Lemonstone Wall");
+		addWithCompat("limestone_brick_wall", "Limestone Brick Wall", "Lemonstone Brick Wall");
+		addWithCompat("limestone_pillar", "Limestone Pillar", "Lemonstone Pillar");
 
 		addBlock(WetlandWhimsyBlocks.CORDGRASS, "Cordgrass");
 		addBlock(WetlandWhimsyBlocks.PENNYWORT, "Pennywort");
@@ -62,17 +57,11 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 		addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
 
-		add("block.wetland_whimsy.limestone_brazier", "Limestone Brazier");
-		add("block.wetland_whimsy.soul_brazier", "Soul Brazier");
-		add("block.wetland_whimsy.ancient_brazier", "Ancient Brazier");
-		add("block.wetland_whimsy.ender_brazier", "Ender Brazier");
-		// Cupric Brazier only appears when C&C is loaded, which also enables the compat names.
-
-		add("block.wetland_whimsy.limestone_brazier.compat", "Limestone Brazier");
-		add("block.wetland_whimsy.soul_brazier.compat", "Limestone Soul Brazier");
-		add("block.wetland_whimsy.ancient_brazier.compat", "Limestone Ancient Brazier");		
-		add("block.wetland_whimsy.ender_brazier.compat", "Limestone Ender Brazier");
-		add("block.wetland_whimsy.cupric_brazier.compat", "Limestone Cupric Brazier");
+		addBlock(WetlandWhimsyBlocks.ANCIENT_BRAZIER, "Ancient Brazier");
+		addWithCompat("limestone_brazier", "Limestone Brazier", "Lemonstone Brazier");
+		addWithCompat("soul_brazier", "Limestone Soul Brazier", "Lemonstone Soul Brazier");
+		addWithCompat("ender_brazier", "Limestone Ender Brazier", "Lemonstone Ender Brazier");
+		addWithCompat("cupric_brazier", "Limestone Cupric Brazier", "Lemonstone Cupric Brazier");
 
 		addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		addItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC, "Music Disc");
@@ -94,5 +83,11 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 	private void addConfig(String key, String trans) {
 		add("text.autoconfig.wetland_whimsy.option." + key, trans);
+	}
+
+	private void addWithCompat(String block, String base, String compat) {
+		var str = "block.wetland_whimsy." + block;
+		add(str, base);
+		add(str + ".compat", compat);
 	}
 }
