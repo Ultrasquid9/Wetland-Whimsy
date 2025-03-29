@@ -10,6 +10,7 @@ import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraft.core.Registry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biomes;
@@ -18,6 +19,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyAdvancementTriggers;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
@@ -71,6 +74,21 @@ public class WetlandWhimsy {
 
 		bussin.addListener((FMLCommonSetupEvent a) -> WetlandWhimsyPotPatterns.initPotPatterns());
 		Compat.compat(bussin);
+
+		NeoForge.EVENT_BUS.addListener((PlayerLoggedInEvent e) -> e.getEntity().sendSystemMessage(
+			Component.translatable(
+				"""
+				Welcome to the April Fools version of Wetland Whimsy!
+
+				Please be aware that this is a joke version, \
+				with features not normally in the mod. \
+				If you installed this by accident, \
+				please switch to a different version as soon as possible.
+
+				Have fun!
+				"""
+			)
+		));
 
 		marshification();
 	}
