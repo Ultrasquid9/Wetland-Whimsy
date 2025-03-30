@@ -48,11 +48,11 @@ public class FloridaMan extends Zombie implements RangedAttackMob {
 		var bullet = new BulletEntity(this, level());
 
 		var d0 = target.getX() - getX();
-		var d1 = target.getY() - bullet.getY();
+		var d1 = target.getY() - bullet.getY() - 0.5;
 		var d2 = target.getZ() - getZ();
 		var d3 = Mth.sqrt((float)(d0 * d0 + d2 * d2));
 
-		bullet.shoot(d0, d1 + d3 * .2, d2, 1.5F, .1F);
+		bullet.shoot(d0, d1 + d3 * .2, d2, 1.5F, .75F);
 		playSound(SoundEvents.DISPENSER_DISPENSE);
 		level().addFreshEntity(bullet);
 	}
