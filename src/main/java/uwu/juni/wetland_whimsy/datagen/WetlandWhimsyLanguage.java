@@ -74,6 +74,7 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 
 		addItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE, "Smithing Template");
 		addItem(WetlandWhimsyItems.DISC, "Music Disc");
+		addItem(WetlandWhimsyItems.DISC_69, "Music Disc");
 		addItem(WetlandWhimsyItems.GROWTH_POTTERY_SHERD, "Growth Pottery Sherd");
 		addItem(WetlandWhimsyItems.SEALED_POTTERY_SHERD, "Sealed Pottery Sherd");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
@@ -106,6 +107,7 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		add("biome.wetland_whimsy.marsh", "Marsh");
 		add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");
+		add("jukebox_song.wetland_whimsy.disk69", "??? - 69");
 
 		add(WetlandWhimsy.MODID + ".midnightconfig.category.worldgen", "World Generation");
 		add(WetlandWhimsy.MODID + ".midnightconfig.category.swamp_dungeon", "Swamp Dungeon");

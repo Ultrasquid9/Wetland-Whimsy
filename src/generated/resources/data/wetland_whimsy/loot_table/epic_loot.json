@@ -191,6 +191,10 @@
         },
         {
           "type": "minecraft:item",
+          "name": "wetland_whimsy:disc_69"
+        },
+        {
+          "type": "minecraft:item",
           "name": "wetland_whimsy:rusted_artifact"
         }
       ],

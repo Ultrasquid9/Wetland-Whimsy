@@ -1,10 +1,18 @@
 {
 	"nuke_the_swamps": {
 		"sounds": [
-		{
-			"name": "wetland_whimsy:nuke_the_swamps",
-			"stream": true
-		}
+			{
+				"name": "wetland_whimsy:nuke_the_swamps",
+				"stream": true
+			}
+		]
+	},
+	"disk69": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:disk69",
+				"stream": true
+			}
 		]
 	},
 

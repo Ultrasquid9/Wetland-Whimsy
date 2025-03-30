@@ -150,7 +150,8 @@ public class Creative {
 			);
 			insertItems(
 				Items.MUSIC_DISC_RELIC, 
-				WetlandWhimsyItems.DISC
+				WetlandWhimsyItems.DISC,
+				WetlandWhimsyItems.DISC_69
 			);
 			insertItems(
 				Items.WIND_CHARGE, 

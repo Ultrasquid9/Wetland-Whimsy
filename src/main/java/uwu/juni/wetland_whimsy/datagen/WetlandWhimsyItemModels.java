@@ -127,6 +127,7 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT.get());
 		basicItem(WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE.get());
 		basicItem(WetlandWhimsyItems.DISC.get());
+		basicItem(WetlandWhimsyItems.DISC_69.get());
 		basicItem(WetlandWhimsyItems.ANCIENT_COIN.get());
 		basicItem(WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get());
 		basicItem(WetlandWhimsyItems.SEALED_POTTERY_SHERD.get());

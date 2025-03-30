@@ -66,6 +66,14 @@ public class WetlandWhimsyItems {
 			.jukeboxPlayable(WetlandWhimsyJukebox.NUKE_THE_SWAMPS)
 	);
 
+	public static final DeferredItem<Item> DISC_69 = ITEMS.registerSimpleItem(
+		"disc_69",
+		new Item.Properties()
+			.stacksTo(1)
+			.rarity(Rarity.RARE)
+			.jukeboxPlayable(WetlandWhimsyJukebox.DISK69)
+	);
+
 	public static final DeferredItem<Item> GROWTH_POTTERY_SHERD = item("growth_pottery_sherd");
 	public static final DeferredItem<Item> SEALED_POTTERY_SHERD = item("sealed_pottery_sherd");
 

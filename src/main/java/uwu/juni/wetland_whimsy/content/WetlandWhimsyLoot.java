@@ -120,6 +120,7 @@ public class WetlandWhimsyLoot {
 				.add(lootEntry(Items.BEETROOT_SOUP))
 				.add(lootEntry(Items.SUSPICIOUS_STEW).apply(stew()))
 				.add(lootEntry(WetlandWhimsyItems.DISC)) 
+				.add(lootEntry(WetlandWhimsyItems.DISC_69)) 
 
 				.add(lootEntry(Items.BOW))
 				.add(lootEntry(Items.ARROW, 1.F, 10.F))
@@ -150,6 +151,7 @@ public class WetlandWhimsyLoot {
 				.add(lootEntry(Items.SUSPICIOUS_STEW).apply(stew()))
 				.add(lootEntry(Items.MUSHROOM_STEW))
 				.add(lootEntry(WetlandWhimsyItems.DISC)) 
+				.add(lootEntry(WetlandWhimsyItems.DISC_69)) 
 				.add(lootEntry(WetlandWhimsyItems.RUSTED_ARTIFACT)) 
 			);
 	}

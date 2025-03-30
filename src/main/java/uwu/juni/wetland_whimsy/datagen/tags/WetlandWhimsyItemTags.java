@@ -85,7 +85,8 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 		);
 
 		tag(Tags.Items.MUSIC_DISCS).add(
-			WetlandWhimsyItems.DISC.get()	
+			WetlandWhimsyItems.DISC.get(),
+			WetlandWhimsyItems.DISC_69.get()
 		);
 
 		tag(ItemTags.SWORD_ENCHANTABLE).add(

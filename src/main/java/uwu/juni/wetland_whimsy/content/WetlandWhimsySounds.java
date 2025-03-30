@@ -31,6 +31,7 @@ public class WetlandWhimsySounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent> ARIA_MUSHROOM_JUMP = createSound("aria_mushroom_jump");
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> NUKE_THE_SWAMPS = createSound("nuke_the_swamps");
+	public static final DeferredHolder<SoundEvent, SoundEvent> DISK69 = createSound("disk69");
 
 	public static final DeferredSoundType ANCIENT_POT_SOUNDS = new DeferredSoundType(
 		1.5F, 
