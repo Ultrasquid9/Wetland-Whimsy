@@ -61,7 +61,7 @@
     }
   },
   "start_height": {
-    "absolute": 0
+    "absolute": -2
   },
   "start_pool": "wetland_whimsy:swamp_dungeon/entrance",
   "step": "surface_structures",

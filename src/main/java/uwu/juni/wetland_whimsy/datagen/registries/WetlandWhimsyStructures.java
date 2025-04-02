@@ -16,6 +16,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.Structure.StructureSettings;
@@ -162,6 +163,7 @@ public class WetlandWhimsyStructures {
 			context, 
 			SWAMP_DUNGEON, 
 			WetlandWhimsyStructurePools.SWAMP_DUNGEON_ENTRANCE,
+			ConstantHeight.of(VerticalAnchor.absolute(-2)),
 			new StructureSettings(
 				BIOMES.getOrThrow(Tags.Biomes.IS_SWAMP), 
 				SWAMP_DUNGEON_SPAWNS,
@@ -174,6 +176,7 @@ public class WetlandWhimsyStructures {
 			context, 
 			WITCH_HUT, 
 			WetlandWhimsyStructurePools.WITCH_HUT,
+			ConstantHeight.ZERO,
 			new StructureSettings(
 				BIOMES.getOrThrow(BiomeTags.HAS_SWAMP_HUT), 
 				WITCH_HUT_SPAWNS,
@@ -192,6 +195,7 @@ public class WetlandWhimsyStructures {
 			context, 
 			structure, 
 			pool,
+			ConstantHeight.ZERO,
 			new StructureSettings(
 				BIOMES.getOrThrow(Tags.Biomes.IS_SWAMP), 
 				Map.of(), 
@@ -205,6 +209,7 @@ public class WetlandWhimsyStructures {
 		BootstrapContext<Structure> context, 
 		ResourceKey<Structure> structure, 
 		ResourceKey<StructureTemplatePool> pool,
+		ConstantHeight height,
 		StructureSettings settings
 	) {
 		var templatePools = context.lookup(Registries.TEMPLATE_POOL);
@@ -216,7 +221,7 @@ public class WetlandWhimsyStructures {
 				templatePools.getOrThrow(pool), 
 				Optional.empty(), 
 				16, 
-				ConstantHeight.ZERO, 
+				height, 
 				false, 
 				Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 
 				100, 
