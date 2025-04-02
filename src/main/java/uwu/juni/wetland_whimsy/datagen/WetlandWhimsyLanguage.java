@@ -68,6 +68,7 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
 
 		addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
+		addItem(WetlandWhimsyItems.CARROT_SEEDS, "Carrot Seeds");
 
 		addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT, "Bald Cypress Boat");
 		addItem(WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT, "Bald Cypress Chest Boat");
@@ -122,7 +123,7 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addAdvancement("high_quality", "High Quality", "Break an Ancient Pot with 20 or more Ancient Coins inside");
 	}
 
-	private void addAdvancement(String key, String title, String desc) {
+	void addAdvancement(String key, String title, String desc) {
 		var str = "advancements." + WetlandWhimsy.MODID + '.' + key;
 
 		add(str + ".title", title);

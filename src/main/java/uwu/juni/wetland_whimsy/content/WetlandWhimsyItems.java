@@ -3,9 +3,11 @@ package uwu.juni.wetland_whimsy.content;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SmithingTemplateItem;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -31,6 +33,14 @@ public class WetlandWhimsyItems {
 					.build()
 			)
 			.stacksTo(1)
+	);
+
+	public static final DeferredItem<Item> CARROT_SEEDS = ITEMS.register(
+		"carrot_seeds",
+		() -> new ItemNameBlockItem(
+			Blocks.CARROTS, 
+			new Item.Properties()
+		)
 	);
 
 	public static final DeferredItem<BaldCypressBoatItem> BALD_CYPRESS_BOAT = ITEMS.register(

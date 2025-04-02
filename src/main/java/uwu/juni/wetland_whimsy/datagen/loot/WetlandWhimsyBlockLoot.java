@@ -3,19 +3,25 @@ package uwu.juni.wetland_whimsy.datagen.loot;
 import java.util.Set;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
 import uwu.juni.wetland_whimsy.misc.Compat;
 
 public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
-	public WetlandWhimsyBlockLoot(HolderLookup.Provider lookupProvider) {
-		super(Set.of(), FeatureFlags.DEFAULT_FLAGS, lookupProvider);
+	public WetlandWhimsyBlockLoot(HolderLookup.Provider provider) {
+		super(Set.of(), FeatureFlags.DEFAULT_FLAGS, provider);
 	}
 
 	@Override
@@ -28,53 +34,53 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 
 	@Override
 	protected void generate() {
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_LOG.get());
-		dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD.get());
-		dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SLAB.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE.get());
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_LOG);
+		dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_WOOD);
+		dropSelf(WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_WOOD);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_STAIRS);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SLAB);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE);
 
 		if (Compat.FARMERS_DELIGHT)
-			dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get());
+			dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get());
 
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE.get());
-		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICKS.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_STAIRS.get());
-		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_SLAB.get());
-		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_WALL.get());
-		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get());
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE);
+		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICKS);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_STAIRS);
+		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_STAIRS);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_STAIRS);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_SLAB);
+		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_SLAB);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_SLAB);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_WALL);
+		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL);
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_PILLAR);
 
-		dropSelf(WetlandWhimsyBlocks.CORDGRASS_THATCH.get());
+		dropSelf(WetlandWhimsyBlocks.CORDGRASS_THATCH);
 
-		dropSelf(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get());
-		dropSelf(WetlandWhimsyBlocks.ARIA_MUSHROOM.get());
-		dropSelf(WetlandWhimsyBlocks.ARIA_SPORES.get());
+		dropSelf(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM);
+		dropSelf(WetlandWhimsyBlocks.ARIA_MUSHROOM);
+		dropSelf(WetlandWhimsyBlocks.ARIA_SPORES);
 
-		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRAZIER.get());
-		dropSelf(WetlandWhimsyBlocks.SOUL_BRAZIER.get());
+		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRAZIER);
+		dropSelf(WetlandWhimsyBlocks.SOUL_BRAZIER);
 
 		add(
 			WetlandWhimsyBlocks.PENNYWORT.get(), 
 			createPetalsDrops(WetlandWhimsyBlocks.PENNYWORT.get())
 		);
 
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get());
-		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get());
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN);
+		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN);
 		dropOther(
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get()
@@ -84,32 +90,24 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get()
 		);
 
-
-		dropOther(
-			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
-			WetlandWhimsyBlocks.ARIA_MUSHROOM.get()
-		);
 		add(
 			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(), 
-			block -> {
-				return LootTable.lootTable()
-					.withPool(
-						LootPool.lootPool()
-							.when(hasSilkTouch())
-							.add(LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK))
-					)
-					.withPool(
-						applyExplosionCondition(
-							WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK,
-							LootPool.lootPool()
-								.when(hasSilkTouch().invert())
-								.add(
-									LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM)
-										.apply(WetlandWhimsyLoot.lootCount(-6, 2))
-								)
+			b -> LootTable
+				.lootTable()
+				.withPool(
+					LootPool.lootPool()
+						.when(hasSilkTouch())
+						.add(LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK))
+				)
+				.withPool(
+					LootPool
+						.lootPool()
+						.when(hasSilkTouch().invert())
+						.add(
+							LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM)
+								.apply(WetlandWhimsyLoot.lootCount(-6, 2))
 						)
-					);
-			}
+				)
 		);
 
 		add(
@@ -127,41 +125,51 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 		);
 		add(
 			WetlandWhimsyBlocks.CORDGRASS.get(), 
-			BlockLootSubProvider.createShearsOnlyDrop(WetlandWhimsyBlocks.CORDGRASS.asItem())
-		);
-
-		add(
-			WetlandWhimsyBlocks.SUSSY_MUD.get(), 
-			noDrop()
-		);
-		add(
-			WetlandWhimsyBlocks.ANCIENT_BRAZIER.get(), 
-			noDrop()
-		);
-		add(
-			WetlandWhimsyBlocks.ANCIENT_POT.get(), 
-			noDrop()
+			createCordgrassDrops(WetlandWhimsyBlocks.CORDGRASS)
 		);
 
 		add(
 			WetlandWhimsyBlocks.POTTED_BALD_CYPRESS_SAPLING.get(), 
-			this.createPotFlowerItemTable(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.asItem())
+			createPotFlowerItemTable(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.asItem())
 		);
 		add(
 			WetlandWhimsyBlocks.POTTED_PENNYWORT.get(), 
-			this.createPotFlowerItemTable(WetlandWhimsyBlocks.PENNYWORT.asItem())
+			createPotFlowerItemTable(WetlandWhimsyBlocks.PENNYWORT.asItem())
 		);
 		add(
 			WetlandWhimsyBlocks.POTTED_CORDGRASS.get(), 
-			this.createPotFlowerItemTable(WetlandWhimsyBlocks.CORDGRASS.asItem())
+			createPotFlowerItemTable(WetlandWhimsyBlocks.CORDGRASS.asItem())
 		);
 		add(
 			WetlandWhimsyBlocks.POTTED_BLOODCAP_MUSHROOM.get(), 
-			this.createPotFlowerItemTable(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.asItem())
+			createPotFlowerItemTable(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.asItem())
 		);
 		add(
 			WetlandWhimsyBlocks.POTTED_ARIA_MUSHROOM.get(), 
-			this.createPotFlowerItemTable(WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem())
+			createPotFlowerItemTable(WetlandWhimsyBlocks.ARIA_MUSHROOM.asItem())
+		);
+
+		noDrop(WetlandWhimsyBlocks.SUSSY_MUD);
+		noDrop(WetlandWhimsyBlocks.ANCIENT_BRAZIER);
+		noDrop(WetlandWhimsyBlocks.ANCIENT_POT);
+	}
+
+	LootTable.Builder createCordgrassDrops(DeferredBlock<?> block) {
+		var lookup = registries.lookupOrThrow(Registries.ENCHANTMENT);
+		var fortune = lookup.getOrThrow(Enchantments.FORTUNE);
+
+		return createShearsDispatchTable(
+			block.get(),
+			applyExplosionDecay(
+				block,
+				LootItem
+					.lootTableItem(WetlandWhimsyItems.CARROT_SEEDS)
+					.when(LootItemRandomChanceCondition.randomChance(0.125F))
+					.apply(ApplyBonusCount.addUniformBonusCount(fortune, 2))
+			)
 		);
 	}
+
+	void dropSelf(DeferredBlock<?> b) { dropSelf(b.get()); }
+	void noDrop(DeferredBlock<?> b) { add(b.get(), noDrop()); }
 }

@@ -48,9 +48,6 @@
               }
             }
           }
-        },
-        {
-          "condition": "minecraft:survives_explosion"
         }
       ],
       "entries": [

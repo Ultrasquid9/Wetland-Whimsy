@@ -52,6 +52,12 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			Items.FIRE_CHARGE
 		);
 
+		tag(ItemTags.CHICKEN_FOOD).add(
+			WetlandWhimsyItems.CARROT_SEEDS.get()
+		);
+		tag(Tags.Items.SEEDS).add(
+			WetlandWhimsyItems.CARROT_SEEDS.get()
+		);
 		tag(WetlandWhimsyTags.Items.INCENSE).add(
 			WetlandWhimsyItems.BOILING_INCENSE.get(),
 			WetlandWhimsyItems.BRINE_INCENSE.get(),
@@ -60,6 +66,7 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 		);
 
 		tag(WetlandWhimsyTags.Items.CRANE_FOOD).add(
+			WetlandWhimsyItems.CARROT_SEEDS.get(),
 			WetlandWhimsyBlocks.CORDGRASS.asItem()
 		);
 

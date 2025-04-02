@@ -8,11 +8,12 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.data.DataMapProvider;
-import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class WetlandWhimsyDatamaps extends DataMapProvider {
@@ -31,6 +32,7 @@ public class WetlandWhimsyDatamaps extends DataMapProvider {
 			.add(createKey(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK), new Compostable(.85F), false)
 			.add(createKey(WetlandWhimsyBlocks.ARIA_SPORES), new Compostable(.2F), false)
 			.add(createKey(WetlandWhimsyBlocks.CORDGRASS_THATCH), new Compostable(.9F), false)
+			.add(createKey(WetlandWhimsyItems.CARROT_SEEDS), new Compostable(.3F), false)
 			.build();
 
 		builder(NeoForgeDataMaps.FURNACE_FUELS)
@@ -39,10 +41,10 @@ public class WetlandWhimsyDatamaps extends DataMapProvider {
 			.build();
 	}
 
-	ResourceKey<Item> createKey(DeferredBlock<?> block) {
+	ResourceKey<Item> createKey(DeferredHolder<?, ?> item) {
 		return ResourceKey.create(
 			Registries.ITEM, 
-			block.getId()
+			item.getId()
 		);
 	}
 }

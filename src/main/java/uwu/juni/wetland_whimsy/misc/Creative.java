@@ -83,7 +83,6 @@ public class Creative {
 			insertItems(
 				Items.HAY_BLOCK,
 				WetlandWhimsyBlocks.CORDGRASS_THATCH
-				
 			);
 
 			insertItems(
@@ -96,6 +95,10 @@ public class Creative {
 			insertItems(
 				Items.LARGE_FERN,
 				WetlandWhimsyBlocks.CORDGRASS
+			);
+			insertItems(
+				Items.BEETROOT_SEEDS,
+				WetlandWhimsyItems.CARROT_SEEDS
 			);
 			insertItems(
 				Items.NETHER_WART,
