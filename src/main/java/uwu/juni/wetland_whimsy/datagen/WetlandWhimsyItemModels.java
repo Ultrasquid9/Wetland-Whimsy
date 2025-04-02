@@ -1,7 +1,6 @@
 package uwu.juni.wetland_whimsy.datagen;
 
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -87,30 +86,14 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		);
 
 		// Block items that are 2d in the inventory and use a block texture
-		withExistingParent(
-			WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.getId().toString(), 
-			mcLoc("item/generated")
-		)
-		.texture("layer0", "block/bald_cypress_sapling");
-
-		withExistingParent(
-			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.getId().toString(), 
-			mcLoc("item/generated")
-		)
-		.texture("layer0", "block/bloodcap_mushroom");
-
-		withExistingParent(
-			WetlandWhimsyBlocks.ARIA_SPORES.getId().toString(), 
-			mcLoc("item/generated")
-		)
-		.texture("layer0", "block/aria_spores");
-		
-		withExistingParent(
-			WetlandWhimsyBlocks.PENNYWORT.getId().toString(), 
-			mcLoc("item/generated")
-		)
-		.texture("layer0", "block/pennywort_leaves_bottom")
-		.texture("layer1", "block/pennywort_leaves_top");
+		flatBlock(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING, "bald_cypress_sapling");
+		flatBlock(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, "bloodcap_mushroom");
+		flatBlock(WetlandWhimsyBlocks.ARIA_SPORES, "aria_spores");
+		flatBlock(
+			WetlandWhimsyBlocks.PENNYWORT, 
+			"pennywort_leaves_bottom",
+			"pennywort_leaves_top"
+		);
 
 		// Block items that are 2d in the inventory and use a unique texture
 		basicItem(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get().asItem());
@@ -139,23 +122,23 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 
 		basicItemWithTexture(
 			WetlandWhimsyItems.BASIC_INCENSE, 
-			modLoc("item/incense/basic_incense")
+			"incense/basic_incense"
 		);
 		basicItemWithTexture(
 			WetlandWhimsyItems.BOILING_INCENSE, 
-			modLoc("item/incense/boiling_incense")
+			"incense/boiling_incense"
 		);
 		basicItemWithTexture(
 			WetlandWhimsyItems.BRINE_INCENSE, 
-			modLoc("item/incense/brine_incense")
+			"incense/brine_incense"
 		);
 		basicItemWithTexture(
 			WetlandWhimsyItems.ROT_INCENSE, 
-			modLoc("item/incense/rot_incense")
+			"incense/rot_incense"
 		);
 		basicItemWithTexture(
 			WetlandWhimsyItems.WEBBED_INCENSE, 
-			modLoc("item/incense/webbed_incense")
+			"incense/webbed_incense"
 		);
 
 		withExistingParent(
@@ -169,12 +152,25 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		spawnEgg(WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG);
 	}
 
-	void basicItemWithTexture(DeferredItem<?> item, ResourceLocation texture) {
+	void flatBlock(DeferredBlock<?> block, String... textures) {
+		var builder = withExistingParent(
+			block.getId().toString(), 
+			mcLoc("item/generated")
+		);
+
+		var layer = 0;
+		for (var texture : textures) {
+			builder.texture("layer" + layer, "block/" + texture);
+			layer++;
+		}
+	}
+
+	void basicItemWithTexture(DeferredItem<?> item, String texture) {
 		withExistingParent(
 			item.getId().toString(), 
 			mcLoc("item/generated")
 		)
-		.texture("layer0", texture);
+		.texture("layer0", "item/" + texture);
 	}
 
 	void spawnEgg(DeferredItem<?> item) {

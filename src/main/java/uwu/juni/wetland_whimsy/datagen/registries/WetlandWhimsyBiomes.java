@@ -24,15 +24,16 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 public class WetlandWhimsyBiomes {
 	public static final ResourceKey<Biome> MARSH = createKey("marsh");
 
-	static final BiomeSpecialEffects.Builder MARSH_EFFECTS = new BiomeSpecialEffects.Builder()
+	static final BiomeSpecialEffects MARSH_EFFECTS = new BiomeSpecialEffects.Builder()
 		.fogColor(0xAEC4DD)
 		.skyColor(0x829ED4)
 		.waterColor(0x446C84)
 		.waterFogColor(0x446C84)
 		.grassColorOverride(0x86974D)
 		.foliageColorOverride(0x567238)
-		.grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
-		.backgroundMusic(new Music(SoundEvents.MUSIC_BIOME_SWAMP, 12000, 24000, false));
+		//.grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
+		.backgroundMusic(new Music(SoundEvents.MUSIC_BIOME_SWAMP, 12000, 24000, false))
+		.build();
 
 	public static void bootstap(BootstrapContext<Biome> context) {
 		context.register(MARSH, marshBiome(context));
@@ -62,15 +63,15 @@ public class WetlandWhimsyBiomes {
 			.downfall(0.9f)
 			.mobSpawnSettings(
 				mobs
-					.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8))
-					.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FROG, 10, 2, 5))
-					.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(WetlandWhimsyEntityTypes.CRANE.get(), 30, 2, 4))
-					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 30, 4, 4))
-					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4))
-					.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 30, 3, 3))
+					.addSpawn(MobCategory.AMBIENT, spawnData(EntityType.BAT, 10, 8, 8))
+					.addSpawn(MobCategory.CREATURE, spawnData(EntityType.FROG, 10, 2, 5))
+					.addSpawn(MobCategory.CREATURE, spawnData(WetlandWhimsyEntityTypes.CRANE.get(), 30, 2, 4))
+					.addSpawn(MobCategory.MONSTER, spawnData(EntityType.BOGGED, 30, 4, 4))
+					.addSpawn(MobCategory.MONSTER, spawnData(EntityType.SLIME, 100, 4, 4))
+					.addSpawn(MobCategory.MONSTER, spawnData(EntityType.DROWNED, 30, 3, 3))
 					.build()
 			)
-			.specialEffects(MARSH_EFFECTS.build())
+			.specialEffects(MARSH_EFFECTS)
 			.generationSettings(
 				settings
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, CavePlacements.AMETHYST_GEODE)
@@ -119,5 +120,9 @@ public class WetlandWhimsyBiomes {
 			)
 			.temperatureAdjustment(Biome.TemperatureModifier.NONE)
 			.build();
+	}
+
+	static MobSpawnSettings.SpawnerData spawnData(EntityType<?> entity, int weight, int min, int max) {
+		return new MobSpawnSettings.SpawnerData(entity, weight, min, max);
 	}
 }

@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -40,7 +41,7 @@ public class WetlandWhimsyStructures {
 
 	public static final ResourceKey<Structure> WITCH_HUT = createKey("witch_hut");
 
-	private static final Map<MobCategory, StructureSpawnOverride> SWAMP_DUNGEON_SPAWNS = Map.of(
+	final Map<MobCategory, StructureSpawnOverride> SWAMP_DUNGEON_SPAWNS = Map.of(
 		MobCategory.MONSTER,
 		new StructureSpawnOverride(
 			BoundingBoxType.PIECE, 
@@ -96,7 +97,7 @@ public class WetlandWhimsyStructures {
 			)
 		)
 	);
-	private static final Map<MobCategory, StructureSpawnOverride> WITCH_HUT_SPAWNS = Map.of(
+	final Map<MobCategory, StructureSpawnOverride> WITCH_HUT_SPAWNS = Map.of(
 		MobCategory.CREATURE,
 		new StructureSpawnOverride(
 			BoundingBoxType.PIECE, 
@@ -123,49 +124,41 @@ public class WetlandWhimsyStructures {
 		)
 	);
 
-	private static HolderGetter<Biome> BIOMES = null;
-
-	private static ResourceKey<Structure> createKey(String name) {
-		return ResourceKey.create(
-			Registries.STRUCTURE, 
-			WetlandWhimsy.rLoc(name)
-		);
-	}
+	BootstrapContext<Structure> context;
 
 	public static void bootstap(BootstrapContext<Structure> context) {
-		BIOMES = context.lookup(Registries.BIOME);
+		new WetlandWhimsyStructures(context);
+	}
+
+	WetlandWhimsyStructures(BootstrapContext<Structure> context) {
+		this.context = context;
 
 		registerSurfaceStructure(
-			context, 
 			ARCH, 
 			WetlandWhimsyStructurePools.ARCH
 		);
 
 		registerSurfaceStructure(
-			context, 
 			PILLAR, 
 			WetlandWhimsyStructurePools.PILLAR
 		);
 
 		registerSurfaceStructure(
-			context, 
 			WALL, 
 			WetlandWhimsyStructurePools.WALL
 		);
 
 		registerSurfaceStructure(
-			context, 
 			ARENA, 
 			WetlandWhimsyStructurePools.ARENA
 		);
 
 		registerSurfaceStructure(
-			context, 
 			SWAMP_DUNGEON, 
 			WetlandWhimsyStructurePools.SWAMP_DUNGEON_ENTRANCE,
 			ConstantHeight.of(VerticalAnchor.absolute(-2)),
 			new StructureSettings(
-				BIOMES.getOrThrow(Tags.Biomes.IS_SWAMP), 
+				lookupBiome(Tags.Biomes.IS_SWAMP), 
 				SWAMP_DUNGEON_SPAWNS,
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
 				TerrainAdjustment.NONE
@@ -173,12 +166,11 @@ public class WetlandWhimsyStructures {
 		);
 
 		registerSurfaceStructure(
-			context, 
 			WITCH_HUT, 
 			WetlandWhimsyStructurePools.WITCH_HUT,
 			ConstantHeight.ZERO,
 			new StructureSettings(
-				BIOMES.getOrThrow(BiomeTags.HAS_SWAMP_HUT), 
+				lookupBiome(BiomeTags.HAS_SWAMP_HUT), 
 				WITCH_HUT_SPAWNS,
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
 				TerrainAdjustment.BEARD_THIN
@@ -186,18 +178,16 @@ public class WetlandWhimsyStructures {
 		);
 	}
 
-	public static void registerSurfaceStructure(
-		BootstrapContext<Structure> context, 
+	void registerSurfaceStructure(
 		ResourceKey<Structure> structure, 
 		ResourceKey<StructureTemplatePool> pool
 	) {
 		registerSurfaceStructure(
-			context, 
 			structure, 
 			pool,
 			ConstantHeight.ZERO,
 			new StructureSettings(
-				BIOMES.getOrThrow(Tags.Biomes.IS_SWAMP), 
+				lookupBiome(Tags.Biomes.IS_SWAMP), 
 				Map.of(), 
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
 				TerrainAdjustment.BEARD_THIN
@@ -205,8 +195,7 @@ public class WetlandWhimsyStructures {
 		);
 	}
 
-	public static void registerSurfaceStructure(
-		BootstrapContext<Structure> context, 
+	void registerSurfaceStructure(
 		ResourceKey<Structure> structure, 
 		ResourceKey<StructureTemplatePool> pool,
 		ConstantHeight height,
@@ -229,6 +218,17 @@ public class WetlandWhimsyStructures {
 				DimensionPadding.ZERO, 
 				LiquidSettings.IGNORE_WATERLOGGING
 			)
+		);
+	}
+
+	HolderSet<Biome> lookupBiome(TagKey<Biome> tag) {
+		return context.lookup(Registries.BIOME).getOrThrow(tag);
+	}
+
+	static ResourceKey<Structure> createKey(String name) {
+		return ResourceKey.create(
+			Registries.STRUCTURE, 
+			WetlandWhimsy.rLoc(name)
 		);
 	}
 }

@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
@@ -76,16 +77,32 @@ public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 
 		output.accept(
 			ANCIENT_COIN, 
-			LootTable.lootTable().withPool(LootPool.lootPool()
-				.add(LootItem.lootTableItem(WetlandWhimsyItems.ANCIENT_COIN).apply(WetlandWhimsyLoot.lootCount(1.F, 3.F)))
-			)
+			table(item(
+				WetlandWhimsyItems.ANCIENT_COIN,
+				1.F, 
+				3.F
+			))
 		);
 
 		output.accept(
 			SWAMP_SPIDER_SHEAR, 
-			LootTable.lootTable().withPool(LootPool.lootPool()
-				.add(LootItem.lootTableItem(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM).apply(WetlandWhimsyLoot.lootCount(2.F, 4.F)))
-			)
+			table(item(
+				WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, 
+				2., 
+				4.
+			))
 		);
+	}
+
+	static LootTable.Builder table(LootItem.Builder<?> item) {
+		return LootTable.lootTable().withPool(
+			LootPool.lootPool().add(item)
+		);
+	}
+
+	static LootItem.Builder<?> item(ItemLike item, double min, double max) {
+		return LootItem
+			.lootTableItem(item)
+			.apply(WetlandWhimsyLoot.lootCount((float)min, (float)max));
 	}
 }

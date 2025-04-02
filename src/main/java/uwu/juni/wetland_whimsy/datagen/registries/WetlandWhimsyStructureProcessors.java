@@ -1,6 +1,6 @@
 package uwu.juni.wetland_whimsy.datagen.registries;
 
-import com.google.common.collect.ImmutableList;
+import java.util.List;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -13,7 +13,7 @@ public class WetlandWhimsyStructureProcessors {
 	public static final ResourceKey<StructureProcessorList> LIMESTONE_RUBBLE = createKey("limestone_rubble");
 	public static final ResourceKey<StructureProcessorList> DUNGEON = createKey("dungeon");
 
-	private static ResourceKey<StructureProcessorList> createKey(String name) {
+	static ResourceKey<StructureProcessorList> createKey(String name) {
 		return ResourceKey.create(
 			Registries.PROCESSOR_LIST, 
 			WetlandWhimsy.rLoc(name)
@@ -21,21 +21,13 @@ public class WetlandWhimsyStructureProcessors {
 	}
 
 	public static void bootstap(BootstrapContext<StructureProcessorList> context) {
-		context.register(
-			LIMESTONE_RUBBLE, 
-			new StructureProcessorList(
-				ImmutableList.of(
-					new RuleProcessor(ImmutableList.of())
-				)
-			)
-		);
-		context.register(
-			DUNGEON, 
-			new StructureProcessorList(
-				ImmutableList.of(
-					new RuleProcessor(ImmutableList.of())
-				)
-			)
+		context.register(LIMESTONE_RUBBLE, dummy());
+		context.register(DUNGEON, dummy());
+	}
+
+	static StructureProcessorList dummy() {
+		return new StructureProcessorList(
+			List.of(new RuleProcessor(List.of()))
 		);
 	}
 }
