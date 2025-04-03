@@ -34,13 +34,12 @@ public abstract class WitchSetPersistance extends PatrollingMonster {
 		CallbackInfoReturnable<SpawnGroupData> cir
 	) {
 		var sm = level.getLevel().structureManager();
+		var check = sm.getStructureWithPieceAt(
+			blockPosition(), 
+			StructureTags.CATS_SPAWN_AS_BLACK
+		);
 
-		if (
-			sm.getStructureWithPieceAt(
-				this.blockPosition(), 
-				StructureTags.CATS_SPAWN_AS_BLACK
-			)
-			.isValid()
-		) this.setPersistenceRequired();
+		if (check.isValid())
+			setPersistenceRequired();
 	}
 }
