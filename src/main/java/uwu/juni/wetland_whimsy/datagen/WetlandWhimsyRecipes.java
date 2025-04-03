@@ -23,7 +23,7 @@ import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 @ParametersAreNonnullByDefault
 public class WetlandWhimsyRecipes extends RecipeProvider {
-	private RecipeOutput recipeOutput;
+	RecipeOutput recipeOutput;
 
 	protected WetlandWhimsyRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
 		super(output, provider);
@@ -274,6 +274,8 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			Items.FERMENTED_SPIDER_EYE
 		);
 
+		single(Items.CARROT, WetlandWhimsyItems.CARROT_SEEDS.get());
+
 		if (Compat.FARMERS_DELIGHT)
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), 1)
 				.define('T', WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR)
@@ -379,20 +381,23 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 			.save(recipeOutput);
 	}
 
-	private void stonecutterList(ItemLike input, List<ItemLike> outputs) {
-		for (ItemLike output : outputs) {
-			var count = 1;
-			
-			if (output.asItem().toString().contains("slab")) {
-				count++;
-			}
+	private void single(ItemLike in, ItemLike out) { single(in, out, 1); }
 
+	private void single(ItemLike in, ItemLike out, int count) {
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, out)
+			.requires(in, count)
+			.unlockedBy(getHasName(in), has(in))
+			.save(recipeOutput);
+	}
+
+	private void stonecutterList(ItemLike input, List<ItemLike> outputs) {
+		for (var output : outputs) {
 			stonecutterResultFromBase(
 				recipeOutput, 
 				RecipeCategory.BUILDING_BLOCKS, 
 				output, 
 				input,
-				count
+				output.toString().contains("slab") ? 2 : 1
 			);
 		}
 	}
