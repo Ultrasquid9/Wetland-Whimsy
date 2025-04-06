@@ -6,19 +6,21 @@ import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 
 public class MudDripParticle extends TextureSheetParticle {
-	private final SpriteSet sprites;
-
-	public MudDripParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) {
+	public MudDripParticle(
+		ClientLevel level, 
+		double x,
+		double y,
+		double z,
+		SpriteSet sprites
+	) {
 		super(level, x, y, z);
-		this.sprites = sprites;
-
-		this.gravity = 0;
-		this.lifetime = 100;
 
 		float size = random.nextInt(2, 4);
-		this.quadSize = size / 10;
+		quadSize = size / 16;
+		gravity = 0;
 
-		setSpriteFromAge(this.sprites);
+		lifetime = 100;
+		setSpriteFromAge(sprites);
 	}
 
 	@Override
@@ -29,17 +31,17 @@ public class MudDripParticle extends TextureSheetParticle {
 	@Override
 	public void tick() {
 		if (gravity == 0)
-			quadSize += 0.075F;
-		else if (this.onGround)
-			quadSize -= 0.125F;
+			quadSize += 0.07F;
+		else if (onGround)
+			quadSize -= 0.1F;
 		else 
-			quadSize -= 0.025F;
+			quadSize -= 0.02F;
 
-		if (quadSize > (float)random.nextInt(6, 9) / 10)
+		if (quadSize > (float)random.nextInt(6, 9) / 16)
 			gravity = 1;
 
 		if (quadSize <= 0)
-			lifetime = 0;
+			remove();
 
 		super.tick();
 	}

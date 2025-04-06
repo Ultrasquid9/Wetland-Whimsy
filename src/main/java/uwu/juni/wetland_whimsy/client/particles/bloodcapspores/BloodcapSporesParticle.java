@@ -6,24 +6,27 @@ import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 
 public class BloodcapSporesParticle extends TextureSheetParticle {
-	private final SpriteSet sprites;
-
 	private float x_movement;
 	private float z_movement;
 
-	public BloodcapSporesParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) {
+	public BloodcapSporesParticle(
+		ClientLevel level, 
+		double x, 
+		double y, 
+		double z, 
+		SpriteSet sprites
+	) {
 		super(level, x, y, z);
-		this.sprites = sprites;
 
-		this.x_movement = (float)random.nextInt(-5, 5) / 50F;
-		this.z_movement = (float)random.nextInt(-5, 5) / 50F;
+		x_movement = (float)random.nextInt(-5, 5) / 50F;
+		z_movement = (float)random.nextInt(-5, 5) / 50F;
 
-		this.xd = x_movement * 5;
-		this.zd = z_movement * 5;
+		xd = x_movement * 5;
+		zd = z_movement * 5;
 
-		this.gravity = -0.5F;
-		this.quadSize = (float)random.nextInt(1, 2) / 2.5F;
-		this.setSpriteFromAge(this.sprites);
+		gravity = -0.5F;
+		quadSize = (float)random.nextInt(1, 2) / 2.5F;
+		setSpriteFromAge(sprites);
 	}
 
 	@Override
@@ -33,11 +36,11 @@ public class BloodcapSporesParticle extends TextureSheetParticle {
 
 	@Override
 	public void tick() {
-		if (this.gravity <= 0)
-			this.gravity += 0.05F;
+		if (gravity <= 0)
+			gravity += 0.05F;
 
-		if (this.quadSize > 0)
-			this.quadSize -= 0.025;
+		if (quadSize > 0)
+			quadSize -= 0.025;
 
 		xd -= x_movement;
 		zd -= z_movement;

@@ -16,14 +16,14 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 public class ColoredFireParticleOptions extends ScalableParticleOptionsBase {
 	public static final MapCodec<ColoredFireParticleOptions> CODEC = RecordCodecBuilder.mapCodec(
 		instance -> instance.group(
-			ExtraCodecs.VECTOR3F.fieldOf("color").forGetter(a -> a.color),
+			ExtraCodecs.VECTOR3F.fieldOf("color").forGetter(ColoredFireParticleOptions::getColor),
 			SCALE.fieldOf("scale").forGetter(ScalableParticleOptionsBase::getScale)
 		)
 		.apply(instance, ColoredFireParticleOptions::new)
 	);
 	public static final StreamCodec<RegistryFriendlyByteBuf, ColoredFireParticleOptions> STREAM_CODEC = StreamCodec.composite(
 		ByteBufCodecs.VECTOR3F, 
-		instance -> instance.color,
+		ColoredFireParticleOptions::getColor,
 
 		ByteBufCodecs.FLOAT, 
 		ScalableParticleOptionsBase::getScale,
