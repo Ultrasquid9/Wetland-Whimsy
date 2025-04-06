@@ -16,7 +16,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class WetlandWhimsyBlockTags extends BlockTagsProvider {
@@ -175,7 +175,7 @@ public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 		);
 
 		// Compat
-		if(Compat.FARMERS_DELIGHT)
+		if(WetlandWhimsyCompat.FARMERS_DELIGHT)
 			tag(BlockTags.MINEABLE_WITH_AXE).add(
 				WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get()
 			);

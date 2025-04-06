@@ -12,7 +12,7 @@ import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 public class WetlandWhimsyBlockModels extends BlockStateProvider {
@@ -273,7 +273,7 @@ public class WetlandWhimsyBlockModels extends BlockStateProvider {
 				.renderType("minecraft:cutout")
 		);
 
-		if (Compat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
 			cabinetBlock(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get(), "bald_cypress");
 	}
 

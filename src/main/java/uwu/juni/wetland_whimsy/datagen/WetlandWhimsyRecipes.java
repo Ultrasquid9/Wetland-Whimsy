@@ -18,7 +18,7 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 @ParametersAreNonnullByDefault
@@ -276,7 +276,7 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 
 		single(Items.CARROT, WetlandWhimsyItems.CARROT_SEEDS.get());
 
-		if (Compat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), 1)
 				.define('T', WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR)
 				.define('S', WetlandWhimsyBlocks.BALD_CYPRESS_SLAB)

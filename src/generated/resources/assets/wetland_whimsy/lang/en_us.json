@@ -83,7 +83,13 @@
   "item.wetland_whimsy.webbed_incense": "Webbed Incense",
   "jukebox_song.wetland_whimsy.nuke_the_swamps": "Quizzly - Nuke The Swamps",
   "trim_pattern.wetland_whimsy.dots": "Dots Armor Trim",
-  "wetland_whimsy.midnightconfig.category.swamp_dungeon": "Swamp Dungeon",
-  "wetland_whimsy.midnightconfig.category.worldgen": "World Generation",
+  "wetland_whimsy.configuration.ancient_pot_max_particles": "Ancient Pot Max Particles",
+  "wetland_whimsy.configuration.ancient_pot_max_particles.tooltip": "How many particles the Ancient Pot can create",
+  "wetland_whimsy.configuration.disable_vanilla_swamp_huts": "Disable Vanilla Swamp Huts",
+  "wetland_whimsy.configuration.disable_vanilla_swamp_huts.tooltip": "Whether the Vanilla Swamp Hut should be disabled",
+  "wetland_whimsy.configuration.generate_marsh": "Generate Marsh",
+  "wetland_whimsy.configuration.generate_marsh.tooltip": "Whether the Marsh Biome should be allowed to generate\n\nRequires game restart",
+  "wetland_whimsy.configuration.section.wetland.whimsy.common.toml": "Title A",
+  "wetland_whimsy.configuration.section.wetland.whimsy.common.toml.title": "Title B",
   "wetland_whimsy.swamp_hut_disabled": "The Vanilla Swamp Hut has been disabled by Wetland Whimsy.\nSearch for \"wetland_whimsy:witch_hut\" instead,\nor re-enable vanilla witch huts in the config.\n"
 }

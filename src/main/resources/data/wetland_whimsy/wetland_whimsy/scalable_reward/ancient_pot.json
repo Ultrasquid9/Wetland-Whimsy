@@ -1,5 +1,6 @@
 {
 	"input": "wetland_whimsy:ancient_coin",
+	"max_drops": 10,
 	"rewards": [
 		{ "weight": 3, "items": "minecraft:diamond" },
 		{ "weight": 4, "items": "minecraft:emerald" },

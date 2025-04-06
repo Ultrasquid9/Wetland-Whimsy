@@ -8,7 +8,6 @@ import com.terraformersmc.biolith.api.biome.BiomePlacement;
 import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
 import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 
-import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +16,10 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyAdvancementTriggers;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
@@ -29,8 +31,8 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyPotPatterns;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyPredicates;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
-import uwu.juni.wetland_whimsy.misc.Compat;
-import uwu.juni.wetland_whimsy.misc.Config;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
@@ -58,10 +60,10 @@ public class WetlandWhimsy {
 		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS
 	);
 
-	public WetlandWhimsy(IEventBus bussin, ModContainer modContainer, Dist dist) {
+	public WetlandWhimsy(IEventBus bussin, ModContainer mc, Dist dist) {
 		LOGGER.info("Whimsical");
 
-		MidnightConfig.init(MODID, Config.class);
+		config(mc, dist);
 
 		for (var registry : REGISTRIES) 
 			registry.register(bussin);
@@ -69,14 +71,23 @@ public class WetlandWhimsy {
 		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
 		WetlandWhimsyWoodTypes.registerWoodTypes();
 
-		bussin.addListener((FMLCommonSetupEvent a) -> WetlandWhimsyPotPatterns.initPotPatterns());
-		Compat.compat(bussin);
+		bussin.addListener(WetlandWhimsy::commonSetup);
+	}
 
+	void config(ModContainer mc, Dist dist) {
+		mc.registerConfig(ModConfig.Type.COMMON, WetlandWhimsyConfig.SPEC);
+		if (dist == Dist.CLIENT)
+			mc.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+	}
+
+	static void commonSetup(FMLCommonSetupEvent a) {
+		WetlandWhimsyPotPatterns.initPotPatterns();
+		WetlandWhimsyCompat.compat();
 		marshification();
 	}
 
-	private void marshification() {
-		if (!Config.generateMarsh)
+	static void marshification() {
+		if (!WetlandWhimsyConfig.GENERATE_MARSH.get())
 			return;
 
 		BiomePlacement.addSubOverworld(

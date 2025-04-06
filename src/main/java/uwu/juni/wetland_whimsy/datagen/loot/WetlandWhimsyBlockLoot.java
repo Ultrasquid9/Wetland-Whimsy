@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 
 public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 	public WetlandWhimsyBlockLoot(HolderLookup.Provider provider) {
@@ -48,7 +48,7 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_BUTTON);
 		dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE);
 
-		if (Compat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
 			dropSelf(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get());
 
 		dropSelf(WetlandWhimsyBlocks.LIMESTONE);

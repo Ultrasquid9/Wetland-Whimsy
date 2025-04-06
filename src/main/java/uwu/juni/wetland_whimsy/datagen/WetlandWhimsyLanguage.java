@@ -6,7 +6,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 
 public class WetlandWhimsyLanguage extends LanguageProvider {
 	public WetlandWhimsyLanguage(PackOutput output) {
@@ -35,7 +35,7 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_SIGN, "Bald Cypress Sign");
 		addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN, "Bald Cypress Hanging Sign");
 
-		if (Compat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
 			addBlock(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get(), "Bald Cypress Cabinet");
 
 		addBlock(WetlandWhimsyBlocks.LIMESTONE, "Limestone");
@@ -102,8 +102,25 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		add("trim_pattern.wetland_whimsy.dots", "Dots Armor Trim");
 		add("jukebox_song.wetland_whimsy.nuke_the_swamps", "Quizzly - Nuke The Swamps");
 
-		add(WetlandWhimsy.MODID + ".midnightconfig.category.worldgen", "World Generation");
-		add(WetlandWhimsy.MODID + ".midnightconfig.category.swamp_dungeon", "Swamp Dungeon");
+		addConfig(
+			"generate_marsh", 
+			"Generate Marsh", 
+			"Whether the Marsh Biome should be allowed to generate\n\nRequires game restart"
+		);
+		addConfig(
+			"disable_vanilla_swamp_huts", 
+			"Disable Vanilla Swamp Huts", 
+			"Whether the Vanilla Swamp Hut should be disabled"
+		);
+		addConfig(
+			"ancient_pot_max_particles", 
+			"Ancient Pot Max Particles", 
+			"How many particles the Ancient Pot can create"
+		);
+		add(
+			WetlandWhimsy.MODID + ".configuration.section.wetland.whimsy.common.toml.title", 
+			"Wetland Whimsy Config"
+		);
 
 		add(
 			WetlandWhimsy.MODID + ".swamp_hut_disabled", 
@@ -121,6 +138,13 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addAdvancement("incense", "You Smell Beautiful Today", "Use any incense on an Ancient Brazier");
 		addAdvancement("ancient_pot", "Minimum Wage", "Insert an Ancient Coin into an Ancient Pot");
 		addAdvancement("high_quality", "High Quality", "Break an Ancient Pot with 20 or more Ancient Coins inside");
+	}
+
+	void addConfig(String key, String name, String tooltip) {
+		var str = WetlandWhimsy.MODID + ".configuration." + key;
+
+		add(str, name);
+		add(str + ".tooltip", tooltip);
 	}
 
 	void addAdvancement(String key, String title, String desc) {

@@ -9,7 +9,7 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.structures.SwampHutStructure;
-import uwu.juni.wetland_whimsy.misc.Config;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
 
 @Mixin(SwampHutStructure.class)
 public class NukeTheSwampHuts {
@@ -20,7 +20,15 @@ public class NukeTheSwampHuts {
 	private Optional<Structure.GenerationStub> WetlandWhimsy_YouWillNotFindAGenerationPoint(
 		Optional<Structure.GenerationStub> dontCare
 	) {
-		if (!Config.disableVanillaSwampHuts) 
+		boolean generate;
+
+		try {
+			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.get();
+		} catch (Exception e) {
+			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.getDefault();
+		}
+
+		if (generate) 
 			return dontCare;
 
 		return Optional.empty();

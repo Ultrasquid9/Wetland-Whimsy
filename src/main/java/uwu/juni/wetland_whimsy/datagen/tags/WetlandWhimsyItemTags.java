@@ -17,7 +17,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
 public class WetlandWhimsyItemTags extends ItemTagsProvider {
@@ -109,7 +109,7 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 			WetlandWhimsyItems.SEALED_POTTERY_SHERD.get()
 		);
 
-		if (Compat.SUPPLEMENTARIES)
+		if (WetlandWhimsyCompat.SUPPLEMENTARIES)
 			tag(ModTags.FLOWER_BOX_PLANTABLE).add(
 				WetlandWhimsyBlocks.CORDGRASS.asItem(),
 				WetlandWhimsyBlocks.PENNYWORT.asItem(),

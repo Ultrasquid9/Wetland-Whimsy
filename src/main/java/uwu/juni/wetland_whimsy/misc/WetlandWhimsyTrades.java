@@ -14,7 +14,7 @@ import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 
 @EventBusSubscriber(modid = WetlandWhimsy.MODID)
-public class Trades {
+public class WetlandWhimsyTrades {
 	@SubscribeEvent
 	public static void trades(VillagerTradesEvent event) {
 		if (event.getType() == VillagerProfession.FARMER) {

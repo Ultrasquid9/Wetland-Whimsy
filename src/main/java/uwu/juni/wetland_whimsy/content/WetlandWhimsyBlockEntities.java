@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientBrazierBlockEntity;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
 @EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
@@ -60,7 +60,7 @@ public class WetlandWhimsyBlockEntities {
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
 		);
 
-		if (Compat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
 			event.modify(
 				ModBlockEntityTypes.CABINET.get(), 
 				WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get()

@@ -26,7 +26,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.blocks.*;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeGrowers;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
@@ -259,7 +259,7 @@ public class WetlandWhimsyBlocks {
 		)
 	);
 
-	public static Optional<DeferredBlock<?>> BALD_CYPRESS_CABINET = Compat.FARMERS_DELIGHT 
+	public static Optional<DeferredBlock<?>> BALD_CYPRESS_CABINET = WetlandWhimsyCompat.FARMERS_DELIGHT 
 		? Optional.of(registerBlockAndItem(
 			"bald_cypress_cabinet",
 			() -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(ModBlocks.OAK_CABINET.get()))

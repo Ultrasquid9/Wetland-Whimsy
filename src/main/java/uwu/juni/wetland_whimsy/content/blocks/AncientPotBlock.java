@@ -36,7 +36,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
-import uwu.juni.wetland_whimsy.misc.Config;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
 
 public class AncientPotBlock extends BaseEntityBlock {
 	public static final MapCodec<AncientPotBlock> CODEC = simpleCodec(AncientPotBlock::new);
@@ -190,7 +190,7 @@ public class AncientPotBlock extends BaseEntityBlock {
 				(double)pos.getX() + 0.5,
 				(double)pos.getY() + 0.5,
 				(double)pos.getZ() + 0.5,
-				Math.min(Config.ancientPotMaxParticleCount, blockEntity.lootQuality() - 1),
+				Math.min(WetlandWhimsyConfig.ANCIENT_POT_MAX_PARTICLES.get(), blockEntity.lootQuality() - 1),
 				0.2,
 				0.2,
 				0.2,

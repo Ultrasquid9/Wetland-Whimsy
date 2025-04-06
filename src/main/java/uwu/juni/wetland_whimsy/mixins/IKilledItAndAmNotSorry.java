@@ -13,7 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.commands.LocateCommand;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.misc.Config;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
 
 @Mixin(LocateCommand.class)
 public class IKilledItAndAmNotSorry {
@@ -28,9 +28,16 @@ public class IKilledItAndAmNotSorry {
 		Operation<Integer> og
 	) throws CommandSyntaxException {
 		var opt = structure.unwrap().left();
+		boolean generate;
+
+		try {
+			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.get();
+		} catch (Exception e) {
+			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.getDefault();
+		}
 
 		if (
-			Config.disableVanillaSwampHuts
+			generate
 			&& opt.isPresent()
 			&& opt.get().location().toString().contains("minecraft:swamp_hut")
 		) throw ERR;

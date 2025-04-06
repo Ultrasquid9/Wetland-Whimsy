@@ -16,15 +16,15 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 
 @EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
-public class Creative {
+public class WetlandWhimsyCreative {
 	private final BuildCreativeModeTabContentsEvent event;
 	
 	@SubscribeEvent
 	public static void creativeTabs(BuildCreativeModeTabContentsEvent event) {
-		new Creative(event);
+		new WetlandWhimsyCreative(event);
 	}
 
-	Creative(BuildCreativeModeTabContentsEvent event) {
+	WetlandWhimsyCreative(BuildCreativeModeTabContentsEvent event) {
 		this.event = event;
 
 		if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
@@ -228,7 +228,7 @@ public class Creative {
 			);
 		}
 
-		if (Compat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
 			if (event.getTab() == ModCreativeTabs.TAB_FARMERS_DELIGHT.get()) {
 				insertItems(
 					ModBlocks.CHERRY_CABINET.get(), 

@@ -8,7 +8,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import uwu.juni.wetland_whimsy.misc.Compat;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 
 public class WetlandWhimsyItemModels extends ItemModelProvider {
 	public WetlandWhimsyItemModels(PackOutput output, ExistingFileHelper fileHelper) {
@@ -34,7 +34,7 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_FENCE_GATE);
 		simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_PRESSURE_PLATE);
 
-		if (Compat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
 			simpleBlockItem(WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get());
 
 		simpleBlockItem(WetlandWhimsyBlocks.LIMESTONE);

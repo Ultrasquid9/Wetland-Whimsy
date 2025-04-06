@@ -19,12 +19,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.ItemLike;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.misc.Config;
 
-public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
+public record ScalableReward(ResourceLocation input, int max_drops, List<Loot> rewards) {
 	public static final Codec<ScalableReward> CODEC = RecordCodecBuilder.create(
 		instance -> instance.group(
 			ResourceLocation.CODEC.fieldOf("input").forGetter(ScalableReward::input),
+			Codec.INT.fieldOf("max_drops").forGetter(ScalableReward::max_drops),
 			Loot.CODEC.listOf().fieldOf("rewards").forGetter(ScalableReward::rewards)
 		)
 		.apply(instance, ScalableReward::new)	
@@ -147,8 +147,13 @@ public record ScalableReward(ResourceLocation input, List<Loot> rewards) {
 				maxWeight += reward.weight();
 
 			quality++;
-			for (var i = 0; i < Math.min(random.nextInt(random.nextInt(1, quality), quality), Config.ancientPotMaxDropCount); i++)
+			for (
+				var i = 0; 
+				i < Math.min(random.nextInt(random.nextInt(1, quality), quality), wrapper.scalableReward.max_drops); 
+				i++
+			) {
 				list.add(getStack(level, rewards, quality, maxWeight));
+			}
 
 			return list;
 		}
