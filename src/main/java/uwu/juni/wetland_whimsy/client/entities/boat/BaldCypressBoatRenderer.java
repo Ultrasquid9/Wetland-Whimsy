@@ -15,6 +15,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
 public class BaldCypressBoatRenderer extends BoatRenderer {
+	private final String name = "bald_cypress";
 	private final Pair<ResourceLocation, ListModel<Boat>> resources;
 
 	public BaldCypressBoatRenderer(
@@ -29,23 +30,22 @@ public class BaldCypressBoatRenderer extends BoatRenderer {
 		);
 	}
 
-	private static ResourceLocation getTextureLocation(boolean chestBoat) {
+	private ResourceLocation getTextureLocation(boolean chestBoat) {
 		return chestBoat
-			? WetlandWhimsy.rLoc("textures/entity/chest_boat/bald_cypress.png")
-			: WetlandWhimsy.rLoc("textures/entity/boat/bald_cypress.png");
+			? WetlandWhimsy.rLoc("textures/entity/chest_boat/" + name + ".png")
+			: WetlandWhimsy.rLoc("textures/entity/boat/" + name + ".png");
 	}
 
 	private ListModel<Boat> createBoatModel(
 		EntityRendererProvider.Context context, 
 		boolean chestBoat
 	) {
-		var rloc = WetlandWhimsy.rLoc("bald_cypress");
-		var modellayerlocation = chestBoat 
+		var rloc = WetlandWhimsy.rLoc(name);
+		var modellocation = chestBoat 
 			? new ModelLayerLocation(rloc.withPrefix("chest_boat/"), "main")
 			: new ModelLayerLocation(rloc.withPrefix("boat/"), "main");
 
-		var modelpart = context.bakeLayer(modellayerlocation);
-
+		var modelpart = context.bakeLayer(modellocation);
 		return chestBoat 
 			? new ChestBoatModel(modelpart) 
 			: new BoatModel(modelpart);

@@ -12,7 +12,6 @@ import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.items.BaldCypressBoatItem;
 import uwu.juni.wetland_whimsy.content.items.DaggerItem;
 import uwu.juni.wetland_whimsy.content.items.SludgeChargeItem;
@@ -47,7 +46,6 @@ public class WetlandWhimsyItems {
 		"bald_cypress_boat",
 		() -> new BaldCypressBoatItem(
 			false, 
-			BaldCypressBoatEntity.Type.BALD_CYPRESS, 
 			new Item.Properties()
 		)
 	);
@@ -55,7 +53,6 @@ public class WetlandWhimsyItems {
 		"bald_cypress_chest_boat",
 		() -> new BaldCypressBoatItem(
 			true, 
-			BaldCypressBoatEntity.Type.BALD_CYPRESS, 
 			new Item.Properties()
 		)
 	);

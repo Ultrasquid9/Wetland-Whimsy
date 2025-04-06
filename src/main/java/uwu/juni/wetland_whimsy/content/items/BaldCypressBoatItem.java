@@ -25,17 +25,14 @@ import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 public class BaldCypressBoatItem extends Item {
 	private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
 
-	private final BaldCypressBoatEntity.Type type;
 	private final boolean isChestBoat;
 
 	public BaldCypressBoatItem(
 		Boolean isChestBoat, 
-		BaldCypressBoatEntity.Type type, 
 		Properties properties
 	) {
 		super(properties);
 
-		this.type = type;
 		this.isChestBoat = isChestBoat;
 	}
 
@@ -71,12 +68,6 @@ public class BaldCypressBoatItem extends Item {
 			return InteractionResultHolder.pass(itemstack);
 
 		var boat = getBoat(level, hitresult, itemstack, player);
-
-		if (boat instanceof BaldCypressBoatEntity baldCypressBoat)
-			baldCypressBoat.setVariant(type);
-		else if (boat instanceof BaldCypressChestBoatEntity baldCypressBoat)
-			baldCypressBoat.setVariant(type);
-
 		boat.setYRot(player.getYRot());
 
 		if (!level.noCollision(boat, boat.getBoundingBox()))
