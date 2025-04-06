@@ -10,6 +10,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishModel;
 import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishRenderer;
@@ -22,10 +23,15 @@ import uwu.juni.wetland_whimsy.client.entities.sludgecharge.SludgeChargeModel;
 import uwu.juni.wetland_whimsy.client.entities.sludgecharge.SludgeChargeRenderer;
 import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderModel;
 import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderRenderer;
+import uwu.juni.wetland_whimsy.client.particles.ancientsouls.AncientSoulsProvider;
+import uwu.juni.wetland_whimsy.client.particles.bloodcapspores.BloodcapSporesProvider;
+import uwu.juni.wetland_whimsy.client.particles.coloredfire.ColoredFireProvider;
+import uwu.juni.wetland_whimsy.client.particles.muddrip.MudDripProvider;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 
 @EventBusSubscriber(bus = Bus.MOD, value = Dist.CLIENT, modid = WetlandWhimsy.MODID)
-public class WetlandWhimsyEntityClientSetup {
+public class WetlandWhimsyClient {
 	@SubscribeEvent
 	public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(
@@ -91,6 +97,26 @@ public class WetlandWhimsyEntityClientSetup {
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.BALD_CYPRESS_CHEST_BOAT.get(), 
 			context -> new BaldCypressBoatRenderer(context, true)
+		);
+	}
+
+	@SubscribeEvent
+	public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+		event.registerSpriteSet(
+			WetlandWhimsyParticleTypes.ANCIENT_SOULS.get(), 
+			AncientSoulsProvider::new
+		);
+		event.registerSpriteSet(
+			WetlandWhimsyParticleTypes.BLOODCAP_SPORES.get(), 
+			BloodcapSporesProvider::new
+		);
+		event.registerSpriteSet(
+			WetlandWhimsyParticleTypes.MUD_DRIP.get(), 
+			MudDripProvider::new
+		);
+		event.registerSpriteSet(
+			WetlandWhimsyParticleTypes.COLORED_FIRE.get(), 
+			ColoredFireProvider::new
 		);
 	}
 }
