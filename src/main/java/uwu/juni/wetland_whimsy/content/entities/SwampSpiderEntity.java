@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,6 +28,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
@@ -152,7 +154,7 @@ public class SwampSpiderEntity extends Spider {
 
 		var table = sLevel.getServer()
 			.reloadableRegistries()
-			.getLootTable(WetlandWhimsyMiscLoot.SWAMP_SPIDER_SHEAR);
+			.getLootTable(WetlandWhimsyMiscLoot.SWAMP_SPIDER_SHEARING);
 
 		var params = new LootParams.Builder(sLevel)
 			.withParameter(LootContextParams.ORIGIN, position())
@@ -162,5 +164,12 @@ public class SwampSpiderEntity extends Spider {
 		for (var item : table.getRandomItems(params)) {
 			spawnAtLocation(item, getBbHeight());
 		}
+	}
+
+	@Override
+	protected ResourceKey<LootTable> getDefaultLootTable() {
+		return isSheared()
+			? WetlandWhimsyMiscLoot.SWAMP_SPIDER_SHEARED
+			: super.getDefaultLootTable();
 	}
 }

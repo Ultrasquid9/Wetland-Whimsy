@@ -32,9 +32,10 @@ public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 	public static final ResourceKey<LootTable> ROT_INCENSE = createKey("incense/rot");
 	public static final ResourceKey<LootTable> WEBBED_INCENSE = createKey("incense/webbed");
 
-	public static final ResourceKey<LootTable> SWAMP_SPIDER_SHEAR = createKey("entities/swamp_spider_shear");
+	public static final ResourceKey<LootTable> SWAMP_SPIDER_SHEARED = createKey("entities/swamp_spider_sheared");
+	public static final ResourceKey<LootTable> SWAMP_SPIDER_SHEARING = createKey("entities/swamp_spider_shearing");
 
-	private static ResourceKey<LootTable> createKey(String name) {
+	static ResourceKey<LootTable> createKey(String name) {
 		return ResourceKey.create(
 			Registries.LOOT_TABLE, 
 			WetlandWhimsy.rLoc(name)
@@ -44,7 +45,7 @@ public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 	public WetlandWhimsyMiscLoot(HolderLookup.Provider lookupProvider) {}
 
 	@Override
-	public void generate(BiConsumer<ResourceKey<LootTable>, Builder> output) {			
+	public void generate(BiConsumer<ResourceKey<LootTable>, Builder> output) {
 		output.accept(
 			BASIC_LOOT,
 			WetlandWhimsyLoot.createBasicLootTable()
@@ -85,11 +86,16 @@ public class WetlandWhimsyMiscLoot implements LootTableSubProvider {
 		);
 
 		output.accept(
-			SWAMP_SPIDER_SHEAR, 
+			SWAMP_SPIDER_SHEARED, 
+			WetlandWhimsyEntityLoot.SWAMP_SPIDER_TABLE
+		);
+
+		output.accept(
+			SWAMP_SPIDER_SHEARING, 
 			table(item(
 				WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, 
-				2., 
-				4.
+				1., 
+				3.
 			))
 		);
 	}

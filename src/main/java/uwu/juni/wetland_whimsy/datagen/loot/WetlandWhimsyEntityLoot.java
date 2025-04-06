@@ -2,25 +2,31 @@ package uwu.juni.wetland_whimsy.datagen.loot;
 
 import java.util.stream.Stream;
 
-import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
-import uwu.juni.wetland_whimsy.content.predicates.ShearedPredicate;
 
 public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
+	public static final LootTable.Builder SWAMP_SPIDER_TABLE = LootTable
+		.lootTable()
+		.withPool(
+			LootPool
+				.lootPool()
+				.setRolls(UniformGenerator.between(1.F, 2.F))
+				.add(WetlandWhimsyMiscLoot.item(Items.FERMENTED_SPIDER_EYE, 0, 1))
+				.add(WetlandWhimsyMiscLoot.item(Items.STRING, 1, 3))
+		);
+
 	public WetlandWhimsyEntityLoot(HolderLookup.Provider lookupProvider) {
 		super(FeatureFlags.DEFAULT_FLAGS, lookupProvider);
 	}
@@ -40,34 +46,21 @@ public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
 		);
 
 		add(
+			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
+			SWAMP_SPIDER_TABLE.withPool(
+				LootPool
+					.lootPool()
+					.add(WetlandWhimsyMiscLoot.item(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, -1, 3))
+			)
+		);
+
+		add(
 			WetlandWhimsyEntityTypes.CRANE.get(), 
 			LootTable.lootTable()
 				.withPool(
 					LootPool.lootPool()
 						.setRolls(UniformGenerator.between(0, 2))
 						.add(WetlandWhimsyLoot.lootEntry(Items.FEATHER))
-				)
-		);
-
-		add(
-			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
-			LootTable.lootTable()
-				.withPool(
-					LootPool.lootPool()
-						.setRolls(UniformGenerator.between(1.F, 2.F))
-
-						.add(WetlandWhimsyLoot.lootEntry(Items.FERMENTED_SPIDER_EYE, 0, 1))
-						.add(WetlandWhimsyLoot.lootEntry(Items.STRING, 0, 2))
-				) 
-				.withPool(
-					LootPool.lootPool()
-						.when(
-							LootItemEntityPropertyCondition.hasProperties(
-								LootContext.EntityTarget.THIS,
-								EntityPredicate.Builder.entity().subPredicate(new ShearedPredicate(false))
-							)
-						)
-						.add(WetlandWhimsyLoot.lootEntry(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM, -1, 3))
 				)
 		);
 
