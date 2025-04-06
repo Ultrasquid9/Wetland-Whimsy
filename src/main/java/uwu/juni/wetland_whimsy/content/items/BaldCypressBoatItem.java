@@ -1,6 +1,5 @@
 package uwu.juni.wetland_whimsy.content.items;
 
-import java.util.List;
 import java.util.function.Predicate;
 
 import javax.annotation.Nonnull;
@@ -53,7 +52,7 @@ public class BaldCypressBoatItem extends Item {
 			return InteractionResultHolder.pass(itemstack);
 
 		var vec3 = player.getViewVector(1.0F);
-		List<Entity> list = level.getEntities(
+		var list = level.getEntities(
 			player, 
 			player.getBoundingBox().expandTowards(vec3.scale(5.0)).inflate(1.0), 
 			ENTITY_PREDICATE
@@ -61,8 +60,8 @@ public class BaldCypressBoatItem extends Item {
 		if (!list.isEmpty()) {
 			var vec31 = player.getEyePosition();
 
-			for (Entity entity : list) {
-				var aabb = entity.getBoundingBox().inflate((double)entity.getPickRadius());
+			for (var entity : list) {
+				var aabb = entity.getBoundingBox().inflate(entity.getPickRadius());
 				if (aabb.contains(vec31))
 					return InteractionResultHolder.pass(itemstack);
 			}
@@ -71,14 +70,12 @@ public class BaldCypressBoatItem extends Item {
 		if (hitresult.getType() != HitResult.Type.BLOCK)
 			return InteractionResultHolder.pass(itemstack);
 
-		var boat = this.getBoat(level, hitresult, itemstack, player);
+		var boat = getBoat(level, hitresult, itemstack, player);
 
 		if (boat instanceof BaldCypressBoatEntity baldCypressBoat)
 			baldCypressBoat.setVariant(type);
 		else if (boat instanceof BaldCypressChestBoatEntity baldCypressBoat)
 			baldCypressBoat.setVariant(type);
-		else 
-			return InteractionResultHolder.pass(itemstack);
 
 		boat.setYRot(player.getYRot());
 
@@ -107,7 +104,7 @@ public class BaldCypressBoatItem extends Item {
 			: new BaldCypressBoatEntity(level, vec3.x, vec3.y, vec3.z);
 
 		if (level instanceof ServerLevel serverlevel)
-			EntityType.<Boat>createDefaultStackConfig(serverlevel, stack, player).accept(boat);
+			EntityType.createDefaultStackConfig(serverlevel, stack, player).accept(boat);
 
 		return boat;
 	}

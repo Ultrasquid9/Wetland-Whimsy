@@ -49,17 +49,15 @@ public class BaldCypressBoatEntity extends Boat {
 
 	@Override
 	public Item getDropItem() {
-		return switch (getVariant2()) {
-			case BALD_CYPRESS -> WetlandWhimsyItems.BALD_CYPRESS_BOAT.get();
-		};
+		return WetlandWhimsyItems.BALD_CYPRESS_BOAT.get();
 	}
 
 	public void setVariant(Type variant) {
-		this.entityData.set(DATA_ID_TYPE, variant.ordinal());
+		entityData.set(DATA_ID_TYPE, variant.ordinal());
 	}
 
 	public Type getVariant2() {
-		return Type.byId((this.entityData.get(DATA_ID_TYPE)));
+		return Type.byId((entityData.get(DATA_ID_TYPE)));
 	}
 
 	@Override
@@ -71,13 +69,13 @@ public class BaldCypressBoatEntity extends Boat {
 
 	@Override
 	protected void addAdditionalSaveData(@Nonnull CompoundTag compound) {
-		compound.putString("Type", this.getVariant2().getSerializedName());
+		compound.putString("Type", getVariant2().getSerializedName());
 	}
 
 	@Override
 	protected void readAdditionalSaveData(@Nonnull CompoundTag compound) {
 		if (compound.contains("Type", 8)) 
-			this.setVariant(Type.byName(compound.getString("Type")));
+			setVariant(Type.byName(compound.getString("Type")));
 	}
 
 	public static enum Type implements StringRepresentable {

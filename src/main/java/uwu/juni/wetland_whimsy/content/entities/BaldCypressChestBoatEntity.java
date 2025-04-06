@@ -42,9 +42,7 @@ public class BaldCypressChestBoatEntity extends ChestBoat {
 
 	@Override
 	public Item getDropItem() {
-		return switch (getVariant2()) {
-			case BALD_CYPRESS -> WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT.get();
-		};
+		return WetlandWhimsyItems.BALD_CYPRESS_CHEST_BOAT.get();
 	}
 
 	public void setVariant(BaldCypressBoatEntity.Type variant) {
@@ -64,12 +62,12 @@ public class BaldCypressChestBoatEntity extends ChestBoat {
 
 	@Override
 	protected void addAdditionalSaveData(@Nonnull CompoundTag compound) {
-		compound.putString("Type", this.getVariant2().getSerializedName());
+		compound.putString("Type", getVariant2().getSerializedName());
 	}
 
 	@Override
 	protected void readAdditionalSaveData(@Nonnull CompoundTag compound) {
 		if (compound.contains("Type", 8)) 
-			this.setVariant(Type.byName(compound.getString("Type")));
+			setVariant(Type.byName(compound.getString("Type")));
 	}
 }
