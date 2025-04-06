@@ -24,7 +24,7 @@ import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 
 public class BaldCypressBoatItem extends Item {
-    private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
+	private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
 
 	private final BaldCypressBoatEntity.Type type;
 	private final boolean isChestBoat;
@@ -95,20 +95,20 @@ public class BaldCypressBoatItem extends Item {
 		return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
 	}
 
-    private Boat getBoat(
+	private Boat getBoat(
 		Level level, 
 		HitResult hitResult, 
 		ItemStack stack, 
 		Player player
 	) {
-        var vec3 = hitResult.getLocation();
-        var boat = isChestBoat 
+		var vec3 = hitResult.getLocation();
+		var boat = isChestBoat 
 			? new BaldCypressChestBoatEntity(level, vec3.x, vec3.y, vec3.z) 
 			: new BaldCypressBoatEntity(level, vec3.x, vec3.y, vec3.z);
 
-        if (level instanceof ServerLevel serverlevel)
-            EntityType.<Boat>createDefaultStackConfig(serverlevel, stack, player).accept(boat);
+		if (level instanceof ServerLevel serverlevel)
+			EntityType.<Boat>createDefaultStackConfig(serverlevel, stack, player).accept(boat);
 
-        return boat;
-    }
+		return boat;
+	}
 }

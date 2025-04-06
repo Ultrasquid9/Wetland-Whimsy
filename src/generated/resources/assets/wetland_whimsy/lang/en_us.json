@@ -89,7 +89,6 @@
   "wetland_whimsy.configuration.disable_vanilla_swamp_huts.tooltip": "Whether the Vanilla Swamp Hut should be disabled",
   "wetland_whimsy.configuration.generate_marsh": "Generate Marsh",
   "wetland_whimsy.configuration.generate_marsh.tooltip": "Whether the Marsh Biome should be allowed to generate\n\nRequires game restart",
-  "wetland_whimsy.configuration.section.wetland.whimsy.common.toml": "Title A",
-  "wetland_whimsy.configuration.section.wetland.whimsy.common.toml.title": "Title B",
+  "wetland_whimsy.configuration.section.wetland.whimsy.common.toml.title": "Wetland Whimsy Config",
   "wetland_whimsy.swamp_hut_disabled": "The Vanilla Swamp Hut has been disabled by Wetland Whimsy.\nSearch for \"wetland_whimsy:witch_hut\" instead,\nor re-enable vanilla witch huts in the config.\n"
 }

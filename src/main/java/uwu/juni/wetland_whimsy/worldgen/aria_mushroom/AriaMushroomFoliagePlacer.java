@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 @ParametersAreNonnullByDefault
 public class AriaMushroomFoliagePlacer extends FoliagePlacer {
-    public static final MapCodec<AriaMushroomFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
+	public static final MapCodec<AriaMushroomFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
 		parts -> foliagePlacerParts(parts).apply(parts, AriaMushroomFoliagePlacer::new)
 	);
 
@@ -59,7 +59,7 @@ public class AriaMushroomFoliagePlacer extends FoliagePlacer {
 		int range,
 		boolean large
 	) {
-        return Mth.square(localX) + funniTreeMath(localY) + Mth.square(localZ) > range;
+		return Mth.square(localX) + funniTreeMath(localY) + Mth.square(localZ) > range;
 	}
 
 	private float funniTreeMath(int y) {

@@ -56,7 +56,7 @@ public class CraneEntity extends Animal {
 	}
 
 	@Override
-    protected void registerGoals() {
+	protected void registerGoals() {
 		var goals = ImmutableList.of(
 			new FloatGoal(this),
 			new LeapAtTargetGoal(this, 0.4F),
@@ -86,7 +86,7 @@ public class CraneEntity extends Animal {
 				e -> befriended
 			)
 		);
-    }
+	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Animal.createLivingAttributes()

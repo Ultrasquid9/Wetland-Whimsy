@@ -315,7 +315,7 @@ public class AncientBrazierSpawner extends BaseSpawner {
 
 	@Override
 	public CompoundTag save(@Nonnull CompoundTag tag) {
-        tag.putShort("SpawnedEntityCount", (short)this.spawnedEntityCount);
+		tag.putShort("SpawnedEntityCount", (short)this.spawnedEntityCount);
 		return super.save(tag);
 	}
 

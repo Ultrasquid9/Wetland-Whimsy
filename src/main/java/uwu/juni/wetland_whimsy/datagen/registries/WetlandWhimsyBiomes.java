@@ -40,8 +40,8 @@ public class WetlandWhimsyBiomes {
 	}
 
 	static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, WetlandWhimsy.rLoc(name));
-    }
+		return ResourceKey.create(Registries.BIOME, WetlandWhimsy.rLoc(name));
+	}
 
 	static Biome marshBiome(BootstrapContext<Biome> context) {
 		var placedFeatures = context.lookup(Registries.PLACED_FEATURE);

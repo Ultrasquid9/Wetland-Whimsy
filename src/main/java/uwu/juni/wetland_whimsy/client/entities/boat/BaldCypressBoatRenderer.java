@@ -20,7 +20,7 @@ import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 
 public class BaldCypressBoatRenderer extends BoatRenderer {
-    private final Map<BaldCypressBoatEntity.Type, Pair<ResourceLocation, ListModel<Boat>>> boatResources;
+	private final Map<BaldCypressBoatEntity.Type, Pair<ResourceLocation, ListModel<Boat>>> boatResources;
 
 	public BaldCypressBoatRenderer(
 		EntityRendererProvider.Context context,

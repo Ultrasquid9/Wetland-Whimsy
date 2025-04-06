@@ -33,9 +33,9 @@ public class BaldCypressTrunkPlacer extends TrunkPlacer {
 	}
 
 	@Override
-    protected TrunkPlacerType<?> type() {
-        return WetlandWhimsyTrunkPlacers.BALD_CYPRESS_TRUNK_PLACER.get();
-    }
+	protected TrunkPlacerType<?> type() {
+		return WetlandWhimsyTrunkPlacers.BALD_CYPRESS_TRUNK_PLACER.get();
+	}
 
 	@Override
 	public List<FoliageAttachment> placeTrunk(

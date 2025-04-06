@@ -27,8 +27,8 @@ public class WetlandWhimsyItemTags extends ItemTagsProvider {
 		CompletableFuture<TagLookup<Block>> blockTags, 
 		ExistingFileHelper helper
 	) {
-        super(output, registries, blockTags, WetlandWhimsy.MODID, helper);
-    }
+		super(output, registries, blockTags, WetlandWhimsy.MODID, helper);
+	}
 
 	@Override
 	protected void addTags(@Nonnull Provider provider) {

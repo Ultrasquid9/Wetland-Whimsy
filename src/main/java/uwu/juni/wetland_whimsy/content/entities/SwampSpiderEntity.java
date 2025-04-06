@@ -34,7 +34,7 @@ import net.neoforged.neoforge.common.Tags;
 import uwu.juni.wetland_whimsy.datagen.loot.WetlandWhimsyMiscLoot;
 
 public class SwampSpiderEntity extends Spider {
-    private static final EntityDataAccessor<Boolean> DATA_SHEARED = SynchedEntityData.defineId(
+	private static final EntityDataAccessor<Boolean> DATA_SHEARED = SynchedEntityData.defineId(
 		SwampSpiderEntity.class, 
 		EntityDataSerializers.BOOLEAN
 	);

@@ -15,7 +15,7 @@ import net.minecraft.world.phys.Vec3;
 import uwu.juni.wetland_whimsy.content.entities.CraneEntity;
 
 public class CraneFlyGoal extends JumpGoal {
-    private static final Integer[] ALLOWED_ANGLES = { 20, 25, 30, 35, 40, 45 };
+	private static final Integer[] ALLOWED_ANGLES = { 20, 25, 30, 35, 40, 45 };
 
 	protected final CraneEntity crane;
 	protected Vec3 target;

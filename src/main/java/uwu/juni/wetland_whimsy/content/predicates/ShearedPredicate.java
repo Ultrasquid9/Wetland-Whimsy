@@ -15,11 +15,11 @@ import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
 
 public record ShearedPredicate(Boolean bool) implements EntitySubPredicate {
 	public static final MapCodec<ShearedPredicate> CODEC = RecordCodecBuilder.mapCodec(
-        instance -> instance.group(
+		instance -> instance.group(
 			Codec.BOOL.fieldOf("bool").forGetter(ShearedPredicate::bool)
 		)
 		.apply(instance, ShearedPredicate::new)
-    );
+	);
 
 	@Override
 	public MapCodec<? extends EntitySubPredicate> codec() {

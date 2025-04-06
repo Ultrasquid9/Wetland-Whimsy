@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 @ParametersAreNonnullByDefault
 public class BaldCypressFoliagePlacer extends FoliagePlacer {
-    public static final MapCodec<BaldCypressFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
+	public static final MapCodec<BaldCypressFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
 		parts -> foliagePlacerParts(parts).apply(parts, BaldCypressFoliagePlacer::new)
 	);
 
@@ -59,7 +59,7 @@ public class BaldCypressFoliagePlacer extends FoliagePlacer {
 		int range,
 		boolean large
 	) {
-        return Mth.square(localX) + Mth.lerp(0.75, localY, range / 1.5) + Mth.square(localZ) > range + random.nextInt(3);
+		return Mth.square(localX) + Mth.lerp(0.75, localY, range / 1.5) + Mth.square(localZ) > range + random.nextInt(3);
 	}
 
 	@Override

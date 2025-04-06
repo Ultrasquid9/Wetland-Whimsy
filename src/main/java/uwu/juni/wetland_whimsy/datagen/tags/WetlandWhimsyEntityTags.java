@@ -21,8 +21,8 @@ public class WetlandWhimsyEntityTags extends EntityTypeTagsProvider {
 		CompletableFuture<HolderLookup.Provider> registries, 
 		ExistingFileHelper helper
 	) {
-        super(output, registries, WetlandWhimsy.MODID, helper);
-    }
+		super(output, registries, WetlandWhimsy.MODID, helper);
+	}
 
 	@Override
 	protected void addTags(@Nonnull Provider provider) {

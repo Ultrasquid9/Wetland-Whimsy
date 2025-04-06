@@ -28,16 +28,16 @@ public class BlemishEntity extends Monster {
 	}
 
 	@Override
-    protected void registerGoals() {
+	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new RestrictSunGoal(this));
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0, false));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.4));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0, false));
+		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.4));
+		this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
-    }
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
