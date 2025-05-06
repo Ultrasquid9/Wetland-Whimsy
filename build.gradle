@@ -1,7 +1,6 @@
 plugins {
 	id 'java-library'
 	id 'maven-publish'
-	id 'io.github.0ffz.github-packages' version '[1,2)'
 	id 'net.neoforged.moddev' version '1.0.23'
 }
 

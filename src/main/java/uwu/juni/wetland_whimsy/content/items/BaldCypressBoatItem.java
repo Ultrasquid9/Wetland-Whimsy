@@ -2,7 +2,7 @@ package uwu.juni.wetland_whimsy.content.items;
 
 import java.util.function.Predicate;
 
-import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
@@ -22,6 +22,7 @@ import net.minecraft.world.phys.HitResult;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 
+@ParametersAreNonnullByDefault
 public class BaldCypressBoatItem extends Item {
 	private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
 
@@ -38,9 +39,9 @@ public class BaldCypressBoatItem extends Item {
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(
-		@Nonnull Level level, 
-		@Nonnull Player player,
-		@Nonnull InteractionHand hand
+		Level level, 
+		Player player,
+		InteractionHand hand
 	) {
 		var itemstack = player.getItemInHand(hand);
 		var hitresult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY);

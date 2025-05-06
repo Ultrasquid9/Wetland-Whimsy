@@ -2,13 +2,6 @@ package uwu.juni.wetland_whimsy.datagen.registries;
 
 import java.util.List;
 
-import uwu.juni.wetland_whimsy.WetlandWhimsy;
-import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
-import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
-import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
-import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
-import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
-import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -27,7 +20,13 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.ReplaceSphereConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
@@ -36,6 +35,13 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecora
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
+import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
+import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
+import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
 
 public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_TREE = createKey("bald_cypress_tree");
@@ -45,7 +51,8 @@ public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH_SMALL = createKey("pennywort_single");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LIMESTONE_DISK = createKey("limestone_disk");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_DISK = createKey("mud_disk");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_BLOB = createKey("mud_blob");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_PATCH = createKey("mud_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BOG = createKey("trees_bog");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_MARSH = createKey("trees_marsh");
@@ -58,10 +65,10 @@ public class WetlandWhimsyConfiguredFeatures {
 	}
 
 	public static void bootstap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+		final var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-		SimpleWeightedRandomList.Builder<BlockState> pennywortRandomState = new SimpleWeightedRandomList.Builder<>();
-		for (int i = 1; i <= 4; i++) {
+		final var pennywortRandomState = new SimpleWeightedRandomList.Builder<BlockState>();
+		for (var i = 1; i <= 4; i++) {
 			for (var dir : Direction.Plane.HORIZONTAL) {
 				pennywortRandomState.add(
 					WetlandWhimsyBlocks.PENNYWORT.get()
@@ -98,7 +105,6 @@ public class WetlandWhimsyConfiguredFeatures {
 			new ConfiguredFeature<>(
 				Feature.TREE, 
 				new TreeConfiguration.TreeConfigurationBuilder(
-
 					BlockStateProvider.simple(
 						Blocks.MUSHROOM_STEM
 							.defaultBlockState()
@@ -201,33 +207,28 @@ public class WetlandWhimsyConfiguredFeatures {
 			)
 		);
 		context.register(
-			MUD_DISK, 
+			MUD_BLOB, 
 			new ConfiguredFeature<>(
-				Feature.DISK, 
-				new DiskConfiguration(
-					RuleBasedBlockStateProvider.simple(Blocks.MUD), 
-					BlockPredicate.matchesTag(BlockTags.LUSH_GROUND_REPLACEABLE), 
-					UniformInt.of(5, 7), 
-					3
+				Feature.REPLACE_BLOBS, 
+				new ReplaceSphereConfiguration(
+					Blocks.GRASS_BLOCK.defaultBlockState(), 
+					Blocks.MUD.defaultBlockState(), 
+					UniformInt.of(4, 7)
 				)
+			)
+		);
+		context.register(
+			MUD_PATCH, 
+			new ConfiguredFeature<>(
+				Feature.VEGETATION_PATCH, 
+				vegetation(configuredFeatures, 2, 5)
 			)
 		);
 		context.register(
 			MUD_POOL, 
 			new ConfiguredFeature<>(
 				Feature.WATERLOGGED_VEGETATION_PATCH, 
-				new VegetationPatchConfiguration(
-					BlockTags.LUSH_GROUND_REPLACEABLE, 
-					BlockStateProvider.simple(Blocks.MUD), 
-					PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PENNYWORT_PATCH_SMALL)), 
-					CaveSurface.FLOOR, 
-					ConstantInt.of(3), 
-					0.8f, 
-					5, 
-					0.1f, 
-					UniformInt.of(5, 8), 
-					0.7f
-				)
+				vegetation(configuredFeatures, 5, 8)
 			)
 		);
 
@@ -306,6 +307,25 @@ public class WetlandWhimsyConfiguredFeatures {
 					)
 				)
 			)
+		);
+	}
+
+	static VegetationPatchConfiguration vegetation(
+		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures, 
+		int minSize, 
+		int maxSize
+	) {
+		return new VegetationPatchConfiguration(
+			BlockTags.LUSH_GROUND_REPLACEABLE, 
+			BlockStateProvider.simple(Blocks.MUD), 
+			PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PENNYWORT_PATCH_SMALL)), 
+			CaveSurface.FLOOR, 
+			ConstantInt.of(3), 
+			0.8f, 
+			5, 
+			0.1f, 
+			UniformInt.of(5, 8), 
+			0.7f
 		);
 	}
 }

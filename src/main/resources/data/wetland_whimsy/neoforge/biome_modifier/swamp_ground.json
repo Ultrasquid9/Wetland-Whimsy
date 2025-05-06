@@ -2,6 +2,7 @@
 	"type": "neoforge:add_features",
 	"biomes": "minecraft:swamp",
 	"features": [
+		"wetland_whimsy:mud_patch_swamp",
 		"wetland_whimsy:mud_pool_swamp",
 		"wetland_whimsy:limestone_disk_swamp"
 	],

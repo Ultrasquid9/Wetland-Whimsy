@@ -76,9 +76,10 @@
       "minecraft:seagrass_swamp",
       "wetland_whimsy:limestone_disk_marsh",
       "wetland_whimsy:mud_pool_marsh",
+      "wetland_whimsy:mud_patch_marsh",
       "wetland_whimsy:trees_marsh",
       "wetland_whimsy:super_thick_cordgrass_patch",
-      "wetland_whimsy:mud_disk"
+      "wetland_whimsy:mud_blob"
     ]
   ],
   "has_precipitation": true,
