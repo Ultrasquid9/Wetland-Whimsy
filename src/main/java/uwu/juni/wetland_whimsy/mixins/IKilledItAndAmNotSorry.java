@@ -28,19 +28,18 @@ public class IKilledItAndAmNotSorry {
 		Operation<Integer> og
 	) throws CommandSyntaxException {
 		var opt = structure.unwrap().left();
-		boolean generate;
-
-		try {
-			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.get();
-		} catch (Exception e) {
-			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.getDefault();
-		}
 
 		if (
-			generate
+			WetlandWhimsyConfig.disableVanillaSwampHutsOrDefault()
 			&& opt.isPresent()
-			&& opt.get().location().toString().contains("minecraft:swamp_hut")
-		) throw ERR;
+			&& opt
+				.get()
+				.location()
+				.toString()
+				.contains("minecraft:swamp_hut")
+		) {
+			throw ERR;
+		}
 
 		return og.call(source, structure);
 	}

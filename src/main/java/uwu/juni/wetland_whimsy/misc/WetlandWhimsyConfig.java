@@ -20,4 +20,16 @@ public class WetlandWhimsyConfig {
 		.defineInRange("ancient_pot_max_particles", () -> 24, 0, 256);
 
 	public static final ModConfigSpec SPEC = BUILDER.build();
+
+	public static boolean disableVanillaSwampHutsOrDefault() {
+		boolean disabled;
+
+		try {
+			disabled = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.get();
+		} catch (Exception e) {
+			disabled = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.getDefault();
+		}
+
+		return disabled;
+	}
 }

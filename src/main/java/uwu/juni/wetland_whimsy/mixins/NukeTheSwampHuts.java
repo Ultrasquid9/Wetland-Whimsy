@@ -20,17 +20,8 @@ public class NukeTheSwampHuts {
 	private Optional<Structure.GenerationStub> WetlandWhimsy_YouWillNotFindAGenerationPoint(
 		Optional<Structure.GenerationStub> dontCare
 	) {
-		boolean generate;
-
-		try {
-			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.get();
-		} catch (Exception e) {
-			generate = WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS.getDefault();
-		}
-
-		if (generate) 
-			return dontCare;
-
-		return Optional.empty();
+		return WetlandWhimsyConfig.disableVanillaSwampHutsOrDefault()
+			? Optional.empty()
+			: dontCare;
 	}
 }
