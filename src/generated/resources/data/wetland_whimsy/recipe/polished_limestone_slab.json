@@ -1,16 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "S": {
-      "item": "wetland_whimsy:polished_limestone"
-    }
-  },
-  "pattern": [
-    "SSS"
-  ],
-  "result": {
-    "count": 6,
-    "id": "wetland_whimsy:polished_limestone_slab"
-  }
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"S": {
+			"item": "wetland_whimsy:polished_limestone"
+		}
+	},
+	"pattern": [
+		"SSS"
+	],
+	"result": {
+		"count": 6,
+		"id": "wetland_whimsy:polished_limestone_slab"
+	}
 }

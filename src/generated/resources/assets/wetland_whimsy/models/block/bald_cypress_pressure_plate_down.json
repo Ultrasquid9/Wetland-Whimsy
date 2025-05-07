@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/pressure_plate_down",
-  "textures": {
-    "texture": "wetland_whimsy:block/bald_cypress_planks"
-  }
+	"parent": "minecraft:block/pressure_plate_down",
+	"textures": {
+		"texture": "wetland_whimsy:block/bald_cypress_planks"
+	}
 }

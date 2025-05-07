@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "B": {
-      "item": "wetland_whimsy:blemish_rod"
-    },
-    "D": {
-      "item": "wetland_whimsy:rusted_artifact"
-    }
-  },
-  "pattern": [
-    " D",
-    "B "
-  ],
-  "result": {
-    "count": 1,
-    "id": "wetland_whimsy:dagger"
-  }
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"B": {
+			"item": "wetland_whimsy:blemish_rod"
+		},
+		"D": {
+			"item": "wetland_whimsy:rusted_artifact"
+		}
+	},
+	"pattern": [
+		" D",
+		"B "
+	],
+	"result": {
+		"count": 1,
+		"id": "wetland_whimsy:dagger"
+	}
 }

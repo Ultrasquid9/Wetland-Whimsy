@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "wetland_whimsy:block/bald_cypress_sapling"
-  }
+	"parent": "minecraft:block/cross",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"cross": "wetland_whimsy:block/bald_cypress_sapling"
+	}
 }

@@ -1,23 +1,23 @@
 {
-  "elements": [
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/hole/hole",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 6
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/hole/hole_dead_end",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    }
-  ],
-  "fallback": "wetland_whimsy:swamp_dungeon/dead_end"
+	"elements": [
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/hole/hole",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 6
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/hole/hole_dead_end",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		}
+	],
+	"fallback": "wetland_whimsy:swamp_dungeon/dead_end"
 }

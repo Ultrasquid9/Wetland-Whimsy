@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/flower_pot_cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "plant": "wetland_whimsy:block/bloodcap_mushroom"
-  }
+	"parent": "minecraft:block/flower_pot_cross",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"plant": "wetland_whimsy:block/bloodcap_mushroom"
+	}
 }

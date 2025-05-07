@@ -1,4 +1,4 @@
 {
-  "parent": "wetland_whimsy:block/aria_spores_base",
-  "render_type": "minecraft:cutout"
+	"parent": "wetland_whimsy:block/aria_spores_base",
+	"render_type": "minecraft:cutout"
 }

@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "wetland_whimsy:blemish_rod"
-    },
-    {
-      "item": "wetland_whimsy:blemish_rod"
-    },
-    {
-      "item": "wetland_whimsy:bloodcap_mushroom"
-    },
-    {
-      "item": "minecraft:mud"
-    }
-  ],
-  "result": {
-    "count": 1,
-    "id": "wetland_whimsy:sludge_charge"
-  }
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients": [
+		{
+			"item": "wetland_whimsy:blemish_rod"
+		},
+		{
+			"item": "wetland_whimsy:blemish_rod"
+		},
+		{
+			"item": "wetland_whimsy:bloodcap_mushroom"
+		},
+		{
+			"item": "minecraft:mud"
+		}
+	],
+	"result": {
+		"count": 1,
+		"id": "wetland_whimsy:sludge_charge"
+	}
 }

@@ -1,8 +1,8 @@
 {
-  "values": [
-    "wetland_whimsy:bald_cypress_log",
-    "wetland_whimsy:stripped_bald_cypress_log",
-    "wetland_whimsy:bald_cypress_wood",
-    "wetland_whimsy:stripped_bald_cypress_wood"
-  ]
+	"values": [
+		"wetland_whimsy:bald_cypress_log",
+		"wetland_whimsy:stripped_bald_cypress_log",
+		"wetland_whimsy:bald_cypress_wood",
+		"wetland_whimsy:stripped_bald_cypress_wood"
+	]
 }

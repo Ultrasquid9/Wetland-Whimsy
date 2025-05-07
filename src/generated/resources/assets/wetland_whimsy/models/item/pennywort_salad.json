@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "wetland_whimsy:item/pennywort_salad"
-  }
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "wetland_whimsy:item/pennywort_salad"
+	}
 }

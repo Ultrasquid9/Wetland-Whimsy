@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "wetland_whimsy:item/dagger"
-  }
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "wetland_whimsy:item/dagger"
+	}
 }

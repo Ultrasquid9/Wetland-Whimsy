@@ -1,37 +1,37 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "equipment",
-  "ingredients": [
-    {
-      "item": "wetland_whimsy:basic_incense"
-    },
-    {
-      "item": "minecraft:lapis_lazuli"
-    },
-    {
-      "item": "minecraft:lapis_lazuli"
-    },
-    {
-      "item": "minecraft:lapis_lazuli"
-    },
-    {
-      "item": "minecraft:lapis_lazuli"
-    },
-    {
-      "item": "wetland_whimsy:blemish_rod"
-    },
-    {
-      "item": "wetland_whimsy:blemish_rod"
-    },
-    {
-      "item": "minecraft:rotten_flesh"
-    },
-    {
-      "item": "minecraft:rotten_flesh"
-    }
-  ],
-  "result": {
-    "count": 1,
-    "id": "wetland_whimsy:rot_incense"
-  }
+	"type": "minecraft:crafting_shapeless",
+	"category": "equipment",
+	"ingredients": [
+		{
+			"item": "wetland_whimsy:basic_incense"
+		},
+		{
+			"item": "minecraft:lapis_lazuli"
+		},
+		{
+			"item": "minecraft:lapis_lazuli"
+		},
+		{
+			"item": "minecraft:lapis_lazuli"
+		},
+		{
+			"item": "minecraft:lapis_lazuli"
+		},
+		{
+			"item": "wetland_whimsy:blemish_rod"
+		},
+		{
+			"item": "wetland_whimsy:blemish_rod"
+		},
+		{
+			"item": "minecraft:rotten_flesh"
+		},
+		{
+			"item": "minecraft:rotten_flesh"
+		}
+	],
+	"result": {
+		"count": 1,
+		"id": "wetland_whimsy:rot_incense"
+	}
 }

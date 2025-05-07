@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "wetland_whimsy:block/aria_mushroom_block"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "wetland_whimsy:block/aria_mushroom_block"
+		}
+	}
 }

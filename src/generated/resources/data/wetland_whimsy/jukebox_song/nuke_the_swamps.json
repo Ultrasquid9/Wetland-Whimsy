@@ -1,8 +1,8 @@
 {
-  "comparator_output": 6,
-  "description": {
-    "translate": "jukebox_song.wetland_whimsy.nuke_the_swamps"
-  },
-  "length_in_seconds": 222.0,
-  "sound_event": "wetland_whimsy:nuke_the_swamps"
+	"comparator_output": 6,
+	"description": {
+		"translate": "jukebox_song.wetland_whimsy.nuke_the_swamps"
+	},
+	"length_in_seconds": 222.0,
+	"sound_event": "wetland_whimsy:nuke_the_swamps"
 }

@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "S": {
-      "item": "wetland_whimsy:bald_cypress_slab"
-    },
-    "T": {
-      "item": "wetland_whimsy:bald_cypress_trapdoor"
-    }
-  },
-  "pattern": [
-    "SSS",
-    "T T",
-    "SSS"
-  ],
-  "result": {
-    "count": 1,
-    "id": "wetland_whimsy:bald_cypress_cabinet"
-  }
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"S": {
+			"item": "wetland_whimsy:bald_cypress_slab"
+		},
+		"T": {
+			"item": "wetland_whimsy:bald_cypress_trapdoor"
+		}
+	},
+	"pattern": [
+		"SSS",
+		"T T",
+		"SSS"
+	],
+	"result": {
+		"count": 1,
+		"id": "wetland_whimsy:bald_cypress_cabinet"
+	}
 }

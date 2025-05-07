@@ -1,7 +1,7 @@
 {
-  "values": [
-    "minecraft:mooshroom",
-    "wetland_whimsy:blemish",
-    "wetland_whimsy:swamp_spider"
-  ]
+	"values": [
+		"minecraft:mooshroom",
+		"wetland_whimsy:blemish",
+		"wetland_whimsy:swamp_spider"
+	]
 }

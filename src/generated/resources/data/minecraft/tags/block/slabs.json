@@ -1,8 +1,8 @@
 {
-  "values": [
-    "wetland_whimsy:bald_cypress_slab",
-    "wetland_whimsy:limestone_slab",
-    "wetland_whimsy:polished_limestone_slab",
-    "wetland_whimsy:limestone_brick_slab"
-  ]
+	"values": [
+		"wetland_whimsy:bald_cypress_slab",
+		"wetland_whimsy:limestone_slab",
+		"wetland_whimsy:polished_limestone_slab",
+		"wetland_whimsy:limestone_brick_slab"
+	]
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "wetland_whimsy:item/incense/brine_incense"
-  }
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "wetland_whimsy:item/incense/brine_incense"
+	}
 }

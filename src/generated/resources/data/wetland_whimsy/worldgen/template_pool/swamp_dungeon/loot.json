@@ -1,23 +1,23 @@
 {
-  "elements": [
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/loot/loot",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/loot/loot_empty",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    }
-  ],
-  "fallback": "minecraft:empty"
+	"elements": [
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/loot/loot",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/loot/loot_empty",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		}
+	],
+	"fallback": "minecraft:empty"
 }

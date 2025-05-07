@@ -1,8 +1,8 @@
 {
-  "values": [
-    "wetland_whimsy:bald_cypress_stairs",
-    "wetland_whimsy:limestone_stairs",
-    "wetland_whimsy:polished_limestone_stairs",
-    "wetland_whimsy:limestone_brick_stairs"
-  ]
+	"values": [
+		"wetland_whimsy:bald_cypress_stairs",
+		"wetland_whimsy:limestone_stairs",
+		"wetland_whimsy:polished_limestone_stairs",
+		"wetland_whimsy:limestone_brick_stairs"
+	]
 }

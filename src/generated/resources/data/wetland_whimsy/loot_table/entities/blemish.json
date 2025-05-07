@@ -1,36 +1,36 @@
 {
-  "type": "minecraft:entity",
-  "pools": [
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": -3.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "wetland_whimsy:blemish_rod"
-        }
-      ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 1.0,
-        "min": 1.0
-      }
-    }
-  ],
-  "random_sequence": "wetland_whimsy:entities/blemish"
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"bonus_rolls": 0.0,
+			"conditions": [
+				{
+					"condition": "minecraft:killed_by_player"
+				}
+			],
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 2.0,
+								"min": -3.0
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "wetland_whimsy:blemish_rod"
+				}
+			],
+			"rolls": {
+				"type": "minecraft:uniform",
+				"max": 1.0,
+				"min": 1.0
+			}
+		}
+	],
+	"random_sequence": "wetland_whimsy:entities/blemish"
 }

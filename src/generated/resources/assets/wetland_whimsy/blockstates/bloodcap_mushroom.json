@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "wetland_whimsy:block/bloodcap"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "wetland_whimsy:block/bloodcap"
+		}
+	}
 }

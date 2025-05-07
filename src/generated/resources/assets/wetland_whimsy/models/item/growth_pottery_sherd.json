@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "wetland_whimsy:item/growth_pottery_sherd"
-  }
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "wetland_whimsy:item/growth_pottery_sherd"
+	}
 }

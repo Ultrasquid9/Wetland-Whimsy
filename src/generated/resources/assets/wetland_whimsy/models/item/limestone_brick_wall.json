@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "wetland_whimsy:block/limestone_bricks"
-  }
+	"parent": "minecraft:block/wall_inventory",
+	"textures": {
+		"wall": "wetland_whimsy:block/limestone_bricks"
+	}
 }

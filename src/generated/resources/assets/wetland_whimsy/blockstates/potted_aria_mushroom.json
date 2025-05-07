@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "wetland_whimsy:block/potted_aria_mushroom"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "wetland_whimsy:block/potted_aria_mushroom"
+		}
+	}
 }

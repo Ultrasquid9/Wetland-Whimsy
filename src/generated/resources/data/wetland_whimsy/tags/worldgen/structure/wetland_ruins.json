@@ -1,24 +1,24 @@
 {
-  "values": [
-    {
-      "id": "wetland_whimsy:arch",
-      "required": false
-    },
-    {
-      "id": "wetland_whimsy:arena",
-      "required": false
-    },
-    {
-      "id": "wetland_whimsy:pillar",
-      "required": false
-    },
-    {
-      "id": "wetland_whimsy:swamp_dungeon",
-      "required": false
-    },
-    {
-      "id": "wetland_whimsy:wall",
-      "required": false
-    }
-  ]
+	"values": [
+		{
+			"id": "wetland_whimsy:arch",
+			"required": false
+		},
+		{
+			"id": "wetland_whimsy:arena",
+			"required": false
+		},
+		{
+			"id": "wetland_whimsy:pillar",
+			"required": false
+		},
+		{
+			"id": "wetland_whimsy:swamp_dungeon",
+			"required": false
+		},
+		{
+			"id": "wetland_whimsy:wall",
+			"required": false
+		}
+	]
 }

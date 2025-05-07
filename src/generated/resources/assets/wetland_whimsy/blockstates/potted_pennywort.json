@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "wetland_whimsy:block/potted_pennywort"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "wetland_whimsy:block/potted_pennywort"
+		}
+	}
 }

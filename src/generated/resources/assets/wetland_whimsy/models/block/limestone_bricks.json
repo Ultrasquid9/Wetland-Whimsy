@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "wetland_whimsy:block/limestone_bricks"
-  }
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "wetland_whimsy:block/limestone_bricks"
+	}
 }
