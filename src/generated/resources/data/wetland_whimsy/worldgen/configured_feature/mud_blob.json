@@ -1,19 +1,27 @@
 {
-	"type": "minecraft:netherrack_replace_blobs",
+	"type": "wetland_whimsy:blob_patch",
 	"config": {
 		"radius": {
 			"type": "minecraft:uniform",
 			"max_inclusive": 7,
 			"min_inclusive": 4
 		},
-		"state": {
-			"Name": "minecraft:mud"
+		"state_provider": {
+			"fallback": {
+				"type": "minecraft:simple_state_provider",
+				"state": {
+					"Name": "minecraft:mud"
+				}
+			},
+			"rules": []
 		},
 		"target": {
-			"Name": "minecraft:grass_block",
-			"Properties": {
-				"snowy": "false"
-			}
+			"type": "minecraft:matching_blocks",
+			"blocks": [
+				"minecraft:dirt",
+				"minecraft:grass_block",
+				"minecraft:sand"
+			]
 		}
 	}
 }

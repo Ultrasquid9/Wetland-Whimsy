@@ -20,10 +20,8 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.ReplaceSphereConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
@@ -37,7 +35,9 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyFeatures;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import uwu.juni.wetland_whimsy.content.features.BlobPatchConfig;
 import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
@@ -50,7 +50,7 @@ public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH_SMALL = createKey("pennywort_single");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LIMESTONE_DISK = createKey("limestone_disk");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LIMESTONE_BLOB = createKey("limestone_blob");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_BLOB = createKey("mud_blob");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_PATCH = createKey("mud_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_POOL = createKey("mud_pool");
@@ -188,31 +188,33 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 
 		context.register(
-			LIMESTONE_DISK, 
+			LIMESTONE_BLOB, 
 			new ConfiguredFeature<>(
-				Feature.DISK, 
-				new DiskConfiguration(
+				WetlandWhimsyFeatures.BLOB_PATCH.get(), 
+				new BlobPatchConfig(
 					RuleBasedBlockStateProvider.simple(WetlandWhimsyBlocks.LIMESTONE.get()), 
 					BlockPredicate.matchesBlocks(List.of(
 						Blocks.DIRT, 
 						Blocks.STONE,
 						Blocks.DIORITE,
 						Blocks.GRANITE,
-						Blocks.ANDESITE,
-						WetlandWhimsyBlocks.LIMESTONE.get()
+						Blocks.ANDESITE
 					)), 
-					UniformInt.of(3, 6), 
-					4
+					UniformInt.of(6, 8)
 				)
 			)
 		);
 		context.register(
 			MUD_BLOB, 
 			new ConfiguredFeature<>(
-				Feature.REPLACE_BLOBS, 
-				new ReplaceSphereConfiguration(
-					Blocks.GRASS_BLOCK.defaultBlockState(), 
-					Blocks.MUD.defaultBlockState(), 
+				WetlandWhimsyFeatures.BLOB_PATCH.get(), 
+				new BlobPatchConfig(
+					RuleBasedBlockStateProvider.simple(Blocks.MUD), 
+					BlockPredicate.matchesBlocks(List.of(
+						Blocks.DIRT,
+						Blocks.GRASS_BLOCK,
+						Blocks.SAND
+					)), 
 					UniformInt.of(4, 7)
 				)
 			)

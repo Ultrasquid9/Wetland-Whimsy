@@ -25,6 +25,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyAdvancementTriggers;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyFeatures;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyPotPatterns;
@@ -48,6 +49,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyBlocks.BLOCKS,
 		WetlandWhimsyBlockEntities.BLOCK_ENTITY_TYPES,
 		WetlandWhimsyEntityTypes.ENTITIES,
+		WetlandWhimsyFeatures.FEATURES,
 		WetlandWhimsyItems.ITEMS,
 		WetlandWhimsyParticleTypes.PARTICLE_TYPES,
 		WetlandWhimsyPotPatterns.PATTERNS,

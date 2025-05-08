@@ -111,7 +111,7 @@ public class WetlandWhimsyBiomes {
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.LIMESTONE_DISK_MARSH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.LIMESTONE_BLOB_MARSH)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.MUD_POOL_MARSH)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.MUD_PATCH_MARSH)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WetlandWhimsyPlacedFeatures.TREES_MARSH)

@@ -29,8 +29,8 @@ import net.minecraft.world.level.material.Fluids;
 public class WetlandWhimsyPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> TREES_BOG = createKey("trees_bog");
 	public static final ResourceKey<PlacedFeature> TREES_MARSH = createKey("trees_marsh");
-	public static final ResourceKey<PlacedFeature> LIMESTONE_DISK_SWAMP = createKey("limestone_disk_swamp");
-	public static final ResourceKey<PlacedFeature> LIMESTONE_DISK_MARSH = createKey("limestone_disk_marsh");
+	public static final ResourceKey<PlacedFeature> LIMESTONE_BLOB_SWAMP = createKey("limestone_blob_swamp");
+	public static final ResourceKey<PlacedFeature> LIMESTONE_BLOB_MARSH = createKey("limestone_blob_marsh");
 	public static final ResourceKey<PlacedFeature> MUD_PATCH_SWAMP = createKey("mud_patch_swamp");
 	public static final ResourceKey<PlacedFeature> MUD_PATCH_MARSH = createKey("mud_patch_marsh");
 	public static final ResourceKey<PlacedFeature> MUD_POOL_SWAMP = createKey("mud_pool_swamp");
@@ -114,9 +114,9 @@ public class WetlandWhimsyPlacedFeatures {
 		);
 
 		context.register(
-			LIMESTONE_DISK_SWAMP, 
+			LIMESTONE_BLOB_SWAMP, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.LIMESTONE_DISK), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.LIMESTONE_BLOB), 
 				List.of(
 					InSquarePlacement.spread(),
 					PlacementUtils.HEIGHTMAP_TOP_SOLID,
@@ -126,9 +126,9 @@ public class WetlandWhimsyPlacedFeatures {
 			)
 		);
 		context.register(
-			LIMESTONE_DISK_MARSH, 
+			LIMESTONE_BLOB_MARSH, 
 			new PlacedFeature(
-				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.LIMESTONE_DISK), 
+				configuredFeatures.getOrThrow(WetlandWhimsyConfiguredFeatures.LIMESTONE_BLOB), 
 				List.of(
 					InSquarePlacement.spread(),
 					PlacementUtils.HEIGHTMAP_TOP_SOLID,
