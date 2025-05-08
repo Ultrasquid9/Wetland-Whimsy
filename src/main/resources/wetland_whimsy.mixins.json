@@ -4,6 +4,7 @@
 	"compatibilityLevel": "JAVA_21",
 	"refmap": "wetland_whimsy.refmap.json",
 	"mixins": [
+		"Blobby",
 		"IKilledItAndAmNotSorry",
 		"NewPotPatterns",
 		"NukeTheSwampHuts",

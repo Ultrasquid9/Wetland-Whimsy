@@ -33,7 +33,7 @@ public class BlobPatchFeature extends Feature<BlobPatchConfig> {
 		);
 	}
 
-	private boolean randomRecursiveSphere(
+	public boolean randomRecursiveSphere(
 		BlobPatchConfig cfg,
 		RandomSource rand, 
 		WorldGenLevel level,
@@ -89,7 +89,7 @@ public class BlobPatchFeature extends Feature<BlobPatchConfig> {
 		return flag;
 	}
 
-	private int calcNewRadius(int prevRadius, RandomSource rand) {
+	public int calcNewRadius(int prevRadius, RandomSource rand) {
 		return (int)((double)(prevRadius + rand.nextInt(-1, 1)) * TWO_THRIDS);
 	}
 }

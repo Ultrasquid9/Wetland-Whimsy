@@ -113,6 +113,11 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 			"Whether the Vanilla Swamp Hut should be disabled"
 		);
 		addConfig(
+			"upgrade_disks", 
+			"Upgrade Disks", 
+			"Whether the \"Disks\" found in bodies of water should be upgraded"
+		);
+		addConfig(
 			"ancient_pot_max_particles", 
 			"Ancient Pot Max Particles", 
 			"How many particles the Ancient Pot can create"

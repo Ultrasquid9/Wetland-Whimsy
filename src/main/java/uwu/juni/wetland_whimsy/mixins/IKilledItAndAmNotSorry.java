@@ -30,7 +30,7 @@ public class IKilledItAndAmNotSorry {
 		var opt = structure.unwrap().left();
 
 		if (
-			WetlandWhimsyConfig.disableVanillaSwampHutsOrDefault()
+			WetlandWhimsyConfig.valOrDefault(WetlandWhimsyConfig.DISABLE_VANILLA_SWAMP_HUTS)
 			&& opt.isPresent()
 			&& opt
 				.get()
