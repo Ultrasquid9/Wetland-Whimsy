@@ -16,8 +16,12 @@ public class WetlandWhimsyConfig {
 		.comment(" Whether the Vanilla Swamp Hut should be disabled")
 		.define("disable_vanilla_swamp_huts", () -> true);
 
+	public static final ModConfigSpec.BooleanValue MODIFY_TRADES = BUILDER
+		.comment(" Whether villager trades should be modified")
+		.define("modify_trades", () -> true);
+
 	public static final ModConfigSpec.BooleanValue UPGRADE_DISKS = BUILDER
-		.comment("Whether the \"Disks\" found in bodies of water should be upgraded")
+		.comment(" Whether the \"Disks\" found in bodies of water should be upgraded")
 		.define("upgrade_disks", () -> true);
 
 	public static final ModConfigSpec.IntValue ANCIENT_POT_MAX_PARTICLES = BUILDER

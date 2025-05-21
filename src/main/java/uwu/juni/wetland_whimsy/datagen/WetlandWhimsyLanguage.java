@@ -113,6 +113,11 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 			"Whether the Vanilla Swamp Hut should be disabled"
 		);
 		addConfig(
+			"modify_trades", 
+			"Modify Trades", 
+			"Whether villager trades should be modified"
+		);
+		addConfig(
 			"upgrade_disks", 
 			"Upgrade Disks", 
 			"Whether the \"Disks\" found in bodies of water should be upgraded"

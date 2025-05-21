@@ -17,6 +17,10 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 public class WetlandWhimsyTrades {
 	@SubscribeEvent
 	public static void trades(VillagerTradesEvent event) {
+		if (!WetlandWhimsyConfig.valOrDefault(WetlandWhimsyConfig.MODIFY_TRADES)) {
+			return;
+		}
+
 		if (event.getType() == VillagerProfession.FARMER) {
 			var trades = event.getTrades();
 
@@ -31,6 +35,10 @@ public class WetlandWhimsyTrades {
 
 	@SubscribeEvent
 	public static void wanderTrades(WandererTradesEvent event) {
+		if (!WetlandWhimsyConfig.valOrDefault(WetlandWhimsyConfig.MODIFY_TRADES)) {
+			return;
+		}
+
 		var commonTrades = event.getGenericTrades();
 
 		commonTrades.add(offer(
