@@ -1,10 +1,10 @@
 {
-  "variants": {
-    "lit=false": {
-      "model": "wetland_whimsy:block/soul_brazier"
-    },
-    "lit=true": {
-      "model": "wetland_whimsy:block/soul_brazier_lit"
-    }
-  }
+	"variants": {
+		"lit=false": {
+			"model": "wetland_whimsy:block/soul_brazier"
+		},
+		"lit=true": {
+			"model": "wetland_whimsy:block/soul_brazier_lit"
+		}
+	}
 }

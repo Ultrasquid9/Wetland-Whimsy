@@ -1,7 +1,7 @@
 {
-  "parent": "wetland_whimsy:block/brazier_lit_base",
-  "textures": {
-    "fire": "minecraft:block/soul_campfire_fire",
-    "top": "wetland_whimsy:block/brazier/soul_brazier_top_lit"
-  }
+	"parent": "wetland_whimsy:block/brazier_lit_base",
+	"textures": {
+		"fire": "minecraft:block/soul_campfire_fire",
+		"top": "wetland_whimsy:block/brazier/soul_brazier_top_lit"
+	}
 }

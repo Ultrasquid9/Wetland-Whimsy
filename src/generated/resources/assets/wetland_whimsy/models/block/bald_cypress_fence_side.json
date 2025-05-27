@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/fence_side",
-  "textures": {
-    "texture": "wetland_whimsy:block/bald_cypress_planks"
-  }
+	"parent": "minecraft:block/fence_side",
+	"textures": {
+		"texture": "wetland_whimsy:block/bald_cypress_planks"
+	}
 }

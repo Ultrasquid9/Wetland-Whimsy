@@ -1,19 +1,19 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "S": {
-      "item": "wetland_whimsy:polished_limestone"
-    }
-  },
-  "pattern": [
-    "  S",
-    " SS",
-    "SSS"
-  ],
-  "result": {
-    "count": 4,
-    "item": "wetland_whimsy:polished_limestone_stairs"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"S": {
+			"item": "wetland_whimsy:polished_limestone"
+		}
+	},
+	"pattern": [
+		"	S",
+		" SS",
+		"SSS"
+	],
+	"result": {
+		"count": 4,
+		"item": "wetland_whimsy:polished_limestone_stairs"
+	},
+	"show_notification": true
 }

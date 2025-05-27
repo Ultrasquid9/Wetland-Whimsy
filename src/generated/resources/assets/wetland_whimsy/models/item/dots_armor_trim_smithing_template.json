@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "wetland_whimsy:item/dots_armor_trim_smithing_template"
-  }
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "wetland_whimsy:item/dots_armor_trim_smithing_template"
+	}
 }

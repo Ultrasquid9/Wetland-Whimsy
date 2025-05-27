@@ -17,7 +17,7 @@ public class WetlandWhimsyStructureProcessors {
 	private static ResourceKey<StructureProcessorList> createKey(String name) {
 		return ResourceKey.create(
 			Registries.PROCESSOR_LIST, 
-			new ResourceLocation(WetlandWhimsy.MODID, name)
+			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
 		);
 	}
 

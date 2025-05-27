@@ -21,7 +21,7 @@ public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
 	public static final ResourceLocation ANCIENT_COIN = createLocation("vault/ancient_coin");
 
 	private static ResourceLocation createLocation(String name) {
-		return new ResourceLocation(
+		return ResourceLocation.fromNamespaceAndPath(
 			WetlandWhimsy.MODID, 
 			name
 		);

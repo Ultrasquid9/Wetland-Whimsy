@@ -2,8 +2,6 @@ package uwu.juni.wetland_whimsy.misc;
 
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
-import java.util.function.Supplier;
-
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 
 import net.minecraft.world.item.CreativeModeTabs;
@@ -12,12 +10,8 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
-import vectorwing.farmersdelight.common.block.CabinetBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
-import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 
 public class Creative {
-	@SuppressWarnings("unchecked")
 	public static void addCreative(final BuildCreativeModeTabContentsEvent event) {
 		CreativeModeTabContentsPopulator.mod(WetlandWhimsy.MODID)
 

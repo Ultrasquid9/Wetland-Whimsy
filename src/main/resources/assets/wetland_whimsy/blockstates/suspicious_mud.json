@@ -1,16 +1,16 @@
 {
-  "variants": {
-    "dusted=0": {
-      "model": "wetland_whimsy:block/suspicious_mud_0"
-    },
-    "dusted=1": {
-      "model": "wetland_whimsy:block/suspicious_mud_1"
-    },
-    "dusted=2": {
-      "model": "wetland_whimsy:block/suspicious_mud_2"
-    },
-    "dusted=3": {
-      "model": "wetland_whimsy:block/suspicious_mud_3"
-    }
-  }
+	"variants": {
+		"dusted=0": {
+			"model": "wetland_whimsy:block/suspicious_mud_0"
+		},
+		"dusted=1": {
+			"model": "wetland_whimsy:block/suspicious_mud_1"
+		},
+		"dusted=2": {
+			"model": "wetland_whimsy:block/suspicious_mud_2"
+		},
+		"dusted=3": {
+			"model": "wetland_whimsy:block/suspicious_mud_3"
+		}
+	}
 }

@@ -42,7 +42,7 @@ public class WetlandWhimsyBiomes {
 	}
 
 	private static ResourceKey<Biome> createKey(String name) {
-		return ResourceKey.create(Registries.BIOME, new ResourceLocation(WetlandWhimsy.MODID, name));
+		return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name));
 	}
 
 	public static Biome marshBiome(BootstapContext<Biome> context) {

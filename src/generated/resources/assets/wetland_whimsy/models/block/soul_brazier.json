@@ -1,6 +1,6 @@
 {
-  "parent": "wetland_whimsy:block/brazier_base",
-  "textures": {
-    "top": "wetland_whimsy:block/brazier/brazier_top"
-  }
+	"parent": "wetland_whimsy:block/brazier_base",
+	"textures": {
+		"top": "wetland_whimsy:block/brazier/brazier_top"
+	}
 }

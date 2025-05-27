@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "wetland_whimsy:block/polished_limestone"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "wetland_whimsy:block/polished_limestone"
+		}
+	}
 }

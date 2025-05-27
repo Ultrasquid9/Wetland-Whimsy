@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "wetland_whimsy:item/bald_cypress_hanging_sign"
-  }
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "wetland_whimsy:item/bald_cypress_hanging_sign"
+	}
 }

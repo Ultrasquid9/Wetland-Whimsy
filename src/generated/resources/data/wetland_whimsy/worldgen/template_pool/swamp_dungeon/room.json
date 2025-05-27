@@ -1,185 +1,185 @@
 {
-  "elements": [
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/atrium_1",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/atrium_2",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/atrium_3",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_1",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_2",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_3",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_4",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_5",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_6",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_7",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/combat_room_8",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/dead_end_1",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/dead_end_2",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/hallway_1",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/hallway_2",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/hallway_3",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/hallway_4",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/hallway_5",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/hallway_6",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "wetland_whimsy:swamp_dungeon/room/hallway_7",
-        "processors": "wetland_whimsy:dungeon",
-        "projection": "rigid"
-      },
-      "weight": 2
-    }
-  ],
-  "fallback": "minecraft:empty"
+	"elements": [
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/atrium_1",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/atrium_2",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/atrium_3",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_1",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_2",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_3",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_4",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_5",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_6",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_7",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/combat_room_8",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/dead_end_1",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/dead_end_2",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 1
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/hallway_1",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/hallway_2",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/hallway_3",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/hallway_4",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/hallway_5",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/hallway_6",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		},
+		{
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"location": "wetland_whimsy:swamp_dungeon/room/hallway_7",
+				"processors": "wetland_whimsy:dungeon",
+				"projection": "rigid"
+			},
+			"weight": 2
+		}
+	],
+	"fallback": "minecraft:empty"
 }

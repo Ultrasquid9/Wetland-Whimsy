@@ -56,6 +56,7 @@ public class WetlandWhimsy {
 
 	public static WetlandWhimsyConfig config;
 
+	@SuppressWarnings("removal")
 	public WetlandWhimsy() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		LOGGER.info("Whimsical");
@@ -161,6 +162,6 @@ public class WetlandWhimsy {
 	}
 
 	public static ResourceLocation rLoc(String resource) {
-		return new ResourceLocation(MODID, resource);
+		return ResourceLocation.fromNamespaceAndPath(MODID, resource);
 	}
 }

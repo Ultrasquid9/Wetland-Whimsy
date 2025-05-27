@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "P": {
-      "item": "wetland_whimsy:limestone"
-    }
-  },
-  "pattern": [
-    "PPP",
-    "PPP"
-  ],
-  "result": {
-    "count": 6,
-    "item": "wetland_whimsy:limestone_wall"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"P": {
+			"item": "wetland_whimsy:limestone"
+		}
+	},
+	"pattern": [
+		"PPP",
+		"PPP"
+	],
+	"result": {
+		"count": 6,
+		"item": "wetland_whimsy:limestone_wall"
+	},
+	"show_notification": true
 }

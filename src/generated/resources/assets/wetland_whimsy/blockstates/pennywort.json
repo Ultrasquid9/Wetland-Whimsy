@@ -1,88 +1,88 @@
 {
-  "variants": {
-    "facing=down,flower_amount=1": {
-      "model": "wetland_whimsy:block/p_1"
-    },
-    "facing=down,flower_amount=2": {
-      "model": "wetland_whimsy:block/p_2"
-    },
-    "facing=down,flower_amount=3": {
-      "model": "wetland_whimsy:block/p_3"
-    },
-    "facing=down,flower_amount=4": {
-      "model": "wetland_whimsy:block/p_4"
-    },
-    "facing=east,flower_amount=1": {
-      "model": "wetland_whimsy:block/p_1",
-      "y": 90
-    },
-    "facing=east,flower_amount=2": {
-      "model": "wetland_whimsy:block/p_2",
-      "y": 90
-    },
-    "facing=east,flower_amount=3": {
-      "model": "wetland_whimsy:block/p_3",
-      "y": 90
-    },
-    "facing=east,flower_amount=4": {
-      "model": "wetland_whimsy:block/p_4",
-      "y": 90
-    },
-    "facing=north,flower_amount=1": {
-      "model": "wetland_whimsy:block/p_1"
-    },
-    "facing=north,flower_amount=2": {
-      "model": "wetland_whimsy:block/p_2"
-    },
-    "facing=north,flower_amount=3": {
-      "model": "wetland_whimsy:block/p_3"
-    },
-    "facing=north,flower_amount=4": {
-      "model": "wetland_whimsy:block/p_4"
-    },
-    "facing=south,flower_amount=1": {
-      "model": "wetland_whimsy:block/p_1",
-      "y": 180
-    },
-    "facing=south,flower_amount=2": {
-      "model": "wetland_whimsy:block/p_2",
-      "y": 180
-    },
-    "facing=south,flower_amount=3": {
-      "model": "wetland_whimsy:block/p_3",
-      "y": 180
-    },
-    "facing=south,flower_amount=4": {
-      "model": "wetland_whimsy:block/p_4",
-      "y": 180
-    },
-    "facing=up,flower_amount=1": {
-      "model": "wetland_whimsy:block/p_1"
-    },
-    "facing=up,flower_amount=2": {
-      "model": "wetland_whimsy:block/p_2"
-    },
-    "facing=up,flower_amount=3": {
-      "model": "wetland_whimsy:block/p_3"
-    },
-    "facing=up,flower_amount=4": {
-      "model": "wetland_whimsy:block/p_4"
-    },
-    "facing=west,flower_amount=1": {
-      "model": "wetland_whimsy:block/p_1",
-      "y": 270
-    },
-    "facing=west,flower_amount=2": {
-      "model": "wetland_whimsy:block/p_2",
-      "y": 270
-    },
-    "facing=west,flower_amount=3": {
-      "model": "wetland_whimsy:block/p_3",
-      "y": 270
-    },
-    "facing=west,flower_amount=4": {
-      "model": "wetland_whimsy:block/p_4",
-      "y": 270
-    }
-  }
+	"variants": {
+		"facing=down,flower_amount=1": {
+			"model": "wetland_whimsy:block/p_1"
+		},
+		"facing=down,flower_amount=2": {
+			"model": "wetland_whimsy:block/p_2"
+		},
+		"facing=down,flower_amount=3": {
+			"model": "wetland_whimsy:block/p_3"
+		},
+		"facing=down,flower_amount=4": {
+			"model": "wetland_whimsy:block/p_4"
+		},
+		"facing=east,flower_amount=1": {
+			"model": "wetland_whimsy:block/p_1",
+			"y": 90
+		},
+		"facing=east,flower_amount=2": {
+			"model": "wetland_whimsy:block/p_2",
+			"y": 90
+		},
+		"facing=east,flower_amount=3": {
+			"model": "wetland_whimsy:block/p_3",
+			"y": 90
+		},
+		"facing=east,flower_amount=4": {
+			"model": "wetland_whimsy:block/p_4",
+			"y": 90
+		},
+		"facing=north,flower_amount=1": {
+			"model": "wetland_whimsy:block/p_1"
+		},
+		"facing=north,flower_amount=2": {
+			"model": "wetland_whimsy:block/p_2"
+		},
+		"facing=north,flower_amount=3": {
+			"model": "wetland_whimsy:block/p_3"
+		},
+		"facing=north,flower_amount=4": {
+			"model": "wetland_whimsy:block/p_4"
+		},
+		"facing=south,flower_amount=1": {
+			"model": "wetland_whimsy:block/p_1",
+			"y": 180
+		},
+		"facing=south,flower_amount=2": {
+			"model": "wetland_whimsy:block/p_2",
+			"y": 180
+		},
+		"facing=south,flower_amount=3": {
+			"model": "wetland_whimsy:block/p_3",
+			"y": 180
+		},
+		"facing=south,flower_amount=4": {
+			"model": "wetland_whimsy:block/p_4",
+			"y": 180
+		},
+		"facing=up,flower_amount=1": {
+			"model": "wetland_whimsy:block/p_1"
+		},
+		"facing=up,flower_amount=2": {
+			"model": "wetland_whimsy:block/p_2"
+		},
+		"facing=up,flower_amount=3": {
+			"model": "wetland_whimsy:block/p_3"
+		},
+		"facing=up,flower_amount=4": {
+			"model": "wetland_whimsy:block/p_4"
+		},
+		"facing=west,flower_amount=1": {
+			"model": "wetland_whimsy:block/p_1",
+			"y": 270
+		},
+		"facing=west,flower_amount=2": {
+			"model": "wetland_whimsy:block/p_2",
+			"y": 270
+		},
+		"facing=west,flower_amount=3": {
+			"model": "wetland_whimsy:block/p_3",
+			"y": 270
+		},
+		"facing=west,flower_amount=4": {
+			"model": "wetland_whimsy:block/p_4",
+			"y": 270
+		}
+	}
 }

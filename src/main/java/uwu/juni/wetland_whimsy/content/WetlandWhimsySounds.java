@@ -33,7 +33,7 @@ public class WetlandWhimsySounds {
 		return SOUNDS.register(
 			name, 
 			() -> SoundEvent.createVariableRangeEvent(
-				new ResourceLocation(
+				ResourceLocation.fromNamespaceAndPath(
 					WetlandWhimsy.MODID, 
 					name
 				)

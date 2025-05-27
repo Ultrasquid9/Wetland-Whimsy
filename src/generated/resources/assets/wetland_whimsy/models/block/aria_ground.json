@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "wetland_whimsy:block/compat/aria_mushroom_box"
-  }
+	"parent": "minecraft:block/cross",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"cross": "wetland_whimsy:block/compat/aria_mushroom_box"
+	}
 }

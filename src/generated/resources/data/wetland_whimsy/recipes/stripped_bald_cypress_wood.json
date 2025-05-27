@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "I": {
-      "item": "wetland_whimsy:stripped_bald_cypress_log"
-    }
-  },
-  "pattern": [
-    "II",
-    "II"
-  ],
-  "result": {
-    "count": 3,
-    "item": "wetland_whimsy:stripped_bald_cypress_wood"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"I": {
+			"item": "wetland_whimsy:stripped_bald_cypress_log"
+		}
+	},
+	"pattern": [
+		"II",
+		"II"
+	],
+	"result": {
+		"count": 3,
+		"item": "wetland_whimsy:stripped_bald_cypress_wood"
+	},
+	"show_notification": true
 }

@@ -167,7 +167,7 @@ public class WetlandWhimsyPlacedFeatures {
 	public static ResourceKey<PlacedFeature> createKey(String name) {
 		return ResourceKey.create(
 			Registries.PLACED_FEATURE, 
-			new ResourceLocation(WetlandWhimsy.MODID, name)
+			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
 		);
 	}
 

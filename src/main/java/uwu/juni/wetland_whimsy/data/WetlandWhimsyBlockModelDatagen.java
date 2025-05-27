@@ -4,7 +4,6 @@ import com.teamabnormals.caverns_and_chasms.core.CavernsAndChasms;
 import com.teamabnormals.endergetic.core.EndergeticExpansion;
 
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -22,7 +21,6 @@ import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
 import uwu.juni.wetland_whimsy.misc.Compat;
-import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 	public WetlandWhimsyBlockModelDatagen(PackOutput output, ExistingFileHelper fileHelper) {
@@ -241,14 +239,14 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				WetlandWhimsyBlocks.ENDER_BRAZIER.get().get(),
 				"ender_brazier",
 				modLoc("block/brazier/ender_brazier_top_lit"),
-				new ResourceLocation(EndergeticExpansion.MOD_ID, "block/ender_campfire_fire")
+				ResourceLocation.fromNamespaceAndPath(EndergeticExpansion.MOD_ID, "block/ender_campfire_fire")
 			);
 		if (Compat.CNC)
 			brazier(
 				WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().get(),
 				"cupric_brazier",
 				modLoc("block/brazier/cupric_brazier_top_lit"),
-				new ResourceLocation(CavernsAndChasms.MOD_ID, "block/cupric_campfire_fire")
+				ResourceLocation.fromNamespaceAndPath(CavernsAndChasms.MOD_ID, "block/cupric_campfire_fire")
 			);
 
 		getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates(state -> ConfiguredModel

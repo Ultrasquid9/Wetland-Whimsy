@@ -1,7 +1,7 @@
 {
-  "parent": "wetland_whimsy:block/brazier_lit_base",
-  "textures": {
-    "fire": "caverns_and_chasms:block/cupric_campfire_fire",
-    "top": "wetland_whimsy:block/brazier/cupric_brazier_top_lit"
-  }
+	"parent": "wetland_whimsy:block/brazier_lit_base",
+	"textures": {
+		"fire": "caverns_and_chasms:block/cupric_campfire_fire",
+		"top": "wetland_whimsy:block/brazier/cupric_brazier_top_lit"
+	}
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/template_wall_post",
-  "textures": {
-    "wall": "wetland_whimsy:block/limestone"
-  }
+	"parent": "minecraft:block/template_wall_post",
+	"textures": {
+		"wall": "wetland_whimsy:block/limestone"
+	}
 }

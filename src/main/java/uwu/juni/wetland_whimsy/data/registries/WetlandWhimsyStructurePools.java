@@ -32,7 +32,7 @@ public class WetlandWhimsyStructurePools {
 	private static ResourceKey<StructureTemplatePool> createKey(String name) {
 		return ResourceKey.create(
 			Registries.TEMPLATE_POOL, 
-			new ResourceLocation(WetlandWhimsy.MODID, name)
+			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
 		);
 	}
 
@@ -184,7 +184,7 @@ public class WetlandWhimsyStructurePools {
 		BootstapContext<StructureTemplatePool> context
 	) {
 		return pool -> new SinglePoolElementAccessor(
-			Either.left(new ResourceLocation(WetlandWhimsy.MODID, id)), 
+			Either.left(ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, id)), 
 			context.lookup(Registries.PROCESSOR_LIST).getOrThrow(WetlandWhimsyStructureProcessors.LIMESTONE_RUBBLE), 
 			pool
 		);
@@ -195,7 +195,7 @@ public class WetlandWhimsyStructurePools {
 		BootstapContext<StructureTemplatePool> context
 	) {
 		return pool -> new SinglePoolElementAccessor(
-			Either.left(new ResourceLocation(WetlandWhimsy.MODID, id)), 
+			Either.left(ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, id)), 
 			context.lookup(Registries.PROCESSOR_LIST).getOrThrow(WetlandWhimsyStructureProcessors.DUNGEON), 
 			pool
 		);

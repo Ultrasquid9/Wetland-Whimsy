@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "wetland_whimsy:block/bald_cypress_planks"
-  }
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "wetland_whimsy:block/bald_cypress_planks"
+	}
 }

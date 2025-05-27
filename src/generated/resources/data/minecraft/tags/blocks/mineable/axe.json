@@ -1,9 +1,9 @@
 {
-  "values": [
-    "wetland_whimsy:bald_cypress_log",
-    "wetland_whimsy:stripped_bald_cypress_log",
-    "wetland_whimsy:bald_cypress_planks",
-    "wetland_whimsy:bald_cypress_door",
-    "wetland_whimsy:bald_cypress_trapdoor"
-  ]
+	"values": [
+		"wetland_whimsy:bald_cypress_log",
+		"wetland_whimsy:stripped_bald_cypress_log",
+		"wetland_whimsy:bald_cypress_planks",
+		"wetland_whimsy:bald_cypress_door",
+		"wetland_whimsy:bald_cypress_trapdoor"
+	]
 }

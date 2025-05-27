@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "wetland_whimsy:block/cordgrass"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "wetland_whimsy:block/cordgrass"
+		}
+	}
 }

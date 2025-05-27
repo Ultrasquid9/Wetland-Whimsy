@@ -1,13 +1,13 @@
 {
-  "variants": {
-    "type=bottom": {
-      "model": "wetland_whimsy:block/limestone_slab"
-    },
-    "type=double": {
-      "model": "wetland_whimsy:block/limestone"
-    },
-    "type=top": {
-      "model": "wetland_whimsy:block/limestone_slab_top"
-    }
-  }
+	"variants": {
+		"type=bottom": {
+			"model": "wetland_whimsy:block/limestone_slab"
+		},
+		"type=double": {
+			"model": "wetland_whimsy:block/limestone"
+		},
+		"type=top": {
+			"model": "wetland_whimsy:block/limestone_slab_top"
+		}
+	}
 }

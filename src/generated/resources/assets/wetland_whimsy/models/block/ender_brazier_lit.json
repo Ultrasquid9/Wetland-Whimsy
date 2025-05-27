@@ -1,7 +1,7 @@
 {
-  "parent": "wetland_whimsy:block/brazier_lit_base",
-  "textures": {
-    "fire": "endergetic:block/ender_campfire_fire",
-    "top": "wetland_whimsy:block/brazier/ender_brazier_top_lit"
-  }
+	"parent": "wetland_whimsy:block/brazier_lit_base",
+	"textures": {
+		"fire": "endergetic:block/ender_campfire_fire",
+		"top": "wetland_whimsy:block/brazier/ender_brazier_top_lit"
+	}
 }
