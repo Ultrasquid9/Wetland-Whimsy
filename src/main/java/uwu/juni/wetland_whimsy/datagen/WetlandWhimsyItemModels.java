@@ -50,6 +50,7 @@ public class WetlandWhimsyItemModels extends ItemModelProvider {
 
 		simpleBlockItem(WetlandWhimsyBlocks.CORDGRASS_THATCH);
 		simpleBlockItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK);
+		simpleBlockItem(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK);
 
 		simpleBlockItem(WetlandWhimsyBlocks.ANCIENT_POT);
 

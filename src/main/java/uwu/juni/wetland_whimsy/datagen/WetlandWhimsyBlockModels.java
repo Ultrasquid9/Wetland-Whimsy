@@ -232,6 +232,13 @@ public class WetlandWhimsyBlockModels extends BlockStateProvider {
 				.renderType("minecraft:translucent")
 		);
 		simpleBlock(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK.get(),
+			models()
+				.withExistingParent("bloodcap_mushroom_block", mcLoc("block/cube_all"))
+				.texture("all", modLoc("block/bloodcap_mushroom_block"))
+				.renderType("minecraft:translucent")
+		);
+		simpleBlock(
 			WetlandWhimsyBlocks.ARIA_SPORES.get(),
 			models()
 				.withExistingParent("aria_spores", modLoc("block/aria_spores_base"))

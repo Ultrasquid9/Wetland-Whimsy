@@ -60,6 +60,7 @@ public class WetlandWhimsyLanguage extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.ARIA_MUSHROOM, "Aria Mushroom");
 		addBlock(WetlandWhimsyBlocks.ARIA_SPORES, "Aria Spores");
 		addBlock(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK, "Aria Mushroom Block");
+		addBlock(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK, "Bloodcap Mushroom Block");
 
 		addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 		addBlock(WetlandWhimsyBlocks.LIMESTONE_BRAZIER, "Limestone Brazier");

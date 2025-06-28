@@ -390,6 +390,14 @@ public class WetlandWhimsyBlocks {
 				.lightLevel($ -> 7)
 		)
 	);
+	public static final DeferredBlock<HalfTransparentBlock> BLOODCAP_MUSHROOM_BLOCK = registerBlockAndItem(
+		"bloodcap_mushroom_block", 
+		() -> new HalfTransparentBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM_BLOCK)
+				.noOcclusion()
+				.lightLevel($ -> 3)
+		)
+	);
 	public static final DeferredBlock<HalfTransparentBlock> ARIA_MUSHROOM_BLOCK = registerBlockAndItem(
 		"aria_mushroom_block", 
 		() -> new HalfTransparentBlock(

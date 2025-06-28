@@ -90,24 +90,13 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get()
 		);
 
-		add(
-			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(), 
-			b -> LootTable
-				.lootTable()
-				.withPool(
-					LootPool.lootPool()
-						.when(hasSilkTouch())
-						.add(LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK))
-				)
-				.withPool(
-					LootPool
-						.lootPool()
-						.when(hasSilkTouch().invert())
-						.add(
-							LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM)
-								.apply(WetlandWhimsyLoot.lootCount(-6, 2))
-						)
-				)
+		dropShrooms(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK, 
+			WetlandWhimsyBlocks.ARIA_MUSHROOM
+		);
+		dropShrooms(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK, 
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM
 		);
 
 		add(
@@ -167,6 +156,28 @@ public class WetlandWhimsyBlockLoot extends BlockLootSubProvider {
 					.when(LootItemRandomChanceCondition.randomChance(0.125F))
 					.apply(ApplyBonusCount.addUniformBonusCount(fortune, 2))
 			)
+		);
+	}
+
+	void dropShrooms(DeferredBlock<?> block, DeferredBlock<?> shroom) {
+		add(
+			block.get(), 
+			b -> LootTable
+				.lootTable()
+				.withPool(
+					LootPool.lootPool()
+						.when(hasSilkTouch())
+						.add(LootItem.lootTableItem(block))
+				)
+				.withPool(
+					LootPool
+						.lootPool()
+						.when(hasSilkTouch().invert())
+						.add(
+							LootItem.lootTableItem(shroom)
+								.apply(WetlandWhimsyLoot.lootCount(-6, 2))
+						)
+				)
 		);
 	}
 
