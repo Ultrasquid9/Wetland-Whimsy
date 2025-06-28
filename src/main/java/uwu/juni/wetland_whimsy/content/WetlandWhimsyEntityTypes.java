@@ -12,7 +12,6 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -25,7 +24,7 @@ import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
 import uwu.juni.wetland_whimsy.content.entities.SludgeChargeEntity;
 import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
 
-@EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
+@EventBusSubscriber(modid = WetlandWhimsy.MODID)
 public class WetlandWhimsyEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = WetlandWhimsy.registry(
 		Registries.ENTITY_TYPE

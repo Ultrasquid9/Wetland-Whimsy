@@ -11,7 +11,6 @@ import net.minecraft.data.loot.LootTableProvider.SubProviderEntry;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
@@ -32,7 +31,7 @@ import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyEntityTags;
 import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyItemTags;
 import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyStructureTags;
 
-@EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
+@EventBusSubscriber(modid = WetlandWhimsy.MODID)
 public class Datagen {
 	@SubscribeEvent
 	public static void datagen(GatherDataEvent event) {

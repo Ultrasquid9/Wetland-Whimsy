@@ -7,7 +7,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
@@ -15,7 +14,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 
-@EventBusSubscriber(bus = Bus.MOD, modid = WetlandWhimsy.MODID)
+@EventBusSubscriber(modid = WetlandWhimsy.MODID)
 public class WetlandWhimsyCreative {
 	private final BuildCreativeModeTabContentsEvent event;
 	
@@ -74,7 +73,8 @@ public class WetlandWhimsyCreative {
 			);
 			insertItems(
 				Items.RED_MUSHROOM_BLOCK,
-				WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK
+				WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK,
+				WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK
 			);
 			insertItems(
 				Items.CHERRY_SAPLING,

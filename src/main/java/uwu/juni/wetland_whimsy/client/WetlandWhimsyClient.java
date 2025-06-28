@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -30,7 +29,7 @@ import uwu.juni.wetland_whimsy.client.particles.muddrip.MudDripProvider;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 
-@EventBusSubscriber(bus = Bus.MOD, value = Dist.CLIENT, modid = WetlandWhimsy.MODID)
+@EventBusSubscriber(value = Dist.CLIENT, modid = WetlandWhimsy.MODID)
 public class WetlandWhimsyClient {
 	@SubscribeEvent
 	public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {

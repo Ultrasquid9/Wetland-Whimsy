@@ -49,7 +49,8 @@ public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get(),
-			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get()
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK.get()
 		);
 		tag(BlockTags.MINEABLE_WITH_HOE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get(),
