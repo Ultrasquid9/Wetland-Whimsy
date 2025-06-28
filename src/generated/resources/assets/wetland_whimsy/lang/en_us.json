@@ -89,6 +89,8 @@
 	"wetland_whimsy.configuration.disable_vanilla_swamp_huts.tooltip": "Whether the Vanilla Swamp Hut should be disabled",
 	"wetland_whimsy.configuration.generate_marsh": "Generate Marsh",
 	"wetland_whimsy.configuration.generate_marsh.tooltip": "Whether the Marsh Biome should be allowed to generate\n\nRequires game restart",
+	"wetland_whimsy.configuration.modify_trades": "Modify Trades",
+	"wetland_whimsy.configuration.modify_trades.tooltip": "Whether villager trades should be modified",
 	"wetland_whimsy.configuration.section.wetland.whimsy.common.toml.title": "Wetland Whimsy Config",
 	"wetland_whimsy.configuration.upgrade_disks": "Upgrade Disks",
 	"wetland_whimsy.configuration.upgrade_disks.tooltip": "Whether the \"Disks\" found in bodies of water should be upgraded",
