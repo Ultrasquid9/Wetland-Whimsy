@@ -6,14 +6,14 @@ run:
 data: && fmt-json
 	./gradlew rundata
 
-build: fmt-json
+build: data
 	./gradlew build 
 
 fmt-json:
 	#!/bin/nu
 	print "\nFormatting...\n"
 
-	let files = fd | parse '{name}' | $in.name | filter {|file| $file | str contains ".json"}
+	let files = fd | parse '{name}' | $in.name | where {|file| $file | str contains ".json"}
 
 	for file in $files {
 		const TABS = "\t"
