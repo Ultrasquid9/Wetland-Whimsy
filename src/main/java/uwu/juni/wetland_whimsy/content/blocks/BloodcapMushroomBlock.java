@@ -1,12 +1,14 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Optional;
 
-import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -22,12 +24,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.event.EventHooks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
+import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyConfiguredFeatures;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
+@ParametersAreNonnullByDefault
 public class BloodcapMushroomBlock extends BushBlock implements BonemealableBlock {
 	private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 12.0, 12.0);
 	
@@ -44,60 +49,61 @@ public class BloodcapMushroomBlock extends BushBlock implements BonemealableBloc
 
 	@Override
 	protected VoxelShape getShape(
-		@Nonnull BlockState state, 
-		@Nonnull BlockGetter level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull CollisionContext context
+		BlockState state, 
+		BlockGetter level, 
+		BlockPos pos, 
+		CollisionContext context
 	) { 
 		return SHAPE;
 	}
 
 	@Override
 	public boolean isValidBonemealTarget(
-		@Nonnull LevelReader level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull BlockState state
+		LevelReader level, 
+		BlockPos pos, 
+		BlockState state
 	) {
 		return true;
 	}
 
 	@Override
 	public boolean isBonemealSuccess(
-		@Nonnull Level level, 
-		@Nonnull RandomSource random, 
-		@Nonnull BlockPos pos, 
-		@Nonnull BlockState state
+		Level level, 
+		RandomSource random, 
+		BlockPos pos, 
+		BlockState state
 	) {
 		return true;
 	}
 
 	@Override
 	public void performBonemeal(
-		@Nonnull ServerLevel level, 
-		@Nonnull RandomSource random, 
-		@Nonnull BlockPos pos, 
-		@Nonnull BlockState state
+		ServerLevel level, 
+		RandomSource random, 
+		BlockPos pos, 
+		BlockState state
 	) {
-		tryGrow(level, pos, state, 18);
+		growMushroom(level, pos, state, random);
 	}
 
 	@Override
 	protected void randomTick(
-		@Nonnull BlockState state, 
-		@Nonnull ServerLevel level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull RandomSource random
+		BlockState state, 
+		ServerLevel level, 
+		BlockPos pos, 
+		RandomSource random
 	) {
-		if (random.nextInt(25) == 0) 
-			tryGrow(level, pos, state, 4);
+		if (random.nextInt(25) == 0) {
+			tryGrow(level, pos, state, random, 4);
+		}
 	}
 
 	@Override
 	protected void entityInside(
-		@Nonnull BlockState state, 
-		@Nonnull Level level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull Entity entity
+		BlockState state, 
+		Level level, 
+		BlockPos pos, 
+		Entity entity
 	) {
 		if (entity.getType().is(WetlandWhimsyTags.Entities.BLOODCAP_IMMUNE)) 
 			return;
@@ -110,22 +116,22 @@ public class BloodcapMushroomBlock extends BushBlock implements BonemealableBloc
 
 	@Override
 	public void animateTick(
-		@Nonnull BlockState state, 
-		@Nonnull Level level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull RandomSource random
+		BlockState state, 
+		Level level, 
+		BlockPos pos, 
+		RandomSource random
 	) {
-		VoxelShape voxelshape = this.getShape(state, level, pos, CollisionContext.empty());
-		Vec3 vec3 = voxelshape.bounds().getCenter();
-		double d0 = (double)pos.getX() + vec3.x;
-		double d1 = (double)pos.getZ() + vec3.z;
+		var voxelshape = this.getShape(state, level, pos, CollisionContext.empty());
+		var vec3 = voxelshape.bounds().getCenter();
+		var d0 = (double)pos.getX() + vec3.x;
+		var d1 = (double)pos.getZ() + vec3.z;
 
-		for (int i = 0; i < 3; i++) {
+		for (var i = 0; i < 3; i++) {
 			if (random.nextInt(0, 4) == 0) {
 				level.addParticle(
 					WetlandWhimsyParticleTypes.BLOODCAP_SPORES.get(),
 					d0 + random.nextDouble() / 5.0,
-					(double)pos.getY() + (0.65 - random.nextDouble()),
+					pos.getY() + (0.65 - random.nextDouble()),
 					d1 + random.nextDouble() / 5.0,
 					0.0,
 					0.0,
@@ -137,9 +143,9 @@ public class BloodcapMushroomBlock extends BushBlock implements BonemealableBloc
 
 	@Override
 	protected boolean canSurvive(
-		@Nonnull BlockState state, 
-		@Nonnull LevelReader level, 
-		@Nonnull BlockPos pos
+		BlockState state, 
+		LevelReader level, 
+		BlockPos pos
 	) {
 		var new_pos = pos.below();
 		var new_state = level.getBlockState(new_pos);
@@ -149,30 +155,30 @@ public class BloodcapMushroomBlock extends BushBlock implements BonemealableBloc
 
 	@Override
 	protected boolean mayPlaceOn(
-		@Nonnull BlockState state, 
-		@Nonnull BlockGetter level, 
-		@Nonnull BlockPos pos
+		BlockState state, 
+		BlockGetter level, 
+		BlockPos pos
 	) {
 		return state.isSolidRender(level, pos);
 	}
 
 	// Copied from the vanilla MushroomBlock code 
-	private void tryGrow(Level level, BlockPos pos, BlockState state, int chance) {
-		var random = ThreadLocalRandom.current();
-
-		int i = chance;
-
-		for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
-			if (level.getBlockState(blockpos).is(this)) {
-				if (--i <= 0) {
-					return;
-				}
+	private void tryGrow(
+		Level level,
+		BlockPos pos,
+		BlockState state,
+		RandomSource random,
+		int chance
+	) {
+		for (var blockpos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
+			if (level.getBlockState(blockpos).is(this) && --chance <= 0) {
+				return;
 			}
 		}
 
-		BlockPos blockpos1 = pos.offset(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
+		var blockpos1 = pos.offset(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
 
-		for (int k = 0; k < chance; k++) {
+		for (var i = 0; i < chance; i++) {
 			if (level.isEmptyBlock(blockpos1) && state.canSurvive(level, blockpos1)) {
 				pos = blockpos1;
 			}
@@ -182,6 +188,31 @@ public class BloodcapMushroomBlock extends BushBlock implements BonemealableBloc
 
 		if (level.isEmptyBlock(blockpos1) && state.canSurvive(level, blockpos1)) {
 			level.setBlock(blockpos1, state, 2);
+		}
+	}
+
+	// Also copied from the vanilla MushroomBlock code 
+	boolean growMushroom(ServerLevel level, BlockPos pos, BlockState state, RandomSource random) {		
+		Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = level.registryAccess()
+			.registryOrThrow(Registries.CONFIGURED_FEATURE)
+			.getHolder(WetlandWhimsyConfiguredFeatures.HUGE_BLOODCAP_MUSHROOM);
+
+		var event = EventHooks.fireBlockGrowFeature(level, random, pos, optional.orElse(null));
+		if (event.isCanceled()) {
+			return false;
+		}
+		optional = Optional.ofNullable(event.getFeature());
+
+		if (optional.isEmpty()) {
+			return false;
+		} else {
+			level.removeBlock(pos, false);
+			if (optional.get().value().place(level, level.getChunkSource().getGenerator(), random, pos)) {
+				return true;
+			} else {
+				level.setBlock(pos, state, 3);
+				return false;
+			}
 		}
 	}
 }

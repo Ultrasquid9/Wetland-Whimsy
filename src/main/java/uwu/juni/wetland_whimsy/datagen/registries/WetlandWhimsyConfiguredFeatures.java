@@ -42,9 +42,11 @@ import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
+import uwu.juni.wetland_whimsy.worldgen.bloodcap_mushroom.BloodcapMushroomFoliagePlacer;
 
 public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_TREE = createKey("bald_cypress_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_BLOODCAP_MUSHROOM = createKey("huge_bloodcap_mushroom");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_ARIA_MUSHROOM = createKey("huge_aria_mushroom");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODCAP_PATCH = createKey("bloodcap_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
@@ -100,17 +102,34 @@ public class WetlandWhimsyConfiguredFeatures {
 			)
 		);
 
+		final var MUSHROOM_STEM = Blocks.MUSHROOM_STEM
+			.defaultBlockState()
+			.setValue(HugeMushroomBlock.UP, Boolean.valueOf(false))
+			.setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false));
+
+		context.register(
+			HUGE_BLOODCAP_MUSHROOM, 
+			new ConfiguredFeature<>(
+				Feature.TREE, 
+				new TreeConfiguration.TreeConfigurationBuilder(
+					BlockStateProvider.simple(MUSHROOM_STEM),
+					new StraightTrunkPlacer(3, 0, 1),
+
+					BlockStateProvider.simple(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK.get()), 
+					new BloodcapMushroomFoliagePlacer(ConstantInt.of(4), ConstantInt.of(6)),
+
+					new TwoLayersFeatureSize(1, 0, 1)
+				)
+				.ignoreVines()
+				.build()
+			)
+		);
 		context.register(
 			HUGE_ARIA_MUSHROOM, 
 			new ConfiguredFeature<>(
 				Feature.TREE, 
 				new TreeConfiguration.TreeConfigurationBuilder(
-					BlockStateProvider.simple(
-						Blocks.MUSHROOM_STEM
-							.defaultBlockState()
-							.setValue(HugeMushroomBlock.UP, Boolean.valueOf(false))
-							.setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))
-					),
+					BlockStateProvider.simple(MUSHROOM_STEM),
 					new StraightTrunkPlacer(4, 1, 2),
 
 					BlockStateProvider.simple(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get()), 
