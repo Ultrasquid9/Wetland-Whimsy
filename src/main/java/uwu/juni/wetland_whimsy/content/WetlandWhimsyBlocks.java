@@ -9,8 +9,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
@@ -392,7 +390,8 @@ public class WetlandWhimsyBlocks {
 	);
 	public static final DeferredBlock<HalfTransparentBlock> BLOODCAP_MUSHROOM_BLOCK = registerBlockAndItem(
 		"bloodcap_mushroom_block", 
-		() -> new HalfTransparentBlock(
+		() -> new BouncyMushroomBlock(
+			0.5F,
 			BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM_BLOCK)
 				.noOcclusion()
 				.lightLevel($ -> 3)
@@ -400,39 +399,12 @@ public class WetlandWhimsyBlocks {
 	);
 	public static final DeferredBlock<HalfTransparentBlock> ARIA_MUSHROOM_BLOCK = registerBlockAndItem(
 		"aria_mushroom_block", 
-		() -> new HalfTransparentBlock(
+		() -> new BouncyMushroomBlock(
+			2F / 3F,
 			BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM_BLOCK)
 				.noOcclusion()
 				.lightLevel($ -> 9)
-		) {
-			@Override
-			public void updateEntityAfterFallOn(BlockGetter level, Entity entity) {
-				if (entity.isSuppressingBounce()) {
-					super.updateEntityAfterFallOn(level, entity);
-				} else {
-					bounceUp(entity);
-				}
-			}
-
-			private void bounceUp(Entity entity) {
-				var vec3 = entity.getDeltaMovement();
-				if (vec3.y >= 0) 
-					return;
-	
-				entity.playSound(
-					WetlandWhimsySounds.ARIA_MUSHROOM_JUMP.get(),
-					(float)vec3.y * -1F,
-					entity.getRandom().nextInt(9, 11) / 10F
-				);
-
-				var d0 = entity instanceof LivingEntity ? 1.0 : 0.8;
-				entity.setDeltaMovement(
-					vec3.x, 
-					-vec3.y * 0.66F * d0, 
-					vec3.z
-				);
-			}
-		}
+		)
 	);
 	public static final DeferredBlock<SaplingBlock> ARIA_SPORES = registerBlockAndItem(
 		"aria_spores", 
