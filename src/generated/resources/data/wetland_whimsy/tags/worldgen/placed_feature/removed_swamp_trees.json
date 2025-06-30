@@ -1,0 +1,13 @@
+{
+	"values": [
+		"minecraft:trees_swamp",
+		{
+			"id": "terralith:swamp/vanilla/trees",
+			"required": false
+		},
+		{
+			"id": "terralith:swamp/vanilla/old_trees",
+			"required": false
+		}
+	]
+}

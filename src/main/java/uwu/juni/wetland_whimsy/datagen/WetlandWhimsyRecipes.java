@@ -299,8 +299,8 @@ public class WetlandWhimsyRecipes extends RecipeProvider {
 	private void stairsAndSlab(ItemLike input, ItemLike stairs, ItemLike slab) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairs, 4)
 			.define('S', input)
-			.pattern("  S")
-			.pattern(" SS")
+			.pattern("S  ")
+			.pattern("SS ")
 			.pattern("SSS")
 			.unlockedBy(getHasName(input), has(input))
 			.save(recipeOutput);

@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -16,13 +18,14 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
+@ParametersAreNonnullByDefault
 public class WetlandWhimsyDatamaps extends DataMapProvider {
 	public WetlandWhimsyDatamaps(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
 		super(packOutput, lookupProvider);
 	}
 
 	@Override
-	protected void gather() {
+	protected void gather(HolderLookup.Provider provider) {
 		builder(NeoForgeDataMaps.COMPOSTABLES)
 			.add(createKey(WetlandWhimsyBlocks.PENNYWORT), new Compostable(.15F), false)
 			.add(createKey(WetlandWhimsyBlocks.CORDGRASS), new Compostable(.4F), false)

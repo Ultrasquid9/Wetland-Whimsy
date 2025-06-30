@@ -19,6 +19,11 @@ fmt-json:
 		const TABS = "\t"
 		const SPACES = "  "
 
-		let text = cat $file | str trim -r | str replace $SPACES $TABS --all
+		let text = (
+			cat $file |
+			str trim -r |
+			str replace $SPACES $TABS --all |
+			str replace "S	" "S  " --all # Hack to make stairs work
+		)
 		[$text, "\n"] | str join | save -f $file
 	}

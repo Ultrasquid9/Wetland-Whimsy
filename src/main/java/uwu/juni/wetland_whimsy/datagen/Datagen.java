@@ -28,6 +28,7 @@ import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyStructures;
 import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyBiomeTags;
 import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyBlockTags;
 import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyEntityTags;
+import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyFeatureTags;
 import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyItemTags;
 import uwu.juni.wetland_whimsy.datagen.tags.WetlandWhimsyStructureTags;
 
@@ -82,6 +83,7 @@ public class Datagen {
 		datagen.addProvider(event.includeServer(), new WetlandWhimsyBiomeTags(output, lookupProvider, fileHelper));
 		datagen.addProvider(event.includeServer(), new WetlandWhimsyEntityTags(output, lookupProvider, fileHelper));
 		datagen.addProvider(event.includeServer(), new WetlandWhimsyStructureTags(output, lookupProvider, fileHelper));
+		datagen.addProvider(event.includeServer(), new WetlandWhimsyFeatureTags(output, lookupProvider, fileHelper));
 
 		// Loot tables
 		datagen.addProvider(

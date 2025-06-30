@@ -6,6 +6,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 
@@ -62,6 +63,13 @@ public class WetlandWhimsyTags {
 		public static final TagKey<Biome> BLOODCAP_SURFACE = TagKey.create(
 			Registries.BIOME, 
 			WetlandWhimsy.rLoc("bloodcap_surface")
+		);
+	}
+
+	public static class Features {
+		public static final TagKey<PlacedFeature> REMOVED_SWAMP_TREES = TagKey.create(
+			Registries.PLACED_FEATURE,
+			WetlandWhimsy.rLoc("removed_swamp_trees")
 		);
 	}
 }
