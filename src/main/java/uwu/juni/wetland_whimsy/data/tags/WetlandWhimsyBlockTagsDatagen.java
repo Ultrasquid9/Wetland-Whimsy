@@ -54,12 +54,13 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.SOUL_BRAZIER.get()
 		);
 
-		if (Compat.ENDERGETIC) tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-			WetlandWhimsyBlocks.ENDER_BRAZIER.get().get()
+		if (Compat.ENDERGETIC) tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(
+			WetlandWhimsyBlocks.ENDER_BRAZIER.get().getId()
 		);
-		if (Compat.CNC) tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-			WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().get()
+		if (Compat.CNC) tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(
+			WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().getId()
 		);
+
 
 		tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
 			WetlandWhimsyBlocks.SUSSY_MUD.get()

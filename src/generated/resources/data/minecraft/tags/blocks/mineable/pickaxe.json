@@ -15,7 +15,13 @@
 		"wetland_whimsy:limestone_pillar",
 		"wetland_whimsy:limestone_brazier",
 		"wetland_whimsy:soul_brazier",
-		"wetland_whimsy:ender_brazier",
-		"wetland_whimsy:cupric_brazier"
+		{
+			"id": "wetland_whimsy:ender_brazier",
+			"required": false
+		},
+		{
+			"id": "wetland_whimsy:cupric_brazier",
+			"required": false
+		}
 	]
 }

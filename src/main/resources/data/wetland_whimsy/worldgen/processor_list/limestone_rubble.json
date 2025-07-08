@@ -24,7 +24,6 @@
 				"wetland_whimsy:limestone_brick_wall"
 			]
 		},
-
 		{
 			"processor_type": "minecraft:rule",
 			"rules": [
@@ -98,7 +97,6 @@
 				}
 			]
 		},
-
 		{
 			"processor_type": "minecraft:rule",
 			"rules": [
@@ -116,7 +114,6 @@
 				}
 			]
 		},
-
 		{
 			"processor_type": "minecraft:rule",
 			"rules": [
@@ -147,7 +144,6 @@
 				}
 			]
 		},
-
 		{
 			"processor_type": "minecraft:rule",
 			"rules": [
@@ -178,7 +174,6 @@
 				}
 			]
 		},
-
 		{
 			"processor_type": "minecraft:rule",
 			"rules": [
@@ -209,7 +204,6 @@
 				}
 			]
 		},
-
 		{
 			"processor_type": "minecraft:rule",
 			"rules": [
@@ -244,7 +238,6 @@
 				}
 			]
 		},
-
 		{
 			"processor_type": "minecraft:rule",
 			"rules": [
