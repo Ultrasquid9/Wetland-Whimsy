@@ -29,7 +29,7 @@ public class WetlandWhimsyStructures {
 	private static ResourceKey<Structure> createKey(String name) {
 		return ResourceKey.create(
 			Registries.STRUCTURE, 
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
+			new ResourceLocation(WetlandWhimsy.MODID, name)
 		);
 	}
 

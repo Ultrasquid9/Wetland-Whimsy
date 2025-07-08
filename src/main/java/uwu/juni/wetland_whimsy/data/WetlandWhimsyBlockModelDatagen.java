@@ -239,14 +239,14 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 				WetlandWhimsyBlocks.ENDER_BRAZIER.get().get(),
 				"ender_brazier",
 				modLoc("block/brazier/ender_brazier_top_lit"),
-				ResourceLocation.fromNamespaceAndPath(EndergeticExpansion.MOD_ID, "block/ender_campfire_fire")
+				new ResourceLocation(EndergeticExpansion.MOD_ID, "block/ender_campfire_fire")
 			);
 		if (Compat.CNC)
 			brazier(
 				WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().get(),
 				"cupric_brazier",
 				modLoc("block/brazier/cupric_brazier_top_lit"),
-				ResourceLocation.fromNamespaceAndPath(CavernsAndChasms.MOD_ID, "block/cupric_campfire_fire")
+				new ResourceLocation(CavernsAndChasms.MOD_ID, "block/cupric_campfire_fire")
 			);
 
 		getVariantBuilder(WetlandWhimsyBlocks.ANCIENT_POT.get()).forAllStates(state -> ConfiguredModel

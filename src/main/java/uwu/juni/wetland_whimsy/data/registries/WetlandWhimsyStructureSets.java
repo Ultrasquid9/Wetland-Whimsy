@@ -17,7 +17,7 @@ public class WetlandWhimsyStructureSets {
 	private static ResourceKey<StructureSet> createKey(String name) {
 		return ResourceKey.create(
 			Registries.STRUCTURE_SET, 
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, name)
+			new ResourceLocation(WetlandWhimsy.MODID, name)
 		);
 	}
 

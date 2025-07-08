@@ -56,7 +56,6 @@ public class WetlandWhimsy {
 
 	public static WetlandWhimsyConfig config;
 
-	@SuppressWarnings("removal")
 	public WetlandWhimsy() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		LOGGER.info("Whimsical");
@@ -145,7 +144,7 @@ public class WetlandWhimsy {
 			
 			FlowerPotHandler.CUSTOM_MODELS.add(cordgrass_rl);
 			FlowerPotHandler.registerCustomSimpleFlower(
-				WetlandWhimsyBlocks.CORDGRASS.get().asItem(), 
+				WetlandWhimsyBlocks.CORDGRASS.get().asItem(),
 				cordgrass_rl
 			);
 			FlowerPotHandler.CUSTOM_MODELS.add(pennywort_rl);
@@ -162,6 +161,6 @@ public class WetlandWhimsy {
 	}
 
 	public static ResourceLocation rLoc(String resource) {
-		return ResourceLocation.fromNamespaceAndPath(MODID, resource);
+		return new ResourceLocation(MODID, resource);
 	}
 }

@@ -11,14 +11,14 @@ public class WetlandWhimsyTags {
 	public static class Blocks {
 		public static final TagKey<Block> BALD_CYPRESS_LOGS = TagKey.create(
 			Registries.BLOCK, 
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "bald_cypress_logs")
+			new ResourceLocation(WetlandWhimsy.MODID, "bald_cypress_logs")
 		);
 	}
 
 	public static class Items {
 		public static final TagKey<Item> BALD_CYPRESS_LOGS =TagKey.create(
 			Registries.ITEM, 
-			ResourceLocation.fromNamespaceAndPath(WetlandWhimsy.MODID, "bald_cypress_logs")
+			new ResourceLocation(WetlandWhimsy.MODID, "bald_cypress_logs")
 		);
 	}
 }
