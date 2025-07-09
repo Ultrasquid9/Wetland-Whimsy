@@ -72,9 +72,9 @@ public class WetlandWhimsy {
 			() -> () -> { 
 				modEventBus.addListener(WetlandWhimsyParticles::registerParticleProviders);
 
-				return new Object();
+				return null;
 			}, 
-			() -> () -> new Object()
+			() -> () -> null
 		);
 
 		REGISTRY_HELPER.register(modEventBus);
