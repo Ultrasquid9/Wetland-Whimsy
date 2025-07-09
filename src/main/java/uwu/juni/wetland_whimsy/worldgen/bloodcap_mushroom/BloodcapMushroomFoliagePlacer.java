@@ -1,4 +1,6 @@
-package uwu.juni.wetland_whimsy.worldgen.aria_mushroom;
+package uwu.juni.wetland_whimsy.worldgen.bloodcap_mushroom;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -12,15 +14,14 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-@SuppressWarnings("null")
-public class AriaMushroomFoliagePlacer extends FoliagePlacer {
-
-	public static final Codec<AriaMushroomFoliagePlacer> CODEC = RecordCodecBuilder.create(
+@ParametersAreNonnullByDefault
+public class BloodcapMushroomFoliagePlacer extends FoliagePlacer {
+	public static final Codec<BloodcapMushroomFoliagePlacer> CODEC = RecordCodecBuilder.create(
 		instance -> foliagePlacerParts(instance)
-			.apply(instance, AriaMushroomFoliagePlacer::new)
+			.apply(instance, BloodcapMushroomFoliagePlacer::new)
 	);
 
-	public AriaMushroomFoliagePlacer(IntProvider radius, IntProvider offset) {
+	public BloodcapMushroomFoliagePlacer(IntProvider radius, IntProvider offset) {
 		super(radius, offset);
 	}
 
@@ -43,7 +44,7 @@ public class AriaMushroomFoliagePlacer extends FoliagePlacer {
 	) {
 		var pos = attachment.pos();
 
-		var leafHeight = foliageHeight - random.nextInt(1, 2);
+		var leafHeight = foliageHeight - random.nextInt(2, 3);
 
 		for (int i = 0; i < foliageHeight; i++) {
 			this.placeLeavesRow(level, blockSetter, random, config, pos, offset, i - leafHeight, false);
@@ -59,17 +60,21 @@ public class AriaMushroomFoliagePlacer extends FoliagePlacer {
 		int range,
 		boolean large
 	) {
-        return Mth.square(localX) + funniTreeMath(localY) + Mth.square(localZ) > range;
-	}
+		final var dist = Mth.sqrt(Mth.square(localX) + Mth.square(localZ));
+		var should = false;
 
-	private float funniTreeMath(int y) {
-		var val = Mth.sin(y * Mth.abs(y)) * 5;
+		should |= dist > random.nextInt(10, 17 + Mth.abs(localY)) / 10F;
 
-		return val > 2 ? 999 : val;
+		if (localY >= 0) {
+			final var thing = Mth.abs(localY - 1) + 2;
+			should |= dist > random.nextInt(5, thing * 5) / 10;
+		}
+
+		return should;
 	}
 
 	@Override
 	protected FoliagePlacerType<?> type() {
-		return WetlandWhimsyFoliagePlacers.ARIA_MUSHROOM_FOLIAGE_PLACER.get();
+		return WetlandWhimsyFoliagePlacers.BLOODCAP_MUSHROOM_FOLIAGE_PLACER.get();
 	}
 }

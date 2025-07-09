@@ -162,6 +162,8 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			modLoc("block/limestone_pillar_top")
 		);
 
+		simpleBlock(WetlandWhimsyBlocks.CORDGRASS_THATCH.get());
+
 		// Plants
 		simpleBlock(
 			WetlandWhimsyBlocks.CORDGRASS.get(),
@@ -205,6 +207,13 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 			models()
 				.withExistingParent("aria_mushroom_block", mcLoc("block/cube_all"))
 				.texture("all", modLoc("block/aria_mushroom_block"))
+				.renderType("minecraft:translucent")
+		);
+		simpleBlock(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK.get(),
+			models()
+				.withExistingParent("bloodcap_mushroom_block", mcLoc("block/cube_all"))
+				.texture("all", modLoc("block/bloodcap_mushroom_block"))
 				.renderType("minecraft:translucent")
 		);
 		simpleBlock(

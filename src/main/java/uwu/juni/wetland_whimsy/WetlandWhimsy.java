@@ -2,7 +2,6 @@ package uwu.juni.wetland_whimsy;
 
 import org.slf4j.Logger;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 
@@ -42,7 +41,7 @@ public class WetlandWhimsy {
 
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
 
-	private static final ImmutableList<DeferredRegister<?>> REGISTRIES = ImmutableList.of(
+	private static final DeferredRegister<?>[] REGISTRIES = {
 		WetlandWhimsyBlocks.BLOCKS,
 		WetlandWhimsyBlockEntities.BLOCK_ENTITIES,
 		WetlandWhimsyItems.ITEMS,
@@ -52,7 +51,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS,
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS,
 		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS
-	);
+	};
 
 	public static WetlandWhimsyConfig config;
 
@@ -111,6 +110,10 @@ public class WetlandWhimsy {
 			.4F
 		);
 		ComposterBlock.COMPOSTABLES.put(
+			WetlandWhimsyBlocks.CORDGRASS_THATCH.get().asItem(), 
+			.9F
+		);
+		ComposterBlock.COMPOSTABLES.put(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get().asItem(), 
 			.3F
 		);
@@ -128,6 +131,10 @@ public class WetlandWhimsy {
 		);
 		ComposterBlock.COMPOSTABLES.put(
 			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get().asItem(), 
+			.85F
+		);
+		ComposterBlock.COMPOSTABLES.put(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK.get().asItem(), 
 			.85F
 		);
 		ComposterBlock.COMPOSTABLES.put(

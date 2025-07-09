@@ -107,6 +107,13 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 			4
 		);
 
+		twoByTwo(
+			recipeOutput, 
+			WetlandWhimsyBlocks.CORDGRASS.get(), 
+			WetlandWhimsyBlocks.CORDGRASS_THATCH.get(), 
+			1
+		);
+
 		stairsAndSlab(
 			recipeOutput, 
 			WetlandWhimsyBlocks.LIMESTONE.get(), 

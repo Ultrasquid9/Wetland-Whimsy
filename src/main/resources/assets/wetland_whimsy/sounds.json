@@ -38,5 +38,10 @@
 				"stream": true
 			}
 		]
+	},
+	"aria_mushroom_jump": {
+		"sounds": [
+			"wetland_whimsy:aria_mushroom_jump"
+		]
 	}
 }

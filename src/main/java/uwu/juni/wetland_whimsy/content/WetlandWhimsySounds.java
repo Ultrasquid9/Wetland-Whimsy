@@ -17,6 +17,8 @@ public class WetlandWhimsySounds {
 	public static final RegistryObject<SoundEvent> ANCIENT_POT_BREAK = createSound("pot_break");
 	public static final RegistryObject<SoundEvent> ANCIENT_POT_INSERT = createSound("pot_insert");
 
+	public static final RegistryObject<SoundEvent> ARIA_MUSHROOM_JUMP = createSound("aria_mushroom_jump");
+
 	public static final ForgeSoundType ANCIENT_POT_SOUNDS = new ForgeSoundType(
 		1.5F, 
 		1F, 

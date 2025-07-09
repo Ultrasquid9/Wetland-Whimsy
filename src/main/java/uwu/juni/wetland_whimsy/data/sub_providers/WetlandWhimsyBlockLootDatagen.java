@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraftforge.registries.RegistryObject;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyLoot;
 import uwu.juni.wetland_whimsy.misc.Compat;
@@ -55,6 +56,8 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		dropSelf(WetlandWhimsyBlocks.POLISHED_LIMESTONE_WALL.get());
 		dropSelf(WetlandWhimsyBlocks.LIMESTONE_BRICK_WALL.get());
 		dropSelf(WetlandWhimsyBlocks.LIMESTONE_PILLAR.get());
+
+		dropSelf(WetlandWhimsyBlocks.CORDGRASS_THATCH.get());
 
 		dropSelf(WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get());
 		dropSelf(WetlandWhimsyBlocks.ARIA_MUSHROOM.get());
@@ -106,25 +109,13 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
 			WetlandWhimsyBlocks.ARIA_MUSHROOM.get()
 		);
-		add(
-			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(), 
-			block -> LootTable.lootTable()
-				.withPool(
-					LootPool.lootPool()
-						.when(HAS_SILK_TOUCH)
-						.add(LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get()))
-				)
-				.withPool(
-					applyExplosionCondition(
-						WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
-						LootPool.lootPool()
-							.when(HAS_SILK_TOUCH.invert())
-							.add(
-								LootItem.lootTableItem(WetlandWhimsyBlocks.ARIA_MUSHROOM.get())
-									.apply(WetlandWhimsyLoot.lootCount(-6, 2))
-							)
-					)
-				)
+		dropShrooms(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK, 
+			WetlandWhimsyBlocks.ARIA_MUSHROOM
+		);
+		dropShrooms(
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK, 
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM
 		);
 
 		add(
@@ -138,6 +129,29 @@ public class WetlandWhimsyBlockLootDatagen extends BlockLootSubProvider {
 		add(
 			WetlandWhimsyBlocks.ANCIENT_POT.get(), 
 			noDrop()
+		);
+	}
+
+
+	void dropShrooms(RegistryObject<? extends Block> block, RegistryObject<? extends Block> shroom) {
+		add(
+			block.get(), 
+			b -> LootTable
+				.lootTable()
+				.withPool(
+					LootPool.lootPool()
+						.when(HAS_SILK_TOUCH)
+						.add(LootItem.lootTableItem(block.get()))
+				)
+				.withPool(
+					LootPool
+						.lootPool()
+						.when(HAS_SILK_TOUCH.invert())
+						.add(
+							LootItem.lootTableItem(shroom.get())
+								.apply(WetlandWhimsyLoot.lootCount(-6, 2))
+						)
+				)
 		);
 	}
 }

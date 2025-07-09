@@ -60,11 +60,16 @@ public class Creative {
 			)
 			.addItemsAfter(
 				of(Items.RED_MUSHROOM_BLOCK),
-				WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK
+				WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK,
+				WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK
 			)
 			.addItemsAfter(
 				of(Items.CHERRY_SAPLING),
 				WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING
+			)
+			.addItemsAfter(
+				of(Items.HAY_BLOCK),
+				WetlandWhimsyBlocks.CORDGRASS_THATCH
 			)
 			.addItemsAfter(
 				of(Items.RED_MUSHROOM),

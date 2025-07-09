@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.PressurePlateBlock.Sensitivity;
@@ -51,6 +50,7 @@ import uwu.juni.wetland_whimsy.content.blocks.AncientBrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.AncientPotBlock;
 import uwu.juni.wetland_whimsy.content.blocks.AriaMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BloodcapMushroomBlock;
+import uwu.juni.wetland_whimsy.content.blocks.BouncyMushroomBlock;
 import uwu.juni.wetland_whimsy.content.blocks.BrazierBlock;
 import uwu.juni.wetland_whimsy.content.blocks.CordgrassBlock;
 import uwu.juni.wetland_whimsy.content.blocks.LimestoneBlock;
@@ -402,6 +402,14 @@ public class WetlandWhimsyBlocks {
 		}
 	);
 
+	// Cordgrass Thatch
+	public static final RegistryObject<Block> CORDGRASS_THATCH = registerBlockAndItem(
+		"cordgrass_thatch", 
+		() -> new Block(
+			BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)
+		)
+	);
+
 	// Plants
 	public static final RegistryObject<CordgrassBlock> CORDGRASS = registerBlockAndItem(
 		"cordgrass",
@@ -429,6 +437,15 @@ public class WetlandWhimsyBlocks {
 				.lightLevel($ -> 2)
 		)
 	);
+	public static final RegistryObject<BouncyMushroomBlock> BLOODCAP_MUSHROOM_BLOCK = registerBlockAndItem(
+		"bloodcap_mushroom_block", 
+		() -> new BouncyMushroomBlock(
+			0.5F,
+			BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK)
+				.noOcclusion()
+				.lightLevel($ -> 3)
+		)
+	);
 	public static final RegistryObject<AriaMushroomBlock> ARIA_MUSHROOM = registerBlockAndItem(
 		"aria_mushroom", 
 		() -> new AriaMushroomBlock(
@@ -437,9 +454,10 @@ public class WetlandWhimsyBlocks {
 				.lightLevel($ -> 7)
 		)
 	);
-	public static final RegistryObject<HalfTransparentBlock> ARIA_MUSHROOM_BLOCK = registerBlockAndItem(
+	public static final RegistryObject<BouncyMushroomBlock> ARIA_MUSHROOM_BLOCK = registerBlockAndItem(
 		"aria_mushroom_block", 
-		() -> new HalfTransparentBlock(
+		() -> new BouncyMushroomBlock(
+			2F / 3F,
 			BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK)
 				.noOcclusion()
 				.lightLevel($ -> 9)
