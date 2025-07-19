@@ -10,7 +10,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.worldgen.SinglePoolElementAccessor;
@@ -32,7 +31,7 @@ public class WetlandWhimsyStructurePools {
 	private static ResourceKey<StructureTemplatePool> createKey(String name) {
 		return ResourceKey.create(
 			Registries.TEMPLATE_POOL, 
-			new ResourceLocation(WetlandWhimsy.MODID, name)
+			WetlandWhimsy.rLoc(name)
 		);
 	}
 
@@ -184,7 +183,7 @@ public class WetlandWhimsyStructurePools {
 		BootstapContext<StructureTemplatePool> context
 	) {
 		return pool -> new SinglePoolElementAccessor(
-			Either.left(new ResourceLocation(WetlandWhimsy.MODID, id)), 
+			Either.left(WetlandWhimsy.rLoc(id)), 
 			context.lookup(Registries.PROCESSOR_LIST).getOrThrow(WetlandWhimsyStructureProcessors.LIMESTONE_RUBBLE), 
 			pool
 		);
@@ -195,7 +194,7 @@ public class WetlandWhimsyStructurePools {
 		BootstapContext<StructureTemplatePool> context
 	) {
 		return pool -> new SinglePoolElementAccessor(
-			Either.left(new ResourceLocation(WetlandWhimsy.MODID, id)), 
+			Either.left(WetlandWhimsy.rLoc(id)), 
 			context.lookup(Registries.PROCESSOR_LIST).getOrThrow(WetlandWhimsyStructureProcessors.DUNGEON), 
 			pool
 		);

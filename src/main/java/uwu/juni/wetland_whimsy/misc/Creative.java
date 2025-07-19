@@ -133,6 +133,12 @@ public class Creative {
 				WetlandWhimsyItems.PENNYWORT_SALAD
 			)
 
+			.tab(CreativeModeTabs.SPAWN_EGGS)
+			.addItemsAfter(
+				of(Items.COW_SPAWN_EGG),
+				WetlandWhimsyItems.CRANE_SPAWN_EGG
+			)
+
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.addItemsAfter(
 				of(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE), 

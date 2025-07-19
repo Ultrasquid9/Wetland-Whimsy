@@ -1,10 +1,12 @@
 package uwu.juni.wetland_whimsy.data;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
@@ -134,6 +136,8 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		
 		basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get());
 		basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond().get());
+
+		spawnEgg(WetlandWhimsyItems.CRANE_SPAWN_EGG);
 	}
 
 	private void simpleBlockItem(Block block) {
@@ -142,6 +146,13 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		withExistingParent(
 			name, 
 			this.modLoc("block/" + name)
+		);
+	}
+
+	void spawnEgg(RegistryObject<? extends Item> item) {
+		withExistingParent(
+			item.getId().getPath(), 
+			mcLoc("item/template_spawn_egg")
 		);
 	}
 }

@@ -14,6 +14,7 @@ import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyStructureProcessors;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyStructureSets;
 import uwu.juni.wetland_whimsy.data.registries.WetlandWhimsyStructures;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyBlockLootDatagen;
+import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyEntityLoot;
 import uwu.juni.wetland_whimsy.data.sub_providers.WetlandWhimsyStructureLootDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBiomeTagsDatagen;
 import uwu.juni.wetland_whimsy.data.tags.WetlandWhimsyBlockTagsDatagen;
@@ -82,6 +83,10 @@ public class Datagen {
 					new LootTableProvider.SubProviderEntry(
 						WetlandWhimsyBlockLootDatagen::new,
 						LootContextParamSets.BLOCK
+					),
+					new LootTableProvider.SubProviderEntry(
+						WetlandWhimsyEntityLoot::new,
+						LootContextParamSets.ENTITY
 					),
 					new LootTableProvider.SubProviderEntry(
 						WetlandWhimsyStructureLootDatagen::new,

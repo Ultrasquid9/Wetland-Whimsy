@@ -12,15 +12,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
-import uwu.juni.wetland_whimsy.client.WetlandWhimsyParticles;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
@@ -44,6 +43,7 @@ public class WetlandWhimsy {
 	private static final DeferredRegister<?>[] REGISTRIES = {
 		WetlandWhimsyBlocks.BLOCKS,
 		WetlandWhimsyBlockEntities.BLOCK_ENTITIES,
+		WetlandWhimsyEntityTypes.ENTITIES,
 		WetlandWhimsyItems.ITEMS,
 		WetlandWhimsyParticleTypes.PARTICLE_TYPES,
 		WetlandWhimsySounds.SOUNDS,
@@ -55,6 +55,7 @@ public class WetlandWhimsy {
 
 	public static WetlandWhimsyConfig config;
 
+	@SuppressWarnings({ "deprecated", "removal" })
 	public WetlandWhimsy() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		LOGGER.info("Whimsical");
@@ -66,16 +67,6 @@ public class WetlandWhimsy {
 		modEventBus.addListener(Datagen::datagen);
 		modEventBus.addListener(Creative::addCreative);
 		modEventBus.addListener(WetlandWhimsyBlockEntities::blockEntityRendering);
-
-		// What the fuck
-		DistExecutor.unsafeRunForDist(
-			() -> () -> { 
-				modEventBus.addListener(WetlandWhimsyParticles::registerParticleProviders);
-
-				return null;
-			}, 
-			() -> () -> null
-		);
 
 		REGISTRY_HELPER.register(modEventBus);
 		for (var registry : REGISTRIES)
@@ -167,6 +158,7 @@ public class WetlandWhimsy {
 		}
 	}
 
+	@SuppressWarnings("removal")
 	public static ResourceLocation rLoc(String resource) {
 		return new ResourceLocation(MODID, resource);
 	}

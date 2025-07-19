@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.SmithingTemplateItem;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -45,6 +46,16 @@ public class WetlandWhimsyItems {
 				.rarity(Rarity.RARE)
 				.stacksTo(1), 
 			4440
+		)
+	);
+
+	public static final RegistryObject<Item> CRANE_SPAWN_EGG = ITEMS.register(
+		"crane_spawn_egg",
+		() -> new ForgeSpawnEggItem(
+			WetlandWhimsyEntityTypes.CRANE, 
+			0xECEBE5, 
+			0xB72D18, 
+			new Item.Properties()
 		)
 	);
 

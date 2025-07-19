@@ -14,18 +14,11 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 
 @SuppressWarnings("null")
 public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
-	public static final ResourceLocation BASIC_LOOT = createLocation("basic_loot");
-	public static final ResourceLocation INTERMEDIATE_LOOT = createLocation("intermediate_loot");
-	public static final ResourceLocation EPIC_LOOT = createLocation("epic_loot");
+	public static final ResourceLocation BASIC_LOOT = WetlandWhimsy.rLoc("basic_loot");
+	public static final ResourceLocation INTERMEDIATE_LOOT = WetlandWhimsy.rLoc("intermediate_loot");
+	public static final ResourceLocation EPIC_LOOT = WetlandWhimsy.rLoc("epic_loot");
 
-	public static final ResourceLocation ANCIENT_COIN = createLocation("vault/ancient_coin");
-
-	private static ResourceLocation createLocation(String name) {
-		return new ResourceLocation(
-			WetlandWhimsy.MODID, 
-			name
-		);
-	}
+	public static final ResourceLocation ANCIENT_COIN = WetlandWhimsy.rLoc("vault/ancient_coin");
 
 	public WetlandWhimsyStructureLootDatagen() {}
 

@@ -6,7 +6,6 @@ import java.util.Optional;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -29,7 +28,7 @@ public class WetlandWhimsyStructures {
 	private static ResourceKey<Structure> createKey(String name) {
 		return ResourceKey.create(
 			Registries.STRUCTURE, 
-			new ResourceLocation(WetlandWhimsy.MODID, name)
+			WetlandWhimsy.rLoc(name)
 		);
 	}
 

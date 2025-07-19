@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 
 public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
@@ -67,6 +68,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		addItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC, "Music Disc");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
+
+		addEntityType(WetlandWhimsyEntityTypes.CRANE, "Crane");
+		addItem(WetlandWhimsyItems.CRANE_SPAWN_EGG, "Crane Spawn Egg");
 
 		addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst(), "Bald Cypress Boat");
 		addItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond(), "Bald Cypress Chest Boat");

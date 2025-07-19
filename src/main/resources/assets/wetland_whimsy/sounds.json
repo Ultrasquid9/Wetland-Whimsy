@@ -39,6 +39,31 @@
 			}
 		]
 	},
+	"crane_ambient": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:crane/crane_ambient_1",
+				"volume": 1.5
+			},
+			{
+				"name": "wetland_whimsy:crane/crane_ambient_2",
+				"volume": 1.5
+			}
+		]
+	},
+	"crane_hit": {
+		"sounds": [
+			"wetland_whimsy:crane/crane_hit_1"
+		]
+	},
+	"crane_death": {
+		"sounds": [
+			{
+				"name": "wetland_whimsy:crane/crane_death_1",
+				"volume": 1.75
+			}
+		]
+	},
 	"aria_mushroom_jump": {
 		"sounds": [
 			"wetland_whimsy:aria_mushroom_jump"
