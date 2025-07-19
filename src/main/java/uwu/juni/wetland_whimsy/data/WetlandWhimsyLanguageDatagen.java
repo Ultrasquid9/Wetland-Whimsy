@@ -67,6 +67,8 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 
 		addItem(WetlandWhimsyItems.PENNYWORT_SALAD, "Pennywort Salad");
 		addItem(WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC, "Music Disc");
+		addItem(WetlandWhimsyItems.GROWTH_POTTERY_SHERD, "Growth Pottery Sherd");
+		addItem(WetlandWhimsyItems.SEALED_POTTERY_SHERD, "Sealed Pottery Sherd");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
 
 		addEntityType(WetlandWhimsyEntityTypes.CRANE, "Crane");

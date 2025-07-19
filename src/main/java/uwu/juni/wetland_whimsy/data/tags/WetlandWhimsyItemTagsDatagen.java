@@ -46,5 +46,9 @@ public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 		this.tag(ItemTags.MUSIC_DISCS).add(
 			WetlandWhimsyItems.NUKE_THE_SWAMPS_MUSIC_DISC.get()	
 		);
+		this.tag(ItemTags.DECORATED_POT_SHERDS).add(
+			WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get(),
+			WetlandWhimsyItems.SEALED_POTTERY_SHERD.get()
+		);
 	}
 }

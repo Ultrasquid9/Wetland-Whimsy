@@ -336,6 +336,10 @@
 				},
 				{
 					"type": "minecraft:item",
+					"name": "wetland_whimsy:growth_pottery_sherd"
+				},
+				{
+					"type": "minecraft:item",
 					"functions": [
 						{
 							"add": false,

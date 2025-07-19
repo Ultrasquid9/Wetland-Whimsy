@@ -9,6 +9,12 @@
 			"bounding_box": "piece",
 			"spawns": [
 				{
+					"type": "wetland_whimsy:swamp_spider",
+					"maxCount": 1,
+					"minCount": 1,
+					"weight": 1
+				},
+				{
 					"type": "minecraft:cave_spider",
 					"maxCount": 3,
 					"minCount": 1,

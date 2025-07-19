@@ -6,6 +6,7 @@
 	"refmap": "mixins.wetland_whimsy.refmap.json",
 	"mixins": [
 		"BaseSpawnerAccessor",
-		"DiskUpgrade"
+		"DiskUpgrade",
+		"NewPotPatterns"
 	]
 }

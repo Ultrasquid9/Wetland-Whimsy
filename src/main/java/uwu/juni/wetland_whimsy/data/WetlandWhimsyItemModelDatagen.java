@@ -137,6 +137,9 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getFirst().get());
 		basicItem(WetlandWhimsyItems.BALD_CYPRESS_BOAT.getSecond().get());
 
+		basicItem(WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get());
+		basicItem(WetlandWhimsyItems.SEALED_POTTERY_SHERD.get());
+
 		spawnEgg(WetlandWhimsyItems.CRANE_SPAWN_EGG);
 	}
 

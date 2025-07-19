@@ -23,6 +23,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyFeatures;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyPotPatterns;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.data.Datagen;
 import uwu.juni.wetland_whimsy.misc.Compat;
@@ -48,6 +49,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyFeatures.FEATURES,
 		WetlandWhimsyItems.ITEMS,
 		WetlandWhimsyParticleTypes.PARTICLE_TYPES,
+		WetlandWhimsyPotPatterns.PATTERNS,
 		WetlandWhimsySounds.SOUNDS,
 		WetlandWhimsyTreeDecorators.TREE_DECORATORS,
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS,
@@ -90,7 +92,10 @@ public class WetlandWhimsy {
 	public void commonSetup(FMLCommonSetupEvent event) {
 		compat();
 
-		event.enqueueWork(() -> { this.compost(); });
+		event.enqueueWork(() -> {
+			this.compost();
+			WetlandWhimsyPotPatterns.initPotPatterns();
+		});
 	}
 
 	private void compost() {

@@ -145,8 +145,16 @@ public class Creative {
 				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE
 			)
 			.addItemsAfter(
-				of(Items.SNORT_POTTERY_SHERD), 
-				WetlandWhimsyItems.ANCIENT_COIN
+				of(Items.FRIEND_POTTERY_SHERD),
+				WetlandWhimsyItems.GROWTH_POTTERY_SHERD
+			)
+			.addItemsAfter(
+				of(Items.FRIEND_POTTERY_SHERD),
+				WetlandWhimsyItems.GROWTH_POTTERY_SHERD
+			)
+			.addItemsAfter(
+				of(Items.PRIZE_POTTERY_SHERD), 
+				WetlandWhimsyItems.SEALED_POTTERY_SHERD
 			);
 
 		if (Compat.ENDERGETIC)

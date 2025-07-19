@@ -32,6 +32,9 @@ public class WetlandWhimsyItems {
 					.stacksTo(1))
 	);
 
+	public static final RegistryObject<Item> GROWTH_POTTERY_SHERD = simpleItem("growth_pottery_sherd");
+	public static final RegistryObject<Item> SEALED_POTTERY_SHERD = simpleItem("sealed_pottery_sherd");
+
 	public static final RegistryObject<Item> DOTS_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register(
 		"dots_armor_trim_smithing_template",
 		() -> SmithingTemplateItem.createArmorTrimTemplate(WetlandWhimsy.rLoc("dots"))
@@ -68,4 +71,8 @@ public class WetlandWhimsyItems {
 		"ancient_coin",
 		() -> new Item(new Item.Properties())
 	);
+
+	static RegistryObject<Item> simpleItem(String name) {
+		return ITEMS.register(name, () -> new Item(new Item.Properties()));
+	}
 }
