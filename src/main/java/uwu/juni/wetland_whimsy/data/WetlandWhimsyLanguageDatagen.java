@@ -83,6 +83,7 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addConfig("ancientPotMaxDropCount", "Ancient Pot Max Drops");
 		addConfig("ancientPotItems", "Ancient Pot Items");
 		addConfig("ancientBrazierEntities", "Ancient Brazier Entities");
+		addConfig("upgradeDisks", "Upgrade Disks");
 		add("text.autoconfig.wetland_whimsy.title", "Wetland Whimsy Config");
 	}
 
