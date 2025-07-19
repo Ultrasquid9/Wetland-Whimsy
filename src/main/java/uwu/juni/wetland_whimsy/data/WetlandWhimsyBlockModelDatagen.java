@@ -27,6 +27,7 @@ public class WetlandWhimsyBlockModelDatagen extends BlockStateProvider {
 		super(output, WetlandWhimsy.MODID, fileHelper);
 	}
 
+	@SuppressWarnings("removal")
 	@Override
 	protected void registerStatesAndModels() {
 

@@ -1,0 +1,12 @@
+{
+	"type": "forge:add_spawns",
+	"biomes": "#forge:is_swamp",
+	"spawners": [
+		{
+			"type": "wetland_whimsy:swamp_spider",
+			"weight": 75,
+			"minCount": 1,
+			"maxCount": 2
+		}
+	]
+}

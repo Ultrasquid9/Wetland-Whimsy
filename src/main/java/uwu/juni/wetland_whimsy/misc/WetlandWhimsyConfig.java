@@ -73,6 +73,7 @@ public class WetlandWhimsyConfig implements ConfigData {
 	);
 
 	public List<String> ancientBrazierEntities = List.of(
+		"wetland_whimsy:swamp_spider",	
 		"minecraft:zombie",
 		"minecraft:skeleton",
 		"minecraft:spider",

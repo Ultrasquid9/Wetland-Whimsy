@@ -26,6 +26,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
 import net.minecraftforge.common.Tags;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
 
 public class WetlandWhimsyStructures {
 	public static final ResourceKey<Structure> ARCH = createKey("arch");
@@ -39,7 +40,12 @@ public class WetlandWhimsyStructures {
 		new StructureSpawnOverride(
 			BoundingBoxType.PIECE, 
 			WeightedRandomList.create(
-				// TODO - backport swamp spider
+				new MobSpawnSettings.SpawnerData(
+					WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
+					1, 
+					1, 
+					1
+				),
 				new MobSpawnSettings.SpawnerData(
 					EntityType.CAVE_SPIDER, 
 					3, 
