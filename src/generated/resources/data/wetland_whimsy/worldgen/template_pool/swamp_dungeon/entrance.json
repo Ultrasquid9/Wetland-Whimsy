@@ -10,5 +10,5 @@
 			"weight": 1
 		}
 	],
-	"fallback": "minecraft:empty"
+	"fallback": "wetland_whimsy:swamp_dungeon/dead_end"
 }

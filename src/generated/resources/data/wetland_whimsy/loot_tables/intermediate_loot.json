@@ -11,128 +11,23 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 8,
+								"max": 16,
+								"min": 8
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "minecraft:bread"
+				},
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 12,
 								"min": 4
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:pennywort"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 8,
-								"min": 4
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:cordgrass"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 8,
-								"min": 4
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:blue_orchid"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 16,
-								"min": 8
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:wheat"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 16,
-								"min": 8
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:wheat_seeds"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 16,
-								"min": 8
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:beetroot"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 16,
-								"min": 8
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:beetroot_seeds"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 16,
-								"min": 8
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:stick"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 2
 							},
 							"function": "minecraft:set_count"
 						}
@@ -146,8 +41,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 2
+								"max": 12,
+								"min": 4
 							},
 							"function": "minecraft:set_count"
 						}
@@ -161,8 +56,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 2
+								"max": 12,
+								"min": 4
 							},
 							"function": "minecraft:set_count"
 						}
@@ -176,8 +71,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 2
+								"max": 12,
+								"min": 4
 							},
 							"function": "minecraft:set_count"
 						}
@@ -186,33 +81,11 @@
 				},
 				{
 					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 2
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:bald_cypress_planks"
+					"name": "minecraft:skull_pottery_sherd"
 				},
 				{
 					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 2
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:bald_cypress_sapling"
+					"name": "wetland_whimsy:dots_armor_trim_smithing_template"
 				},
 				{
 					"type": "minecraft:item",
@@ -222,157 +95,7 @@
 							"count": {
 								"type": "minecraft:uniform",
 								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_bricks"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:polished_limestone"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_pillar"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_stairs"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_brick_stairs"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:polished_limestone_stairs"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_slab"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_brick_slab"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:polished_limestone_slab"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 8,
-								"min": 1
+								"min": 3
 							},
 							"function": "minecraft:set_count"
 						}
@@ -386,8 +109,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 8,
-								"min": 1
+								"max": 10,
+								"min": 3
 							},
 							"function": "minecraft:set_count"
 						}
@@ -401,8 +124,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 8,
-								"min": 1
+								"max": 10,
+								"min": 3
 							},
 							"function": "minecraft:set_count"
 						}
@@ -416,8 +139,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 1
+								"max": 8,
+								"min": 3
 							},
 							"function": "minecraft:set_count"
 						}
@@ -431,8 +154,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 1
+								"max": 8,
+								"min": 3
 							},
 							"function": "minecraft:set_count"
 						}
@@ -446,8 +169,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 1
+								"max": 8,
+								"min": 3
 							},
 							"function": "minecraft:set_count"
 						}
@@ -461,8 +184,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 8,
-								"min": 3
+								"max": 18,
+								"min": 10
 							},
 							"function": "minecraft:set_count"
 						}
@@ -476,8 +199,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 8,
-								"min": 3
+								"max": 18,
+								"min": 10
 							},
 							"function": "minecraft:set_count"
 						}
@@ -491,43 +214,13 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 2
+								"max": 16,
+								"min": 8
 							},
 							"function": "minecraft:set_count"
 						}
 					],
 					"name": "minecraft:slime_ball"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 2
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:red_mushroom"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 2
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:brown_mushroom"
 				},
 				{
 					"type": "minecraft:item",
@@ -551,7 +244,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 2,
+								"max": 3,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -566,7 +259,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 2,
+								"max": 3,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -581,7 +274,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 2,
+								"max": 3,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -596,7 +289,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 2,
+								"max": 3,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -606,11 +299,26 @@
 				},
 				{
 					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 3,
+								"min": 1
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "minecraft:quartz"
+				},
+				{
+					"type": "minecraft:item",
 					"name": "minecraft:mushroom_stew"
 				},
 				{
 					"type": "minecraft:item",
-					"name": "wetland_whimsy:pennywort_salad"
+					"name": "minecraft:beetroot_soup"
 				},
 				{
 					"type": "minecraft:item",
@@ -681,11 +389,47 @@
 				},
 				{
 					"type": "minecraft:item",
-					"name": "wetland_whimsy:dots_armor_trim_smithing_template"
+					"name": "wetland_whimsy:nuke_the_swamps_music_disc"
 				},
 				{
 					"type": "minecraft:item",
-					"name": "wetland_whimsy:nuke_the_swamps_music_disc"
+					"name": "minecraft:bow"
+				},
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 10,
+								"min": 1
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "minecraft:arrow"
+				},
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 6,
+								"min": 1
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "minecraft:tipped_arrow"
+				}
+			],
+			"functions": [
+				{
+					"function": "minecraft:set_potion",
+					"id": "minecraft:poison"
 				}
 			],
 			"rolls": {

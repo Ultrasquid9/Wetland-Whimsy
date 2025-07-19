@@ -217,7 +217,7 @@
 					"input_predicate": {
 						"predicate_type": "minecraft:random_block_match",
 						"block": "minecraft:gray_wool",
-						"probability": 0.15
+						"probability": 0.1
 					},
 					"location_predicate": {
 						"predicate_type": "minecraft:always_true"
@@ -232,8 +232,76 @@
 				},
 				{
 					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:gray_wool",
+						"probability": 0.05
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:suspicious_mud"
+					},
+					"block_entity_modifier": {
+						"type": "minecraft:append_loot",
+						"loot_table": "wetland_whimsy:intermediate_loot"
+					}
+				},
+				{
+					"input_predicate": {
 						"predicate_type": "minecraft:block_match",
 						"block": "minecraft:gray_wool"
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "minecraft:mud"
+					}
+				}
+			]
+		},
+		{
+			"processor_type": "minecraft:rule",
+			"rules": [
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:black_wool",
+						"probability": 0.2
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:suspicious_mud"
+					},
+					"block_entity_modifier": {
+						"type": "minecraft:append_loot",
+						"loot_table": "wetland_whimsy:intermediate_loot"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:random_block_match",
+						"block": "minecraft:black_wool",
+						"probability": 0.1
+					},
+					"location_predicate": {
+						"predicate_type": "minecraft:always_true"
+					},
+					"output_state": {
+						"Name": "wetland_whimsy:suspicious_mud"
+					},
+					"block_entity_modifier": {
+						"type": "minecraft:append_loot",
+						"loot_table": "wetland_whimsy:epic_loot"
+					}
+				},
+				{
+					"input_predicate": {
+						"predicate_type": "minecraft:block_match",
+						"block": "minecraft:black_wool"
 					},
 					"location_predicate": {
 						"predicate_type": "minecraft:always_true"

@@ -3,7 +3,7 @@
 		{
 			"element": {
 				"element_type": "minecraft:single_pool_element",
-				"location": "wetland_whimsy:swamp_dungeon/room_lower/lower_room_1",
+				"location": "wetland_whimsy:swamp_dungeon/atrium/atrium_1",
 				"processors": "wetland_whimsy:dungeon",
 				"projection": "rigid"
 			},
@@ -12,7 +12,7 @@
 		{
 			"element": {
 				"element_type": "minecraft:single_pool_element",
-				"location": "wetland_whimsy:swamp_dungeon/room_lower/lower_room_2",
+				"location": "wetland_whimsy:swamp_dungeon/atrium/atrium_2",
 				"processors": "wetland_whimsy:dungeon",
 				"projection": "rigid"
 			},
@@ -21,7 +21,7 @@
 		{
 			"element": {
 				"element_type": "minecraft:single_pool_element",
-				"location": "wetland_whimsy:swamp_dungeon/room_lower/lower_room_3",
+				"location": "wetland_whimsy:swamp_dungeon/atrium/atrium_3",
 				"processors": "wetland_whimsy:dungeon",
 				"projection": "rigid"
 			},

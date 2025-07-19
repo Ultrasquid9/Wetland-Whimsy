@@ -30,11 +30,11 @@ public class WetlandWhimsyStructureLootDatagen implements LootTableSubProvider {
 		);
 		output.accept(
 			INTERMEDIATE_LOOT,
-			WetlandWhimsyLoot.createBasicLootTable()
+			WetlandWhimsyLoot.createIntermediateLootTable()
 		);
 		output.accept(
 			EPIC_LOOT,
-			WetlandWhimsyLoot.createBasicLootTable()
+			WetlandWhimsyLoot.createEpicLootTable()
 		);
 
 		output.accept(

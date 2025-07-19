@@ -131,6 +131,21 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
+								"max": 5,
+								"min": 1
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "minecraft:torch"
+				},
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
 								"max": 6,
 								"min": 2
 							},
@@ -326,52 +341,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_slab"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:limestone_brick_slab"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 10,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "wetland_whimsy:polished_limestone_slab"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 8,
+								"max": 6,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -386,7 +356,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 8,
+								"max": 6,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -401,7 +371,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 8,
+								"max": 6,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -416,7 +386,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
+								"max": 3,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -431,7 +401,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
+								"max": 3,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -446,7 +416,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
+								"max": 3,
 								"min": 1
 							},
 							"function": "minecraft:set_count"
@@ -491,7 +461,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 10,
+								"max": 6,
 								"min": 2
 							},
 							"function": "minecraft:set_count"
@@ -506,7 +476,7 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 10,
+								"max": 6,
 								"min": 2
 							},
 							"function": "minecraft:set_count"
@@ -521,13 +491,43 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 10,
+								"max": 6,
 								"min": 2
 							},
 							"function": "minecraft:set_count"
 						}
 					],
 					"name": "minecraft:brown_mushroom"
+				},
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 6,
+								"min": 2
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "wetland_whimsy:bloodcap_mushroom"
+				},
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 6,
+								"min": 2
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "wetland_whimsy:aria_mushroom"
 				},
 				{
 					"type": "minecraft:item",
@@ -543,21 +543,6 @@
 						}
 					],
 					"name": "minecraft:mud"
-				},
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"add": false,
-							"count": {
-								"type": "minecraft:uniform",
-								"max": 2,
-								"min": 1
-							},
-							"function": "minecraft:set_count"
-						}
-					],
-					"name": "minecraft:diamond"
 				},
 				{
 					"type": "minecraft:item",
@@ -603,6 +588,10 @@
 						}
 					],
 					"name": "minecraft:amethyst_shard"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:bowl"
 				},
 				{
 					"type": "minecraft:item",
@@ -681,11 +670,39 @@
 				},
 				{
 					"type": "minecraft:item",
-					"name": "wetland_whimsy:dots_armor_trim_smithing_template"
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 4,
+								"min": 1
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "minecraft:arrow"
 				},
 				{
 					"type": "minecraft:item",
-					"name": "wetland_whimsy:nuke_the_swamps_music_disc"
+					"functions": [
+						{
+							"add": false,
+							"count": {
+								"type": "minecraft:uniform",
+								"max": 3,
+								"min": 1
+							},
+							"function": "minecraft:set_count"
+						}
+					],
+					"name": "minecraft:tipped_arrow"
+				}
+			],
+			"functions": [
+				{
+					"function": "minecraft:set_potion",
+					"id": "minecraft:poison"
 				}
 			],
 			"rolls": {
