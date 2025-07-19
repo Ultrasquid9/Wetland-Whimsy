@@ -5,6 +5,7 @@
 	"compatibilityLevel": "JAVA_17",
 	"refmap": "mixins.wetland_whimsy.refmap.json",
 	"mixins": [
-		"BaseSpawnerAccessor"
+		"BaseSpawnerAccessor",
+		"DiskUpgrade"
 	]
 }

@@ -44,15 +44,15 @@ public class WetlandWhimsyConfig implements ConfigData {
 		"minecraft:iron_sword",
 		"minecraft:iron_shovel",
 		"minecraft:iron_hoe",
-		"minecraft:gold_helmet",
-		"minecraft:gold_chestplate",
-		"minecraft:gold_leggings",
-		"minecraft:gold_boots",
-		"minecraft:gold_pickaxe",
-		"minecraft:gold_axe",
-		"minecraft:gold_sword",
-		"minecraft:gold_shovel",
-		"minecraft:gold_hoe",
+		"minecraft:golden_helmet",
+		"minecraft:golden_chestplate",
+		"minecraft:golden_leggings",
+		"minecraft:golden_boots",
+		"minecraft:golden_pickaxe",
+		"minecraft:golden_axe",
+		"minecraft:golden_sword",
+		"minecraft:golden_shovel",
+		"minecraft:golden_hoe",
 
 		WetlandWhimsy.MODID + "bald_cypress_log",
 		WetlandWhimsy.MODID + "bald_cypress_sapling",
@@ -80,4 +80,6 @@ public class WetlandWhimsyConfig implements ConfigData {
 		"minecraft:drowned",
 		"minecraft:witch"
 	);
+
+	public boolean upgradeDisks = true;
 }

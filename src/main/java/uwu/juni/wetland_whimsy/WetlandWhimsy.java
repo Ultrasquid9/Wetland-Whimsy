@@ -20,6 +20,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyEntityTypes;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyFeatures;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
@@ -44,6 +45,7 @@ public class WetlandWhimsy {
 		WetlandWhimsyBlocks.BLOCKS,
 		WetlandWhimsyBlockEntities.BLOCK_ENTITIES,
 		WetlandWhimsyEntityTypes.ENTITIES,
+		WetlandWhimsyFeatures.FEATURES,
 		WetlandWhimsyItems.ITEMS,
 		WetlandWhimsyParticleTypes.PARTICLE_TYPES,
 		WetlandWhimsySounds.SOUNDS,

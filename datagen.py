@@ -33,6 +33,8 @@ os.remove(processor_list_dir + "limestone_rubble.json")
 marsh_file = "src/generated/resources/data/wetland_whimsy/worldgen/biome/marsh.json"
 
 def kill(line):
+	# Future Juni here: I think I was also drunk, i have no clue how this function works 
+	# I probably *should* migrate this file to just/nushell, but I won't, cause i dont wanna 
 	str = "/" + line + "/d"
 	subprocess.run(["sed", "-i", str, marsh_file])
 
