@@ -19,6 +19,9 @@
 		"wetland_whimsy:bald_cypress_wall_hanging_sign",
 		"wetland_whimsy:aria_mushroom_block",
 		"wetland_whimsy:bloodcap_mushroom_block",
-		"wetland_whimsy:bald_cypress_cabinet"
+		{
+			"id": "wetland_whimsy:bald_cypress_cabinet",
+			"required": false
+		}
 	]
 }

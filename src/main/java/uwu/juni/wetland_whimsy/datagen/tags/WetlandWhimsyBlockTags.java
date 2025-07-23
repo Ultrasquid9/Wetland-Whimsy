@@ -177,8 +177,8 @@ public class WetlandWhimsyBlockTags extends BlockTagsProvider {
 
 		// Compat
 		if(WetlandWhimsyCompat.FARMERS_DELIGHT)
-			tag(BlockTags.MINEABLE_WITH_AXE).add(
-				WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get()
+			tag(BlockTags.MINEABLE_WITH_AXE).addOptional(
+				WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().getId()
 			);
 	}
 	
