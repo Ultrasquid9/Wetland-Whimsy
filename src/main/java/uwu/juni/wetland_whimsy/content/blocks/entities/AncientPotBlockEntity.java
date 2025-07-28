@@ -1,28 +1,24 @@
 package uwu.juni.wetland_whimsy.content.blocks.entities;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import javax.annotation.Nonnull;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlockEntities;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
+import uwu.juni.wetland_whimsy.datapacks.ScalableReward;
 
 public class AncientPotBlockEntity extends BlockEntity {
 	private int lootQuality;
-	private ThreadLocalRandom random;
 
 	public AncientPotBlockEntity(BlockPos pos, BlockState state) {
 		super(WetlandWhimsyBlockEntities.ANCIENT_POT.get(), pos, state);
-		random = ThreadLocalRandom.current();
+		lootQuality = 1;
 	}
 
 	@Override
@@ -41,63 +37,20 @@ public class AncientPotBlockEntity extends BlockEntity {
 	public int lootQuality() { return lootQuality; }
 
 	/// Gambling
-	@SuppressWarnings("deprecation")
-	public void dropLoot(Level level, BlockPos pos) {
-		lootQuality += 2; // Ensuring that it is not zero
-
-		var chance2 = WetlandWhimsy.config.ancientPotItems.size() / (int)(lootQuality * 2.5);
-		if (chance2 <= 0) 
-			chance2 = 1;
-
-		var i = 0;
-		var j = 0;
-		for (var item : WetlandWhimsy.config.ancientPotItems) {
-			var thign = lootQuality == 2 ? lootQuality : (int)(lootQuality / 1.25);
-			if (random.nextInt(0, thign - random.nextInt(0, thign)) == 0) 
-				continue;
-			if (random.nextInt(0, chance2) != 0) 
-				continue;
-
-			i++;
-			if (i >= Integer.min(lootQuality, WetlandWhimsy.config.ancientPotMaxDropCount)) break;
-
-			var stack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(item)));
-			growStack(stack);
-
-			if (stack.getCount() == 0) continue;
-
-			Block.popResource(
-				level, 
-				pos, 
-				stack
-			);
-			j++;
+	public void dropLoot(ServerLevel level, BlockPos pos) {
+		// In case the pot was from a version where lootQuality started at 0
+		if (lootQuality < 1) {
+			WetlandWhimsy.LOGGER.warn("lootQuality is " + lootQuality + "... increasing to 1");
+			lootQuality = 1;
 		}
 
-		if (j == 0)
-			Block.popResource(
-				level, 
-				pos, 
-				new ItemStack(
-					BuiltInRegistries.ITEM.get(
-						ResourceLocation.tryParse(
-							WetlandWhimsy.config.ancientPotItems.get(
-								random.nextInt(
-									WetlandWhimsy.config.ancientPotItems.size() - 4, 
-									WetlandWhimsy.config.ancientPotItems.size() - 1
-								)
-							)
-						)
-					)
-				)
-			);
-	}
+		var loot = ScalableReward.Manager.getLoot(
+			level,
+			WetlandWhimsyItems.ANCIENT_COIN.get(),
+			lootQuality
+		);
 
-	private void growStack(ItemStack stack) {
-		if (stack.toString().contains("template")) return;
-		stack.grow(Integer.min(stack.getMaxStackSize(), random.nextInt(0, lootQuality)) - 1);
-
-		if (stack.isDamageableItem())
-			stack.setDamageValue(random.nextInt(1, stack.getMaxDamage() - 1));
+		for (var item : loot) 
+			Block.popResource(level, pos, item);
 	}
 }

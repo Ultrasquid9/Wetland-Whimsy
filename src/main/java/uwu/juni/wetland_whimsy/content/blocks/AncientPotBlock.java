@@ -1,6 +1,7 @@
 package uwu.juni.wetland_whimsy.content.blocks;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -30,6 +32,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
 
+@ParametersAreNonnullByDefault
 public class AncientPotBlock extends BaseEntityBlock {
 	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 16.0, 15.0);
 
@@ -56,16 +59,16 @@ public class AncientPotBlock extends BaseEntityBlock {
 
 	@Override
 	public VoxelShape getShape(
-		@Nonnull BlockState a, 
-		@Nonnull BlockGetter b, 
-		@Nonnull BlockPos c, 
-		@Nonnull CollisionContext d
+		BlockState a, 
+		BlockGetter b, 
+		BlockPos c, 
+		CollisionContext d
 	) {
 		return SHAPE;
 	}
 	
 
-	public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		var state = super.getStateForPlacement(context);
 
 		// I hate null
@@ -77,12 +80,12 @@ public class AncientPotBlock extends BaseEntityBlock {
 
 	@Override
 	public InteractionResult use(
-		@Nonnull BlockState state, 
-		@Nonnull Level level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull Player player, 
-		@Nonnull InteractionHand hand, 
-		@Nonnull BlockHitResult result
+		BlockState state, 
+		Level level, 
+		BlockPos pos, 
+		Player player, 
+		InteractionHand hand, 
+		BlockHitResult result
 	) {
 		var stack = player.getItemInHand(hand);
 
@@ -95,6 +98,8 @@ public class AncientPotBlock extends BaseEntityBlock {
 		var entity = level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
 		entity.increaseLootQuality();
 		entity.setChanged();
+
+		level.gameEvent(null, GameEvent.BLOCK_CHANGE, pos);
 
 		level.playSound(
 			null, 
@@ -110,10 +115,10 @@ public class AncientPotBlock extends BaseEntityBlock {
 
 	@Override
 	public void playerWillDestroy(
-		@Nonnull Level level, 
-		@Nonnull BlockPos pos, 
-		@Nonnull BlockState state, 
-		@Nonnull Player player
+		Level level, 
+		BlockPos pos, 
+		BlockState state, 
+		Player player
 	) {
 		dropLoot(level, pos);
 		super.playerWillDestroy(level, pos, state, player);
@@ -122,7 +127,7 @@ public class AncientPotBlock extends BaseEntityBlock {
 	private void dropLoot(Level level, BlockPos pos) {
 		if (level instanceof ServerLevel serverLevel) {
 			var blockEntity = level.getBlockEntity(pos, WetlandWhimsyBlockEntities.ANCIENT_POT.get()).get();
-			blockEntity.dropLoot(level, pos);
+			blockEntity.dropLoot(serverLevel, pos);
 
 			serverLevel.sendParticles(
 				WetlandWhimsyParticleTypes.ANCIENT_SOULS.get(),
