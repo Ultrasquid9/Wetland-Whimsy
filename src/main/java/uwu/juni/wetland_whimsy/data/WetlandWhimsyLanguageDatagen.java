@@ -86,7 +86,17 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addConfig("ancientPotItems", "Ancient Pot Items");
 		addConfig("ancientBrazierEntities", "Ancient Brazier Entities");
 		addConfig("upgradeDisks", "Upgrade Disks");
+		addConfig("disableVanillaSwampHuts", "Disable Vanilla Swamp Huts");
 		add("text.autoconfig.wetland_whimsy.title", "Wetland Whimsy Config");
+
+		add(
+			WetlandWhimsy.MODID + ".swamp_hut_disabled", 
+			""" 
+			The Vanilla Swamp Hut has been disabled by Wetland Whimsy.
+			Search for "wetland_whimsy:witch_hut" instead,
+			or re-enable vanilla witch huts in the config. 
+			"""
+		);
 	}
 
 	private void addConfig(String key, String trans) {

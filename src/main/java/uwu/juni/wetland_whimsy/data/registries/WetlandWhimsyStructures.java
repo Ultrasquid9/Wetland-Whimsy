@@ -7,6 +7,7 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.EntityType;
@@ -34,6 +35,8 @@ public class WetlandWhimsyStructures {
 	public static final ResourceKey<Structure> WALL = createKey("wall");
 	public static final ResourceKey<Structure> ARENA = createKey("arena");
 	public static final ResourceKey<Structure> SWAMP_DUNGEON = createKey("swamp_dungeon");
+
+	public static final ResourceKey<Structure> WITCH_HUT = createKey("witch_hut");
 
 	final Map<MobCategory, StructureSpawnOverride> SWAMP_DUNGEON_SPAWNS = Map.of(
 		MobCategory.MONSTER,
@@ -144,6 +147,18 @@ public class WetlandWhimsyStructures {
 				SWAMP_DUNGEON_SPAWNS,
 				GenerationStep.Decoration.SURFACE_STRUCTURES, 
 				TerrainAdjustment.NONE
+			)
+		);
+
+		registerSurfaceStructure(
+			WITCH_HUT, 
+			WetlandWhimsyStructurePools.WITCH_HUT,
+			ConstantHeight.ZERO,
+			new StructureSettings(
+				lookupBiome(BiomeTags.HAS_SWAMP_HUT), 
+				WITCH_HUT_SPAWNS,
+				GenerationStep.Decoration.SURFACE_STRUCTURES, 
+				TerrainAdjustment.BEARD_THIN
 			)
 		);
 	}

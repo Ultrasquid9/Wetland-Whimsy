@@ -2,7 +2,7 @@
 	"type": "minecraft:block",
 	"pools": [
 		{
-			"bonus_rolls": 0,
+			"bonus_rolls": 0.0,
 			"conditions": [
 				{
 					"condition": "minecraft:match_tool",
@@ -24,10 +24,10 @@
 					"name": "wetland_whimsy:aria_mushroom_block"
 				}
 			],
-			"rolls": 1
+			"rolls": 1.0
 		},
 		{
-			"bonus_rolls": 0,
+			"bonus_rolls": 0.0,
 			"conditions": [
 				{
 					"condition": "minecraft:inverted",
@@ -54,8 +54,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 2,
-								"min": -6
+								"max": 2.0,
+								"min": -6.0
 							},
 							"function": "minecraft:set_count"
 						}
@@ -63,7 +63,7 @@
 					"name": "wetland_whimsy:aria_mushroom"
 				}
 			],
-			"rolls": 1
+			"rolls": 1.0
 		}
 	],
 	"random_sequence": "wetland_whimsy:blocks/aria_mushroom_block"

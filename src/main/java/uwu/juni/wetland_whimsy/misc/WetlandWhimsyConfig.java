@@ -13,65 +13,6 @@ public class WetlandWhimsyConfig implements ConfigData {
 
 	public int ancientPotMaxDropCount = 10;
 
-	public List<String> ancientPotItems = List.of(
-		"minecraft:diamond",
-		"minecraft:emerald",
-		"minecraft:lapis_lazuli",
-		"minecraft:amethyst_shard",
-		"minecraft:gold_ingot",
-		"minecraft:iron_ingot",
-		"minecraft:raw_gold",
-		"minecraft:raw_iron",
-
-		WetlandWhimsy.MODID + "disc",
-		WetlandWhimsy.MODID + "dots_armor_trim_smithing_template",
-
-		"minecraft:diamond_helmet",
-		"minecraft:diamond_chestplate",
-		"minecraft:diamond_leggings",
-		"minecraft:diamond_boots",
-		"minecraft:diamond_pickaxe",
-		"minecraft:diamond_axe",
-		"minecraft:diamond_sword",
-		"minecraft:diamond_shovel",
-		"minecraft:diamond_hoe",
-		"minecraft:iron_helmet",
-		"minecraft:iron_chestplate",
-		"minecraft:iron_leggings",
-		"minecraft:iron_boots",
-		"minecraft:iron_pickaxe",
-		"minecraft:iron_axe",
-		"minecraft:iron_sword",
-		"minecraft:iron_shovel",
-		"minecraft:iron_hoe",
-		"minecraft:golden_helmet",
-		"minecraft:golden_chestplate",
-		"minecraft:golden_leggings",
-		"minecraft:golden_boots",
-		"minecraft:golden_pickaxe",
-		"minecraft:golden_axe",
-		"minecraft:golden_sword",
-		"minecraft:golden_shovel",
-		"minecraft:golden_hoe",
-
-		WetlandWhimsy.MODID + "bald_cypress_log",
-		WetlandWhimsy.MODID + "bald_cypress_sapling",
-
-		"minecraft:golden_carrot",
-		"minecraft:bread",
-		"minecraft:wheat",
-		"minecraft:beetroot",
-		"minecraft:wheat_seeds",
-		"minecraft:beetroot_seeds",
-		"minecraft:blue_orchid",
-		"minecraft:red_mushroom",
-		"minecraft:brown_mushroom",
-		"minecraft:slimeball",
-		"minecraft:mud",
-		WetlandWhimsy.MODID + "pennywort",
-		WetlandWhimsy.MODID + "cordgrass"
-	);
-
 	public List<String> ancientBrazierEntities = List.of(
 		"wetland_whimsy:swamp_spider",	
 		"minecraft:zombie",
@@ -82,5 +23,6 @@ public class WetlandWhimsyConfig implements ConfigData {
 		"minecraft:witch"
 	);
 
+	public boolean disableVanillaSwampHuts = true;
 	public boolean upgradeDisks = true;
 }

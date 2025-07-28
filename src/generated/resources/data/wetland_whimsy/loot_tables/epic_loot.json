@@ -2,7 +2,7 @@
 	"type": "minecraft:chest",
 	"pools": [
 		{
-			"bonus_rolls": 0,
+			"bonus_rolls": 0.0,
 			"entries": [
 				{
 					"type": "minecraft:item",
@@ -11,8 +11,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 14,
-								"min": 6
+								"max": 14.0,
+								"min": 6.0
 							},
 							"function": "minecraft:set_count"
 						}
@@ -46,8 +46,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 14,
-								"min": 7
+								"max": 14.0,
+								"min": 7.0
 							},
 							"function": "minecraft:set_count"
 						}
@@ -61,8 +61,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 14,
-								"min": 7
+								"max": 14.0,
+								"min": 7.0
 							},
 							"function": "minecraft:set_count"
 						}
@@ -76,8 +76,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 14,
-								"min": 7
+								"max": 14.0,
+								"min": 7.0
 							},
 							"function": "minecraft:set_count"
 						}
@@ -91,8 +91,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 6,
-								"min": 3
+								"max": 6.0,
+								"min": 3.0
 							},
 							"function": "minecraft:set_count"
 						}
@@ -106,8 +106,8 @@
 							"add": false,
 							"count": {
 								"type": "minecraft:uniform",
-								"max": 12,
-								"min": 7
+								"max": 12.0,
+								"min": 7.0
 							},
 							"function": "minecraft:set_count"
 						}
@@ -123,56 +123,56 @@
 									"type": "minecraft:poison",
 									"duration": {
 										"type": "minecraft:uniform",
-										"max": 7,
-										"min": 3
+										"max": 7.0,
+										"min": 3.0
 									}
 								},
 								{
 									"type": "minecraft:saturation",
 									"duration": {
 										"type": "minecraft:uniform",
-										"max": 7,
-										"min": 3
+										"max": 7.0,
+										"min": 3.0
 									}
 								},
 								{
 									"type": "minecraft:hunger",
 									"duration": {
 										"type": "minecraft:uniform",
-										"max": 7,
-										"min": 3
+										"max": 7.0,
+										"min": 3.0
 									}
 								},
 								{
 									"type": "minecraft:luck",
 									"duration": {
 										"type": "minecraft:uniform",
-										"max": 7,
-										"min": 3
+										"max": 7.0,
+										"min": 3.0
 									}
 								},
 								{
 									"type": "minecraft:unluck",
 									"duration": {
 										"type": "minecraft:uniform",
-										"max": 7,
-										"min": 3
+										"max": 7.0,
+										"min": 3.0
 									}
 								},
 								{
 									"type": "minecraft:blindness",
 									"duration": {
 										"type": "minecraft:uniform",
-										"max": 7,
-										"min": 3
+										"max": 7.0,
+										"min": 3.0
 									}
 								},
 								{
 									"type": "minecraft:darkness",
 									"duration": {
 										"type": "minecraft:uniform",
-										"max": 7,
-										"min": 3
+										"max": 7.0,
+										"min": 3.0
 									}
 								}
 							],
@@ -192,8 +192,8 @@
 			],
 			"rolls": {
 				"type": "minecraft:uniform",
-				"max": 1,
-				"min": 1
+				"max": 1.0,
+				"min": 1.0
 			}
 		}
 	],

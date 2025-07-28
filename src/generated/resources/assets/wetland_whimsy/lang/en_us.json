@@ -75,7 +75,9 @@
 	"text.autoconfig.wetland_whimsy.option.ancientPotItems": "Ancient Pot Items",
 	"text.autoconfig.wetland_whimsy.option.ancientPotMaxDropCount": "Ancient Pot Max Drops",
 	"text.autoconfig.wetland_whimsy.option.ancientPotMaxParticleCount": "Ancient Pot Max Particles",
+	"text.autoconfig.wetland_whimsy.option.disableVanillaSwampHuts": "Disable Vanilla Swamp Huts",
 	"text.autoconfig.wetland_whimsy.option.upgradeDisks": "Upgrade Disks",
 	"text.autoconfig.wetland_whimsy.title": "Wetland Whimsy Config",
-	"trim_pattern.wetland_whimsy.dots": "Dots Armor Trim"
+	"trim_pattern.wetland_whimsy.dots": "Dots Armor Trim",
+	"wetland_whimsy.swamp_hut_disabled": "The Vanilla Swamp Hut has been disabled by Wetland Whimsy.\nSearch for \"wetland_whimsy:witch_hut\" instead,\nor re-enable vanilla witch huts in the config.\n"
 }

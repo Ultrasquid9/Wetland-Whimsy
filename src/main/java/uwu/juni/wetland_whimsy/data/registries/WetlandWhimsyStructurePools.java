@@ -1,16 +1,19 @@
 package uwu.juni.wetland_whimsy.data.registries;
 
+import java.util.List;
 import java.util.function.Function;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.worldgen.SinglePoolElementAccessor;
 
@@ -29,6 +32,10 @@ public class WetlandWhimsyStructurePools {
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_SPAWNER = createKey("swamp_dungeon/spawner");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_LOOT = createKey("swamp_dungeon/loot");
 	public static final ResourceKey<StructureTemplatePool> SWAMP_DUNGEON_DEAD_END = createKey("swamp_dungeon/dead_end");
+
+	public static final ResourceKey<StructureTemplatePool> WITCH_HUT = createKey("witch_hut/witch_hut");
+	public static final ResourceKey<StructureTemplatePool> WITCH = createKey("witch_hut/witch");
+	public static final ResourceKey<StructureTemplatePool> CAT = createKey("witch_hut/cat");
 
 	private static ResourceKey<StructureTemplatePool> createKey(String name) {
 		return ResourceKey.create(
@@ -215,6 +222,37 @@ public class WetlandWhimsyStructurePools {
 				StructureTemplatePool.Projection.RIGID
 			)
 		);
+
+		context.register(
+			WITCH_HUT, 
+			new StructureTemplatePool(
+				fallback, 
+				ImmutableList.of(
+					Pair.of(boring_pool("witch_hut/witch_hut", context), 1)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
+		context.register(
+			WITCH, 
+			new StructureTemplatePool(
+				fallback, 
+				ImmutableList.of(
+					Pair.of(boring_pool("witch_hut/witch", context), 1)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
+		context.register(
+			CAT, 
+			new StructureTemplatePool(
+				fallback, 
+				ImmutableList.of(
+					Pair.of(boring_pool("witch_hut/cat", context), 1)
+				),
+				StructureTemplatePool.Projection.RIGID
+			)
+		);
 	}
 
 	private static Function<StructureTemplatePool.Projection, SinglePoolElementAccessor> pool(
@@ -235,6 +273,17 @@ public class WetlandWhimsyStructurePools {
 		return pool -> new SinglePoolElementAccessor(
 			Either.left(WetlandWhimsy.rLoc(id)), 
 			context.lookup(Registries.PROCESSOR_LIST).getOrThrow(WetlandWhimsyStructureProcessors.DUNGEON), 
+			pool
+		);
+	}
+
+	private static Function<StructureTemplatePool.Projection, SinglePoolElementAccessor> boring_pool(
+		String id, 
+		BootstapContext<StructureTemplatePool> context
+	) {
+		return pool -> new SinglePoolElementAccessor(
+			Either.left(WetlandWhimsy.rLoc(id)), 
+			Holder.direct(new StructureProcessorList(List.of())),
 			pool
 		);
 	}

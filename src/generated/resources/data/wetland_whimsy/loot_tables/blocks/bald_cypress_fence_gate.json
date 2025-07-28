@@ -2,7 +2,7 @@
 	"type": "minecraft:block",
 	"pools": [
 		{
-			"bonus_rolls": 0,
+			"bonus_rolls": 0.0,
 			"conditions": [
 				{
 					"condition": "minecraft:survives_explosion"
@@ -14,7 +14,7 @@
 					"name": "wetland_whimsy:bald_cypress_fence_gate"
 				}
 			],
-			"rolls": 1
+			"rolls": 1.0
 		}
 	],
 	"random_sequence": "wetland_whimsy:blocks/bald_cypress_fence_gate"

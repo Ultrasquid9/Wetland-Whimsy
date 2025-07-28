@@ -2,7 +2,7 @@
 	"type": "minecraft:block",
 	"pools": [
 		{
-			"bonus_rolls": 0,
+			"bonus_rolls": 0.0,
 			"entries": [
 				{
 					"type": "minecraft:item",
@@ -18,7 +18,7 @@
 									}
 								}
 							],
-							"count": 1,
+							"count": 1.0,
 							"function": "minecraft:set_count"
 						},
 						{
@@ -32,7 +32,7 @@
 									}
 								}
 							],
-							"count": 2,
+							"count": 2.0,
 							"function": "minecraft:set_count"
 						},
 						{
@@ -46,7 +46,7 @@
 									}
 								}
 							],
-							"count": 3,
+							"count": 3.0,
 							"function": "minecraft:set_count"
 						},
 						{
@@ -60,7 +60,7 @@
 									}
 								}
 							],
-							"count": 4,
+							"count": 4.0,
 							"function": "minecraft:set_count"
 						},
 						{
@@ -70,7 +70,7 @@
 					"name": "wetland_whimsy:pennywort"
 				}
 			],
-			"rolls": 1
+			"rolls": 1.0
 		}
 	],
 	"random_sequence": "wetland_whimsy:blocks/pennywort"

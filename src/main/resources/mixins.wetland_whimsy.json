@@ -7,6 +7,10 @@
 	"mixins": [
 		"BaseSpawnerAccessor",
 		"DiskUpgrade",
-		"NewPotPatterns"
+		"IKilledItAndAmNotSorry",
+		"NewPotPatterns",
+		"NukeTheSwampHuts",
+		"VillagersRecognizeMarsh",
+		"WitchSetPersistance"
 	]
 }
