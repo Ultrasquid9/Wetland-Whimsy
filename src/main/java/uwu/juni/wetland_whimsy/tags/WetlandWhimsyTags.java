@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class WetlandWhimsyTags {
 	public static class Blocks {
@@ -23,6 +24,13 @@ public class WetlandWhimsyTags {
 		public static final TagKey<Item> BALD_CYPRESS_LOGS = TagKey.create(
 			Registries.ITEM, 
 			WetlandWhimsy.rLoc("bald_cypress_logs")
+		);
+	}
+
+	public static class Structures {
+		public static final TagKey<Structure> WETLAND_RUINS = TagKey.create(
+			Registries.STRUCTURE,
+			WetlandWhimsy.rLoc("wetland_ruins")
 		);
 	}
 }

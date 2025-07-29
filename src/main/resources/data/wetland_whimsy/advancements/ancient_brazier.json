@@ -1,0 +1,47 @@
+{
+	"display": {
+		"icon": {
+			"item": "wetland_whimsy:ancient_brazier"
+		},
+		"title": {
+			"translate": "advancements.wetland_whimsy.ancient_brazier.title"
+		},
+		"description": {
+			"translate": "advancements.wetland_whimsy.ancient_brazier.desc"
+		}
+	},
+	"parent": "wetland_whimsy:swamp_dungeon",
+	"criteria": {
+		"ancient_brazier": {
+			"conditions": {
+				"location": [
+					{
+						"condition": "minecraft:location_check",
+						"predicate": {
+							"block": {
+								"blocks": [
+									"wetland_whimsy:ancient_brazier"
+								]
+							}
+						}
+					},
+					{
+						"condition": "minecraft:match_tool",
+						"predicate": {
+							"items": [
+								"minecraft:flint_and_steel",
+								"minecraft:fire_charge"
+							]
+						}
+					}
+				]
+			},
+			"trigger": "minecraft:item_used_on_block"
+		}
+	},
+	"requirements": [
+		[
+			"ancient_brazier"
+		]
+	]
+}

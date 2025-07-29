@@ -1,0 +1,46 @@
+{
+	"display": {
+		"icon": {
+			"item": "wetland_whimsy:ancient_pot"
+		},
+		"title": {
+			"translate": "advancements.wetland_whimsy.ancient_pot.title"
+		},
+		"description": {
+			"translate": "advancements.wetland_whimsy.ancient_pot.desc"
+		}
+	},
+	"parent": "wetland_whimsy:swamp_dungeon",
+	"criteria": {
+		"ancient_pot": {
+			"conditions": {
+				"location": [
+					{
+						"condition": "minecraft:location_check",
+						"predicate": {
+							"block": {
+								"blocks": [
+									"wetland_whimsy:ancient_pot"
+								]
+							}
+						}
+					},
+					{
+						"condition": "minecraft:match_tool",
+						"predicate": {
+							"items": [
+								"wetland_whimsy:ancient_coin"
+							]
+						}
+					}
+				]
+			},
+			"trigger": "minecraft:item_used_on_block"
+		}
+	},
+	"requirements": [
+		[
+			"ancient_pot"
+		]
+	]
+}

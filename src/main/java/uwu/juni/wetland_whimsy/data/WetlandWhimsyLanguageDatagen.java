@@ -103,6 +103,12 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 			or re-enable vanilla witch huts in the config. 
 			"""
 		);
+
+		addAdvancement("wetland_ruins", "Old-School", "Find Wetland Ruins in a swampy biome");
+		addAdvancement("swamp_dungeon", "Attacking Vertical", "Locate and enter a Swamp Dungeon");
+		addAdvancement("ancient_brazier", "🔥🔥🔥", "Light an Ancient Brazier");
+		addAdvancement("ancient_pot", "Minimum Wage", "Insert an Ancient Coin into an Ancient Pot");
+		addAdvancement("high_quality", "High Quality", "Break an Ancient Pot with 20 or more Ancient Coins inside");
 	}
 
 	private void addConfig(String key, String trans) {
@@ -113,5 +119,12 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		var str = "block.wetland_whimsy." + block;
 		add(str, base);
 		add(str + ".compat", compat);
+	}
+
+	void addAdvancement(String key, String title, String desc) {
+		var str = "advancements." + WetlandWhimsy.MODID + '.' + key;
+
+		add(str + ".title", title);
+		add(str + ".desc", desc);
 	}
 }

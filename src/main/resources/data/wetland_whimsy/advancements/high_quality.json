@@ -1,0 +1,32 @@
+{
+	"display": {
+		"icon": {
+			"item": "wetland_whimsy:ancient_coin"
+		},
+		"title": {
+			"translate": "advancements.wetland_whimsy.high_quality.title"
+		},
+		"description": {
+			"translate": "advancements.wetland_whimsy.high_quality.desc"
+		},
+		"frame": "challenge",
+		"hidden": true
+	},
+	"parent": "wetland_whimsy:ancient_pot",
+	"criteria": {
+		"high_quality": {
+			"conditions": {
+				"quality": 20
+			},
+			"trigger": "wetland_whimsy:ancient_pot"
+		}
+	},
+	"rewards": {
+		"experience": 10
+	},
+	"requirements": [
+		[
+			"high_quality"
+		]
+	]
+}

@@ -6,6 +6,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -31,6 +32,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyParticleTypes;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.content.blocks.entities.AncientPotBlockEntity;
+import uwu.juni.wetland_whimsy.misc.WetlandWhimsyAdvancementTriggers;
 
 @ParametersAreNonnullByDefault
 public class AncientPotBlock extends BaseEntityBlock {
@@ -121,6 +123,11 @@ public class AncientPotBlock extends BaseEntityBlock {
 		Player player
 	) {
 		dropLoot(level, pos);
+
+		if (player instanceof ServerPlayer sp && level.getBlockEntity(pos) instanceof AncientPotBlockEntity ap) {
+			WetlandWhimsyAdvancementTriggers.ANCIENT_POT_TRIGGER.trigger(sp, ap.lootQuality());
+		}
+
 		super.playerWillDestroy(level, pos, state, player);
 	}
 
