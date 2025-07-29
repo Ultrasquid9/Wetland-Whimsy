@@ -72,6 +72,16 @@ public class WetlandWhimsyItems {
 		)
 	);
 
+	public static final RegistryObject<Item> SWAMP_SPIDER_SPAWN_EGG = ITEMS.register(
+		"swamp_spider_spawn_egg",
+		() -> new ForgeSpawnEggItem(
+			WetlandWhimsyEntityTypes.SWAMP_SPIDER,
+			0x584a45, 
+			0x9a2f6c, 
+			new Item.Properties()
+		)
+	);
+
 	public static final Pair<RegistryObject<Item>, RegistryObject<Item>> BALD_CYPRESS_BOAT = HELPER.createBoatAndChestBoatItem(
 		"bald_cypress", 
 		WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS

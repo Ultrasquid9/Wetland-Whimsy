@@ -138,6 +138,14 @@ public class Creative {
 				of(Items.COW_SPAWN_EGG),
 				WetlandWhimsyItems.CRANE_SPAWN_EGG
 			)
+			.addItemsAfter(
+				of(Items.BLAZE_SPAWN_EGG),
+				WetlandWhimsyItems.BLEMISH_SPAWN_EGG
+			)
+			.addItemsAfter(
+				of(Items.STRIDER_SPAWN_EGG),
+				WetlandWhimsyItems.SWAMP_SPIDER_SPAWN_EGG
+			)
 
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.addItemsAfter(
