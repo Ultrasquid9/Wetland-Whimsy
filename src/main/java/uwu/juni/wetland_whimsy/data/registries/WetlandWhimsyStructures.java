@@ -44,6 +44,12 @@ public class WetlandWhimsyStructures {
 			BoundingBoxType.PIECE, 
 			WeightedRandomList.create(
 				new MobSpawnSettings.SpawnerData(
+					WetlandWhimsyEntityTypes.BLEMISH.get(), 
+					2, 
+					1, 
+					3
+				),
+				new MobSpawnSettings.SpawnerData(
 					WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
 					1, 
 					1, 

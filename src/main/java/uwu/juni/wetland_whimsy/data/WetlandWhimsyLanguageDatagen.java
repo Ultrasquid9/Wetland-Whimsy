@@ -71,6 +71,9 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addItem(WetlandWhimsyItems.SEALED_POTTERY_SHERD, "Sealed Pottery Sherd");
 		addItem(WetlandWhimsyItems.ANCIENT_COIN, "Ancient Coin");
 
+		addEntityType(WetlandWhimsyEntityTypes.BLEMISH, "Blemish");
+		addItem(WetlandWhimsyItems.BLEMISH_SPAWN_EGG, "Blemish Spawn Egg");
+
 		addEntityType(WetlandWhimsyEntityTypes.CRANE, "Crane");
 		addItem(WetlandWhimsyItems.CRANE_SPAWN_EGG, "Crane Spawn Egg");
 

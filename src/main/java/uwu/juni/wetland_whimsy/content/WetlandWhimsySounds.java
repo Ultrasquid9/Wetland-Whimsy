@@ -13,6 +13,10 @@ public class WetlandWhimsySounds {
 		WetlandWhimsy.MODID
 	);
 
+	public static final RegistryObject<SoundEvent> BLEMISH_AMBIENT = createSound("blemish_ambient");
+	public static final RegistryObject<SoundEvent> BLEMISH_HIT = createSound("blemish_hit");
+	public static final RegistryObject<SoundEvent> BLEMISH_DEATH = createSound("blemish_death");
+
 	public static final RegistryObject<SoundEvent> CRANE_AMBIENT = createSound("crane_ambient");
 	public static final RegistryObject<SoundEvent> CRANE_HIT = createSound("crane_hit");
 	public static final RegistryObject<SoundEvent> CRANE_DEATH = createSound("crane_death");

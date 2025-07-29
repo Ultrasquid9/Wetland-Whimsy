@@ -48,6 +48,16 @@ public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
 		);
 
 		add(
+			WetlandWhimsyEntityTypes.BLEMISH.get(), 
+			LootTable.lootTable()
+				.withPool(
+					LootPool.lootPool()
+						.setRolls(UniformGenerator.between(-2, 2))
+						.add(LootItem.lootTableItem(Items.BONE))
+				)
+		);
+
+		add(
 			WetlandWhimsyEntityTypes.CRANE.get(), 
 			LootTable.lootTable()
 				.withPool(

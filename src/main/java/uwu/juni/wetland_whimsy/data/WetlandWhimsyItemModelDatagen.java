@@ -141,6 +141,7 @@ public class WetlandWhimsyItemModelDatagen extends ItemModelProvider {
 		basicItem(WetlandWhimsyItems.SEALED_POTTERY_SHERD.get());
 
 		spawnEgg(WetlandWhimsyItems.CRANE_SPAWN_EGG);
+		spawnEgg(WetlandWhimsyItems.BLEMISH_SPAWN_EGG);
 	}
 
 	private void simpleBlockItem(Block block) {

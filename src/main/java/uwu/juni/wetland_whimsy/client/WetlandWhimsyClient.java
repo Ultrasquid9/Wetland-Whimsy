@@ -8,6 +8,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
+import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishModel;
+import uwu.juni.wetland_whimsy.client.entities.blemish.BlemishRenderer;
 import uwu.juni.wetland_whimsy.client.entities.crane.CraneModel;
 import uwu.juni.wetland_whimsy.client.entities.crane.CraneRenderer;
 import uwu.juni.wetland_whimsy.client.entities.swampspider.SwampSpiderModel;
@@ -26,6 +28,10 @@ public class WetlandWhimsyClient {
 			CraneModel::createBodyLayer
 		);
 		event.registerLayerDefinition(
+			BlemishModel.LAYER_LOCATION, 
+			BlemishModel::createBodyLayer
+		);
+		event.registerLayerDefinition(
 			SwampSpiderModel.LAYER_LOCATION, 
 			SwampSpiderModel::createBodyLayer
 		);
@@ -36,6 +42,10 @@ public class WetlandWhimsyClient {
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.CRANE.get(), 
 			CraneRenderer::new
+		);
+		EntityRenderers.register(
+			WetlandWhimsyEntityTypes.BLEMISH.get(), 
+			BlemishRenderer::new
 		);
 		EntityRenderers.register(
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 

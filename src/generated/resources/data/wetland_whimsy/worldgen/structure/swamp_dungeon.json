@@ -9,6 +9,12 @@
 			"bounding_box": "piece",
 			"spawns": [
 				{
+					"type": "wetland_whimsy:blemish",
+					"maxCount": 3,
+					"minCount": 1,
+					"weight": 2
+				},
+				{
 					"type": "wetland_whimsy:swamp_spider",
 					"maxCount": 1,
 					"minCount": 1,

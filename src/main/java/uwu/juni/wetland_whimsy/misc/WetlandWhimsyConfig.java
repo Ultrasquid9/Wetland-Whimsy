@@ -14,13 +14,13 @@ public class WetlandWhimsyConfig implements ConfigData {
 	public int ancientPotMaxDropCount = 10;
 
 	public List<String> ancientBrazierEntities = List.of(
-		"wetland_whimsy:swamp_spider",	
+		"wetland_whimsy:swamp_spider",
+		"wetland_whimsy:blemish",
 		"minecraft:zombie",
 		"minecraft:skeleton",
 		"minecraft:spider",
 		"minecraft:cave_spider",
-		"minecraft:drowned",
-		"minecraft:witch"
+		"minecraft:drowned"
 	);
 
 	public boolean disableVanillaSwampHuts = true;
