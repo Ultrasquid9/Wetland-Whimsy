@@ -4,14 +4,15 @@ import java.util.List;
 
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
+import uwu.juni.wetland_whimsy.content.WetlandWhimsyFeatures;
 import uwu.juni.wetland_whimsy.content.blocks.PennywortBlock;
+import uwu.juni.wetland_whimsy.content.features.BlobPatchConfig;
 import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.aria_mushroom.AriaMushroomTreeDecorator;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressFoliagePlacer;
 import uwu.juni.wetland_whimsy.worldgen.bald_cypress.BaldCypressTrunkPlacer;
 import uwu.juni.wetland_whimsy.worldgen.bloodcap_mushroom.BloodcapMushroomFoliagePlacer;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -47,8 +48,9 @@ public class WetlandWhimsyConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CORDGRASS_PATCH = createKey("cordgrass_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH = createKey("pennywort_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PENNYWORT_PATCH_SMALL = createKey("pennywort_single");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LIMESTONE_DISK = createKey("limestone_disk");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_DISK = createKey("mud_disk");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LIMESTONE_BLOB = createKey("limestone_blob");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_BLOB = createKey("mud_blob");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_PATCH = createKey("mud_patch");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_POOL = createKey("mud_pool");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BOG = createKey("trees_bog");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_MARSH = createKey("trees_marsh");
@@ -205,138 +207,146 @@ public class WetlandWhimsyConfiguredFeatures {
 		);
 
 		context.register(
-			LIMESTONE_DISK, 
-			new ConfiguredFeature(
-				Feature.DISK, 
-				new DiskConfiguration(
+			LIMESTONE_BLOB, 
+			new ConfiguredFeature<>(
+				WetlandWhimsyFeatures.BLOB_PATCH.get(), 
+				new BlobPatchConfig(
 					RuleBasedBlockStateProvider.simple(WetlandWhimsyBlocks.LIMESTONE.get()), 
 					BlockPredicate.matchesBlocks(List.of(
 						Blocks.DIRT, 
 						Blocks.STONE,
 						Blocks.DIORITE,
 						Blocks.GRANITE,
-						Blocks.ANDESITE,
-						WetlandWhimsyBlocks.LIMESTONE.get()
+						Blocks.ANDESITE
 					)), 
-					UniformInt.of(3, 6), 
-					4
+					UniformInt.of(6, 8)
 				)
 			)
 		);
 		context.register(
-			MUD_DISK, 
-			new ConfiguredFeature(
-				Feature.DISK, 
-				new DiskConfiguration(
+			MUD_BLOB, 
+			new ConfiguredFeature<>(
+				WetlandWhimsyFeatures.BLOB_PATCH.get(), 
+				new BlobPatchConfig(
 					RuleBasedBlockStateProvider.simple(Blocks.MUD), 
-					BlockPredicate.matchesTag(BlockTags.LUSH_GROUND_REPLACEABLE), 
-					UniformInt.of(5, 7), 
-					3
+					BlockPredicate.matchesBlocks(List.of(
+						Blocks.DIRT,
+						Blocks.GRASS_BLOCK,
+						Blocks.SAND
+					)), 
+					UniformInt.of(4, 7)
 				)
+			)
+		);
+		context.register(
+			MUD_PATCH, 
+			new ConfiguredFeature<>(
+				Feature.VEGETATION_PATCH, 
+				vegetation(configuredFeatures, 2, 5)
 			)
 		);
 		context.register(
 			MUD_POOL, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.WATERLOGGED_VEGETATION_PATCH, 
-				new VegetationPatchConfiguration(
-					BlockTags.LUSH_GROUND_REPLACEABLE, 
-					BlockStateProvider.simple(Blocks.MUD), 
-					PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PENNYWORT_PATCH_SMALL)), 
-					CaveSurface.FLOOR, 
-					ConstantInt.of(3), 
-					0.8f, 
-					5, 
-					0.1f, 
-					UniformInt.of(5, 8), 
-					0.7f
-				)
+				vegetation(configuredFeatures, 5, 8)
 			)
 		);
 
-		final Holder<ConfiguredFeature<?, ?>> HUGE_RED_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM);
-		final Holder<ConfiguredFeature<?, ?>> HUGE_BROWN_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM);
-		final Holder<ConfiguredFeature<?, ?>> BIRCH = configuredFeatures.getOrThrow(TreeFeatures.BIRCH);
-		final Holder<ConfiguredFeature<?, ?>> SPRUCE = configuredFeatures.getOrThrow(TreeFeatures.SPRUCE);
+		final var HUGE_BROWN_MUSHROOM = configuredFeatures.getOrThrow(TreeFeatures.HUGE_BROWN_MUSHROOM);
+		final var BIRCH = configuredFeatures.getOrThrow(TreeFeatures.BIRCH);
+		final var SPRUCE = configuredFeatures.getOrThrow(TreeFeatures.SPRUCE);
+		final var SAPLING_PREDICATE = PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get());
 
 		context.register(
 			TREES_BOG, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.RANDOM_SELECTOR, 
 				new RandomFeatureConfiguration(
 					List.of(
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
-								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+								SAPLING_PREDICATE
 							), 
 							0.4F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								configuredFeatures.getOrThrow(HUGE_ARIA_MUSHROOM), 
-								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+								SAPLING_PREDICATE
 							), 
 							0.03F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
-								HUGE_RED_MUSHROOM, 
-								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
-							), 
-							0.06F
-						),
-						new WeightedPlacedFeature(
-							PlacementUtils.inlinePlaced(
 								HUGE_BROWN_MUSHROOM, 
-								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+								SAPLING_PREDICATE
 							), 
 							0.15F
 						)
 					),
 					PlacementUtils.inlinePlaced(
 						configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
-						PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+						SAPLING_PREDICATE
 					)
 				)
 			)
 		);
 
-
 		context.register(
 			TREES_MARSH, 
-			new ConfiguredFeature(
+			new ConfiguredFeature<>(
 				Feature.RANDOM_SELECTOR, 
 				new RandomFeatureConfiguration(
 					List.of(
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
-								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+								SAPLING_PREDICATE
 							), 
-							0.30F
+							0.3F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								BIRCH, 
-								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+								SAPLING_PREDICATE
 							), 
-							0.50F
+							0.5F
 						),
 						new WeightedPlacedFeature(
 							PlacementUtils.inlinePlaced(
 								SPRUCE, 
-								PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+								SAPLING_PREDICATE
 							), 
-							0.50F
+							0.5F
 						)
 					),
 					PlacementUtils.inlinePlaced(
 						configuredFeatures.getOrThrow(BALD_CYPRESS_TREE), 
-						PlacementUtils.filteredByBlockSurvival(WetlandWhimsyBlocks.BALD_CYPRESS_SAPLING.get())
+						SAPLING_PREDICATE
 					)
 				)
 			)
+		);
+	}
+
+	static VegetationPatchConfiguration vegetation(
+		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures, 
+		int minSize, 
+		int maxSize
+	) {
+		return new VegetationPatchConfiguration(
+			BlockTags.LUSH_GROUND_REPLACEABLE, 
+			BlockStateProvider.simple(Blocks.MUD), 
+			PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PENNYWORT_PATCH_SMALL)), 
+			CaveSurface.FLOOR, 
+			ConstantInt.of(3), 
+			0.8f, 
+			5, 
+			0.1f, 
+			UniformInt.of(5, 8), 
+			0.7f
 		);
 	}
 }

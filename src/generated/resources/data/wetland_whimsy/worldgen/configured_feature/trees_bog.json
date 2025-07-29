@@ -60,26 +60,6 @@
 				}
 			},
 			{
-				"chance": 0.06,
-				"feature": {
-					"feature": "minecraft:huge_red_mushroom",
-					"placement": [
-						{
-							"type": "minecraft:block_predicate_filter",
-							"predicate": {
-								"type": "minecraft:would_survive",
-								"state": {
-									"Name": "wetland_whimsy:bald_cypress_sapling",
-									"Properties": {
-										"stage": "0"
-									}
-								}
-							}
-						}
-					]
-				}
-			},
-			{
 				"chance": 0.15,
 				"feature": {
 					"feature": "minecraft:huge_brown_mushroom",
