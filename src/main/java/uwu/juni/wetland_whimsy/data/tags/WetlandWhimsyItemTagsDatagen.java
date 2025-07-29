@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.data.tags;
 
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import uwu.juni.wetland_whimsy.WetlandWhimsy;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.content.WetlandWhimsyItems;
@@ -12,9 +14,10 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 	public WetlandWhimsyItemTagsDatagen(
 		PackOutput output, 
@@ -49,6 +52,11 @@ public class WetlandWhimsyItemTagsDatagen extends ItemTagsProvider {
 		this.tag(ItemTags.DECORATED_POT_SHERDS).add(
 			WetlandWhimsyItems.GROWTH_POTTERY_SHERD.get(),
 			WetlandWhimsyItems.SEALED_POTTERY_SHERD.get()
+		);
+
+		this.tag(Tags.Items.MUSHROOMS).add(
+			WetlandWhimsyBlocks.ARIA_MUSHROOM.get().asItem(),
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM.get().asItem()
 		);
 	}
 }

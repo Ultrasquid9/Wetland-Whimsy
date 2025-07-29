@@ -56,6 +56,8 @@ public class WetlandWhimsyLanguageDatagen extends LanguageProvider {
 		addBlock(WetlandWhimsyBlocks.ARIA_SPORES, "Aria Spores");
 		addBlock(WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK, "Aria Mushroom Block");
 
+		addBlock(WetlandWhimsyBlocks.CORDGRASS_THATCH, "Cordgrass Thatch");
+
 		addBlock(WetlandWhimsyBlocks.SUSSY_MUD, "Suspicious Mud");
 		addBlock(WetlandWhimsyBlocks.ANCIENT_POT, "Ancient Pot");
 

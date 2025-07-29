@@ -149,6 +149,10 @@ public class Creative {
 
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.addItemsAfter(
+				of(Items.NETHER_STAR), 
+				WetlandWhimsyItems.ANCIENT_COIN
+			)
+			.addItemsAfter(
 				of(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE), 
 				WetlandWhimsyItems.DOTS_ARMOR_TRIM_SMITHING_TEMPLATE
 			)

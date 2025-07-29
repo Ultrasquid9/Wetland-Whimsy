@@ -2,6 +2,8 @@ package uwu.juni.wetland_whimsy.data.tags;
 
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -13,7 +15,7 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsyBlocks;
 import uwu.juni.wetland_whimsy.misc.Compat;
 import uwu.juni.wetland_whimsy.tags.WetlandWhimsyTags;
 
-@SuppressWarnings("null")
+@ParametersAreNonnullByDefault
 public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 	public WetlandWhimsyBlockTagsDatagen(
 		PackOutput output, 
@@ -31,7 +33,9 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get(),
 			WetlandWhimsyBlocks.BALD_CYPRESS_DOOR.get(),
-			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get()
+			WetlandWhimsyBlocks.BALD_CYPRESS_TRAPDOOR.get(),
+			WetlandWhimsyBlocks.ARIA_MUSHROOM_BLOCK.get(),
+			WetlandWhimsyBlocks.BLOODCAP_MUSHROOM_BLOCK.get()
 		);
 		tag(BlockTags.MINEABLE_WITH_HOE).add(
 			WetlandWhimsyBlocks.BALD_CYPRESS_LEAVES.get()
@@ -60,7 +64,6 @@ public class WetlandWhimsyBlockTagsDatagen extends BlockTagsProvider {
 		if (Compat.CNC) tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(
 			WetlandWhimsyBlocks.CUPRIC_BRAZIER.get().getId()
 		);
-
 
 		tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
