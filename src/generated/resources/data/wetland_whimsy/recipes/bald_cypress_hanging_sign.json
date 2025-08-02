@@ -4,7 +4,7 @@
 	"group": "hanging_sign",
 	"key": {
 		"#": {
-			"item": "wetland_whimsy:bald_cypress_planks"
+			"item": "wetland_whimsy:stripped_bald_cypress_log"
 		},
 		"X": {
 			"item": "minecraft:chain"

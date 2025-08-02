@@ -81,7 +81,7 @@ public class WetlandWhimsyRecipeDatagen extends RecipeProvider {
 		hangingSign(
 			recipeOutput, 
 			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(), 
-			WetlandWhimsyBlocks.BALD_CYPRESS_PLANKS.get()
+			WetlandWhimsyBlocks.STRIPPED_BALD_CYPRESS_LOG.get()
 		);
 		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(), 3)
 			.group("wooden_sign")
