@@ -22,7 +22,7 @@
 								"max": 60
 							}
 						},
-						"structures": "wetland_whimsy:swamp_dungeon"
+						"structure": "wetland_whimsy:swamp_dungeon"
 					}
 				}
 			}

@@ -12,26 +12,53 @@
 	},
 	"parent": "minecraft:adventure/root",
 	"criteria": {
-		"wetland_ruins": {
+		"arch": {
+			"trigger": "minecraft:location",
 			"conditions": {
-				"player": [
-					{
-						"condition": "minecraft:entity_properties",
-						"entity": "this",
-						"predicate": {
-							"location": {
-								"structures": "#wetland_whimsy:wetland_ruins"
-							}
-						}
+				"player": {
+					"location": {
+						"structure": "wetland_whimsy:arch"
 					}
-				]
-			},
-			"trigger": "minecraft:location"
+				}
+			}
+		},
+		"pillar": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"structure": "wetland_whimsy:pillar"
+					}
+				}
+			}
+		},
+		"wall": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"structure": "wetland_whimsy:wall"
+					}
+				}
+			}
+		},
+		"arena": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": {
+					"location": {
+						"structure": "wetland_whimsy:arena"
+					}
+				}
+			}
 		}
 	},
 	"requirements": [
 		[
-			"wetland_ruins"
+			"arch",
+			"pillar",
+			"wall",
+			"arena"
 		]
 	]
 }
