@@ -1,0 +1,11 @@
+{
+	"music.overworld.swamp": {
+		"replace": true,
+		"sounds": [
+			{
+				"name": "wetland_whimsy:music/purple_trees",
+				"stream": true
+			}
+		]
+	}
+}

@@ -1,7 +1,7 @@
 modLoader="javafml" # Maybe Kotlin could be considered in the future?
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
-issueTrackerURL="https://github.com/Ultrasquid9/Wetland-Whimsy/issues"
+issueTrackerURL="https://gitlab.com/junimods/Wetland-Whimsy/-/issues"
 
 [[mods]]
 modId="${mod_id}" 
@@ -13,6 +13,7 @@ description='''${mod_description}'''
 credits = """\n
 - Blemish Texture: Alganaut
 - Nuke The Swamps: Quizzly
+- Purple Trees: Skyllaremon
 """
 
 # These are the complex things 
