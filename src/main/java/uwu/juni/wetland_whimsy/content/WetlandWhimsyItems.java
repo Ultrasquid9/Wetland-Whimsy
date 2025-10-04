@@ -2,10 +2,12 @@ package uwu.juni.wetland_whimsy.content;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -54,6 +56,23 @@ public class WetlandWhimsyItems {
 		() -> new BaldCypressBoatItem(
 			true, 
 			new Item.Properties()
+		)
+	);
+
+	public static final DeferredItem<SignItem> BALD_CYPRESS_SIGN = ITEMS.register(
+		"bald_cypress_sign", 
+		() -> new SignItem(
+			new Item.Properties().stacksTo(16), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
+		)
+	);
+	public static final DeferredItem<HangingSignItem> BALD_CYPRESS_HANGING_SIGN = WetlandWhimsyItems.ITEMS.register(
+		"bald_cypress_hanging_sign", 
+		() -> new HangingSignItem(
+			WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(), 
+			WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get(),
+			new Item.Properties().stacksTo(16)
 		)
 	);
 

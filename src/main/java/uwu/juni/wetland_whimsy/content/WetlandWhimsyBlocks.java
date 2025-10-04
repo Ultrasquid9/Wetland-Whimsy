@@ -9,9 +9,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -503,26 +500,6 @@ public class WetlandWhimsyBlocks {
 		return register;
 	}
 
-	public static void createSignItems() {
-		WetlandWhimsyItems.ITEMS.register(
-			"bald_cypress_sign", 
-			() -> new SignItem(
-				new Item.Properties().stacksTo(16), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_SIGN.get(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_WALL_SIGN.get()
-			)
-		);
-
-		WetlandWhimsyItems.ITEMS.register(
-			"bald_cypress_hanging_sign", 
-			() -> new HangingSignItem(
-				WetlandWhimsyBlocks.BALD_CYPRESS_HANGING_SIGN.get(), 
-				WetlandWhimsyBlocks.BALD_CYPRESS_WALL_HANGING_SIGN.get(),
-				new Item.Properties().stacksTo(16)
-			)
-		);
-	}
-
 	private static DeferredBlock<FlowerPotBlock> flowerPot(String name, DeferredBlock<?> plant) {
 		var flowerPot = BLOCKS.register(
 			name,
@@ -533,9 +510,7 @@ public class WetlandWhimsyBlocks {
 					.instabreak()
 					.noOcclusion()
 					.pushReaction(PushReaction.DESTROY)
-					.lightLevel(a -> {
-						return plant.getId() == ARIA_MUSHROOM.getId() ? 9 : 0;
-					})
+					.lightLevel(a -> plant.getId() == ARIA_MUSHROOM.getId() ? 9 : 0)
 			)
 		);
 

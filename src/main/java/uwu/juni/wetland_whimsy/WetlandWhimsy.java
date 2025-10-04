@@ -2,7 +2,6 @@ package uwu.juni.wetland_whimsy;
 
 import org.slf4j.Logger;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.logging.LogUtils;
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
 import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
@@ -33,7 +32,6 @@ import uwu.juni.wetland_whimsy.content.WetlandWhimsySounds;
 import uwu.juni.wetland_whimsy.datagen.registries.WetlandWhimsyBiomes;
 import uwu.juni.wetland_whimsy.misc.WetlandWhimsyCompat;
 import uwu.juni.wetland_whimsy.misc.WetlandWhimsyConfig;
-import uwu.juni.wetland_whimsy.tags.WetlandWhimsyWoodTypes;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyBiomeModifiers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyFoliagePlacers;
 import uwu.juni.wetland_whimsy.worldgen.WetlandWhimsyTreeDecorators;
@@ -44,7 +42,7 @@ public class WetlandWhimsy {
 	public static final String MODID = "wetland_whimsy";
 	public static final Logger LOGGER = LogUtils.getLogger();
 
-	private static final ImmutableList<DeferredRegister<?>> REGISTRIES = ImmutableList.of(
+	private static final DeferredRegister<?>[] REGISTERS = {
 		WetlandWhimsyAdvancementTriggers.TRIGGERS,
 		WetlandWhimsyBlocks.BLOCKS,
 		WetlandWhimsyBlockEntities.BLOCK_ENTITY_TYPES,
@@ -57,27 +55,25 @@ public class WetlandWhimsy {
 		WetlandWhimsyFoliagePlacers.FOLIAGE_PLACERS,
 		WetlandWhimsyTrunkPlacers.TRUNK_PLACERS,
 		WetlandWhimsyTreeDecorators.TREE_DECORATORS,
-		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS
-	);
+		WetlandWhimsyBiomeModifiers.BIOME_MODIFIERS,
+	};
 
 	public WetlandWhimsy(IEventBus bussin, ModContainer mc, Dist dist) {
 		LOGGER.info("Whimsical");
 
-		config(mc, dist);
+		for (var register : REGISTERS) { 
+			register.register(bussin);
+		}
 
-		for (var registry : REGISTRIES) 
-			registry.register(bussin);
-
-		WetlandWhimsyBlocks.createSignItems(); // Signs are wacky 
-		WetlandWhimsyWoodTypes.registerWoodTypes();
-
+		this.config(mc, dist);
 		bussin.addListener(WetlandWhimsy::commonSetup);
 	}
 
 	void config(ModContainer mc, Dist dist) {
 		mc.registerConfig(ModConfig.Type.COMMON, WetlandWhimsyConfig.SPEC);
-		if (dist == Dist.CLIENT)
+		if (dist == Dist.CLIENT) {
 			mc.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+		}
 	}
 
 	static void commonSetup(FMLCommonSetupEvent a) {
@@ -87,8 +83,9 @@ public class WetlandWhimsy {
 	}
 
 	static void marshification() {
-		if (!WetlandWhimsyConfig.GENERATE_MARSH.get())
+		if (!WetlandWhimsyConfig.GENERATE_MARSH.get()) {
 			return;
+		}
 
 		BiomePlacement.addSubOverworld(
 			Biomes.SWAMP, 

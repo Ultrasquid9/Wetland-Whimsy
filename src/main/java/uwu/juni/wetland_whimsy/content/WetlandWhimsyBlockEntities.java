@@ -59,10 +59,11 @@ public class WetlandWhimsyBlockEntities {
 			WetlandWhimsyBlocks.SUSSY_MUD.get()
 		);
 
-		if (WetlandWhimsyCompat.FARMERS_DELIGHT)
+		if (WetlandWhimsyCompat.FARMERS_DELIGHT) {
 			event.modify(
 				ModBlockEntityTypes.CABINET.get(), 
 				WetlandWhimsyBlocks.BALD_CYPRESS_CABINET.get().get()
 			);
+		}
 	}
 }
