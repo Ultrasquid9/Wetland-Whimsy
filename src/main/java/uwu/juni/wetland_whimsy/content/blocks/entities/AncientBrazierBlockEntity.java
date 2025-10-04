@@ -3,21 +3,20 @@ package uwu.juni.wetland_whimsy.content.blocks.entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-import org.joml.Vector3f;
 
 import com.mojang.datafixers.util.Either;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -25,7 +24,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Spawner;
@@ -45,14 +43,11 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 		};
 	};
 
-	Optional<Item> currentIncense;
-	List<Item> usedIncenses;
+	protected Optional<Item> incense = Optional.empty();
+	protected List<Item> usedIncenses = new ArrayList<>();
 
 	public AncientBrazierBlockEntity(BlockPos pos, BlockState state) {
 		super(WetlandWhimsyBlockEntities.ANCIENT_BRAZIER.get(), pos, state);
-
-		currentIncense = Optional.empty();
-		usedIncenses = new ArrayList<>();
 	}
 
 	@Override
@@ -60,18 +55,21 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 		super.loadAdditional(tag, registries);
 		spawner.load(level, worldPosition, tag);
 
-		Function<String, Item> strToItem = str -> BuiltInRegistries.ITEM.get(ResourceLocation.parse(str));
-
 		var list = tag.getList("used_incenses", Tag.TAG_STRING);
-		if (list != null)
-			for (var str : list)
-				usedIncenses.add(strToItem.apply(str.getAsString()));
+		if (list != null) {
+			for (var str : list) {
+				var item = BuiltInRegistries.ITEM.get(ResourceLocation.parse(str.getAsString()));
+				usedIncenses.add(item);
+			}
+		}
 
-		var item = strToItem.apply(tag.getString("current_incense"));
-		if (item != null && new ItemStack(item).is(WetlandWhimsyTags.Items.INCENSE))
-			currentIncense = Optional.of(item);
-		else
-			currentIncense = Optional.empty();
+		var str = tag.getString("incense");
+		if (str == null) {
+			return;
+		}
+
+		var incenseKey = ResourceKey.create(Registries.ITEM, ResourceLocation.parse(tag.getString("incense")));
+		this.incense = Optional.of(BuiltInRegistries.ITEM.get(incenseKey));
 	}
 
 	@Override
@@ -80,14 +78,17 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 		spawner.save(tag);
 
 		var list = new ListTag();
-		for (var item : usedIncenses) 
+		for (var item : usedIncenses) {
 			list.add(StringTag.valueOf(item.toString()));
+		}
 
-		if (!list.isEmpty())
+		if (!list.isEmpty()) {
 			tag.put("used_incenses", list);
-	
-		if (currentIncense.isPresent())
-			tag.putString("current_incense", currentIncense.get().toString());
+		}
+
+		if (this.incense.isPresent()) {
+			tag.putString("incense", this.incense.get().toString());
+		}
 	}
 
 	@Override
@@ -112,72 +113,51 @@ public class AncientBrazierBlockEntity extends BlockEntity implements Spawner {
 		blockEntity.spawner.serverTick((ServerLevel)level, pos);
 	}
 
-	public boolean trySetIncense(ItemLike item) {
-		if (currentIncense.isPresent() || usedIncenses.contains(item.asItem()))
+	public boolean trySetIncense(ItemLike itemlike) {
+		var item = itemlike.asItem();
+
+		if (
+			this.incense.isPresent()
+			|| usedIncenses.contains(item)
+			|| !new ItemStack(item).is(WetlandWhimsyTags.Items.INCENSE)
+		) {
 			return false;
-		
+		}
+
+		this.incense = Optional.of(item.asItem());
+		this.usedIncenses.add(item);
 		setChanged();
-		currentIncense = Optional.of(item.asItem());
-		if (level instanceof ServerLevel sLevel)
+
+		if (this.level instanceof ServerLevel sLevel) {
 			spawner.setRandomEntity(sLevel, worldPosition);
+		}
 
 		return true;
 	}
 
 	public boolean hasIncense() {
-		return currentIncense.isPresent();
+		return incense.isPresent();
 	}
 
+	public Optional<Incense> getIncense(ServerLevel level) {
+		return this.incense.flatMap(item -> {
+			var entries = level
+				.registryAccess()
+				.registryOrThrow(Datapacks.INCENSE)
+				.entrySet();
+			
+			for (var entry : entries) {
+				if (entry.getValue().item() == item) {
+					return Optional.of(entry.getValue());
+				}
+			}
 
-	private static String ERROR_MESSAGE = """
-		\n-- What is this wierd creature in my world? --\n
-
-		What you are seeing is `wetland_whimsy:silly`, an entity 
-		that was initially created for testing purposes. However, 
-		this entity has since then been reused as a default for 
-		Incense data files, as it should be pretty clear that when 
-		you're seeing it, something has gone wrong.\n
-
-		If you are seeing this message, the most likely cause would
-		be that an item was tagged with `wetland_whimsy:incense` 
-		without having an incense data file to go along with it. 
-		If that json file does exist, it may be invalid - please 
-		check it to see if its syntax is correct or if it is in a 
-		valid location. \n
-
-		If you are playing a modpack, please report this to the 
-		modpack's developer BEFORE reporting it to the Wetland 
-		Whimsy team. 
-		""";
-	public Incense getIncense(ServerLevel level) {
-		var registries = level.getServer()
-			.registryAccess()
-			.registryOrThrow(Datapacks.INCENSE)
-			.entrySet();
-		
-		for (var registry : registries) {
-			var incense = registry.getValue();
-
-			if (incense.item() == currentIncense.get())
-				return incense;
-		}
-
-		if (ERROR_MESSAGE != null)
-			WetlandWhimsy.LOGGER.warn(ERROR_MESSAGE);
-		ERROR_MESSAGE = null;
-
-		return new Incense(
-			Items.DIRT, 
-			WetlandWhimsy.rLoc(""),
-			new Vector3f(0, 0, 0), 
-			List.of(WetlandWhimsy.rLoc("silly"))
-		);
+			WetlandWhimsy.LOGGER.error("Incense " + item + " at " + this.getBlockPos() + " lacks an incense file");
+			return Optional.empty();
+		});
 	}
 
 	public void killIncense() {
-		if (currentIncense.isPresent())
-			usedIncenses.add(currentIncense.get());
-
-		currentIncense = Optional.empty();
+		this.incense = Optional.empty();
 	}
 }

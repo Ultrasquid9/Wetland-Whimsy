@@ -12,16 +12,17 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-public record Incense(Item item, ResourceLocation lootTable, Vector3f color, List<ResourceLocation> entities) {
+public record Incense(Item item, ResourceLocation lootTable, Vector3f color, List<EntityType<?>> entities) {
 	public static final Codec<Incense> CODEC = RecordCodecBuilder.create(
 		instance -> instance.group(
 			BuiltInRegistries.ITEM.byNameCodec().fieldOf("item").forGetter(Incense::item),
 			ResourceLocation.CODEC.fieldOf("loot_table").forGetter(Incense::lootTable),
 			ExtraCodecs.VECTOR3F.fieldOf("color").forGetter(Incense::color),
-			Codec.list(ResourceLocation.CODEC).fieldOf("entities").forGetter(Incense::entities)
+			BuiltInRegistries.ENTITY_TYPE.byNameCodec().listOf().fieldOf("entities").forGetter(Incense::entities)
 		)
 		.apply(instance, Incense::new)	
 	);

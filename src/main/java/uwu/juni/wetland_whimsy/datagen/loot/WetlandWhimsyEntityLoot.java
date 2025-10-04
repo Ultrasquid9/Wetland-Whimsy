@@ -41,11 +41,6 @@ public class WetlandWhimsyEntityLoot extends EntityLootSubProvider {
 	@Override
 	public void generate() {
 		add(
-			WetlandWhimsyEntityTypes.SILLY_ENTITY.get(), 
-			LootTable.lootTable()
-		);
-
-		add(
 			WetlandWhimsyEntityTypes.SWAMP_SPIDER.get(), 
 			SWAMP_SPIDER_TABLE.withPool(
 				LootPool

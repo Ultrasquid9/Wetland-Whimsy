@@ -30,7 +30,6 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
@@ -57,10 +56,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		}
 
 		private boolean isLit() {
-			return switch (this) {
-				case UNLIT -> false;
-				default -> true;
-			};
+			return this != UNLIT;
 		}
 	}
 
@@ -119,36 +115,35 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		InteractionHand hand,
 		BlockHitResult hitResult
 	) {
-		var fail = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-		var success = ItemInteractionResult.SUCCESS;
+		final var fail = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		final var success = ItemInteractionResult.SUCCESS;
 
-		if (stack.is(WetlandWhimsyTags.Items.INCENSE)) {
-			var entity = level.getBlockEntity(pos);
+		if (stack.is(WetlandWhimsyTags.Items.INCENSE) && level.getBlockEntity(pos) instanceof AncientBrazierBlockEntity brazier) {
+			var bool = brazier.trySetIncense(stack.getItem());
 
-			if (entity != null && entity instanceof AncientBrazierBlockEntity brazier) {
-				var bool = brazier.trySetIncense(stack.getItem());
-
-				if (!bool) 
-					return fail;
-				
-				if (!player.isCreative())
-					stack.shrink(1);
-
-				if (level instanceof ServerLevel sLevel)
-					createParticles(sLevel, pos);
-
-				level.setBlock(pos, state.setValue(FLAME, Flame.UNLIT), 2);
-
-				return success;
+			if (!bool) {
+				return fail;
 			}
+
+			if (!player.isCreative()) {
+				stack.shrink(1);
+			}
+
+			if (level instanceof ServerLevel sLevel) {
+				createParticles(sLevel, pos);
+			}
+
+			level.setBlock(pos, state.setValue(FLAME, Flame.UNLIT), 2);
+			return success;
 		}
 
-		if (!canBeLit(state, pos, level))
+		if (!canBeLit(state, pos, level)) {
 			return fail;
+		}
 
 		if (stack.is(WetlandWhimsyTags.Items.FLAMMABLE)) {
 			level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-			level.setBlock(pos, state.setValue(FLAME, Flame.LIT), 3);
+			level.setBlock(pos, state.setValue(FLAME, Flame.LIT), 11);
 
 			return success;
 		}
@@ -161,9 +156,9 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		var be = level.getBlockEntity(pos);
 
 		if (be instanceof AncientBrazierBlockEntity ab) {
-			var color = ab.getIncense(level).color();
+			var color = ab.getIncense(level).get().color();
 
-			for (var i = 0; i < random.nextInt(8, 12); i++)
+			for (var i = 0; i < random.nextInt(8, 12); i++) {
 				level.sendParticles(
 					new DustParticleOptions(color, 1), 
 					pos.getX() + ((float)random.nextInt(2, 8)) / 10, 
@@ -175,6 +170,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 					0, 
 					.5
 				);
+			}
 		}
 	}
 
@@ -185,9 +181,11 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 		BlockState state, 
 		Entity entity
 	) {
-		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity)
-			if (state.getValue(FLAME).isLit())
+		if (!entity.isSteppingCarefully() && entity instanceof LivingEntity) {
+			if (state.getValue(FLAME).isLit()) {
 				entity.hurt(level.damageSources().hotFloor(), 1.0F);
+			}
+		}
 
 		super.stepOn(level, pos, state, entity);
 	}
@@ -196,8 +194,9 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {	
 		super.animateTick(state, level, pos, random);
 
-		if (!state.getValue(FLAME).equals(Flame.LIT))
+		if (!state.getValue(FLAME).equals(Flame.LIT)) {
 			return;
+		}
 
 		if (random.nextInt(10) == 0) {
 			level.playLocalSound(
@@ -228,7 +227,7 @@ public class AncientBrazierBlock extends BaseEntityBlock {
 			&& projectile.mayInteract(level, blockpos)
 			&& canBeLit(state, blockpos, level)
 		) {
-			level.setBlock(blockpos, state.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
+			level.setBlock(blockpos, state.setValue(FLAME, Flame.LIT), 11);
 		}
 	}
 

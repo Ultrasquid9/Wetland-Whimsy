@@ -12,7 +12,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
@@ -76,53 +75,57 @@ public class AncientBrazierSpawner extends BaseSpawner {
 	}
 
 	@Override
-	public void serverTick(ServerLevel serverLevel, BlockPos pos) {
-		if (!serverLevel.getBlockState(pos).getValue(AncientBrazierBlock.FLAME).equals(AncientBrazierBlock.Flame.LIT))
+	public void serverTick(ServerLevel level, BlockPos pos) {
+		if (!level.getBlockState(pos).getValue(AncientBrazierBlock.FLAME).equals(AncientBrazierBlock.Flame.LIT)) {
 			return;
+		}
 
-		var random = serverLevel.getRandom();
+		var random = level.getRandom();
 		
-		if (spawnDelay > 3) 
+		if (spawnDelay > 3) {
 			spawnDelay -= 3;
-		else if (spawnDelay > 0)
+		} else if (spawnDelay > 0) {
 			spawnDelay -= 1;
-
+		}
+		
 		if (spawnDelay == 1) {
 			spawnedEntityCount++;
 			
-			var entity = serverLevel.getBlockEntity(pos);
-			if (entity != null)
+			var entity = level.getBlockEntity(pos);
+			if (entity != null) {
 				entity.setChanged();
+			}
 
-			setRandomEntity(serverLevel, pos);
+			setRandomEntity(level, pos);
 		}
 
 		var uuid = spawnDelay <= 0 
-			? spawnMob(serverLevel, pos) 
+			? spawnMob(level, pos) 
 			: Optional.empty();
 
 		if (uuid.isPresent()) {
-
 			spawnDelay = random.nextInt(200, 400);
 
-			for (var i = 0; i < random.nextInt(2, 4); i++)
-				spawnMob(serverLevel, pos);
+			for (var i = 0; i < random.nextInt(2, 4); i++) {
+				spawnMob(level, pos);
+			}
 		}
 
 		if (spawnedEntityCount >= 8) {
 			spawnedEntityCount = 0;
-			serverLevel.setBlock(
+			level.setBlock(
 				pos, 
-				serverLevel
+				level
 					.getBlockState(pos)
 					.setValue(AncientBrazierBlock.FLAME, AncientBrazierBlock.Flame.SMOLDERING), 
 				2
 			);
-			ejectLoot(serverLevel, pos, random);
+			ejectLoot(level, pos, random);
 
-			var be = serverLevel.getBlockEntity(pos);
-			if (be instanceof AncientBrazierBlockEntity ab)
+			var be = level.getBlockEntity(pos);
+			if (be instanceof AncientBrazierBlockEntity ab) {
 				ab.killIncense();
+			}
 
 			return;
 		}
@@ -135,9 +138,9 @@ public class AncientBrazierSpawner extends BaseSpawner {
 		EntityType<?> entity;
 
 		Function<AncientBrazierBlockEntity, EntityType<?>> getEntity = ab -> {
-			var entities = ab.getIncense(level).entities();
-			var rloc = entities.get(random.nextInt(0, entities.size()));
-			return BuiltInRegistries.ENTITY_TYPE.get(rloc);
+			var entities = ab.getIncense(level).get().entities();
+			var index = random.nextInt(0, entities.size());
+			return entities.get(index);
 		};
 
 		entity = (be instanceof AncientBrazierBlockEntity ab && ab.hasIncense())
@@ -161,8 +164,9 @@ public class AncientBrazierSpawner extends BaseSpawner {
 		var listtag = compoundtag.getList("Pos", 6);
 		var optional = EntityType.by(compoundtag);
 
-		if (optional.isEmpty()) 
+		if (optional.isEmpty()) { 
 			return Optional.empty();
+		}
 
 		int i = listtag.size();
 		var d0 = i >= 1
@@ -173,16 +177,19 @@ public class AncientBrazierSpawner extends BaseSpawner {
 			? listtag.getDouble(2)
 			: pos.getZ() + (randomsource.nextDouble() - randomsource.nextDouble()) * 7 + 0.5;
 
-		if (!level.noCollision(optional.get().getSpawnAABB(d0, d1, d2))) 
+		if (!level.noCollision(optional.get().getSpawnAABB(d0, d1, d2))) {
 			return Optional.empty();
+		}
 
 		var vec3 = new Vec3(d0, d1, d2);
-		if (!inLineOfSight(level, pos.getCenter(), vec3))
+		if (!inLineOfSight(level, pos.getCenter(), vec3)) {
 			return Optional.empty();
+		}
 
 		var blockpos = BlockPos.containing(vec3);
-		if (!SpawnPlacements.checkSpawnRules(optional.get(), level, MobSpawnType.TRIAL_SPAWNER, blockpos, level.getRandom()))
+		if (!SpawnPlacements.checkSpawnRules(optional.get(), level, MobSpawnType.TRIAL_SPAWNER, blockpos, level.getRandom())) {
 			return Optional.empty();
+		}
 
 		if (spawndata.getCustomSpawnRules().isPresent()) {
 			SpawnData.CustomSpawnRules spawndata$customspawnrules = spawndata.getCustomSpawnRules().get();
@@ -199,12 +206,14 @@ public class AncientBrazierSpawner extends BaseSpawner {
 				return e;
 			}
 		);
-		if (entity == null)
+		if (entity == null) {
 			return Optional.empty();
+		}
 
 		if (entity instanceof Mob mob) {
-			if (!mob.checkSpawnObstruction(level))
+			if (!mob.checkSpawnObstruction(level)) {
 				return Optional.empty();
+			}
 
 			var flag = spawndata.getEntityToSpawn().size() == 1 && spawndata.getEntityToSpawn().contains("id", 8);
 			EventHooks.finalizeMobSpawnSpawner(
@@ -223,8 +232,9 @@ public class AncientBrazierSpawner extends BaseSpawner {
 			spawndata.getEquipment().ifPresent(mob::equip);
 		}
 
-		if (!level.tryAddFreshEntityWithPassengers(entity))
+		if (!level.tryAddFreshEntityWithPassengers(entity)) {
 			return Optional.empty();
+		}
 
 		effects(pos, blockpos, level);
 		level.gameEvent(entity, GameEvent.ENTITY_PLACE, blockpos);
@@ -253,7 +263,7 @@ public class AncientBrazierSpawner extends BaseSpawner {
 		};
 
 		if (ab != null && ab.hasIncense()) {
-			var incense = ab.getIncense(level);
+			var incense = ab.getIncense(level).get();
 
 			spawnParticles.accept(pos, incense);
 			spawnParticles.accept(mobSpawnPos, incense);
@@ -285,20 +295,24 @@ public class AncientBrazierSpawner extends BaseSpawner {
 
 	private void ejectLoot(ServerLevel level, BlockPos pos, RandomSource random) {
 		var x = lootTablesToEject.getRandom(random);
-		if (x.isEmpty()) return;
+		if (x.isEmpty()) {
+			return;
+		}
 
 		var be = level.getBlockEntity(pos);
 		var table = level.getServer()
 			.reloadableRegistries()
 			.getLootTable(
 				(be != null && be instanceof AncientBrazierBlockEntity ab && ab.hasIncense())
-					? ab.getIncense(level).getLootKey()
+					? ab.getIncense(level).get().getLootKey()
 					: x.get().data()	
 			);
 
 		var params = new LootParams.Builder(level).create(LootContextParamSets.EMPTY);
 		var loot = table.getRandomItems(params);
-		if (loot.isEmpty()) return;
+		if (loot.isEmpty()) {
+			return;
+		}
 
 		for (var itemstack : loot) {
 			DefaultDispenseItemBehavior.spawnItem(

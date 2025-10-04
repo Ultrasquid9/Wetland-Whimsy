@@ -20,7 +20,6 @@ import uwu.juni.wetland_whimsy.content.entities.BaldCypressBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BaldCypressChestBoatEntity;
 import uwu.juni.wetland_whimsy.content.entities.BlemishEntity;
 import uwu.juni.wetland_whimsy.content.entities.CraneEntity;
-import uwu.juni.wetland_whimsy.content.entities.SillyEntity;
 import uwu.juni.wetland_whimsy.content.entities.SludgeChargeEntity;
 import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
 
@@ -28,15 +27,6 @@ import uwu.juni.wetland_whimsy.content.entities.SwampSpiderEntity;
 public class WetlandWhimsyEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = WetlandWhimsy.registry(
 		Registries.ENTITY_TYPE
-	);
-
-	public static final Supplier<EntityType<SillyEntity>> SILLY_ENTITY = registerEntity(
-		"silly", 
-		EntityType.Builder.of(
-			SillyEntity::new, 
-			MobCategory.CREATURE
-		)
-		.sized(1, 1)
 	);
 
 	public static final Supplier<EntityType<CraneEntity>> CRANE = registerEntity(
@@ -94,10 +84,6 @@ public class WetlandWhimsyEntityTypes {
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(
-			SILLY_ENTITY.get(),
-			SillyEntity.createAttributes().build()
-		);
 		event.put(
 			CRANE.get(),
 			CraneEntity.createAttributes().build()
